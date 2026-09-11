@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from https://hhroses.art/windows-startup by HTTrack Website Copier/3.x [XR&CO], Fri, 11 Sep 2026 12:57:04 GMT -->
+<head>
+    <title>Starting Up...</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../unpkg.com/98.css%400.1.21/dist/98.css" /> 
+    <link rel="icon" type="image/x-icon" href="images/favicon-src/haileee%27s-comet_favicon.ico" />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      .fuzzy-overlay {
+        position: absolute;
+        inset: -200%;
+        background-image: url("images/noise2.jpg");
+        opacity: 10%;
+        z-index: 999999 ! important;
+        pointer-events: none;
+        animation: shift 0.2s linear infinite both;
+      }
+      @keyframes shift {
+        0% {
+          transform: translateX(10%) translateY(10%);
+        }
+        100% {
+          transform: translateX(-10%) translateY(-10%);
+        }
+      }
+      :root {
+        --crt-red: rgb(218, 49, 49);
+        --crt-green: rgb(112, 159, 115);
+        --crt-blue: rgb(40, 129, 206);
+      }
+      .crt, img,
+      body {
+        /* text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, .1),
+            -1px -1px rgba(0, 255, 255, 0.1); */
+        &:before,
+        &:after {
+          content: "";
+          pointer-events: none;
+          opacity: 0.25;
+          mix-blend-mode: overlay;
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          top: 0;
+          z-index: 0;
+        }
+        &:before {
+          background: repeating-linear-gradient(var(--crt-red) 0px,
+              var(--crt-green) 2px,
+              var(--crt-blue) 4px);
+        }
+        &:after {
+          background: repeating-linear-gradient(90deg,
+              var(--crt-red) 1px,
+              var(--crt-green) 2px,
+              var(--crt-blue) 3px);
+        }
+      }
+      body {
+        background-color: black;
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+        cursor: url('cursors/wait.png'), wait;
+        width: 100% !important;
+        height: 100% !important;
+      }
+      .startupimg {
+        height: 100vh;
+        width: 100%;
+        background-image: url('images/windows-98-bootup.gif');
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+      @media (max-width: 780px),
+      (hover: none) and (pointer: coarse) {
+        .fuzzy-overlay {
+          visibility: hidden;
+        }
+        @keyframes shift {
+          0% {
+            transform: translateX(0%) translateY(0%);
+          }
+          0% {
+            transform: translateX(0%) translateY(0%);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="crt"></div>
+    <div class="fuzzy-overlay"></div>
+    <!--sound effect-->
+    <div style="display:none">
+      <audio controls autoplay>
+         <source src="https://hhroses.neocities.org/audio/Computer-Humming.mp3" type="audio/mpeg">
+         Your browser does not support the audio element.
+       </audio>
+    </div>
+    <div class="startupimg"></div>
+    <meta http-equiv="refresh" content=".5; URL=https://hhroses.neocities.org/home" />
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a396d5ffea45a89f',t:'MTc4OTEzMTQyMg=='};var a=document.createElement('script');a.src='cdn-cgi/challenge-platform/h/g/scripts/jsd/330e41bb475c/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+<!-- Mirrored from https://hhroses.art/windows-startup by HTTrack Website Copier/3.x [XR&CO], Fri, 11 Sep 2026 12:57:07 GMT -->
+</html>
