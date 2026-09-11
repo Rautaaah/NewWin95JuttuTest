@@ -2,1087 +2,1870 @@
 <html lang="en">
 
 <head>
-  <title>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 to H.H.Roses</title>
+
+  <title>Welcome to H.H.Roses</title>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="../unpkg.com/98.css%400.1.21/dist/98.css">
-  <link rel="icon" type="image/x-icon" href="images/favicon-src/haileee%27s-comet_favicon.ico">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link href="src/haileetheme/contextmenu/contextmenu.css" rel="stylesheet">
-  <script src="src/haileetheme/contextmenu/contextmenuae52.js?v=5"></script>
+  <link
+    rel="stylesheet"
+    href="../unpkg.com/98.css%400.1.21/dist/98.css"
+  >
 
-  <script src="programs/Splash-Cursor/splash-cursor.js" defer></script>
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="images/favicon-src/haileee%27s-comet_favicon.ico"
+  >
 
-  <!-- Achievements -->
-  <script src="src/achievements/script5e1f.js?v=2"></script>
-  <link rel="stylesheet" href="src/achievements/style.css">
+  <link
+    href="src/haileetheme/contextmenu/contextmenu.css"
+    rel="stylesheet"
+    type="text/css"
+  >
 
-  <!-- jsVectorMap -->
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/css/jsvectormap.min.css">
+  <script
+    src="src/haileetheme/contextmenu/contextmenuae52.js?v=5"
+  ></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/js/jsvectormap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.js"></script>
+  <script
+    src="programs/Splash-Cursor/splash-cursor.js"
+    defer
+  ></script>
+
+  <script
+    src="src/achievements/script5e1f.js?v=2"
+  ></script>
+
+  <link
+    rel="stylesheet"
+    href="src/achievements/style.css"
+  >
+
+  <!-- Interactive country map -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/css/jsvectormap.min.css"
+  >
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/js/jsvectormap.min.js"
+  ></script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.js"
+  ></script>
+
+  <!-- Traffic graph -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/chart.js"
+  ></script>
+
 
   <style>
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
+    *, *::before, *::after {
+      box-sizing:border-box;
+      margin:0;
     }
 
-    * {
-      padding: 0;
-    }
 
     :root {
-      --crt-red: rgb(218, 49, 49);
-      --crt-green: rgb(112, 159, 115);
-      --crt-blue: rgb(40, 129, 206);
 
-      --ActiveTitle: #000080;
-      --GradientActiveTitle: #1084d0;
-      --InactiveTitle: #808080;
-      --GradientInactiveTitle: #b5b5b5;
-      --TitleText: #ffffff;
-      --InactiveTitleText: #c0c0c0;
-      --Background: #008080;
-      --Window: #ffffff;
-      --WindowText: #000000;
-      --ButtonFace: #c0c0c0;
-      --ButtonHilight: #ffffff;
-      --ButtonShadow: #808080;
-      --ButtonDkShadow: #000000;
-      --ButtonText: #000000;
-      --Hilight: #000080;
-      --HilightText: #ffffff;
-      --GrayText: #808080;
+      --crt-red:rgb(218,49,49);
+      --crt-green:rgb(112,159,115);
+      --crt-blue:rgb(40,129,206);
 
-      /* Geo tracker colours */
-      --ink: #1c1c1c;
-      --muted: #6b6b6b;
-      --rule: #d8d5cd;
-      --sea: #4b7c9b;
-      --no-data: #e4e1da;
-      --c1: #ffffcc;
-      --c2: #d9f0a3;
-      --c3: #addd8e;
-      --c4: #41ab5d;
-      --c5: #006837;
+      --ActiveTitle:#000080;
+      --GradientActiveTitle:#1084d0;
+      --InactiveTitle:#808080;
+      --GradientInactiveTitle:#b5b5b5;
+      --TitleText:#ffffff;
+      --InactiveTitleText:#c0c0c0;
+
+      --Background:#008080;
+      --Window:#ffffff;
+      --WindowText:#000000;
+
+      --ButtonFace:#c0c0c0;
+      --ButtonHilight:#ffffff;
+      --ButtonShadow:#808080;
+      --ButtonDkShadow:#000000;
+      --ButtonText:#000000;
+
+      --Hilight:#000080;
+      --HilightText:#ffffff;
+
+      --GrayText:#808080;
+
+      --no-data:#eeeeee;
+      --c1:#ffd6d6;
+      --c2:#ff9999;
+      --c3:#ff5555;
+      --c4:#d80000;
+      --c5:#700000;
+
     }
 
-    /* CRT */
+
+    .fuzzy-overlay {
+
+      position:fixed !important;
+
+      top:0 !important;
+      left:0 !important;
+
+      width:100% !important;
+      height:100% !important;
+
+      background-image:url("images/noise2.jpg");
+
+      opacity:0;
+
+      z-index:9999999999 !important;
+
+      pointer-events:none;
+
+      animation:shift .2s linear infinite both;
+
+    }
+
+
+    @keyframes shift {
+
+      0% {
+        transform:translateX(10%) translateY(10%);
+      }
+
+      100% {
+        transform:translateX(-10%) translateY(-10%);
+      }
+
+    }
+
 
     .crt::before,
     .crt::after,
     body::before,
     body::after {
-      position: fixed;
-      content: "";
-      pointer-events: none;
-      opacity: .2;
-      mix-blend-mode: overlay;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 900 !important;
+
+      position:fixed;
+
+      content:"";
+
+      pointer-events:none;
+
+      opacity:.2;
+
+      mix-blend-mode:overlay;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:100%;
+
+      z-index:900 !important;
+
     }
+
 
     .crt::before,
     body::before {
-      background: repeating-linear-gradient(
+
+      background:repeating-linear-gradient(
         var(--crt-red) 0px,
         var(--crt-green) 2px,
         var(--crt-blue) 4px
       );
+
     }
+
 
     .crt::after,
     body::after {
-      background: repeating-linear-gradient(
+
+      background:repeating-linear-gradient(
         90deg,
         var(--crt-red) 1px,
         var(--crt-green) 2px,
         var(--crt-blue) 3px
       );
+
     }
 
-    /* Overlay */
+
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
 
     .overlay {
-      position: fixed;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
 
-      background:
-        url('images/backgrounds/pixel-star-background.gif')
-        top right repeat;
+      position:fixed;
 
-      z-index: 1;
-      mix-blend-mode: screen;
-      opacity: 1;
-      pointer-events: none;
+      top:0 !important;
+      left:0 !important;
+
+      width:100% !important;
+      height:100% !important;
+
+      background:url(
+        'images/backgrounds/pixel-star-background.gif'
+      ) top right repeat;
+
+      z-index:1;
+
+      mix-blend-mode:screen;
+
+      opacity:1;
+
+      pointer-events:none;
+
     }
+
 
     .gradient {
-      position: fixed;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
 
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,0) 30%,
-          rgba(255,255,255,1) 1000%
-        );
+      position:fixed;
 
-      z-index: 1;
-      pointer-events: none;
+      top:0 !important;
+      left:0 !important;
+
+      width:100% !important;
+      height:100% !important;
+
+      background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0) 30%,
+        rgba(255,255,255,1) 1000%
+      );
+
+      z-index:1;
+
+      pointer-events:none;
+
     }
 
-    .fuzzy-overlay {
-      position: fixed;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
-      height: 100% !important;
-
-      background-image: url("images/noise2.jpg");
-
-      opacity: 0;
-      z-index: 9999999999 !important;
-      pointer-events: none;
-
-      animation: shift 0.2s linear infinite both;
-    }
-
-    @keyframes shift {
-      0% {
-        transform: translateX(10%) translateY(10%);
-      }
-
-      100% {
-        transform: translateX(-10%) translateY(-10%);
-      }
-    }
-
-    /* Canvas */
 
     #fluid-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
 
-      z-index: 9999999999 !important;
-      pointer-events: none;
+      position:fixed;
+
+      top:0;
+      left:0;
+
+      width:100vw;
+      height:100vh;
+
+      z-index:999;
+
+      pointer-events:none;
+
     }
 
-    /* Fonts */
 
     @font-face {
-      font-family: 'basiic';
-      src: url(https://cinni.net/fonts/basiic.ttf);
+
+      font-family:'basiic';
+
+      src:url(
+        https://cinni.net/fonts/basiic.ttf
+      );
+
     }
+
 
     @font-face {
-      font-family: 'CelticBitThin';
 
-      src:
-        url(https://hhroses.neocities.org/font/CelticBitThin.woff)
-        format('woff'),
+      font-family:'CelticBitThin';
 
-        url(https://hhroses.neocities.org/font/CelticBitThin.ttf)
-        format('truetype');
+      src:url(
+        https://hhroses.neocities.org/font/CelticBitThin.woff
+      ) format('woff'),
 
-      font-weight: normal;
-      font-style: normal;
+      url(
+        https://hhroses.neocities.org/font/CelticBitThin.ttf
+      ) format('truetype');
+
+      font-weight:normal;
+      font-style:normal;
+
     }
+
 
     @font-face {
-      font-family: "ComicSans";
 
-      src:
-        url("https://hhroses.neocities.org/font/Ldfcomicsans-jj7l.ttf")
-        format("truetype");
+      font-family:"ComicSans";
+
+      src:url(
+        "https://hhroses.neocities.org/font/Ldfcomicsans-jj7l.ttf"
+      ) format("truetype");
+
     }
 
-    /* Scrollbar */
 
     ::-webkit-scrollbar-thumb {
-      background: #c0c0c0;
+
+      background:#c0c0c0;
 
       box-shadow:
         inset 1px 1px #fff,
         inset -1px -1px #0a0a0a,
         inset 2px 2px #dfdfdf,
         inset -2px -2px #808080;
+
     }
 
-    /* Body */
 
     body {
-      font-family: 'CelticBitThin', sans-serif;
 
-      background-image:
-        url('images/backgrounds/seamlessgalaxy3.jpg');
+      font-family:'CelticBitThin',sans-serif;
 
-      background-attachment: fixed;
-      background-color: black;
+      background-image:url(
+        'images/backgrounds/seamlessgalaxy3.jpg'
+      );
 
-      overflow-x: hidden;
-      overflow-y: auto;
+      background-attachment:fixed;
 
-      margin: 0;
-      padding: 0;
+      background-color:black;
 
-      cursor:
-        url('cursors/default.png'),
-        default;
+      overflow-x:hidden;
+      overflow-y:auto;
 
-      width: 100%;
-      min-height: 3500px;
+      margin:0;
+      padding:0;
+
+      cursor:url(
+        'cursors/default.png'
+      ),default;
+
+      width:100%;
+      min-height:3500px;
+
     }
 
-    /* Green code */
-
-    .coolcode {
-      position: fixed !important;
-
-      background-image:
-        url('images/green_code.gif');
-
-      width: 100%;
-      height: 400px;
-
-      z-index: -3;
-      top: -100px;
-
-      pointer-events: none;
-
-      -webkit-mask-image:
-        linear-gradient(
-          to bottom,
-          black 30%,
-          transparent 100%
-        );
-
-      mask-image:
-        linear-gradient(
-          to bottom,
-          black 30%,
-          transparent 100%
-        );
-
-      transition: top 1s ease;
-    }
-
-    /* Clouds */
-
-    .clouds {
-      position: absolute !important;
-
-      background-image:
-        url('images/frutiger-aero/clouds_25.png');
-
-      background-size: contain;
-      background-repeat: no-repeat;
-
-      width: 100%;
-      min-width: 100%;
-      height: 100vh;
-
-      z-index: -5;
-
-      top: 125px;
-      bottom: 0;
-
-      pointer-events: none;
-
-      -webkit-mask-image:
-        linear-gradient(
-          to bottom,
-          black 30%,
-          transparent 90%
-        );
-
-      mask-image:
-        linear-gradient(
-          to bottom,
-          black 30%,
-          transparent 90%
-        );
-
-      transition: opacity 1s ease;
-    }
 
     a,
     #button {
-      cursor:
-        url('cursors/pointer.png'),
-        pointer;
+
+      cursor:url(
+        'cursors/pointer.png'
+      ),pointer;
+
     }
+
 
     img:hover {
-      scale: 1.01;
+      scale:1.01;
     }
 
-    /* Gnome */
+
+    .coolcode {
+
+      position:fixed !important;
+
+      background-image:url(
+        'images/green_code.gif'
+      );
+
+      width:100%;
+      height:400px;
+
+      z-index:-3;
+
+      top:-100px;
+
+      pointer-events:none;
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          black 30%,
+          transparent 100%
+        );
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black 30%,
+          transparent 100%
+        );
+
+      transition:top 1s ease;
+
+    }
+
+
+    .clouds {
+
+      position:absolute !important;
+
+      background-image:url(
+        'images/frutiger-aero/clouds_25.png'
+      );
+
+      background-size:contain;
+
+      background-repeat:no-repeat;
+
+      width:100%;
+
+      min-width:100%;
+
+      height:100vh;
+
+      z-index:-5;
+
+      top:125px;
+
+      bottom:0;
+
+      pointer-events:none;
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          black 30%,
+          transparent 90%
+        );
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black 30%,
+          transparent 90%
+        );
+
+      transition:opacity 1s ease;
+
+    }
+
 
     .gnome {
-      position: absolute;
 
-      max-width: 10%;
-      max-height: 10%;
+      position:absolute;
 
-      z-index: 999;
+      max-width:10%;
+      max-height:10%;
 
-      cursor:
-        url('cursors/pointer.png'),
-        pointer;
+      z-index:999;
+
+      cursor:url(
+        'cursors/pointer.png'
+      ),pointer;
 
       filter:
-        drop-shadow(0 0 3px white) !important;
+        drop-shadow(
+          0 0 3px white
+        ) !important;
+
     }
+
 
     .gnome:hover {
-      scale: 1.1 !important;
+      scale:1.1 !important;
     }
 
-    /* Main landing page */
 
     .maincontent {
-      height: 85vh !important;
-      width: 100%;
 
-      position: absolute;
+      height:85vh !important;
 
-      text-align: center;
+      width:100%;
 
-      margin-left: auto;
-      margin-right: auto;
+      position:absolute;
 
-      top: 50%;
-      left: 50%;
+      text-align:center;
+
+      top:50%;
+      left:50%;
 
       transform:
-        translate(-50%, -50%);
+        translate(
+          -50%,
+          -50%
+        );
 
-      z-index: 2;
+      z-index:2;
 
-      display: flex;
-      flex-direction: column;
+      display:flex;
 
-      align-items: center;
-      justify-content: center;
+      flex-direction:column;
+
+      align-items:center;
+
+      justify-content:center;
+
     }
+
 
     .computer {
-      width: auto;
 
-      max-width: 95% !important;
-      max-height: 40vh;
+      width:auto;
 
-      /* Preserve original maximum */
-      width: 418px;
+      max-width:95% !important;
 
-      margin: 10px auto 0 auto;
+      max-height:40vh;
 
-      display: block;
+      max-width:418px;
 
-      vertical-align: top;
+      margin:
+        10px auto 0 auto;
+
+      display:block;
+
+      vertical-align:top;
 
       filter:
-        drop-shadow(0 0 25px white);
+        drop-shadow(
+          0 0 25px white
+        );
+
     }
 
+
     .maincontent span {
+
       background-color:
-        rgba(214,195,196,.5);
+        rgba(
+          214,
+          195,
+          196,
+          .5
+        );
 
       font-family:
         'CelticBitThin',
         sans-serif;
 
-      object-fit: contain;
+      object-fit:contain;
 
-      text-align: center;
+      text-align:center;
 
-      margin: -10px auto 0 auto !important;
+      margin:
+        -10px auto 0 auto !important;
 
-      font-size: 16px;
-      height: 16px;
+      font-size:16px;
+
+      height:16px;
+
     }
 
-    .textbox {
-      width: auto;
-      max-width: 95%;
 
-      height: auto;
-      max-height: 20vh;
+    .textbox {
+
+      width:auto;
+
+      max-width:95%;
+
+      height:auto;
+
+      max-height:20vh;
 
       filter:
         drop-shadow(
-          0 0 5px rgba(0,0,0,1)
+          0 0 5px
+          rgba(0,0,0,1)
         );
+
     }
 
+
     div.webring {
-      position: relative;
+
+      position:relative;
 
       transform:
         translateX(185px)
         translateY(-30px);
 
-      padding: none;
+      padding:none;
 
-      margin-bottom: -100px;
+      margin-bottom:-100px;
+
     }
+
 
     .enterbutton {
-      text-align: center;
 
-      margin-left: auto;
-      margin-right: auto;
+      text-align:center;
 
-      display: block;
+      margin-left:auto;
+      margin-right:auto;
 
-      background-image: none;
+      display:block;
 
-      width: 300px;
-      max-width: 100%;
+      width:300px;
 
-      height: auto;
+      max-width:100%;
+
+      height:auto;
+
     }
+
 
     .enterbutton img {
-      position: relative;
 
-      width: 150px;
-      height: auto;
+      position:relative;
 
-      margin: 0 auto;
-      margin-bottom: 20px;
+      width:150px;
 
-      padding: 0;
+      height:auto;
 
-      z-index: 0;
+      margin:0 auto 20px auto;
+
+      padding:0;
+
+      z-index:0;
 
       filter:
-        drop-shadow(0 0 3px black) !important;
+        drop-shadow(
+          0 0 3px black
+        ) !important;
+
     }
 
-    .enterbutton:hover {
-      background-image:
-        url('images/misc/comicexplode.png');
 
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
+    .enterbutton:hover {
+
+      background-image:url(
+        'images/misc/comicexplode.png'
+      );
+
+      background-size:contain;
+
+      background-repeat:no-repeat;
+
+      background-position:center;
 
       transition:
         opacity 1s ease,
         background-color 1s ease,
         background-image 1s ease;
 
-      z-index: 0;
+      z-index:0;
+
     }
 
-    /* Page view counter */
+
+    /* PAGE VIEW COUNTER */
 
     .pageviews {
-      position: fixed;
 
-      display: table;
+      position:fixed;
 
-      min-width: 150px;
+      display:table;
 
-      bottom: 7px;
-      right: 5px;
+      min-width:150px;
 
-      z-index: 999 !important;
+      bottom:7px;
+      right:5px;
 
-      font-family: 'basiic', sans-serif;
+      z-index:999 !important;
 
-      font-size: 16px;
+      font-family:
+        'basiic',
+        sans-serif;
 
-      color: white;
+      font-size:16px;
+
+      color:white;
 
       background-color:
-        rgba(45,99,4,.5);
+        rgba(
+          45,
+          99,
+          4,
+          .5
+        );
 
-      padding-left: 7px;
-      padding-top: 2px;
-      padding-right: 5px;
+      padding:
+        2px 5px 0 7px;
 
-      line-height: 16px;
+      line-height:16px;
 
-      pointer-events: none;
+      pointer-events:none;
+
     }
 
-    /* Grass */
 
     .grass {
-      position: fixed !important;
 
-      background-image:
-        url('images/frutiger-aero/foregrounds_73.png');
+      position:fixed !important;
 
-      width: 100%;
-      height: 248px;
+      background-image:url(
+        'images/frutiger-aero/foregrounds_73.png'
+      );
 
-      pointer-events: none;
+      width:100%;
 
-      z-index: 999;
+      height:248px;
 
-      bottom: -160px;
-      left: 0;
+      pointer-events:none;
+
+      z-index:999;
+
+      bottom:-160px;
+
+      left:0;
+
     }
 
-    /* Image outline */
 
     img.outlined {
-      -webkit-filter:
-        drop-shadow(2px 2px 0 white)
-        drop-shadow(-2px 2px 0 white)
-        drop-shadow(2px -2px 0 white)
-        drop-shadow(-2px -2px 0 white)
-        drop-shadow(0 0 2px white)
-        drop-shadow(0 0 5px white);
 
       filter:
+
         drop-shadow(2px 2px 0 white)
         drop-shadow(-2px 2px 0 white)
         drop-shadow(2px -2px 0 white)
         drop-shadow(-2px -2px 0 white)
         drop-shadow(0 0 2px white)
         drop-shadow(0 0 5px white);
+
     }
 
-    /* Flying fairy */
 
     .flier {
-      pointer-events: none;
 
-      z-index: 9999999 !important;
+      pointer-events:none;
+
+      z-index:9999999 !important;
+
     }
 
-    .flier > * {
+
+    .flier>* {
+
       animation:
         fly 50s linear infinite;
 
-      pointer-events: none !important;
+      pointer-events:none !important;
 
-      top: 0;
-      left: 0;
+      top:0;
+      left:0;
 
       transform:
         translateX(-120%)
         translateY(-120%)
         rotateZ(0);
 
-      position: fixed;
+      position:fixed;
 
-      animation-delay: 1s;
+      animation-delay:1s;
 
-      z-index: 999999;
+      z-index:999999;
 
       filter:
-        drop-shadow(0 0 3px white) !important;
+        drop-shadow(
+          0 0 3px white
+        ) !important;
+
     }
+
 
     @keyframes fly {
 
-      98.001%,
-      0% {
-        display: block;
+      98.001%,0% {
+
+        display:block;
 
         transform:
           translateX(-200%)
           translateY(100vh)
-          rotateZ(0deg);
+          rotateZ(0deg)
+
       }
 
       15% {
+
         transform:
           translateX(100vw)
           translateY(-100%)
-          rotateZ(180deg);
+          rotateZ(180deg)
+
       }
 
-      15.001%,
-      18% {
+      15.001%,18% {
+
         transform:
           translateX(100vw)
           translateY(-30%)
-          rotateZ(0deg);
+          rotateZ(0deg)
+
       }
 
       40% {
+
         transform:
           translateX(-200%)
           translateY(3vh)
-          rotateZ(-180deg);
+          rotateZ(-180deg)
+
       }
 
-      40.001%,
-      43% {
+      40.001%,43% {
+
         transform:
           translateX(-200%)
           translateY(-100%)
-          rotateZ(-180deg);
+          rotateZ(-180deg)
+
       }
 
       65% {
+
         transform:
           translateX(100vw)
           translateY(50vh)
-          rotateZ(0deg);
+          rotateZ(0deg)
+
       }
 
-      65.001%,
-      68% {
+      65.001%,68% {
+
         transform:
           translateX(20vw)
           translateY(-200%)
-          rotateZ(180deg);
+          rotateZ(180deg)
+
       }
 
       95% {
+
         transform:
           translateX(10vw)
           translateY(100vh)
-          rotateZ(0deg);
+          rotateZ(0deg)
+
       }
+
     }
 
-    /* =========================
-       PAGE 2
-       ========================= */
+
+    /* KRIS */
+
+    #kris-companion {
+
+      position:fixed;
+
+      left:300px;
+      top:180px;
+
+      width:260px;
+      height:340px;
+
+      z-index:50000;
+
+      cursor:grab;
+
+      user-select:none;
+      -webkit-user-select:none;
+
+      touch-action:none;
+
+    }
+
+
+    #kris-companion.dragging {
+
+      cursor:grabbing;
+
+      z-index:99999;
+
+    }
+
+
+    #kris-gif {
+
+      position:absolute;
+
+      left:50%;
+      bottom:0;
+
+      width:230px;
+      height:auto;
+
+      transform:
+        translateX(-50%);
+
+      pointer-events:none;
+
+      user-select:none;
+
+      -webkit-user-drag:none;
+
+    }
+
+
+    #kris-dialogue {
+
+      position:absolute;
+
+      left:50%;
+      bottom:250px;
+
+      transform:
+        translateX(-50%);
+
+      min-width:220px;
+      max-width:340px;
+
+      padding:14px 16px;
+
+      background:#000;
+
+      border:4px solid #fff;
+
+      color:#fff;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:18px;
+
+      font-weight:bold;
+
+      line-height:1.3;
+
+      z-index:10000;
+
+      pointer-events:none;
+
+      white-space:normal;
+
+      text-align:left;
+
+      box-shadow:
+        4px 4px 0
+        rgba(
+          0,
+          0,
+          0,
+          .5
+        );
+
+    }
+
+
+    #kris-dialogue.hidden {
+      display:none;
+    }
+
+
+    #kris-dialogue::after {
+
+      content:"";
+
+      position:absolute;
+
+      left:50%;
+
+      bottom:-9px;
+
+      width:12px;
+      height:12px;
+
+      background:#000;
+
+      border-right:3px solid #fff;
+      border-bottom:3px solid #fff;
+
+      transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    }
+
+
+    /* COMMON WIDGET */
 
     .page2_wrap {
-      position: absolute;
 
-      top: 100vh;
+      position:absolute;
 
-      width: 100%;
+      top:100vh;
 
-      z-index: 98;
+      width:100%;
 
-      padding-bottom: 100px;
+      z-index:98;
+
+      padding-bottom:300px;
+
     }
 
-    /* =========================
-       NEW GEO TRACKER
-       ========================= */
 
-    .wrap {
-      margin: 5px auto;
+    .fun-widget {
 
-      width: 610px;
-      max-width: 90%;
+      margin:5px auto;
 
-      font-family: Times, serif;
+      width:610px;
 
-      font-weight: 900;
+      max-width:90%;
+
+      font-family:Times;
+
+      font-weight:900;
 
       text-shadow:
         0 0 1px black,
         0 0 3px grey;
 
-      background: #c3c3c3;
+      background:#c3c3c3;
 
-      z-index: 98;
+      z-index:98;
 
-      border-top: 1px solid white;
-      border-left: 1px solid white;
-
-      border-right: 1px solid black;
-      border-bottom: 1px solid black;
+      border-top:1px solid white;
+      border-left:1px solid white;
+      border-right:1px solid black;
+      border-bottom:1px solid black;
 
       box-shadow:
         inset -1px -1px #808080;
 
-      letter-spacing: 1px;
+      letter-spacing:1px;
 
-      padding: 2px;
+      padding:2px;
+
     }
 
-    .wrap.geotracker {
-      top: 1000px;
+
+    .fun-widget .title-bar,
+    .fun-widget .title-bar-text {
+
+      text-align:left !important;
+
+      height:18px;
+
     }
 
-    .title-bar,
-    .title-bar-text,
-    div.wrap .title-bar-text,
-    div.wrap .title-bar {
-      text-align: left !important;
 
-      height: 18px;
+    .fun-widget .title-bar-text {
+
+      flex-grow:1;
+
+      padding-left:5px;
+      padding-top:3px;
+
     }
 
-    div.wrap .title-bar-text {
-      flex-grow: 1;
 
-      padding-left: 5px;
-      padding-top: 3px;
-    }
+    .fun-widget .window-body {
 
-    .window-body {
       margin:
         3px 2px 2px 1px;
 
-      border-top: 1px solid black;
-      border-left: 1px solid black;
-
-      border-right: 1px solid #c3c3c3;
-      border-bottom: 1px solid #c3c3c3;
+      border-top:1px solid black;
+      border-left:1px solid black;
+      border-right:1px solid #c3c3c3;
+      border-bottom:1px solid #c3c3c3;
 
       box-shadow:
         inset 1px 1px #808080,
         1px 1px white;
 
-      padding: 10px;
+      padding:10px;
 
-      background: white;
+      background:#fff;
 
-      text-align: center;
+      color:#000;
+
+      text-align:center;
+
     }
 
-    .wrap svg {
-      max-width: 700px;
+
+    /* CLOCK */
+
+    .clock-widget {
+
+      width:300px;
+
     }
 
-    .wrap h1 {
-      font-size: 1.12rem;
 
-      font-weight: 900;
+    .digital-clock {
 
-      margin:
-        0 0 .25rem;
+      background:#000;
 
-      text-align: center;
+      color:#00ff00;
+
+      border:
+        3px inset #808080;
+
+      padding:12px 5px;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:26px;
+
+      font-weight:bold;
+
+      letter-spacing:2px;
+
+      text-shadow:
+        0 0 4px #00ff00;
+
     }
 
-    .wrap .sub {
-      color: var(--muted);
 
-      font-weight: 500;
+    .clock-date {
 
-      font-size: 1rem;
+      margin-top:6px;
 
-      margin-bottom: .65rem;
+      color:#000;
 
-      text-align: center;
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:12px;
+
     }
 
-    .stats {
-      display: flex;
 
-      gap: 10px;
+    /* GEOGRAPHICAL VIEW COUNTER */
 
-      flex-wrap: wrap;
+    .geo-widget {
 
-      align-items: center;
-      justify-content: center;
+      width:720px;
 
-      background: #c3c3c3;
+      max-width:94%;
 
-      padding: 5px;
-
-      border-radius: 25px;
-
-      border: 1px solid grey;
-
-      text-shadow: none;
-
-      width: 350px;
-
-      margin:
-        0 auto 1rem auto;
-
-      max-width: 90%;
     }
 
-    .stat b {
-      display: block;
 
-      font-size: 1rem;
+    .geo-widget .window-body {
 
-      font-weight: 900;
+      padding:8px;
+
     }
 
-    .stat span {
-      font-size: .7rem;
 
-      font-weight: 900;
+    .geo-intro {
 
-      letter-spacing: 0;
+      font-family:
+        Arial,
+        sans-serif;
 
-      color: var(--muted);
+      font-size:12px;
+
+      margin-bottom:7px;
+
+      line-height:1.4;
+
     }
 
-    #map {
-      background: var(--sea);
 
-      max-width: 100%;
-      max-height: 400px;
+    .geo-stats {
 
-      border: 20px solid tan;
+      display:flex;
 
-      border-radius: 1px;
+      justify-content:center;
+
+      gap:5px;
+
+      flex-wrap:wrap;
+
+      margin:7px 0;
+
+    }
+
+
+    .geo-stat {
+
+      min-width:125px;
+
+      background:#c0c0c0;
+
+      border:
+        2px ridge #c0c0c0;
+
+      padding:5px;
+
+      text-align:center;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+    }
+
+
+    .geo-stat b {
+
+      display:block;
+
+      font-size:18px;
+
+    }
+
+
+    .geo-stat span {
+
+      display:block;
+
+      font-size:10px;
+
+      margin-top:2px;
+
+    }
+
+
+    #visitorMap {
+
+      width:100%;
+
+      height:310px;
+
+      background:#dfefff;
+
+      border:
+        2px inset #c0c0c0;
+
+      overflow:hidden;
+
+      transition:
+        transform .2s ease;
+
+    }
+
+
+    #visitorMap:hover {
+
+      transform:scale(1.015);
+
+    }
+
+
+    #visitorMap .jvm-container {
+
+      background:#dfefff !important;
+
+    }
+
+
+    #visitorMap .jvm-zoom-btn {
+
+      background:#c0c0c0 !important;
+
+      color:#000 !important;
+
+      border:
+        1px solid #000 !important;
 
       box-shadow:
-        0 0 3px rgba(0,0,0,.05),
-        1px 1px 5px rgba(0,0,0,.05);
+        inset 1px 1px #fff;
 
-      overflow: hidden;
-
-      margin-left: 10px;
-      margin-right: 10px;
-
-      outline: 1px solid grey;
     }
 
-    #map svg {
-      width: 100%;
-      height: auto;
 
-      display: block;
+    .geo-legend {
+
+      display:flex;
+
+      justify-content:center;
+
+      flex-wrap:wrap;
+
+      gap:8px;
+
+      margin-top:7px;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:10px;
+
     }
 
-    #map path {
-      transition:
-        fill .12s ease;
+
+    .geo-legend span {
+
+      display:flex;
+
+      align-items:center;
+
+      gap:3px;
+
     }
 
-    #map path[data-hit] {
+
+    .geo-legend i {
+
+      width:13px;
+      height:13px;
+
+      display:inline-block;
+
+      border:1px solid grey;
+
+    }
+
+
+    .geo-note {
+
+      margin-top:7px;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:10px;
+
+      line-height:1.35;
+
+    }
+
+
+    /* TRAFFIC GRAPH */
+
+    .traffic-widget {
+
+      width:650px;
+
+      max-width:94%;
+
+    }
+
+
+    .traffic-chart-wrap {
+
+      height:300px;
+
+      background:#000;
+
+      border:
+        2px inset #c0c0c0;
+
+      padding:8px;
+
+    }
+
+
+    #trafficChart {
+
+      width:100% !important;
+      height:100% !important;
+
+    }
+
+
+    /* PHOTO WIDGETS */
+
+    .photo-widget {
+
+      width:500px;
+
+      max-width:90%;
+
+    }
+
+
+    .photo-widget .window-body {
+
+      background:#fff;
+
+      color:#000;
+
+      padding:10px;
+
+    }
+
+
+    .random-photo {
+
+      width:100%;
+
+      max-width:460px;
+
+      height:300px;
+
+      object-fit:contain;
+
+      background:#fff;
+
+      border:
+        3px ridge #c0c0c0;
+
+      box-shadow:
+        inset 1px 1px white,
+        inset -1px -1px #808080,
+        0 0 8px rgba(
+          0,
+          0,
+          0,
+          .25
+        );
+
+      display:block;
+
+      margin:
+        0 auto 8px auto;
+
       cursor:
         url('cursors/pointer.png'),
         pointer;
+
     }
 
-    #map path[data-hit]:hover {
-      stroke: var(--ink);
 
-      stroke-width: .8;
+    .random-photo:hover {
+      scale:1.015;
     }
 
-    .legend {
-      display: flex;
 
-      align-items: center;
+    .photo-caption {
 
-      gap: 5px;
+      color:#000;
 
-      font-size: 16px;
-
-      color: var(--muted);
-
-      margin-top: .9rem;
-
-      flex-wrap: wrap;
-
-      justify-content: center;
-    }
-
-    .legend i {
-      width: 22px;
-      height: 100%;
-
-      border-radius: 5px;
-
-      display: inline-block;
+      background:#c0c0c0;
 
       border:
-        1px solid rgba(0,0,0,.08);
+        2px ridge #c0c0c0;
+
+      padding:5px;
+
+      font-family:
+        'ComicSans',
+        sans-serif;
+
+      font-size:14px;
+
+      text-shadow:
+        1px 1px white;
+
+      margin-bottom:8px;
+
     }
 
-    .legend span {
-      background: #c3c3c3;
 
-      border: 1px solid grey;
+    .photo-button {
 
-      border-radius: 5px;
+      font-family:
+        'ComicSans',
+        sans-serif;
 
-      padding: 5px;
+      font-weight:bold;
 
-      height: 30px;
+      font-size:14px;
 
-      font-size: .7rem;
+      min-width:150px;
 
-      display: flex;
+      cursor:
+        url('cursors/pointer.png'),
+        pointer;
 
-      align-items: center;
-
-      justify-content: center !important;
-
-      gap: 5px;
-
-      text-shadow: none;
-
-      color: black;
-
-      font-weight: 900;
     }
 
-    #tip {
-      position: fixed;
 
-      pointer-events: none;
+    .photo-source {
 
-      opacity: 0;
+      display:block;
 
-      background: var(--ink);
+      margin-top:7px;
 
-      color: #fff;
+      color:#000080;
 
-      font-size: 12px;
+      font-family:
+        Arial,
+        sans-serif;
 
-      padding:
-        5px 9px;
+      font-size:10px;
 
-      border-radius: 3px;
+      text-decoration:underline;
 
-      transform:
-        translate(-50%, -140%);
-
-      transition:
-        opacity .1s;
-
-      white-space: nowrap;
-
-      z-index: 999999999;
     }
 
-    #tip b {
-      font-weight: 500;
+
+    /* TRAINS */
+
+    .helsinki-trains {
+
+      width:760px;
+
+      max-width:94%;
+
     }
 
-    .note {
-      margin-top: 1.75rem;
 
-      padding-top: 1.25rem;
+    .helsinki-trains .window-body {
 
-      border-top:
-        1px solid var(--rule);
+      padding:6px;
 
-      font-size: 13px;
+      background:#fff;
 
-      color: var(--muted);
+      color:#000;
+
     }
 
-    code {
-      background: #e9e6df;
 
-      padding:
-        1px 5px;
+    .train-search {
 
-      border-radius: 2px;
+      display:flex;
 
-      font:
-        12px/1.5
-        ui-monospace,
-        Menlo,
-        Consolas,
+      gap:5px;
+
+      margin-bottom:6px;
+
+    }
+
+
+    .train-search input {
+
+      flex:1;
+
+      min-width:0;
+
+      font-family:
+        "Courier New",
         monospace;
 
-      color: var(--ink);
+      font-size:12px;
+
+      padding:4px;
+
     }
 
-    @media (prefers-reduced-motion: reduce) {
 
-      #map path,
-      #tip {
-        transition: none;
-      }
+    .train-search button {
+
+      font-family:
+        "ComicSans",
+        sans-serif;
+
+      font-size:12px;
+
     }
 
-    /* =========================
-       TRAFFIC TRACKER
-       ========================= */
 
-    .wrap.timetracker {
-      width: 300px;
+    .train-search-help {
 
-      margin: 5px auto;
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:9px;
+
+      text-align:left;
+
+      margin-bottom:5px;
+
     }
 
-    .timetracker .window-body {
-      padding: 0;
 
-      background: black;
+    .train-board-header {
+
+      background:#000080;
+
+      color:white;
+
+      border:
+        2px ridge #c0c0c0;
+
+      padding:6px;
+
+      margin-bottom:5px;
+
+      font-family:
+        'ComicSans',
+        Arial,
+        sans-serif;
+
+      text-shadow:
+        1px 1px black;
+
     }
 
-    #trafficChart {
-      width: 100% !important;
 
-      height: 280px !important;
+    .train-board-header .big {
 
-      max-height: 300px;
+      font-size:16px;
 
-      background: #000;
+      display:block;
 
-      padding: 10px;
-
-      box-shadow:
-        inset 1px 1px #808080;
     }
 
-    /* =========================
-       TERMS
-       ========================= */
+
+    .train-board-header .small {
+
+      font-family:
+        'basiic',
+        monospace;
+
+      font-size:9px;
+
+      display:block;
+
+      margin-top:2px;
+
+    }
+
+
+    .train-status {
+
+      color:#000;
+
+      background:#fff;
+
+      font-family:
+        'Courier New',
+        monospace;
+
+      font-size:10px;
+
+      margin:4px 0;
+
+      text-align:left;
+
+      padding:4px;
+
+      border:
+        2px inset #c0c0c0;
+
+    }
+
+
+    .train-table-wrap {
+
+      width:100%;
+
+      overflow-x:auto;
+
+      background:#fff;
+
+      border:
+        2px inset #c0c0c0;
+
+    }
+
+
+    .train-table {
+
+      width:100%;
+
+      border-collapse:collapse;
+
+      color:#000;
+
+      background:#fff;
+
+      font-family:
+        'Courier New',
+        monospace;
+
+      font-size:10px;
+
+      text-shadow:none;
+
+    }
+
+
+    .train-table th {
+
+      background:#c0c0c0;
+
+      color:#000;
+
+      border:
+        1px solid #808080;
+
+      padding:4px 3px;
+
+      white-space:nowrap;
+
+      text-shadow:none;
+
+    }
+
+
+    .train-table td {
+
+      border:
+        1px solid #c0c0c0;
+
+      padding:4px 3px;
+
+      white-space:nowrap;
+
+      background:#fff;
+
+    }
+
+
+    .train-table tr:nth-child(even) td {
+      background:#dfdfdf;
+    }
+
+
+    .train-table tr:hover td {
+
+      background:#000080;
+
+      color:#fff;
+
+    }
+
+
+    .train-number {
+
+      color:#000080;
+
+      font-weight:bold;
+
+    }
+
+
+    .train-track {
+
+      color:#008000;
+
+      font-weight:bold;
+
+    }
+
+
+    .train-delay {
+
+      color:#aa0000;
+
+      font-weight:bold;
+
+    }
+
+
+    .train-cancelled {
+
+      color:#ff0000 !important;
+
+      font-weight:bold;
+
+    }
+
+
+    .train-ok {
+      color:#008000;
+    }
+
+
+    .train-error {
+
+      color:#800000;
+
+      background:#fff;
+
+      border:
+        2px inset #c0c0c0;
+
+      padding:8px;
+
+      font-family:
+        'Courier New',
+        monospace;
+
+      text-align:left;
+
+      white-space:pre-wrap;
+
+    }
+
+
+    .train-footer {
+
+      margin-top:5px;
+
+      color:#000;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:9px;
+
+      text-align:center;
+
+    }
+
+
+    .train-footer a {
+      color:#000080;
+    }
+
+
+    .train-refresh {
+
+      margin-top:5px;
+
+      font-family:
+        'ComicSans',
+        sans-serif;
+
+      cursor:
+        url('cursors/pointer.png'),
+        pointer;
+
+    }
+
+
+    /* PRIVACY */
 
     div.termsAndPolicy {
-      margin: 5px auto;
 
-      width: 300px !important;
+      margin:5px auto;
 
-      padding: 5px;
+      width:300px !important;
 
-      border-top: 1px solid white;
-      border-left: 1px solid white;
+      padding:5px;
 
-      border-right:
-        1px solid #808080;
-
-      border-bottom:
-        1px solid #808080;
+      border-top:1px solid white;
+      border-left:1px solid white;
+      border-right:1px solid #808080;
+      border-bottom:1px solid #808080;
 
       box-shadow:
         1px 1px black;
 
-      background: #c3c3c3;
+      background:#c3c3c3;
 
-      display: grid;
+      display:grid;
 
-      align-content: end;
+      align-content:end;
 
-      text-align: center;
+      text-align:center;
 
-      font-size: 14px;
+      font-size:14px;
 
-      z-index: 9;
+      z-index:9;
 
       text-shadow:
         1px 1px white,
-        -1px -1px rgba(0,0,0,.25);
+        -1px -1px rgba(
+          0,
+          0,
+          0,
+          .25
+        );
+
     }
 
-    div.termsAndPolicy div {
-      width: 100%;
 
-      background: white;
+    div.termsAndPolicy div {
+
+      width:100%;
+
+      background:white;
 
       box-shadow:
         inset 1px 1px black,
@@ -1090,197 +1873,289 @@
         inset -1px -1px #c3c3c3,
         1px 1px white;
 
-      justify-content: center;
-      align-items: center;
+      justify-content:center;
+      align-items:center;
 
-      display: flex;
+      display:flex;
 
-      gap: 10px;
+      padding:10px;
 
-      padding: 10px;
     }
 
-    /* =========================
-       NEOCITIES
-       ========================= */
+
+    /* NEOCITIES */
 
     .neocities {
-      margin: 10px auto !important;
 
-      border: 10px solid white;
+      margin:10px auto !important;
 
-      border-radius: 25px;
+      border:10px solid white;
+
+      border-radius:25px;
 
       box-shadow:
         1px 1px pink,
         2px 2px white,
         -1px -1px #808080,
         -2px -2px black;
+
     }
 
+
     .neocities:hover {
-      scale: 1;
+
+      scale:1;
 
       cursor:
         url('cursors/pointer.png'),
         pointer;
+
     }
 
-    /* =========================
-       LANGUAGES
-       ========================= */
+
+    /* LANGUAGES */
 
     .languages_wrap_wrap {
-      font-family: Arial;
 
-      margin: 5px auto;
+      font-family:'Arial';
 
-      top: 900px;
+      margin:5px auto;
 
-      width: 185px;
+      width:185px;
 
-      padding: 5px;
+      padding:5px;
 
-      border-top: 1px solid white;
-      border-left: 1px solid white;
-
-      border-right:
-        1px solid #808080;
-
-      border-bottom:
-        1px solid #808080;
+      border-top:1px solid white;
+      border-left:1px solid white;
+      border-right:1px solid #808080;
+      border-bottom:1px solid #808080;
 
       box-shadow:
         1px 1px black;
 
-      background: #c3c3c3;
+      background:#c3c3c3;
 
-      display: grid;
+      display:grid;
 
-      align-content: end;
+      align-content:end;
 
-      text-align: center;
+      text-align:center;
 
-      font-size: 14px;
+      font-size:14px;
 
-      z-index: 99;
+      z-index:99;
 
       text-shadow:
         1px 1px white,
-        -1px -1px rgba(0,0,0,.25);
+        -1px -1px rgba(
+          0,
+          0,
+          0,
+          .25
+        );
+
     }
+
 
     .skiptranslate,
     iframe.skiptranslate,
     .goog-te-banner-frame {
-      display: none !important;
 
-      visibility: hidden !important;
+      display:none !important;
 
-      height: 0 !important;
+      visibility:hidden !important;
+
+      height:0 !important;
+
     }
+
 
     body {
-      top: 0 !important;
 
-      position: static !important;
+      top:0 !important;
+
+      position:static !important;
+
     }
+
 
     .gtranslate_wrapper {
-      margin: 5px auto !important;
+
+      margin:5px auto !important;
 
       filter:
-        drop-shadow(1px 1px white)
-        drop-shadow(-1px -1px rgba(0,0,0,.25));
+        drop-shadow(
+          1px 1px white
+        )
+
+        drop-shadow(
+          -1px -1px
+          rgba(
+            0,
+            0,
+            0,
+            .25
+          )
+        );
+
     }
+
 
     .gtranslate_wrapper *::-webkit-scrollbar {
-      width: 16px;
+      width:16px;
     }
+
 
     .gtranslate_wrapper *::-webkit-scrollbar-track {
-      background: #dfdfdf;
 
-      border-left:
-        1px solid #fff;
+      background:#dfdfdf;
 
-      border-top:
-        1px solid #fff;
+      border-left:1px solid #fff;
+      border-top:1px solid #fff;
+
     }
 
+
     .gtranslate_wrapper *::-webkit-scrollbar-thumb {
-      background: #c0c0c0;
+
+      background:#c0c0c0;
 
       box-shadow:
         inset 1px 1px #fff,
         inset -1px -1px #0a0a0a,
         inset 2px 2px #dfdfdf,
         inset -2px -2px #808080;
+
     }
+
 
     .gtranslate_wrapper *::-webkit-scrollbar-button {
-      display: none;
+      display:none;
     }
 
+
     .gtranslate_wrapper * {
-      scrollbar-width: thin;
+
+      scrollbar-width:thin;
 
       scrollbar-color:
         #c0c0c0
         #dfdfdf;
+
     }
 
-    /* Mobile */
 
-    @media (max-height: 810px),
-           (max-width: 700px) {
+    @media (
+      max-height:810px
+    ),
+    (
+      max-width:700px
+    ) {
 
       div.webring {
-        transform: none;
+
+        transform:none;
 
         margin:
           10px 0 -15px 0;
+
       }
 
-      .wrap {
-        max-width: 94%;
+    }
+
+
+    @media (max-width:700px) {
+
+      #kris-companion {
+
+        width:210px;
+        height:280px;
+
       }
 
-      #map {
-        margin-left: 2px;
-        margin-right: 2px;
 
-        border-width: 10px;
+      #kris-gif {
+        width:185px;
       }
 
-      .stats {
-        width: 95%;
+
+      #kris-dialogue {
+
+        min-width:180px;
+
+        max-width:260px;
+
+        font-size:15px;
+
+        padding:
+          10px 12px;
+
       }
+
+
+      .random-photo {
+        height:230px;
+      }
+
+
+      .train-table {
+        font-size:9px;
+      }
+
+
+      .train-table th,
+      .train-table td {
+
+        padding:
+          3px 2px;
+
+      }
+
+
+      #visitorMap {
+        height:240px;
+      }
+
+
+      .traffic-chart-wrap {
+        height:250px;
+      }
+
     }
 
   </style>
+
 </head>
+
 
 <body>
 
-  <!-- =========================
-       RIGHT CLICK MENU
-       ========================= -->
 
-  <div id="win98-menu" class="context-menu">
+  <!-- Windows 98 context menu -->
 
-    <div class="menu-item"
-         onclick="handleCut()">
+  <div
+    id="win98-menu"
+    class="context-menu"
+  >
+
+    <div
+      class="menu-item"
+      onclick="handleCut()"
+    >
       <u>C</u>ut
     </div>
 
-    <div class="menu-item"
-         onclick="copyToClipboard()">
+    <div
+      class="menu-item"
+      onclick="copyToClipboard()"
+    >
       <u>C</u>opy
     </div>
 
-    <div class="menu-item"
-         onclick="pasteToElement()">
+    <div
+      class="menu-item"
+      onclick="pasteToElement()"
+    >
       <u>P</u>aste
     </div>
 
@@ -1293,42 +2168,31 @@
   </div>
 
 
-  <!-- =========================
-       FLUID MOUSE CANVAS
-       ========================= -->
-
   <canvas id="fluid-canvas"></canvas>
 
 
-  <!-- =========================
-       FANFARE
-       ========================= -->
-
   <audio autoplay>
+
     <source
       src="https://hhroses.neocities.org/audio/medieval-fanfare.mp3"
-      type="audio/mpeg">
+      type="audio/mpeg"
+    >
 
-    Your browser does not support the audio element.
   </audio>
 
 
-  <!-- Google verification -->
-
   <div style="visibility:hidden;">
+
     google-site-verification:
     googlee9bd4a88d1b5bb86.html
+
   </div>
 
-
-  <!-- =========================
-       DECOR
-       ========================= -->
 
   <div
     class="coolcode"
-    title="cool green code">
-  </div>
+    title="cool green code"
+  ></div>
 
   <div class="background"></div>
 
@@ -1340,22 +2204,20 @@
 
   <div
     class="grass"
-    title="grass">
-  </div>
+    title="grass"
+  ></div>
 
   <div
     class="clouds"
-    title="clouds">
-  </div>
+    title="clouds"
+  ></div>
 
-
-  <!-- =========================
-       MAIN LANDING CONTENT
-       ========================= -->
 
   <main>
 
+
     <div class="maincontent">
+
 
       <img
         title="90s desktop computer"
@@ -1365,7 +2227,9 @@
         loading="lazy"
       >
 
+
       <br>
+
 
       <img
         class="textbox"
@@ -1375,30 +2239,27 @@
       >
 
 
-      <!-- Webring -->
-
       <div class="webring">
 
         <div id="we_bring">
 
           <script
             type="text/javascript"
-            src="../brooklynights.nekoweb.org/we_bring/onionring-variables.js">
-          </script>
+            src="../brooklynights.nekoweb.org/we_bring/onionring-variables.js"
+          ></script>
 
           <script
             type="text/javascript"
-            src="../brooklynights.nekoweb.org/we_bring/onionring-widget.js">
-          </script>
+            src="../brooklynights.nekoweb.org/we_bring/onionring-widget.js"
+          ></script>
 
         </div>
 
       </div>
 
 
-      <!-- Enter -->
-
       <br>
+
 
       <div class="enterbutton">
 
@@ -1408,7 +2269,6 @@
             title="enter button"
             src="images/enterbutton3.png"
             loading="lazy"
-            alt="Enter website"
           >
 
         </a>
@@ -1427,18 +2287,16 @@
           padding-top:5px;
 
           background:transparent;
-        ">
+        "
+      >
 
-        ↓ Or keep scrolling? ↓
+        Or keep scrolling?
 
       </span>
 
+
     </div>
 
-
-    <!-- =========================
-         PAGE VIEW COUNTER
-         ========================= -->
 
     <div class="pageviews">
 
@@ -1447,6 +2305,7 @@
       </span>
 
       <span
+        id="pageViewCounter"
         style="
           border:2px solid green;
           border-radius:3px;
@@ -1454,27 +2313,26 @@
           padding:0;
           margin:-10px 0 0 0;
           height:20px;
-        ">
-
-        <script
-          type="text/javascript"
-          src="https://counter.websiteout.com/js/6/8/450448/0">
-        </script>
-
+          min-width:45px;
+          text-align:center;
+          background:#000;
+          color:#00ff00;
+          line-height:16px;
+        "
+      >
+        ...
       </span>
 
     </div>
 
+
   </main>
 
 
-  <!-- =========================
-       FLYING FAIRY
-       ========================= -->
-
   <div
     class="flier"
-    title="flying fairy">
+    title="flying fairy"
+  >
 
     <img
       src="images/flying-fairy.gif"
@@ -1484,14 +2342,11 @@
   </div>
 
 
-  <!-- =========================
-       GNOME
-       ========================= -->
-
   <audio id="sfx">
 
     <source
-      src="https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3">
+      src="https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3"
+    >
 
   </audio>
 
@@ -1500,7 +2355,6 @@
 
     <img
       loading="lazy"
-
       class="gnome decoration"
 
       onclick="
@@ -1509,7 +2363,7 @@
         unlockAchievement(
           'gnome_clicker',
           'OOH!',
-          'https://wsrv.nl/?url=https://hhroses.neocities.org/images/little_gnome.png&w=32&h=32&fit=cover',
+          'https://wsrv.nl/?url=https://hhroses.neocities.org/images/little_gnome.png&amp;w=32&amp;h=32&amp;fit=cover',
           'Booped the gnome',
           'games',
           'https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3'
@@ -1532,21 +2386,23 @@
   </div>
 
 
-  <!-- =========================
-       LANDING PAGE JAVASCRIPT
-       ========================= -->
-
   <script>
 
-    window.onload = function() {
-      move();
-    };
+    window.addEventListener(
+      "load",
+      function() {
+        move();
+      }
+    );
 
 
     function move() {
 
       const img =
-        document.getElementById('gnome');
+        document.getElementById("gnome");
+
+      if (!img)
+        return;
 
       img.style.left =
         Math.floor(
@@ -1559,6 +2415,7 @@
           Math.random() *
           window.innerHeight
         ) + "px";
+
     }
 
 
@@ -1567,77 +2424,73 @@
       const sfx =
         document.getElementById("sfx");
 
+      if (!sfx)
+        return;
+
       sfx.autoplay = true;
 
       sfx.load();
+
     }
 
 
-    /* =========================
-       DAY / NIGHT BACKGROUND
-       ========================= */
-
-    const hour =
+    const currentHour =
       new Date().getHours();
 
-    if (hour >= 20 || hour < 6) {
+
+    if (
+      currentHour >= 20 ||
+      currentHour < 6
+    ) {
 
       document.body.style.backgroundImage =
         "url('images/backgrounds/seamlessgalaxy3.jpg')";
 
-    } else {
+    }
+
+    else {
 
       document.body.style.backgroundImage =
         "url('images/pink_clouds.jpg')";
 
-      const coolcode =
-        document.querySelector('.coolcode');
+      const code =
+        document.querySelector(
+          '.coolcode'
+        );
 
-      if (coolcode) {
-        coolcode.style.top = "0px";
-      }
+      if (code)
+        code.style.top = "0px";
+
     }
 
   </script>
 
 
-  <!-- =========================
-       PAGE 2
-       ========================= -->
-
   <div class="page2_wrap">
 
 
-    <!-- =====================================================
-         GEOGRAPHICAL VIEW COUNTER
-         NEW DESIGN / ORIGINAL 2NFORFUN API
-         ===================================================== -->
+    <!-- CLOCK -->
 
-    <div class="wrap geotracker">
+    <div class="fun-widget clock-widget">
 
       <div class="title-bar">
 
         <img
-          src="images/icons/zone-internet-16x16.png"
+          src="images/icons/clock-16x16.png"
           alt=""
         >
 
-        <div
-          class="title-bar-text"
-          style="
-            text-shadow:none;
-            text-align:left;
-          ">
+        <div class="title-bar-text">
 
-          Geographical View Counter
+          H.H.Roses Clock
 
         </div>
 
         <div class="title-bar-controls">
 
           <button
-            aria-label="Close">
-          </button>
+            aria-label="Close"
+          ></button>
 
         </div>
 
@@ -1646,38 +2499,71 @@
 
       <div class="window-body">
 
-        <p class="sub">
+        <div
+          id="digitalClock"
+          class="digital-clock"
+        >
+          --:--:--
+        </div>
 
-          Welcome to my site! Enjoy the art, games,
-          books, music, videos, and more,
-          all created by H.H.Roses!
+        <div
+          id="clockDate"
+          class="clock-date"
+        >
+          Loading date...
+        </div>
 
-        </p>
+      </div>
 
-
-        <h1>
-          Where visitors come from
-        </h1>
-
-
-        <p class="sub">
-
-          Countries are shaded based on landing
-          page views since July 30th, 2026.<br>
-
-          Views on other pages of this website
-          are not counted.
-
-        </p>
+    </div>
 
 
-        <!-- Statistics -->
+    <br>
 
-        <div class="stats">
 
-          <div class="stat">
+    <!-- GEOGRAPHICAL VISITOR COUNTER -->
 
-            <b id="s-countries">
+    <div class="fun-widget geo-widget">
+
+      <div class="title-bar">
+
+        <img
+          src="images/icons/zone-internet-16x16.png"
+          alt=""
+        >
+
+        <div class="title-bar-text">
+
+          Geographical View Counter
+
+        </div>
+
+        <div class="title-bar-controls">
+
+          <button
+            aria-label="Close"
+          ></button>
+
+        </div>
+
+      </div>
+
+
+      <div class="window-body">
+
+        <div class="geo-intro">
+
+          Welcome to H.H.Roses. This map shows landing-page
+          views recorded by the H.H.Roses analytics server.
+
+        </div>
+
+
+        <div class="geo-stats">
+
+          <div class="geo-stat">
+
+            <b id="geoCountries">
               0
             </b>
 
@@ -1688,9 +2574,9 @@
           </div>
 
 
-          <div class="stat">
+          <div class="geo-stat">
 
-            <b id="s-views">
+            <b id="geoViews">
               0
             </b>
 
@@ -1701,10 +2587,10 @@
           </div>
 
 
-          <div class="stat">
+          <div class="geo-stat">
 
-            <b id="s-top">
-              &mdash;
+            <b id="geoTop">
+              —
             </b>
 
             <span>
@@ -1716,632 +2602,66 @@
         </div>
 
 
-        <!-- Map -->
-
-        <div id="map">
-          Loading map&hellip;
+        <div
+          id="visitorMap"
+        >
+          Loading map...
         </div>
 
 
-        <!-- Legend -->
-
-        <div class="legend">
+        <div class="geo-legend">
 
           <span>
-
-            <i
-              style="
-                background:var(--no-data);
-                border:1px solid grey;
-              ">
-            </i>
-
+            <i style="background:var(--no-data)"></i>
             none
-
           </span>
 
-
           <span>
-
-            <i
-              style="
-                background:var(--c1);
-                border:1px solid grey;
-              ">
-            </i>
-
+            <i style="background:var(--c1)"></i>
             1
-
           </span>
 
-
           <span>
-
-            <i
-              style="
-                background:var(--c2);
-                border:1px solid grey;
-              ">
-            </i>
-
-            2&ndash;5
-
+            <i style="background:var(--c2)"></i>
+            2-5
           </span>
 
-
           <span>
-
-            <i
-              style="
-                background:var(--c3);
-                border:1px solid grey;
-              ">
-            </i>
-
-            6&ndash;20
-
+            <i style="background:var(--c3)"></i>
+            6-20
           </span>
 
-
           <span>
-
-            <i
-              style="
-                background:var(--c4);
-                border:1px solid grey;
-              ">
-            </i>
-
-            21&ndash;100
-
+            <i style="background:var(--c4)"></i>
+            21-100
           </span>
 
-
           <span>
-
-            <i
-              style="
-                background:var(--c5);
-                border:1px solid grey;
-              ">
-            </i>
-
+            <i style="background:var(--c5)"></i>
             100+
-
           </span>
 
         </div>
 
 
-        <p
-          class="sub"
-          style="
-            margin-top:.75rem;
-            margin-bottom:0;
-          ">
+        <div class="geo-note">
 
-          *Because I'm using the free-version
-          of a backend server, only 1000 operations
-          are allotted to me a day, resulting in
-          numbers in this map and graph appearing
-          less than what they really are, especially
-          since I have other backend operations
-          besides the viewcounters.
+          Hover over a country to see its country name
+          and recorded views.
 
-        </p>
+        </div>
 
       </div>
 
     </div>
 
 
-    <!-- Map tooltip -->
-
-    <div id="tip"></div>
-
-
-    <!-- =====================================================
-         GEOGRAPHICAL VIEW COUNTER SCRIPT
-
-         IMPORTANT:
-         This uses YOUR original 2nforfun endpoint.
-         ===================================================== -->
-
-    <script>
-
-      const GEO_API =
-        'https://websiteviewshowerwowfintraffic.2nforfun.workers.dev/countries';
-
-
-      const countryNames =
-        new Intl.DisplayNames(
-          ['en'],
-          {
-            type: 'region'
-          }
-        );
-
-
-      function getCountryName(code) {
-
-        try {
-
-          return (
-            countryNames.of(code) ||
-            code
-          );
-
-        } catch {
-
-          return code;
-
-        }
-
-      }
-
-
-      function normalizeCountryData(raw) {
-
-        let source = raw;
-
-
-        /*
-         * Support the original API's object response
-         * as well as several equivalent structures.
-         */
-
-        if (
-          raw &&
-          typeof raw === 'object'
-        ) {
-
-          source =
-            raw.countries ??
-            raw.data ??
-            raw.views ??
-            raw;
-
-        }
-
-
-        const result = {};
-
-
-        /*
-         * Array response:
-         *
-         * [
-         *   {
-         *     country: "FI",
-         *     views: 12
-         *   }
-         * ]
-         */
-
-        if (Array.isArray(source)) {
-
-          source.forEach(item => {
-
-            if (
-              !item ||
-              typeof item !== 'object'
-            ) {
-              return;
-            }
-
-
-            const code = String(
-              item.country ??
-              item.code ??
-              item.countryCode ??
-              item.iso ??
-              ''
-            )
-            .trim()
-            .toUpperCase();
-
-
-            if (
-              !/^[A-Z]{2}$/.test(code)
-            ) {
-              return;
-            }
-
-
-            const count =
-              Number(
-                item.views ??
-                item.count ??
-                item.visits ??
-                item.value ??
-                0
-              ) || 0;
-
-
-            result[code] = count;
-
-          });
-
-
-          return result;
-        }
-
-
-        /*
-         * Object response:
-         *
-         * {
-         *   "FI": 12,
-         *   "US": 4
-         * }
-         */
-
-        if (
-          source &&
-          typeof source === 'object'
-        ) {
-
-          Object.entries(source)
-            .forEach(
-              ([key, value]) => {
-
-                const code =
-                  String(key)
-                    .trim()
-                    .toUpperCase();
-
-
-                if (
-                  !/^[A-Z]{2}$/.test(code)
-                ) {
-                  return;
-                }
-
-
-                let count;
-
-
-                if (
-                  typeof value === 'number'
-                ) {
-
-                  count = value;
-
-                } else if (
-                  typeof value === 'string'
-                ) {
-
-                  count =
-                    Number(value) || 0;
-
-                } else if (
-                  value &&
-                  typeof value === 'object'
-                ) {
-
-                  count =
-                    Number(
-                      value.views ??
-                      value.count ??
-                      value.visits ??
-                      value.value ??
-                      0
-                    ) || 0;
-
-                } else {
-
-                  count = 0;
-
-                }
-
-
-                result[code] = count;
-
-              }
-            );
-
-        }
-
-
-        return result;
-      }
-
-
-      function getGeoColor(value) {
-
-        if (value <= 0) {
-          return '#e4e1da';
-        }
-
-        if (value === 1) {
-          return '#ffffcc';
-        }
-
-        if (value <= 5) {
-          return '#d9f0a3';
-        }
-
-        if (value <= 20) {
-          return '#addd8e';
-        }
-
-        if (value <= 100) {
-          return '#41ab5d';
-        }
-
-        return '#006837';
-      }
-
-
-      function updateGeoStats(countryData) {
-
-        const entries =
-          Object.entries(countryData)
-            .filter(
-              ([, count]) => count > 0
-            );
-
-
-        const totalViews =
-          entries.reduce(
-            (total, [, count]) =>
-              total + count,
-            0
-          );
-
-
-        let topCountry = null;
-
-        let topViews = 0;
-
-
-        entries.forEach(
-          ([code, count]) => {
-
-            if (
-              count > topViews
-            ) {
-
-              topViews = count;
-
-              topCountry = code;
-
-            }
-
-          }
-        );
-
-
-        document
-          .getElementById('s-countries')
-          .textContent =
-          entries.length.toLocaleString();
-
-
-        document
-          .getElementById('s-views')
-          .textContent =
-          totalViews.toLocaleString();
-
-
-        document
-          .getElementById('s-top')
-          .textContent =
-
-          topCountry
-
-            ? `${getCountryName(topCountry)} (${topViews.toLocaleString()})`
-
-            : '—';
-
-      }
-
-
-      async function loadGeographicalViews() {
-
-        const mapElement =
-          document.getElementById('map');
-
-
-        try {
-
-          const response =
-            await fetch(
-              GEO_API,
-              {
-                cache: 'no-store'
-              }
-            );
-
-
-          if (!response.ok) {
-
-            throw new Error(
-              `Country API returned HTTP ${response.status}`
-            );
-
-          }
-
-
-          const raw =
-            await response.json();
-
-
-          const countryData =
-            normalizeCountryData(raw);
-
-
-          updateGeoStats(
-            countryData
-          );
-
-
-          /*
-           * Destroy old map before refreshing.
-           */
-
-          if (window.geoMap) {
-
-            window.geoMap.destroy();
-
-            window.geoMap = null;
-
-          }
-
-
-          mapElement.innerHTML = '';
-
-
-          /*
-           * Create the new map.
-           */
-
-          window.geoMap =
-            new jsVectorMap({
-
-              selector: '#map',
-
-              map: 'world',
-
-              backgroundColor:
-                '#4b7c9b',
-
-              zoomButtons: true,
-
-              zoomOnScroll: false,
-
-
-              regionStyle: {
-
-                initial: {
-
-                  fill: '#e4e1da',
-
-                  stroke: '#777',
-
-                  strokeWidth: .5
-
-                },
-
-
-                hover: {
-
-                  fill: '#ffffcc'
-
-                }
-
-              },
-
-
-              onRegionTooltipShow:
-                function(
-                  event,
-                  tooltip,
-                  code
-                ) {
-
-                  const upperCode =
-                    code.toUpperCase();
-
-
-                  const views =
-                    countryData[
-                      upperCode
-                    ] || 0;
-
-
-                  tooltip.text(
-
-                    `<b>${getCountryName(upperCode)}</b><br>` +
-
-                    `${views.toLocaleString()} view` +
-
-                    `${views === 1 ? '' : 's'}`
-
-                  );
-
-                }
-
-            });
-
-
-          /*
-           * Colour the countries according
-           * to their view counts.
-           */
-
-          Object.entries(
-            countryData
-          ).forEach(
-            ([code, count]) => {
-
-              const region =
-                document.querySelector(
-                  `#map path[data-code="${code}"]`
-                );
-
-
-              if (region) {
-
-                region.style.fill =
-                  getGeoColor(count);
-
-
-                region.setAttribute(
-                  'data-hit',
-                  count
-                );
-
-              }
-
-            }
-          );
-
-
-        } catch (error) {
-
-          console.error(
-            'Geographical view counter failed:',
-            error
-          );
-
-
-          mapElement.innerHTML =
-            'Unable to load geographical data.';
-
-        }
-
-      }
-
-
-      /*
-       * Initial map load.
-       */
-
-      loadGeographicalViews();
-
-
-      /*
-       * Refresh once per minute.
-       */
-
-      setInterval(
-        loadGeographicalViews,
-        60000
-      );
-
-    </script>
-
-
     <br>
 
 
-    <!-- =====================================================
-         TRAFFIC OVER TIME
-         NEW DESIGN / ORIGINAL 2NFORFUN API
-         ===================================================== -->
+    <!-- TRAFFIC OVER TIME -->
 
-    <div class="wrap timetracker">
+    <div class="fun-widget traffic-widget">
 
       <div class="title-bar">
 
@@ -2350,12 +2670,7 @@
           alt=""
         >
 
-        <div
-          class="title-bar-text"
-          style="
-            text-shadow:none;
-            text-align:left;
-          ">
+        <div class="title-bar-text">
 
           Traffic Over Time
 
@@ -2364,8 +2679,8 @@
         <div class="title-bar-controls">
 
           <button
-            aria-label="Close">
-          </button>
+            aria-label="Close"
+          ></button>
 
         </div>
 
@@ -2373,329 +2688,874 @@
 
 
       <div
-        class="window-body">
+        class="window-body"
+        style="
+          padding:5px;
+          background:#000;
+        "
+      >
 
-        <canvas
-          id="trafficChart">
-        </canvas>
+        <div class="traffic-chart-wrap">
+
+          <canvas
+            id="trafficChart"
+          ></canvas>
+
+        </div>
 
       </div>
 
     </div>
 
 
-    <!-- Chart.js -->
-
-    <script
-      src="../cdn.jsdelivr.net/npm/chart.js">
-    </script>
+    <br>
 
 
-    <!-- =====================================================
-         TRAFFIC OVER TIME SCRIPT
+    <!-- VR TRAIN PHOTOS -->
 
-         IMPORTANT:
-         This uses YOUR original 2nforfun /counts endpoint.
-         ===================================================== -->
+    <div class="fun-widget photo-widget">
+
+      <div class="title-bar">
+
+        <img
+          src="images/icons/zone-internet-16x16.png"
+          alt=""
+        >
+
+        <div class="title-bar-text">
+
+          Cool VR Train Photos
+
+        </div>
+
+        <div class="title-bar-controls">
+
+          <button
+            aria-label="Close"
+          ></button>
+
+        </div>
+
+      </div>
+
+
+      <div class="window-body">
+
+        <img
+          id="vrTrainPhoto"
+          class="random-photo"
+          src=""
+          alt="Random Finnish VR train photo"
+          loading="lazy"
+        >
+
+
+        <div
+          id="vrTrainCaption"
+          class="photo-caption"
+        >
+          LOADING TRAIN
+        </div>
+
+
+        <button
+          id="vrTrainButton"
+          class="photo-button"
+          type="button"
+          onclick="showRandomVRTrain()"
+        >
+          MORE TRAIN
+        </button>
+
+
+        <span
+          id="vrTrainSource"
+          class="photo-source"
+        ></span>
+
+      </div>
+
+    </div>
+
 
     <script>
 
-      const TRAFFIC_API =
-        'https://websiteviewshowerwowfintraffic.2nforfun.workers.dev/counts';
+      const vrTrainPhotos = [
+
+        {
+          src:"https://tse2.mm.bing.net/th/id/OIP.Tjw4iYJI_ngX0Bvoeb1djAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+          caption:"VR TRAIN"
+        },
+
+        {
+          src:"https://tse2.mm.bing.net/th/id/OIP.rJe6QzBCjgIsN3sXa1fncwHaE9?r=0&w=1024&h=685&rs=1&pid=ImgDetMain&o=7&rm=3",
+          caption:"ANOTHER VR TRAIN"
+        },
+
+        {
+          src:"https://thumbs.dreamstime.com/b/helsinki-finland-june-vr-class-sm-emu-operated-vr-group-helsinki-railway-station-train-vr-class-sm-emu-helsinki-railway-285534859.jpg?w=992",
+          caption:"VR SM EMU AT HELSINKI"
+        },
+
+        {
+          src:"https://tse2.mm.bing.net/th/id/OIP.3mA_tttjPl0_kHj4jK67swHaEc?r=0&w=800&h=480&rs=1&pid=ImgDetMain&o=7&rm=3",
+          caption:"VR TRAIN GO BRRRRRR"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20001.jpg",
+          caption:"Finnish VR IC 407"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20002.jpg",
+          caption:"IC 407 AGAIN"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20001.jpg",
+          caption:"Finnish IC 26"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20002.jpg",
+          caption:"IC 26 ANOTHER ANGLE"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20001.jpg",
+          caption:"Finnish IC 401"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20002.jpg",
+          caption:"IC 401"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20001.jpg",
+          caption:"VR NIGHT TRAIN PYO 269"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20002.jpg",
+          caption:"PYO 269 NIGHT TRAIN"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20001.jpg",
+          caption:"VR PYO 276"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20002.jpg",
+          caption:"PYO 276"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20S%20403%20in%20Tornio%2020260823%20001.jpg",
+          caption:"VR S 403"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205134%20in%20Tornio%2020240603%20001.jpg",
+          caption:"VR T 5134"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205137%20in%20Tornio%2020250503%20001.jpg",
+          caption:"VR T 5137"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Car%20train%2C%20Turku%20station%2C%2020241218%20-%2007.jpg",
+          caption:"VR CAR TRAIN"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Dr16%20locomotive%20with%20freight%20wagons%20in%20Tornio%20Mar2012%20001.jpg",
+          caption:"VR Dr16 AND FREIGHT"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Sr3%20locomotive%20in%20Oulu%2020250620%20001.jpg",
+          caption:"VR Sr3 LOCOMOTIVE"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Sm4%20Kerava.jpg",
+          caption:"VR Sm4 AT KERAVA"
+        }
+
+      ];
 
 
-      let trafficChart = null;
+      let lastVRTrainIndex = -1;
 
 
-      async function renderTrafficGraph() {
+      function showRandomVRTrain() {
+
+        if (!vrTrainPhotos.length)
+          return;
+
+
+        let index;
+
+
+        do {
+
+          index =
+            Math.floor(
+              Math.random() *
+              vrTrainPhotos.length
+            );
+
+        }
+
+        while (
+          vrTrainPhotos.length > 1 &&
+          index === lastVRTrainIndex
+        );
+
+
+        lastVRTrainIndex = index;
+
+
+        const train =
+          vrTrainPhotos[index];
+
+
+        const image =
+          document.getElementById(
+            "vrTrainPhoto"
+          );
+
+
+        const caption =
+          document.getElementById(
+            "vrTrainCaption"
+          );
+
+
+        const source =
+          document.getElementById(
+            "vrTrainSource"
+          );
+
+
+        image.src = train.src;
+
+        image.alt = train.caption;
+
+        caption.textContent =
+          train.caption;
+
+
+        if (
+          train.src.includes(
+            "commons.wikimedia.org"
+          )
+        ) {
+
+          source.innerHTML =
+            'Source: <a href="' +
+            train.src +
+            '" target="_blank" rel="noopener">' +
+            'Wikimedia Commons' +
+            '</a>';
+
+        }
+
+        else {
+
+          source.textContent =
+            "Source: image link";
+
+        }
+
+      }
+
+
+      document.addEventListener(
+        "DOMContentLoaded",
+        showRandomVRTrain
+      );
+
+    </script>
+
+
+    <!-- CAT PHOTOS -->
+
+    <div class="fun-widget photo-widget">
+
+      <div class="title-bar">
+
+        <img
+          src="images/icons/zone-internet-16x16.png"
+          alt=""
+        >
+
+        <div class="title-bar-text">
+
+          Cool Cat Photos
+
+        </div>
+
+        <div class="title-bar-controls">
+
+          <button
+            aria-label="Close"
+          ></button>
+
+        </div>
+
+      </div>
+
+
+      <div class="window-body">
+
+        <img
+          id="catPhoto"
+          class="random-photo"
+          src=""
+          alt="Random cat photo"
+          loading="lazy"
+        >
+
+
+        <div
+          id="catCaption"
+          class="photo-caption"
+        >
+          MEOW LOADING MEOW
+        </div>
+
+
+        <button
+          id="catButton"
+          class="photo-button"
+          type="button"
+          onclick="showRandomCat()"
+        >
+          MORE CAT
+        </button>
+
+
+        <span
+          id="catSource"
+          class="photo-source"
+        ></span>
+
+      </div>
+
+    </div>
+
+
+    <script>
+
+      const catPhotos = [
+
+        {
+          src:"https://th.bing.com/th/id/R.92a36fd9faacda4790854fcd9fb4b037?rik=s8rKPsp2paFBBA&pid=ImgRaw&r=0",
+          caption:"CAT MEOW"
+        },
+
+        {
+          src:"https://i.ytimg.com/vi/Ie57fr8pCko/maxresdefault.jpg",
+          caption:"VERY IMPORTANT CAT"
+        },
+
+        {
+          src:"https://yt3.googleusercontent.com/Fjs8Z7mywNBjOqL5tIjdGZZWPhrqxDw3uzPXZBosol-Uu5r0ya1FFEMKVD0vsiGyeBrBEZA1UYY=s900-c-k-c0x00ffffff-no-rj",
+          caption:"MEOW MEOW MEOW"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Are%20you%20going%20to%20drink%20my%20milk%2C%20odd%20human%3F%20%2823463302349%29.jpg",
+          caption:"Are you going to drink my milk, odd human?"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20Come%20In%20Peace%2C%20Take%20Me%20To%20Your%20Leader%21%20%2824110029751%29.jpg",
+          caption:"I COME IN PEACE"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20must%20help%20the%20humans%20remove%20that%20beautiful%20ball...%21%21%20%2823726684305%29.jpg",
+          caption:"CAT HAS A VERY IMPORTANT MISSION"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20want%20to%20ride%20my%20bicycle..%20cropped%202024.jpg",
+          caption:"CAT WANTS TO RIDE A BICYCLE"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Not%20again%20with%20that%20camera...%20cropped%202025.jpg",
+          caption:"NOT AGAIN WITH THAT CAMERA"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/What%27s%20that...%3F%20%2826565615299%29.jpg",
+          caption:"WHAT'S THAT?"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20cat%20called%20Mokoma%20or%20MIRRE.jpg",
+          caption:"MOKOMA / MIRRE"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tarzanette.jpg",
+          caption:"TARZANETTE"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tesjoen%20kissa.jpg",
+          caption:"TESJOKI KITTY"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Mad%20Hatter%3F.png",
+          caption:"THE MAD HATTER?"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/THE%20PARTY%20IS%20OVER%2C%20HUMAN%21.png",
+          caption:"THE PARTY IS OVER, HUMAN"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tricolor%20domestic%20cat%20in%20Suomenlinna.jpg",
+          caption:"SUOMENLINNA KITTY"
+        },
+
+        {
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/What%3F%20My%20Birthday%21%20You%27re%20kidding%21.jpg",
+          caption:"WHAT? MY BIRTHDAY?"
+        }
+
+      ];
+
+
+      let lastCatIndex = -1;
+
+
+      function showRandomCat() {
+
+        if (!catPhotos.length)
+          return;
+
+
+        let index;
+
+
+        do {
+
+          index =
+            Math.floor(
+              Math.random() *
+              catPhotos.length
+            );
+
+        }
+
+        while (
+          catPhotos.length > 1 &&
+          index === lastCatIndex
+        );
+
+
+        lastCatIndex = index;
+
+
+        const cat =
+          catPhotos[index];
+
+
+        const image =
+          document.getElementById(
+            "catPhoto"
+          );
+
+
+        const caption =
+          document.getElementById(
+            "catCaption"
+          );
+
+
+        const source =
+          document.getElementById(
+            "catSource"
+          );
+
+
+        image.src = cat.src;
+
+        image.alt = cat.caption;
+
+        caption.textContent =
+          cat.caption;
+
+
+        if (
+          cat.src.includes(
+            "commons.wikimedia.org"
+          )
+        ) {
+
+          source.innerHTML =
+            'Source: <a href="' +
+            cat.src +
+            '" target="_blank" rel="noopener">' +
+            'Wikimedia Commons' +
+            '</a>';
+
+        }
+
+        else {
+
+          source.textContent =
+            "Source: image link";
+
+        }
+
+      }
+
+
+      document.addEventListener(
+        "DOMContentLoaded",
+        showRandomCat
+      );
+
+    </script>
+
+
+    <!-- HELSINKI / CUSTOM STATION TRAINS -->
+
+    <div
+      class="fun-widget helsinki-trains"
+    >
+
+      <div class="title-bar">
+
+        <img
+          src="images/icons/clock-16x16.png"
+          alt=""
+        >
+
+        <div class="title-bar-text">
+
+          Finnish Live Trains
+
+        </div>
+
+        <div class="title-bar-controls">
+
+          <button
+            aria-label="Close"
+          ></button>
+
+        </div>
+
+      </div>
+
+
+      <div class="window-body">
+
+
+        <div class="train-search">
+
+          <input
+            id="stationSearch"
+            type="text"
+            list="stationList"
+            placeholder="Station name or code, for example Helsinki or HKI"
+            autocomplete="off"
+          >
+
+          <datalist id="stationList"></datalist>
+
+
+          <button
+            type="button"
+            onclick="searchStation()"
+          >
+            Search
+          </button>
+
+        </div>
+
+
+        <div class="train-search-help">
+
+          Enter a Finnish railway station name or station code.
+
+        </div>
+
+
+        <div class="train-board-header">
+
+          <span
+            id="trainStationTitle"
+            class="big"
+          >
+            Helsinki Central Station
+          </span>
+
+          <span class="small">
+
+            FINTRAFFIC DIGITRAFFIC LIVE TRAIN BOARD
+
+          </span>
+
+        </div>
+
+
+        <div
+          id="helsinkiTrainStatus"
+          class="train-status"
+        >
+          [ CONNECTING ]
+        </div>
+
+
+        <div class="train-table-wrap">
+
+          <table class="train-table">
+
+            <thead>
+
+              <tr>
+
+                <th>TRAIN</th>
+                <th>TRACK</th>
+                <th>DIRECTION</th>
+                <th>TIME</th>
+                <th>STATUS</th>
+
+              </tr>
+
+            </thead>
+
+
+            <tbody id="helsinkiTrainRows">
+
+              <tr>
+
+                <td colspan="5">
+                  Loading trains...
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <button
+          class="train-refresh"
+          type="button"
+          onclick="loadHelsinkiTrains()"
+        >
+          Refresh
+        </button>
+
+
+        <div class="train-footer">
+
+          Live railway information from
+          <a
+            href="https://www.digitraffic.fi/en/railway-traffic/"
+            target="_blank"
+            rel="noopener"
+          >
+            Fintraffic Digitraffic
+          </a>
+
+          <br>
+
+          Station:
+          <span id="trainFooterStation">
+            HKI
+          </span>
+
+          <br>
+
+          Data may be delayed or incomplete.
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <script>
+
+      const DIGITRAFFIC_BASE =
+        "https://rata.digitraffic.fi/api/v1";
+
+
+      const STATION_METADATA_API =
+        DIGITRAFFIC_BASE +
+        "/metadata/stations";
+
+
+      let stationMetadata = [];
+
+      let currentStationCode = "HKI";
+
+      let currentStationName =
+        "Helsinki Central Station";
+
+
+      function escapeTrainHTML(value) {
+
+        if (
+          value === null ||
+          value === undefined
+        ) {
+
+          return "";
+
+        }
+
+
+        return String(value)
+
+          .replace(/&/g,"&amp;")
+          .replace(/</g,"&lt;")
+          .replace(/>/g,"&gt;")
+          .replace(/"/g,"&quot;")
+          .replace(/'/g,"&#039;");
+
+      }
+
+
+      function formatTime(value) {
+
+        if (!value)
+          return "—";
+
+
+        const date =
+          new Date(value);
+
+
+        if (
+          Number.isNaN(
+            date.getTime()
+          )
+        ) {
+
+          return "—";
+
+        }
+
+
+        return date.toLocaleTimeString(
+          "fi-FI",
+          {
+            hour:"2-digit",
+            minute:"2-digit"
+          }
+        );
+
+      }
+
+
+      async function loadStationMetadata() {
 
         try {
 
           const response =
             await fetch(
-              TRAFFIC_API,
+              STATION_METADATA_API,
               {
-                cache: 'no-store'
+                cache:"no-store"
               }
             );
 
 
-          if (!response.ok) {
-
+          if (!response.ok)
             throw new Error(
-              `Traffic API returned HTTP ${response.status}`
+              "Station metadata HTTP " +
+              response.status
             );
 
-          }
 
-
-          const liveData =
+          const data =
             await response.json();
 
 
           if (
-            !liveData ||
-            !liveData.dates
-          ) {
-
-            console.error(
-              'No date data found to graph.'
-            );
-
-            return;
-
-          }
-
-
-          const dateStats =
-            liveData.dates;
-
-
-          const sortedDates =
-            Object.keys(
-              dateStats
-            ).sort();
-
-
-          const viewCounts =
-            sortedDates.map(
-              date => {
-
-                const value =
-                  dateStats[date];
-
-
-                if (
-                  typeof value === 'number'
-                ) {
-
-                  return value;
-
-                }
-
-
-                if (
-                  typeof value === 'string'
-                ) {
-
-                  return (
-                    Number(value) || 0
-                  );
-
-                }
-
-
-                if (
-                  value &&
-                  typeof value === 'object'
-                ) {
-
-                  return (
-                    Number(
-                      value.views ??
-                      value.count ??
-                      value.value ??
-                      0
-                    ) || 0
-                  );
-
-                }
-
-
-                return 0;
-
-              }
+            !Array.isArray(data)
+          )
+            throw new Error(
+              "Invalid station metadata"
             );
 
 
-          const canvas =
+          stationMetadata =
+            data
+              .filter(
+                station =>
+                  station &&
+                  station.stationShortCode
+              )
+              .sort(
+                (a,b) =>
+                  String(
+                    a.stationName || ""
+                  ).localeCompare(
+                    String(
+                      b.stationName || ""
+                    )
+                  )
+              );
+
+
+          const list =
             document.getElementById(
-              'trafficChart'
+              "stationList"
             );
 
 
-          if (!canvas) {
-            return;
-          }
-
-
-          const ctx =
-            canvas.getContext('2d');
-
-
-          /*
-           * IMPORTANT:
-           *
-           * Destroy the previous Chart.js
-           * instance before creating another.
-           *
-           * This prevents:
-           *
-           * "Canvas is already in use"
-           *
-           * errors after refreshing.
-           */
-
-          if (trafficChart) {
-
-            trafficChart.destroy();
-
-            trafficChart = null;
-
-          }
-
-
-          trafficChart =
-            new Chart(
-              ctx,
-              {
-
-                type: 'line',
-
-
-                data: {
-
-                  labels:
-                    sortedDates,
-
-
-                  datasets: [
-
-                    {
-
-                      label:
-                        'Page Views',
-
-
-                      data:
-                        viewCounts,
-
-
-                      borderColor:
-                        '#00ff00',
-
-
-                      backgroundColor:
-                        'rgba(0, 255, 0, 0.15)',
-
-
-                      borderWidth: 2,
-
-
-                      pointBackgroundColor:
-                        '#ffffff',
-
-
-                      pointBorderColor:
-                        '#00ff00',
-
-
-                      pointRadius: 4,
-
-
-                      tension: .3,
-
-
-                      fill: true
-
-                    }
-
-                  ]
-
-                },
-
-
-                options: {
-
-                  responsive: true,
-
-                  maintainAspectRatio: false,
-
-                  color: '#00ff00',
-
-
-                  scales: {
-
-                    x: {
-
-                      ticks: {
-
-                        color:
-                          '#00ff00'
-
-                      },
-
-
-                      grid: {
-
-                        color:
-                          'rgba(0, 255, 0, 0.2)'
-
-                      }
-
-                    },
-
-
-                    y: {
-
-                      beginAtZero: true,
-
-
-                      ticks: {
-
-                        color:
-                          '#00ff00',
-
-                        stepSize: 1
-
-                      },
-
-
-                      grid: {
-
-                        color:
-                          'rgba(0, 255, 0, 0.2)'
-
-                      }
-
-                    }
-
-                  },
-
-
-                  plugins: {
-
-                    legend: {
-
-                      labels: {
-
-                        color:
-                          '#00ff00',
-
-
-                        font: {
-
-                          family:
-                            "'Courier New', Courier, monospace"
-
-                        }
-
-                      }
-
-                    }
-
-                  }
+          list.innerHTML =
+            stationMetadata
+              .map(
+                station => {
+
+                  const name =
+                    station.stationName ||
+                    station.stationShortCode;
+
+                  const code =
+                    station.stationShortCode;
+
+                  return (
+                    "<option value=\"" +
+                    escapeTrainHTML(name) +
+                    "\">" +
+                    escapeTrainHTML(code) +
+                    "</option>"
+                  );
 
                 }
+              )
+              .join("");
 
-              }
-            );
+        }
 
+        catch(error) {
 
-        } catch (error) {
-
-          console.error(
-            'Graph failed to load:',
+          console.warn(
+            "Could not load station metadata:",
             error
           );
 
@@ -2704,22 +3564,758 @@
       }
 
 
-      /*
-       * Initial graph.
-       */
+      function findStation(query) {
 
-      renderTrafficGraph();
+        const value =
+          String(
+            query || ""
+          ).trim();
 
 
-      /*
-       * Refresh every minute.
-       *
-       * This is the ONLY traffic graph interval.
-       */
+        if (!value)
+          return null;
+
+
+        const upper =
+          value.toUpperCase();
+
+
+        const exactCode =
+          stationMetadata.find(
+            station =>
+              String(
+                station.stationShortCode
+              ).toUpperCase() === upper
+          );
+
+
+        if (exactCode)
+          return exactCode;
+
+
+        const exactName =
+          stationMetadata.find(
+            station =>
+              String(
+                station.stationName || ""
+              ).toLowerCase() ===
+              value.toLowerCase()
+          );
+
+
+        if (exactName)
+          return exactName;
+
+
+        const partialName =
+          stationMetadata.find(
+            station =>
+              String(
+                station.stationName || ""
+              ).toLowerCase()
+              .includes(
+                value.toLowerCase()
+              )
+          );
+
+
+        return partialName || null;
+
+      }
+
+
+      function getHelsinkiRows(train) {
+
+        if (
+          !Array.isArray(
+            train.timeTableRows
+          )
+        )
+          return [];
+
+
+        return train.timeTableRows.filter(
+          function(row) {
+
+            const code =
+              row.stationShortCode ||
+              row.station ||
+              "";
+
+
+            return (
+              String(code)
+                .toUpperCase() ===
+              currentStationCode
+                .toUpperCase()
+            );
+
+          }
+        );
+
+      }
+
+
+      function getStationEvent(train) {
+
+        const rows =
+          getHelsinkiRows(train);
+
+
+        if (!rows.length)
+          return null;
+
+
+        const departure =
+          rows.find(
+            row =>
+              row.type === "DEPARTURE"
+          );
+
+
+        const arrival =
+          rows.find(
+            row =>
+              row.type === "ARRIVAL"
+          );
+
+
+        return (
+          departure ||
+          arrival ||
+          rows[0]
+        );
+
+      }
+
+
+      function getDestination(
+        train,
+        event
+      ) {
+
+        if (!event)
+          return "Unknown";
+
+
+        if (
+          event.type ===
+          "DEPARTURE"
+        ) {
+
+          return (
+            event.nextStation ||
+            "Departure"
+          );
+
+        }
+
+
+        if (
+          event.type ===
+          "ARRIVAL"
+        ) {
+
+          return (
+            event.previousStation ||
+            "Arrival"
+          );
+
+        }
+
+
+        return "Unknown";
+
+      }
+
+
+      function getTrainStatus(
+        train,
+        event
+      ) {
+
+        if (
+          train.cancelled === true ||
+          (
+            event &&
+            event.cancelled === true
+          )
+        ) {
+
+          return {
+
+            text:"CANCELLED",
+
+            className:
+              "train-cancelled"
+
+          };
+
+        }
+
+
+        if (!event) {
+
+          return {
+
+            text:"UNKNOWN",
+
+            className:
+              "train-delay"
+
+          };
+
+        }
+
+
+        if (event.actualTime) {
+
+          return {
+
+            text:"ACTUAL",
+
+            className:
+              "train-ok"
+
+          };
+
+        }
+
+
+        if (
+          event.liveEstimateTime &&
+          event.scheduledTime
+        ) {
+
+          const scheduled =
+            new Date(
+              event.scheduledTime
+            );
+
+
+          const estimate =
+            new Date(
+              event.liveEstimateTime
+            );
+
+
+          if (
+            !Number.isNaN(
+              scheduled.getTime()
+            ) &&
+            !Number.isNaN(
+              estimate.getTime()
+            )
+          ) {
+
+            const delay =
+              Math.round(
+                (
+                  estimate.getTime() -
+                  scheduled.getTime()
+                ) / 60000
+              );
+
+
+            if (delay > 0) {
+
+              return {
+
+                text:
+                  "+" +
+                  delay +
+                  " MIN",
+
+                className:
+                  "train-delay"
+
+              };
+
+            }
+
+
+            if (delay < 0) {
+
+              return {
+
+                text:
+                  delay +
+                  " MIN",
+
+                className:
+                  "train-ok"
+
+              };
+
+            }
+
+          }
+
+
+          return {
+
+            text:"ESTIMATED",
+
+            className:
+              "train-ok"
+
+          };
+
+        }
+
+
+        return {
+
+          text:"ON TIME",
+
+          className:
+            "train-ok"
+
+        };
+
+      }
+
+
+      function sortTrainEvents(a,b) {
+
+        const aTime =
+          new Date(
+            a.event.scheduledTime || 0
+          ).getTime();
+
+
+        const bTime =
+          new Date(
+            b.event.scheduledTime || 0
+          ).getTime();
+
+
+        return aTime - bTime;
+
+      }
+
+
+      async function loadHelsinkiTrains() {
+
+        const statusElement =
+          document.getElementById(
+            "helsinkiTrainStatus"
+          );
+
+
+        const rowsElement =
+          document.getElementById(
+            "helsinkiTrainRows"
+          );
+
+
+        statusElement.textContent =
+          "[ FETCHING ]";
+
+
+        const api =
+          DIGITRAFFIC_BASE +
+          "/live-trains/station/" +
+          encodeURIComponent(
+            currentStationCode
+          ) +
+          "?arrived_trains=2" +
+          "&arriving_trains=6" +
+          "&departed_trains=2" +
+          "&departing_trains=10" +
+          "&include_nonstopping=false";
+
+
+        try {
+
+          const response =
+            await fetch(
+              api,
+              {
+                cache:"no-store"
+              }
+            );
+
+
+          if (!response.ok) {
+
+            throw new Error(
+              "Digitraffic HTTP " +
+              response.status
+            );
+
+          }
+
+
+          const trains =
+            await response.json();
+
+
+          if (
+            !Array.isArray(trains)
+          ) {
+
+            throw new Error(
+              "Unexpected Digitraffic response."
+            );
+
+          }
+
+
+          const events = [];
+
+
+          trains.forEach(
+            function(train) {
+
+              const event =
+                getStationEvent(
+                  train
+                );
+
+
+              if (!event)
+                return;
+
+
+              events.push({
+                train:train,
+                event:event
+              });
+
+            }
+          );
+
+
+          events.sort(
+            sortTrainEvents
+          );
+
+
+          const seen =
+            new Set();
+
+
+          const uniqueEvents =
+            events.filter(
+              function(item) {
+
+                const key =
+                  String(
+                    item.train.trainNumber
+                  ) +
+                  "-" +
+                  String(
+                    item.event.type
+                  );
+
+
+                if (
+                  seen.has(key)
+                )
+                  return false;
+
+
+                seen.add(key);
+
+                return true;
+
+              }
+            );
+
+
+          const displayEvents =
+            uniqueEvents.slice(
+              0,
+              16
+            );
+
+
+          if (
+            displayEvents.length === 0
+          ) {
+
+            rowsElement.innerHTML =
+              '<tr>' +
+              '<td colspan="5">' +
+              'No train events found.' +
+              '</td>' +
+              '</tr>';
+
+
+            statusElement.textContent =
+              "[ NO TRAIN EVENTS ]";
+
+            return;
+
+          }
+
+
+          rowsElement.innerHTML =
+            displayEvents
+              .map(
+                function(item) {
+
+                  const train =
+                    item.train;
+
+
+                  const event =
+                    item.event;
+
+
+                  const status =
+                    getTrainStatus(
+                      train,
+                      event
+                    );
+
+
+                  const number =
+                    train.trainNumber ??
+                    "?";
+
+
+                  const destination =
+                    getDestination(
+                      train,
+                      event
+                    );
+
+
+                  const time =
+                    event.actualTime
+                      ? formatTime(
+                          event.actualTime
+                        )
+                      : event.liveEstimateTime
+                        ? formatTime(
+                            event.liveEstimateTime
+                          )
+                        : formatTime(
+                            event.scheduledTime
+                          );
+
+
+                  const track =
+                    event.commercialTrack ||
+                    "—";
+
+
+                  const type =
+                    train.trainType ||
+                    train.trainCategory ||
+                    "TRAIN";
+
+
+                  return (
+
+                    "<tr>" +
+
+                      "<td>" +
+
+                        escapeTrainHTML(
+                          type +
+                          " " +
+                          number
+                        ) +
+
+                      "</td>" +
+
+                      "<td class=\"train-track\">" +
+
+                        escapeTrainHTML(
+                          track
+                        ) +
+
+                      "</td>" +
+
+                      "<td>" +
+
+                        escapeTrainHTML(
+                          destination
+                        ) +
+
+                      "</td>" +
+
+                      "<td>" +
+
+                        escapeTrainHTML(
+                          time
+                        ) +
+
+                      "</td>" +
+
+                      "<td class=\"" +
+                        escapeTrainHTML(
+                          status.className
+                        ) +
+                      "\">" +
+
+                        escapeTrainHTML(
+                          status.text
+                        ) +
+
+                      "</td>" +
+
+                    "</tr>"
+
+                  );
+
+                }
+              )
+              .join("");
+
+
+          const now =
+            new Date()
+              .toLocaleTimeString(
+                "fi-FI",
+                {
+                  hour:"2-digit",
+                  minute:"2-digit",
+                  second:"2-digit"
+                }
+              );
+
+
+          statusElement.textContent =
+            "[ LIVE ] " +
+            displayEvents.length +
+            " EVENTS | " +
+            now;
+
+        }
+
+        catch(error) {
+
+          console.error(
+            "Train board error:",
+            error
+          );
+
+
+          rowsElement.innerHTML =
+
+            '<tr>' +
+
+              '<td colspan="5">' +
+
+                '<div class="train-error">' +
+
+                  'Train data could not be loaded.' +
+                  '<br><br>' +
+
+                  escapeTrainHTML(
+                    error.message
+                  ) +
+
+                '</div>' +
+
+              '</td>' +
+
+            '</tr>';
+
+
+          statusElement.textContent =
+            "[ CONNECTION ERROR ]";
+
+        }
+
+      }
+
+
+      function searchStation() {
+
+        const input =
+          document.getElementById(
+            "stationSearch"
+          );
+
+
+        const station =
+          findStation(
+            input.value
+          );
+
+
+        if (!station) {
+
+          const status =
+            document.getElementById(
+              "helsinkiTrainStatus"
+            );
+
+
+          status.textContent =
+            "[ STATION NOT FOUND ]";
+
+          return;
+
+        }
+
+
+        currentStationCode =
+          station.stationShortCode;
+
+
+        currentStationName =
+          station.stationName ||
+          station.stationShortCode;
+
+
+        document.getElementById(
+          "trainStationTitle"
+        ).textContent =
+          currentStationName;
+
+
+        document.getElementById(
+          "trainFooterStation"
+        ).textContent =
+          currentStationCode;
+
+
+        loadHelsinkiTrains();
+
+      }
+
+
+      document
+        .getElementById(
+          "stationSearch"
+        )
+        .addEventListener(
+          "keydown",
+          function(event) {
+
+            if (
+              event.key === "Enter"
+            ) {
+
+              searchStation();
+
+            }
+
+          }
+        );
+
+
+      document.addEventListener(
+        "DOMContentLoaded",
+        async function() {
+
+          await loadStationMetadata();
+
+          loadHelsinkiTrains();
+
+        }
+      );
+
 
       setInterval(
-        renderTrafficGraph,
-        60000
+        loadHelsinkiTrains,
+        30000
       );
 
     </script>
@@ -2728,9 +4324,7 @@
     <br>
 
 
-    <!-- =====================================================
-         TERMS / PRIVACY
-         ===================================================== -->
+    <!-- PRIVACY POLICY -->
 
     <div class="termsAndPolicy">
 
@@ -2743,24 +4337,9 @@
           style="
             font-family:times;
             font-size:1rem;
-          ">
-
+          "
+        >
           Privacy Policy
-
-        </a>
-
-
-        <a
-          title="https://hhroses.art/terms-of-service"
-          href="terms-of-service.html"
-          target="_blank"
-          style="
-            font-family:times;
-            font-size:1rem;
-          ">
-
-          Terms of Service
-
         </a>
 
       </div>
@@ -2771,16 +4350,16 @@
     <br>
 
 
-    <!-- =====================================================
-         NEOCITIES
-         ===================================================== -->
+    <!-- NEOCITIES -->
 
     <center>
 
       <a
         href="https://neocities.org/site/hhroses"
         title="https://neocities.org/site/hhroses"
-        target="_blank">
+        target="_blank"
+        rel="noopener"
+      >
 
         <img
           src="neocities.png"
@@ -2793,9 +4372,7 @@
     </center>
 
 
-    <!-- =====================================================
-         LANGUAGES
-         ===================================================== -->
+    <!-- LANGUAGES -->
 
     <div class="languages_wrap_wrap">
 
@@ -2803,7 +4380,9 @@
         Language:
       </p>
 
-      <div class="gtranslate_wrapper"></div>
+      <div
+        class="gtranslate_wrapper"
+      ></div>
 
     </div>
 
@@ -2812,27 +4391,24 @@
 
       window.gtranslateSettings = {
 
-        "default_language": "en",
+        "default_language":"en",
 
-        "native_language_names": true,
+        "native_language_names":true,
 
-        "detect_browser_language": true,
+        "detect_browser_language":true,
 
-        "wrapper_selector":
-          ".gtranslate_wrapper",
+        "wrapper_selector":".gtranslate_wrapper",
 
-        "flag_size": 16,
+        "flag_size":16,
 
-        "switcher_horizontal_position":
-          "inline",
+        "switcher_horizontal_position":"inline",
 
-        "switcher_open_direction":
-          "top",
+        "switcher_open_direction":"top",
 
-        "flag_style": "3d",
+        "flag_style":"3d",
 
-        "alt_flags": {
-          "en": "usa"
+        "alt_flags":{
+          "en":"usa"
         }
 
       };
@@ -2842,33 +4418,1455 @@
 
     <script
       src="../cdn.gtranslate.net/widgets/latest/dwf.js"
-      defer>
-    </script>
+      defer
+    ></script>
+
 
   </div>
 
 
-  <!-- =====================================================
-       RECORD PAGEVIEW
-
-       ORIGINAL 2NFORFUN API
-       ===================================================== -->
+  <!-- PAGE VIEW TRACKING -->
 
   <script>
 
-    fetch(
-      'https://websiteviewshowerwowfintraffic.2nforfun.workers.dev/hit'
-    )
-    .catch(
-      err =>
+    const ANALYTICS_WORKER =
+      "https://websiteviewshowerwowfintraffic.2nforfun.workers.dev";
+
+
+    async function recordPageView() {
+
+      try {
+
+        const response =
+          await fetch(
+            ANALYTICS_WORKER +
+            "/hit",
+            {
+              method:"GET",
+              cache:"no-store",
+              keepalive:true
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Analytics HTTP " +
+            response.status
+          );
+
+        }
+
+
+        console.log(
+          "H.H.Roses page view recorded."
+        );
+
+      }
+
+      catch(error) {
+
+        console.warn(
+          "Page view could not be recorded:",
+          error
+        );
+
+      }
+
+    }
+
+
+    recordPageView();
+
+  </script>
+
+
+  <!-- PAGE VIEW DISPLAY -->
+
+  <script>
+
+    async function updatePageViewCounter() {
+
+      const counter =
+        document.getElementById(
+          "pageViewCounter"
+        );
+
+
+      if (!counter)
+        return;
+
+
+      try {
+
+        const response =
+          await fetch(
+            ANALYTICS_WORKER +
+            "/count",
+            {
+              cache:"no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Counter HTTP " +
+            response.status
+          );
+
+        }
+
+
+        const data =
+          await response.json();
+
+
+        const count =
+          Number(
+            data?.views ??
+            data?.count ??
+            data?.total ??
+            data ??
+            0
+          );
+
+
+        if (
+          Number.isFinite(count)
+        ) {
+
+          counter.textContent =
+            count.toLocaleString(
+              "en-US"
+            );
+
+        }
+
+        else {
+
+          counter.textContent =
+            "—";
+
+        }
+
+      }
+
+      catch(error) {
+
+        console.warn(
+          "Page view counter unavailable:",
+          error
+        );
+
+
+        counter.textContent =
+          "—";
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      updatePageViewCounter
+    );
+
+  </script>
+
+
+  <!-- CLOCK -->
+
+  <script>
+
+    function updateClock() {
+
+      const clock =
+        document.getElementById(
+          "digitalClock"
+        );
+
+
+      const dateElement =
+        document.getElementById(
+          "clockDate"
+        );
+
+
+      if (!clock || !dateElement)
+        return;
+
+
+      const now =
+        new Date();
+
+
+      clock.textContent =
+        now.toLocaleTimeString(
+          undefined,
+          {
+            hour:"2-digit",
+            minute:"2-digit",
+            second:"2-digit",
+            hour12:false
+          }
+        );
+
+
+      dateElement.textContent =
+        now.toLocaleDateString(
+          undefined,
+          {
+            weekday:"long",
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+          }
+        );
+
+    }
+
+
+    updateClock();
+
+
+    setInterval(
+      updateClock,
+      1000
+    );
+
+  </script>
+
+
+  <!-- GEOGRAPHICAL ANALYTICS MAP -->
+
+  <script>
+
+    let visitorMapInstance =
+      null;
+
+
+    const countryNames =
+      new Intl.DisplayNames(
+        ["en"],
+        {
+          type:"region"
+        }
+      );
+
+
+    function countryName(code) {
+
+      try {
+
+        return countryNames.of(
+          String(code)
+            .toUpperCase()
+        ) || code;
+
+      }
+
+      catch(error) {
+
+        return code;
+
+      }
+
+    }
+
+
+    function getCountryColorScale(
+      value
+    ) {
+
+      if (value <= 0)
+        return "#eeeeee";
+
+      if (value === 1)
+        return "#ffd6d6";
+
+      if (value <= 5)
+        return "#ff9999";
+
+      if (value <= 20)
+        return "#ff5555";
+
+      if (value <= 100)
+        return "#d80000";
+
+      return "#700000";
+
+    }
+
+
+    async function loadGeographicalViews() {
+
+      const mapElement =
+        document.getElementById(
+          "visitorMap"
+        );
+
+
+      try {
+
+        const response =
+          await fetch(
+            ANALYTICS_WORKER +
+            "/countries",
+            {
+              cache:"no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Countries HTTP " +
+            response.status
+          );
+
+        }
+
+
+        const data =
+          await response.json();
+
+
+        const countries =
+          Array.isArray(
+            data.countries
+          )
+            ? data.countries
+            : [];
+
+
+        const values = {};
+
+
+        let totalViews = 0;
+
+        let topCountry = "—";
+
+        let topViews = 0;
+
+
+        countries.forEach(
+          function(item) {
+
+            const code =
+              String(
+                item.country || ""
+              ).toUpperCase();
+
+
+            const views =
+              Number(
+                item.views || 0
+              );
+
+
+            if (!code)
+              return;
+
+
+            values[code] = views;
+
+
+            totalViews += views;
+
+
+            if (views > topViews) {
+
+              topViews = views;
+
+              topCountry =
+                countryName(code);
+
+            }
+
+          }
+        );
+
+
+        document.getElementById(
+          "geoCountries"
+        ).textContent =
+          countries.length
+            .toLocaleString(
+              "en-US"
+            );
+
+
+        document.getElementById(
+          "geoViews"
+        ).textContent =
+          totalViews.toLocaleString(
+            "en-US"
+          );
+
+
+        document.getElementById(
+          "geoTop"
+        ).textContent =
+          topCountry;
+
+
+        if (visitorMapInstance) {
+
+          visitorMapInstance.destroy();
+
+          visitorMapInstance = null;
+
+        }
+
+
+        mapElement.innerHTML = "";
+
+
+        visitorMapInstance =
+          new jsVectorMap({
+
+            selector:
+              "#visitorMap",
+
+            map:
+              "world",
+
+            backgroundColor:
+              "#dfefff",
+
+            zoomButtons:true,
+
+            zoomOnScroll:true,
+
+            zoomStep:1.4,
+
+            zoomMax:8,
+
+            zoomMin:1,
+
+            draggable:true,
+
+            showTooltip:true,
+
+            visualizeData:{
+
+              scale:[
+                "#ffd6d6",
+                "#700000"
+              ],
+
+              values:values
+
+            },
+
+            regionStyle:{
+
+              initial:{
+
+                fill:"#eeeeee",
+
+                stroke:"#777777",
+
+                strokeWidth:.5,
+
+                fillOpacity:1
+
+              },
+
+              hover:{
+
+                fill:"#00aa00",
+
+                fillOpacity:.9
+
+              }
+
+            },
+
+            onRegionTooltipShow:
+              function(
+                event,
+                tooltip,
+                code
+              ) {
+
+                const views =
+                  Number(
+                    values[
+                      String(code)
+                        .toUpperCase()
+                    ] || 0
+                  );
+
+
+                const name =
+                  countryName(
+                    code
+                  );
+
+
+                tooltip.text(
+                  name +
+                  " - " +
+                  views.toLocaleString(
+                    "en-US"
+                  ) +
+                  " views"
+                );
+
+              }
+
+          });
+
+      }
+
+      catch(error) {
+
         console.error(
-          'Failed to log visit:',
-          err
-        )
+          "Geographical map failed:",
+          error
+        );
+
+
+        mapElement.textContent =
+          "Visitor map could not be loaded.";
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      loadGeographicalViews
+    );
+
+
+    setInterval(
+      loadGeographicalViews,
+      60000
+    );
+
+  </script>
+
+
+  <!-- TRAFFIC GRAPH -->
+
+  <script>
+
+    let trafficChartInstance =
+      null;
+
+
+    async function renderTrafficGraph() {
+
+      const canvas =
+        document.getElementById(
+          "trafficChart"
+        );
+
+
+      if (!canvas)
+        return;
+
+
+      try {
+
+        const response =
+          await fetch(
+            ANALYTICS_WORKER +
+            "/counts",
+            {
+              cache:"no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Traffic HTTP " +
+            response.status
+          );
+
+        }
+
+
+        const liveData =
+          await response.json();
+
+
+        if (!liveData || !liveData.dates) {
+
+          console.error(
+            "No date data found to graph."
+          );
+
+          return;
+
+        }
+
+
+        const dateStats =
+          liveData.dates;
+
+
+        const labels =
+          Object.keys(
+            dateStats
+          ).sort();
+
+
+        const values =
+          labels.map(
+            date =>
+              Number(
+                dateStats[date] || 0
+              )
+          );
+
+
+        if (trafficChartInstance) {
+
+          trafficChartInstance.destroy();
+
+        }
+
+
+        trafficChartInstance =
+          new Chart(
+            canvas.getContext("2d"),
+            {
+
+              type:"line",
+
+              data:{
+
+                labels:labels,
+
+                datasets:[{
+
+                  label:"Page Views",
+
+                  data:values,
+
+                  borderColor:"#00ff00",
+
+                  backgroundColor:
+                    "rgba(0,255,0,.15)",
+
+                  borderWidth:2,
+
+                  pointBackgroundColor:
+                    "#ffffff",
+
+                  pointBorderColor:
+                    "#00ff00",
+
+                  pointRadius:4,
+
+                  tension:.3,
+
+                  fill:true
+
+                }]
+
+              },
+
+
+              options:{
+
+                responsive:true,
+
+                maintainAspectRatio:false,
+
+                color:"#00ff00",
+
+                scales:{
+
+                  x:{
+
+                    ticks:{
+                      color:"#00ff00"
+                    },
+
+                    grid:{
+                      color:
+                        "rgba(0,255,0,.2)"
+                    }
+
+                  },
+
+                  y:{
+
+                    beginAtZero:true,
+
+                    ticks:{
+                      color:"#00ff00",
+                      stepSize:1
+                    },
+
+                    grid:{
+                      color:
+                        "rgba(0,255,0,.2)"
+                    }
+
+                  }
+
+                },
+
+
+                plugins:{
+
+                  legend:{
+
+                    labels:{
+
+                      color:"#00ff00",
+
+                      font:{
+                        family:
+                          "'Courier New', Courier, monospace"
+                      }
+
+                    }
+
+                  }
+
+                }
+
+              }
+
+            }
+          );
+
+      }
+
+      catch(error) {
+
+        console.error(
+          "Traffic graph failed:",
+          error
+        );
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      renderTrafficGraph
+    );
+
+    setInterval(
+      renderTrafficGraph,
+      60000
+    );
+
+
+    setInterval(
+      renderTrafficGraph,
+      60000
+    );
+
+  </script>
+
+
+  <!-- KRIS COMPANION -->
+
+  <div id="kris-companion">
+
+
+    <div
+      id="kris-dialogue"
+      class="hidden"
+    >
+
+      <span
+        id="kris-dialogue-text"
+      ></span>
+
+    </div>
+
+
+    <img
+      id="kris-gif"
+      src="images/krisdancinggif.gif"
+      alt="Dancing Kris"
+      draggable="false"
+    >
+
+  </div>
+
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        const kris =
+          document.getElementById(
+            "kris-companion"
+          );
+
+
+        const dialogue =
+          document.getElementById(
+            "kris-dialogue"
+          );
+
+
+        const dialogueText =
+          document.getElementById(
+            "kris-dialogue-text"
+          );
+
+
+        if (
+          !kris ||
+          !dialogue ||
+          !dialogueText
+        ) {
+
+          console.error(
+            "Kris Companion: Missing required element."
+          );
+
+          return;
+
+        }
+
+
+        const quotes = [
+
+          "what are you doing.",
+          "you opened that?",
+          "wow.",
+          "i'm watching you.",
+          "this is productive.",
+          "you have too much free time.",
+          "i'm judging you.",
+          "have you tried pressing X?",
+          "the world is revolving.",
+          "don't forget your [HeartShapedObject].",
+          "you look like someone who would trust Spamton.",
+          "NOELLE WOULD NOT APPROVE OF THIS.",
+          "where's Susie when you need her?",
+          "i wonder what Ralsei is baking.",
+          "this desktop feels like a Dark World.",
+          "did you just open another window?",
+          "that's not very [[BIG SHOT]] of you.",
+          "HEY EVERY !! IT'S ME.",
+          "CHAOS, CHAOS!",
+          "you ever wonder why the fountain is still there?",
+          "Kris... where are we?",
+          "this isn't Castle Town.",
+          "the prophecy did not mention Windows 98.",
+          "Susie would probably break this computer.",
+          "Ralsei would probably say something nice.",
+          "Lancer would probably eat the mouse.",
+          "Queen would probably buy this computer.",
+          "Berdly would explain why he's better at Minesweeper.",
+          "Noelle is probably nervous about something right now.",
+          "okay, serious question. why are there so many icons?",
+          "you know you can just close the window, right?",
+          "i've been dancing this entire time.",
+          "my legs are getting tired. probably.",
+          "do you think the Recycle Bin actually recycles anything?",
+          "Internet Explorer? In this economy?",
+          "wait. you actually use this?",
+          "i have questions. many questions.",
+          "you could be doing literally anything else right now.",
+          "don't mind me. i'm just standing here.",
+          "...",
+          "... okay.",
+          "this feels like a side quest.",
+          "is this your save file?",
+          "i think we're both lost.",
+          "maybe try turning it off and on again.",
+          "i've seen worse desktops.",
+          "actually, no i haven't.",
+          "WHY ARE YOU CLICKING THAT.",
+          "hello???",
+          "what is that.",
+          "WHY.",
+          "interesting choice.",
+          "fascinating.",
+          "i'm concerned.",
+          "this computer has seen things.",
+          "you are really committed to this.",
+          "stop opening things.",
+          "please.",
+          "Kris.exe has stopped responding.",
+          "my patience.exe has stopped responding.",
+          "this is getting out of hand.",
+          "okay this is actually kinda funny.",
+          "i wasn't expecting that.",
+          "you did WHAT.",
+          "bruh.",
+          "no way.",
+          "what.",
+          "what.",
+          "WHAT.",
+          "i'm just a little guy.",
+          "i live here now.",
+          "don't close me.",
+          "i know what you did.",
+          "i saw that.",
+          "I SAW THAT."
+
+        ];
+
+
+        const dragQuotes = [
+
+          "HEY.",
+          "WAIT.",
+          "WHERE ARE WE GOING.",
+          "why are you dragging me.",
+          "put me down.",
+          "NO.",
+          "STOP.",
+          "okay this is kinda fun.",
+          "weeeeee.",
+          "KRIS AIRLINES.",
+          "i am being relocated.",
+          "WHERE IS MY HOUSE.",
+          "you can't just move me around.",
+          "bro i'm not an icon.",
+          "okay okay okay.",
+          "let me dance over here.",
+          "destination: unknown.",
+          "this is not Castle Town."
+
+        ];
+
+
+        function randomQuote(list) {
+
+          return list[
+            Math.floor(
+              Math.random() *
+              list.length
+            )
+          ];
+
+        }
+
+
+        let dialogueTimer = null;
+
+
+        function talk(
+          message,
+          duration = 1500
+        ) {
+
+          clearTimeout(
+            dialogueTimer
+          );
+
+
+          dialogueText.textContent =
+            message;
+
+
+          dialogue.classList.remove(
+            "hidden"
+          );
+
+
+          dialogueTimer =
+            setTimeout(
+              function() {
+
+                dialogue.classList.add(
+                  "hidden"
+                );
+
+              },
+              duration
+            );
+
+        }
+
+
+        let dragging = false;
+
+        let offsetX = 0;
+        let offsetY = 0;
+
+
+        function clampKrisPosition(
+          x,
+          y
+        ) {
+
+          const width =
+            kris.offsetWidth;
+
+
+          const height =
+            kris.offsetHeight;
+
+
+          const maxX =
+            Math.max(
+              0,
+              window.innerWidth -
+              width
+            );
+
+
+          const maxY =
+            Math.max(
+              0,
+              window.innerHeight -
+              height
+            );
+
+
+          return {
+
+            x:
+              Math.max(
+                0,
+                Math.min(
+                  x,
+                  maxX
+                )
+              ),
+
+            y:
+              Math.max(
+                0,
+                Math.min(
+                  y,
+                  maxY
+                )
+              )
+
+          };
+
+        }
+
+
+        function moveKris(
+          clientX,
+          clientY
+        ) {
+
+          const position =
+            clampKrisPosition(
+
+              clientX - offsetX,
+
+              clientY - offsetY
+
+            );
+
+
+          kris.style.left =
+            position.x +
+            "px";
+
+
+          kris.style.top =
+            position.y +
+            "px";
+
+        }
+
+
+        function saveKrisPosition() {
+
+          localStorage.setItem(
+
+            "kris-companion-position",
+
+            JSON.stringify({
+
+              x:
+                parseInt(
+                  kris.style.left
+                ) || 300,
+
+              y:
+                parseInt(
+                  kris.style.top
+                ) || 180
+
+            })
+
+          );
+
+        }
+
+
+        kris.addEventListener(
+          "mousedown",
+          function(event) {
+
+            if (
+              event.button !== 0
+            )
+              return;
+
+
+            event.preventDefault();
+
+
+            const rect =
+              kris.getBoundingClientRect();
+
+
+            dragging = true;
+
+
+            offsetX =
+              event.clientX -
+              rect.left;
+
+
+            offsetY =
+              event.clientY -
+              rect.top;
+
+
+            kris.classList.add(
+              "dragging"
+            );
+
+
+            talk(
+              randomQuote(
+                dragQuotes
+              ),
+              1000
+            );
+
+          }
+        );
+
+
+        document.addEventListener(
+          "mousemove",
+          function(event) {
+
+            if (!dragging)
+              return;
+
+
+            event.preventDefault();
+
+
+            moveKris(
+              event.clientX,
+              event.clientY
+            );
+
+          }
+        );
+
+
+        document.addEventListener(
+          "mouseup",
+          function() {
+
+            if (!dragging)
+              return;
+
+
+            dragging = false;
+
+
+            kris.classList.remove(
+              "dragging"
+            );
+
+
+            saveKrisPosition();
+
+
+            talk(
+              randomQuote(
+                dragQuotes
+              ),
+              1000
+            );
+
+          }
+        );
+
+
+        kris.addEventListener(
+          "touchstart",
+          function(event) {
+
+            const touch =
+              event.touches[0];
+
+
+            const rect =
+              kris.getBoundingClientRect();
+
+
+            dragging = true;
+
+
+            offsetX =
+              touch.clientX -
+              rect.left;
+
+
+            offsetY =
+              touch.clientY -
+              rect.top;
+
+
+            kris.classList.add(
+              "dragging"
+            );
+
+
+            talk(
+              randomQuote(
+                dragQuotes
+              ),
+              1000
+            );
+
+          },
+          {
+            passive:true
+          }
+        );
+
+
+        document.addEventListener(
+          "touchmove",
+          function(event) {
+
+            if (!dragging)
+              return;
+
+
+            event.preventDefault();
+
+
+            const touch =
+              event.touches[0];
+
+
+            moveKris(
+              touch.clientX,
+              touch.clientY
+            );
+
+          },
+          {
+            passive:false
+          }
+        );
+
+
+        document.addEventListener(
+          "touchend",
+          function() {
+
+            if (!dragging)
+              return;
+
+
+            dragging = false;
+
+
+            kris.classList.remove(
+              "dragging"
+            );
+
+
+            saveKrisPosition();
+
+          }
+        );
+
+
+        const savedPosition =
+          localStorage.getItem(
+            "kris-companion-position"
+          );
+
+
+        if (savedPosition) {
+
+          try {
+
+            const position =
+              JSON.parse(
+                savedPosition
+              );
+
+
+            const safePosition =
+              clampKrisPosition(
+
+                Number(
+                  position.x
+                ) || 300,
+
+                Number(
+                  position.y
+                ) || 180
+
+              );
+
+
+            kris.style.left =
+              safePosition.x +
+              "px";
+
+
+            kris.style.top =
+              safePosition.y +
+              "px";
+
+          }
+
+          catch(error) {
+
+            console.warn(
+              "Kris Companion: Could not restore position.",
+              error
+            );
+
+          }
+
+        }
+
+
+        setTimeout(
+          function() {
+
+            talk(
+              "oh. you found me.",
+              2500
+            );
+
+          },
+          1000
+        );
+
+
+        function randomComment() {
+
+          if (!dragging) {
+
+            talk(
+              randomQuote(
+                quotes
+              ),
+              1500
+            );
+
+          }
+
+
+          const nextDelay =
+            3000 +
+            Math.random() * 4000;
+
+
+          setTimeout(
+            randomComment,
+            nextDelay
+          );
+
+        }
+
+
+        setTimeout(
+          randomComment,
+          3500
+        );
+
+
+        function yapBurst() {
+
+          if (!dragging) {
+
+            talk(
+              randomQuote(
+                quotes
+              ),
+              900
+            );
+
+          }
+
+
+          const nextBurst =
+            15000 +
+            Math.random() * 25000;
+
+
+          setTimeout(
+            yapBurst,
+            nextBurst
+          );
+
+        }
+
+
+        setTimeout(
+          yapBurst,
+          12000
+        );
+
+
+        window.addEventListener(
+          "resize",
+          function() {
+
+            const position =
+              clampKrisPosition(
+
+                parseInt(
+                  kris.style.left
+                ) || 300,
+
+                parseInt(
+                  kris.style.top
+                ) || 180
+
+              );
+
+
+            kris.style.left =
+              position.x +
+              "px";
+
+
+            kris.style.top =
+              position.y +
+              "px";
+
+          }
+        );
+
+      }
     );
 
   </script>
 
 
 </body>
+
 </html>
