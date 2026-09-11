@@ -50,20 +50,23 @@
   <!-- Interactive country map -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/css/jsvectormap.min.css"
+    href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.css"
   >
 
   <script
-    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/js/jsvectormap.min.js"
+    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.js"
+    defer
   ></script>
 
   <script
     src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.js"
+    defer
   ></script>
 
   <!-- Traffic graph -->
   <script
-    src="https://cdn.jsdelivr.net/npm/chart.js"
+    src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"
+    defer
   ></script>
 
 
@@ -103,10 +106,6 @@
 
       --GrayText:#808080;
 
-      /*
-       * Geographical map colors copied from the H.H.Roses map.
-       * Kept separate from the rest of the site's color variables.
-       */
       --geo-ink:#1c1c1c;
       --geo-muted:#6b6b6b;
       --geo-rule:#d8d5cd;
@@ -1511,6 +1510,8 @@
 
       height:100% !important;
 
+      display:block;
+
     }
 
 
@@ -2780,63 +2781,86 @@
         <div class="geo-legend">
 
           <span>
+
             <i
               style="
                 background:var(--geo-no-data);
                 border:1px solid grey;
               "
             ></i>
+
             none
+
           </span>
 
+
           <span>
+
             <i
               style="
                 background:var(--geo-c1);
                 border:1px solid grey;
               "
             ></i>
+
             1
+
           </span>
 
+
           <span>
+
             <i
               style="
                 background:var(--geo-c2);
                 border:1px solid grey;
               "
             ></i>
+
             2&ndash;5
+
           </span>
 
+
           <span>
+
             <i
               style="
                 background:var(--geo-c3);
                 border:1px solid grey;
               "
             ></i>
+
             6&ndash;20
+
           </span>
 
+
           <span>
+
             <i
               style="
                 background:var(--geo-c4);
                 border:1px solid grey;
               "
             ></i>
+
             21&ndash;100
+
           </span>
 
+
           <span>
+
             <i
               style="
                 background:var(--geo-c5);
                 border:1px solid grey;
               "
             ></i>
+
             100+
+
           </span>
 
         </div>
@@ -2844,7 +2868,10 @@
 
         <p
           class="geo-note"
-          style="margin-top:.75rem;margin-bottom:0;"
+          style="
+            margin-top:.75rem;
+            margin-bottom:0;
+          "
         >
 
           *Because I'm using the free-version of a backend
@@ -4889,19 +4916,6 @@
     }
 
 
-    /*
-     * The 2nforfun /countries endpoint can return
-     * country information in slightly different shapes.
-     *
-     * This normalizes all of the common forms into:
-     *
-     * {
-     *   US: 10,
-     *   FI: 5,
-     *   JP: 2
-     * }
-     */
-
     function normalizeCountryData(data) {
 
       const values = {};
@@ -5044,15 +5058,6 @@
       }
 
 
-      /*
-       * Direct array response:
-       *
-       * [
-       *   { country:"FI", views:10 },
-       *   { country:"US", views:5 }
-       * ]
-       */
-
       if (
         Array.isArray(data)
       ) {
@@ -5068,10 +5073,6 @@
         data &&
         typeof data === "object"
       ) {
-
-        /*
-         * Look inside common wrapper properties.
-         */
 
         const sources = [
 
@@ -5139,15 +5140,6 @@
           }
         );
 
-
-        /*
-         * Also accept a direct object:
-         *
-         * {
-         *   FI:10,
-         *   US:5
-         * }
-         */
 
         for (
           const [key,value]
@@ -5335,170 +5327,184 @@
         "";
 
 
-      /*
-       * Make absolutely sure the map library and
-       * world map have loaded before creating it.
-       */
-
       if (
-        typeof jsVectorMap ===
+        typeof window.jsVectorMap ===
         "undefined"
       ) {
 
         mapElement.textContent =
           "Map library failed to load.";
 
+        console.error(
+          "jsVectorMap is not available."
+        );
+
         return;
 
       }
 
 
       if (
-        !jsVectorMap.maps ||
-        !jsVectorMap.maps.world
+        !window.jsVectorMap.maps ||
+        !window.jsVectorMap.maps.world
       ) {
 
         mapElement.textContent =
           "World map data failed to load.";
 
+        console.error(
+          "jsVectorMap world map is not available."
+        );
+
         return;
 
       }
 
 
-      visitorMapInstance =
-        new jsVectorMap({
+      try {
 
-          selector:
-            "#visitorMap",
+        visitorMapInstance =
+          new window.jsVectorMap({
 
-          map:
-            "world",
+            selector:
+              "#visitorMap",
 
-          backgroundColor:
-            "#4b7c9b",
+            map:
+              "world",
 
-          zoomButtons:true,
+            backgroundColor:
+              "#4b7c9b",
 
-          zoomOnScroll:true,
+            zoomButtons:true,
 
-          zoomStep:1.4,
+            zoomOnScroll:true,
 
-          zoomMax:8,
+            zoomStep:1.4,
 
-          zoomMin:1,
+            zoomMax:8,
 
-          draggable:true,
+            zoomMin:1,
 
-          showTooltip:true,
+            draggable:true,
 
-
-          visualizeData:{
-
-            scale:[
-
-              "#ffffcc",
-
-              "#006837"
-
-            ],
-
-            values:
-              values
-
-          },
+            showTooltip:true,
 
 
-          regionStyle:{
+            visualizeData:{
 
-            initial:{
+              scale:[
 
-              fill:
-                "#e4e1da",
+                "#ffffcc",
 
-              stroke:
-                "#777777",
+                "#006837"
 
-              strokeWidth:
-                .5,
+              ],
 
-              fillOpacity:
-                1
+              values:
+                values
 
             },
 
 
-            hover:{
+            regionStyle:{
 
-              fill:
-                "#00aa00",
+              initial:{
 
-              fillOpacity:
-                .9
+                fill:
+                  "#e4e1da",
 
-            }
+                stroke:
+                  "#777777",
 
-          },
+                strokeWidth:
+                  .5,
 
+                fillOpacity:
+                  1
 
-          onRegionTooltipShow:
-            function(
-              event,
-              tooltip,
-              code
-            ) {
-
-              const normalizedCode =
-                String(code)
-                  .toUpperCase();
+              },
 
 
-              const views =
-                Number(
-                  values[
+              hover:{
+
+                fill:
+                  "#00aa00",
+
+                fillOpacity:
+                  .9
+
+              }
+
+            },
+
+
+            onRegionTooltipShow:
+              function(
+                event,
+                tooltip,
+                code
+              ) {
+
+                const normalizedCode =
+                  String(code)
+                    .toUpperCase();
+
+
+                const views =
+                  Number(
+                    values[
+                      normalizedCode
+                    ] || 0
+                  );
+
+
+                const name =
+                  countryName(
                     normalizedCode
-                  ] || 0
+                  );
+
+
+                tooltip.text(
+
+                  name +
+                  " - " +
+                  views.toLocaleString(
+                    "en-US"
+                  ) +
+                  " views"
+
                 );
 
+              }
 
-              const name =
-                countryName(
-                  normalizedCode
-                );
+          });
 
 
-              tooltip.text(
+        if (
+          visitorMapInstance &&
+          typeof
+            visitorMapInstance.setValues ===
+            "function"
+        ) {
 
-                name +
-                " - " +
-                views.toLocaleString(
-                  "en-US"
-                ) +
-                " views"
+          visitorMapInstance.setValues(
+            values
+          );
 
-              );
+        }
 
-            }
+      }
 
-        });
+      catch(error) {
 
-
-      /*
-       * jsVectorMap 1.7 supports setValues().
-       * Calling it after construction also makes sure
-       * the visualization receives the normalized values.
-       */
-
-      if (
-        visitorMapInstance &&
-        typeof
-          visitorMapInstance.setValues ===
-          "function"
-      ) {
-
-        visitorMapInstance.setValues(
-          values
+        console.error(
+          "jsVectorMap creation failed:",
+          error
         );
+
+
+        mapElement.textContent =
+          "Map could not be created.";
 
       }
 
@@ -5551,11 +5557,6 @@
           await response.json();
 
 
-        /*
-         * Useful when debugging the actual
-         * 2nforfun response in the browser console.
-         */
-
         console.log(
           "2nforfun country API:",
           data
@@ -5566,6 +5567,12 @@
           normalizeCountryData(
             data
           );
+
+
+        console.log(
+          "Normalized country values:",
+          values
+        );
 
 
         updateGeoStats(
@@ -5601,13 +5608,14 @@
     }
 
 
-    /*
-     * Wait for DOM + external jsVectorMap assets.
-     */
-
     document.addEventListener(
       "DOMContentLoaded",
       function() {
+
+        /*
+         * The library scripts in <head> use defer,
+         * so DOMContentLoaded waits for them.
+         */
 
         loadGeographicalViews();
 
@@ -5631,23 +5639,134 @@
       null;
 
 
+    function extractTrafficDates(data) {
+
+      if (
+        !data ||
+        typeof data !== "object"
+      ) {
+
+        return null;
+
+      }
+
+
+      /*
+       * Normal expected response:
+       *
+       * {
+       *   dates: {
+       *     "2026-09-01": 5,
+       *     "2026-09-02": 8
+       *   }
+       * }
+       */
+
+      if (
+        data.dates &&
+        typeof data.dates === "object" &&
+        !Array.isArray(data.dates)
+      ) {
+
+        return data.dates;
+
+      }
+
+
+      /*
+       * Also support:
+       *
+       * {
+       *   "2026-09-01": 5,
+       *   "2026-09-02": 8
+       * }
+       */
+
+      const possibleDates = {};
+
+
+      for (
+        const [key,value]
+        of Object.entries(data)
+      ) {
+
+        if (
+          /^\d{4}-\d{2}-\d{2}$/.test(key)
+        ) {
+
+          possibleDates[key] =
+            value;
+
+        }
+
+      }
+
+
+      if (
+        Object.keys(
+          possibleDates
+        ).length
+      ) {
+
+        return possibleDates;
+
+      }
+
+
+      /*
+       * Also support:
+       *
+       * {
+       *   data: {
+       *     dates: {...}
+       *   }
+       * }
+       */
+
+      if (
+        data.data &&
+        typeof data.data === "object" &&
+        data.data.dates &&
+        typeof data.data.dates === "object"
+      ) {
+
+        return data.data.dates;
+
+      }
+
+
+      return null;
+
+    }
+
+
     async function renderTrafficGraph() {
 
-      const chartCanvas =
+      const canvas =
         document.getElementById(
           "trafficChart"
         );
 
 
-      if (!chartCanvas)
+      if (!canvas)
         return;
 
 
-      try {
+      if (
+        typeof window.Chart ===
+        "undefined"
+      ) {
 
-        /*
-         * KEEPING THE 2NFORFUN API.
-         */
+        console.error(
+          "Chart.js is not available."
+        );
+
+        return;
+
+      }
+
+
+      try {
 
         const response =
           await fetch(
@@ -5681,22 +5800,28 @@
           await response.json();
 
 
-        if (
-          !liveData ||
-          !liveData.dates
-        ) {
+        console.log(
+          "2nforfun traffic API:",
+          liveData
+        );
+
+
+        const dateStats =
+          extractTrafficDates(
+            liveData
+          );
+
+
+        if (!dateStats) {
 
           console.error(
-            "No date data found to graph."
+            "No usable date data found in /counts response.",
+            liveData
           );
 
           return;
 
         }
-
-
-        const dateStats =
-          liveData.dates;
 
 
         const sortedDates =
@@ -5709,27 +5834,69 @@
           sortedDates.map(
             function(date) {
 
+              const raw =
+                dateStats[date];
+
+
+              if (
+                raw &&
+                typeof raw === "object"
+              ) {
+
+                return Number(
+
+                  raw.views ??
+                  raw.count ??
+                  raw.total ??
+                  raw.value ??
+                  0
+
+                ) || 0;
+
+              }
+
+
               return (
-                Number(
-                  dateStats[date]
-                ) || 0
+                Number(raw) ||
+                0
               );
 
             }
           );
 
 
-        const ctx =
-          chartCanvas.getContext(
-            "2d"
+        if (
+          !sortedDates.length
+        ) {
+
+          console.warn(
+            "Traffic API returned no dates."
           );
+
+          return;
+
+        }
 
 
         if (
           trafficChartInstance
         ) {
 
-          trafficChartInstance.destroy();
+          try {
+
+            trafficChartInstance.destroy();
+
+          }
+
+          catch(error) {
+
+            console.warn(
+              "Could not destroy previous traffic chart:",
+              error
+            );
+
+          }
+
 
           trafficChartInstance =
             null;
@@ -5737,14 +5904,26 @@
         }
 
 
-        /*
-         * This is the traffic graph style
-         * copied from the H.H.Roses version.
-         */
+        const context =
+          canvas.getContext(
+            "2d"
+          );
+
+
+        if (!context) {
+
+          throw new Error(
+            "Could not get traffic chart canvas context."
+          );
+
+        }
+
 
         trafficChartInstance =
-          new Chart(
-            ctx,
+          new window.Chart(
+
+            context,
+
             {
 
               type:"line",
@@ -5802,6 +5981,10 @@
 
                 color:
                   "#00ff00",
+
+
+                animation:
+                  false,
 
 
                 scales:{
@@ -5877,7 +6060,15 @@
               }
 
             }
+
           );
+
+
+        console.log(
+          "Traffic graph rendered.",
+          sortedDates,
+          viewCounts
+        );
 
       }
 
@@ -5902,11 +6093,6 @@
       }
     );
 
-
-    /*
-     * Only ONE refresh interval.
-     * The previous file had this twice.
-     */
 
     setInterval(
       renderTrafficGraph,
