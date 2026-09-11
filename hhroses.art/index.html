@@ -4980,7 +4980,7 @@
         const response =
           await fetch(
             ANALYTICS_WORKER +
-            "/traffic",
+            "/counts",
             {
               cache:"no-store"
             }
@@ -5001,12 +5001,34 @@
           await response.json();
 
 
-        const daily =
-          Array.isArray(
-            liveData.daily
-          )
-            ? liveData.daily
-            : [];
+        if (!liveData || !liveData.dates) {
+
+          console.error(
+            "No date data found to graph."
+          );
+
+          return;
+
+        }
+
+
+        const dateStats =
+          liveData.dates;
+
+
+        const labels =
+          Object.keys(
+            dateStats
+          ).sort();
+
+
+        const values =
+          labels.map(
+            date =>
+              Number(
+                dateStats[date] || 0
+              )
+          );
 
 
         if (trafficChartInstance) {
@@ -5014,22 +5036,6 @@
           trafficChartInstance.destroy();
 
         }
-
-
-        const labels =
-          daily.map(
-            item =>
-              item.day
-          );
-
-
-        const values =
-          daily.map(
-            item =>
-              Number(
-                item.views || 0
-              )
-          );
 
 
         trafficChartInstance =
@@ -5156,6 +5162,11 @@
     document.addEventListener(
       "DOMContentLoaded",
       renderTrafficGraph
+    );
+
+    setInterval(
+      renderTrafficGraph,
+      60000
     );
 
 
