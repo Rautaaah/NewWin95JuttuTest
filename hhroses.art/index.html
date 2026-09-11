@@ -1,2624 +1,3175 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  
+<!-- Mirrored from https://hhroses.art/ by HTTrack Website Copier/3.x [XR&CO], Fri, 11 Sep 2026 12:03:14 GMT -->
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>H.H.Roses 🌹</title>
-
-
-<style>
-
-/* =========================================================
-   H.H.ROSES — 90s / WINDOWS 98 STYLE
-   ========================================================= */
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-}
-
-body {
-
-    background-color: #008080;
-
-    background-image:
-        repeating-linear-gradient(
-            0deg,
-            rgba(0,0,0,0.04) 0px,
-            rgba(0,0,0,0.04) 1px,
-            transparent 1px,
-            transparent 3px
-        );
-
-    font-family:
-        "MS Sans Serif",
-        Tahoma,
-        Geneva,
-        sans-serif;
-
-    color: #000;
-
-    overflow-x: hidden;
-}
-
-
-/* =========================================================
-   WELCOME SCREEN
-   ========================================================= */
-
-#welcome-screen {
-
-    position: fixed;
-
-    inset: 0;
-
-    background: #008080;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    z-index: 99999;
-}
-
-
-.welcome-box {
-
-    width: 430px;
-
-    max-width: 88%;
-
-    background: #c0c0c0;
-
-    border-top: 3px solid white;
-    border-left: 3px solid white;
-
-    border-right: 3px solid #404040;
-    border-bottom: 3px solid #404040;
-
-    box-shadow:
-        8px 8px #004040;
-}
-
-
-.window-title {
-
-    background:
-        linear-gradient(
-            to right,
-            navy,
-            #1084d7
-        );
-
-    color: white;
-
-    padding: 5px 8px;
-
-    font-weight: bold;
-
-    font-size: 14px;
-}
-
-
-.welcome-content {
-
-    padding: 22px;
-
-    text-align: center;
-}
-
-
-.welcome-content h1 {
-
-    font-family:
-        "Comic Sans MS",
-        cursive;
-
-    color: #ff1493;
-
-    text-shadow:
-        2px 2px yellow;
-
-    font-size: 30px;
-
-    margin-top: 5px;
-}
-
-
-.welcome-content p {
-
-    font-size: 13px;
-
-    line-height: 1.5;
-}
-
-
-.win-button {
-
-    background: #c0c0c0;
-
-    border-top: 2px solid white;
-    border-left: 2px solid white;
-
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-
-    padding: 7px 20px;
-
-    font-family: inherit;
-
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-
-.win-button:active {
-
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
-}
-
-
-/* =========================================================
-   MAIN PAGE
-   ========================================================= */
-
-.page-wrap {
-
-    width: 92%;
-
-    max-width: 1100px;
-
-    margin: 25px auto;
-}
-
-
-/* =========================================================
-   WINDOWS
-   ========================================================= */
-
-.window {
-
-    background: #c0c0c0;
-
-    border-top: 3px solid white;
-    border-left: 3px solid white;
-
-    border-right: 3px solid #404040;
-    border-bottom: 3px solid #404040;
-
-    margin-bottom: 18px;
-
-    box-shadow:
-        6px 6px rgba(0,0,0,0.35);
-}
-
-
-.title-bar {
-
-    background:
-        linear-gradient(
-            to right,
-            navy,
-            #1084d7
-        );
-
-    color: white;
-
-    padding: 5px 8px;
-
-    font-weight: bold;
-
-    font-size: 14px;
-}
-
-
-.window-body {
-
-    padding: 14px;
-}
-
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-.site-header {
-
-    text-align: center;
-
-    padding: 20px 10px;
-}
-
-
-.site-header h1 {
-
-    font-family:
-        "Comic Sans MS",
-        cursive;
-
-    font-size: 50px;
-
-    margin: 5px;
-
-    color: #ff1493;
-
-    text-shadow:
-        3px 3px yellow,
-        5px 5px #800080;
-}
-
-
-.site-header p {
-
-    font-family:
-        "Comic Sans MS",
-        cursive;
-
-    font-size: 16px;
-}
-
-
-.marquee {
-
-    background: #000;
-
-    color: #00ff00;
-
-    border:
-        3px inset #c0c0c0;
-
-    padding: 5px;
-
-    font-family:
-        "Courier New",
-        monospace;
-
-    margin-top: 10px;
-}
-
-
-/* =========================================================
-   INTRO
-   ========================================================= */
-
-.intro {
-
-    font-size: 14px;
-
-    line-height: 1.5;
-}
-
-
-hr {
-
-    border: 0;
-
-    border-top:
-        2px groove white;
-}
-
-
-/* =========================================================
-   PHOTO GRID
-   ========================================================= */
-
-.page2_wrap {
-
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 18px;
-
-    align-items: start;
-}
-
-
-/* =========================================================
-   PHOTO WINDOWS
-   ========================================================= */
-
-.photo-window {
-
-    background: #c0c0c0;
-
-    border-top: 3px solid white;
-    border-left: 3px solid white;
-
-    border-right: 3px solid #404040;
-    border-bottom: 3px solid #404040;
-
-    box-shadow:
-        5px 5px rgba(0,0,0,0.3);
-}
-
-
-.photo-title {
-
-    background:
-        linear-gradient(
-            to right,
-            #800080,
-            #ff00ff
-        );
-
-    color: white;
-
-    padding: 6px;
-
-    font-weight: bold;
-
-    font-size: 14px;
-
-    text-align: center;
-}
-
-
-.photo-subtitle {
-
-    text-align: center;
-
-    font-size: 11px;
-
-    padding: 7px;
-
-    background: #ffffcc;
-
-    border-bottom:
-        1px solid #808080;
-}
-
-
-.photo-content {
-
-    padding: 10px;
-
-    text-align: center;
-}
-
-
-/* =========================================================
-   RANDOM PHOTO
-   ========================================================= */
-
-.random-photo {
-
-    width: 100%;
-
-    height: 280px;
-
-    object-fit: cover;
-
-    display: block;
-
-    background: white;
-
-    border-top: 3px solid #404040;
-    border-left: 3px solid #404040;
-
-    border-right: 3px solid white;
-    border-bottom: 3px solid white;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.08s;
-}
-
-
-.random-photo:hover {
-
-    transform:
-        scale(1.01);
-}
-
-
-.photo-caption {
-
-    background: white;
-
-    border:
-        2px inset #c0c0c0;
-
-    margin-top: 8px;
-
-    padding: 7px;
-
-    min-height: 18px;
-
-    font-size: 12px;
-
-    font-weight: bold;
-}
-
-
-.photo-button {
-
-    margin-top: 9px;
-
-    background: #c0c0c0;
-
-    border-top: 2px solid white;
-    border-left: 2px solid white;
-
-    border-right: 2px solid #404040;
-    border-bottom: 2px solid #404040;
-
-    padding: 7px 14px;
-
-    font-family: inherit;
-
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-
-.photo-button:active {
-
-    border-top: 2px solid #404040;
-    border-left: 2px solid #404040;
-
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
-}
-
-
-.photo-number {
-
-    font-size: 10px;
-
-    color: #333;
-
-    margin-top: 6px;
-}
-
-
-/* =========================================================
-   SOURCE LINK
-   ========================================================= */
-
-.source-link {
-
-    display: inline-block;
-
-    margin-top: 7px;
-
-    font-size: 10px;
-
-    color: navy;
-
-    text-decoration: underline;
-
-    font-weight: bold;
-}
-
-
-/* =========================================================
-   GNOME
-   ========================================================= */
-
-.gnome {
-
-    position: fixed;
-
-    left: 10px;
-
-    bottom: 10px;
-
-    font-size: 48px;
-
-    animation:
-        bob 2s infinite ease-in-out;
-
-    z-index: 50;
-
-    pointer-events: none;
-}
-
-
-@keyframes bob {
-
-    0%,
-    100% {
-
-        transform:
-            translateY(0);
-    }
-
-    50% {
-
-        transform:
-            translateY(-8px);
-    }
-}
-
-
-/* =========================================================
-   FAIRY
-   ========================================================= */
-
-.fairy {
-
-    position: fixed;
-
-    right: 10px;
-
-    top: 15px;
-
-    font-size: 42px;
-
-    animation:
-        sparkle 1.5s infinite alternate;
-
-    z-index: 50;
-
-    pointer-events: none;
-}
-
-
-@keyframes sparkle {
-
-    from {
-
-        transform:
-            rotate(-5deg)
-            scale(1);
-    }
-
-    to {
-
-        transform:
-            rotate(5deg)
-            scale(1.12);
-    }
-}
-
-
-/* =========================================================
-   TERMS
-   ========================================================= */
-
-.terms {
-
-    font-size: 11px;
-
-    line-height: 1.4;
-}
-
-
-.terms-box {
-
-    background: #ffffcc;
-
-    border:
-        2px inset #c0c0c0;
-
-    padding: 10px;
-
-    height: 105px;
-
-    overflow-y: auto;
-}
-
-
-/* =========================================================
-   NEOCITIES
-   ========================================================= */
-
-.neocities {
-
-    text-align: center;
-
-    padding: 12px;
-}
-
-
-.neocities a {
-
-    color: blue;
-
-    font-weight: bold;
-}
-
-
-/* =========================================================
-   LANGUAGE
-   ========================================================= */
-
-.language-box {
-
-    text-align: center;
-
-    margin-top: 10px;
-
-    padding-bottom: 12px;
-}
-
-
-select {
-
-    font-family: inherit;
-
-    background: white;
-
-    border:
-        2px inset #c0c0c0;
-
-    padding: 3px;
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-
-    text-align: center;
-
-    font-size: 11px;
-
-    margin:
-        20px 0 50px;
-
-    color: white;
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 700px) {
-
-    .page2_wrap {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .site-header h1 {
-
-        font-size: 36px;
-    }
-
-
-    .welcome-box {
-
-        width: 85%;
-    }
-
-
-    .random-photo {
-
-        height: 230px;
-    }
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<!-- =======================================================
-     WELCOME SCREEN
-     ======================================================= -->
-
-<div id="welcome-screen">
-
-    <div class="welcome-box">
-
-        <div class="window-title">
-
-            🌹 H.H.Roses.exe
-
+    <title>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 to H.H.Roses</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../unpkg.com/98.css%400.1.21/dist/98.css" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-src/haileee%27s-comet_favicon.ico" />
+    <link href="src/haileetheme/contextmenu/contextmenu.css" rel="stylesheet" type="text/css">
+    <script src="src/haileetheme/contextmenu/contextmenuae52.js?v=5"></script>
+    <script src="programs/Splash-Cursor/splash-cursor.js" defer></script>
+    <!-- achievements --> 
+    <script src="src/achievements/script5e1f.js?v=2"></script>
+    <link rel="stylesheet" href="src/achievements/style.css"/>
+    <style>
+      *,*::before,*::after {box-sizing: border-box;margin: 0;}
+      .fuzzy-overlay {
+        position: fixed;
+        top:0px !important;
+        left:0px !important;
+        width:100% !important;
+        height:100% !important;
+        background-image: url("images/noise2.jpg");
+        opacity: .0;
+        z-index: 9999999999 !important;
+        pointer-events: none;
+        animation: shift 0.2s linear infinite both;
+      }
+      @keyframes shift {0% {transform: translateX(10%) translateY(10%);}100% {transform: translateX(-10%) translateY(-10%);}}
+      :root {
+        --crt-red: rgb(218, 49, 49);
+        --crt-green: rgb(112, 159, 115);
+        --crt-blue: rgb(40, 129, 206);
+        --ActiveTitle: #000080;
+        --GradientActiveTitle: #1084d0;
+        --InactiveTitle: #808080;
+        --GradientInactiveTitle: #b5b5b5;
+        --TitleText: #ffffff;
+        --InactiveTitleText: #c0c0c0;
+        --Background: #008080;
+        --Window: #ffffff;
+        --WindowText: #000000;
+        --ButtonFace: #c0c0c0;
+        --ButtonHilight: #ffffff;
+        --ButtonShadow: #808080;
+        --ButtonDkShadow: #000000;
+        --ButtonText: #000000;
+        --Hilight: #000080;
+        --HilightText: #ffffff;
+        --GrayText: #808080;  
+      }
+      .crt::before,
+      .crt::after,
+      body::before,
+      body::after {
+        position: fixed;
+        content: "";
+        pointer-events: none;
+        opacity: .2;
+        mix-blend-mode: overlay;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 900 !important;
+      }
+      .crt::before,
+      body::before {
+        position: fixed;
+        background: repeating-linear-gradient(var(--crt-red) 0px,
+          var(--crt-green) 2px,
+          var(--crt-blue) 4px);
+      }
+      .crt::after,
+      body::after {
+        position: fixed;
+        background: repeating-linear-gradient(90deg,
+          var(--crt-red) 1px,
+          var(--crt-green) 2px,
+          var(--crt-blue) 3px);
+      } 
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      .overlay {
+        position: fixed;
+        top:0px !important;
+        left:0px !important;
+        width:100% !important;
+        height:100% !important;
+        background: url('images/backgrounds/pixel-star-background.gif') top right repeat;
+        z-index: 1;
+        mix-blend-mode: screen;
+        opacity: 1;
+        pointer-events: none;
+      }
+      .gradient {
+        position: fixed;
+        top:0px !important;
+        left:0px !important;
+        width:100% !important;
+        height:100% !important;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0) 30%, rgba(255, 255, 255, 1) 1000%);
+        z-index: 1;
+        pointer-events: none;
+      }    
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #fluid-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 999;
+        pointer-events: none;
+      }
+      @font-face{
+        font-family: 'basiic';
+        src: url(https://cinni.net/fonts/basiic.ttf);
+      } 
+      @font-face {
+        font-family: 'CelticBitThin';
+        src: url(https://hhroses.neocities.org/font/CelticBitThin.woff) format('woff'),
+          url(https://hhroses.neocities.org/font/CelticBitThin.ttf) format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "ComicSans";
+        src: url("https://hhroses.neocities.org/font/Ldfcomicsans-jj7l.ttf") format("truetype");
+      }     
+      ::-webkit-scrollbar-thumb {
+        background: #c0c0c0;
+        box-shadow: inset 1px 1px #fff, inset -1px -1px #0a0a0a, inset 2px 2px #dfdfdf, inset -2px -2px #808080;
+      } 
+      body {
+        font-family: 'CelticBitThin', sans-serif;
+        background-image: url('images/backgrounds/seamlessgalaxy3.jpg');
+        background-attachment: fixed;
+        background-color: black;
+        overflow-x: hidden;
+        overflow-y:auto;
+        margin: 0;
+        padding:0;
+        cursor: url('cursors/default.png'), default;
+        width: 100%;
+        height:3500px;
+      }
+      .coolcode {
+        position: fixed !important;
+        background-image: url('images/green_code.gif');
+        width: 100%;
+        height: 400px;
+        position: absolute;
+        z-index: -3;
+        top: -100px;
+        pointer-events: none;
+        -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+        transition: top 1s ease;
+      }
+      .clouds {
+        position: absolute !important;
+        background-image: url('images/frutiger-aero/clouds_25.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 100%;
+        min-width:100%;
+        height: 100vh;
+        position: absolute;
+        z-index: -5;
+        top: 125px;
+        bottom: 0px;
+        pointer-events: none;
+        -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 90%);
+        mask-image: linear-gradient(to bottom, black 30%, transparent 90%);
+        transition: opacity 1s ease;
+      }
+      a, #button {cursor:url('cursors/pointer.png'), pointer;}
+      img:hover{scale:1.01;}
+      .gnome {
+        z-index: 99;
+        position: absolute;
+        max-width: 10%; 
+        max-height: 10%;
+        z-index: 999; 
+        cursor: url('cursors/pointer.png'), pointer;
+        filter: drop-shadow(0 0 3px white) !important;
+      }
+      .gnome:hover{scale:1.1 !important;}
+      .maincontent {
+        height: 85vh !important;
+        width: 100%;
+        position: absolute;
+        content-align: middle;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .computer {
+        width: auto;
+        max-width: 95% !important;
+        max-height: 40vh;
+        max-width: 418px;
+        margin: 10px auto 0px auto;
+        display: block;
+        vertical-align: top;
+        filter: drop-shadow(0 0 25px white);
+      }
+      .maincontent span {
+        background-color: rgba(214,195,196, .5);
+        font-family: 'CelticBitThin', sans-serif;
+        object-fit: contain;
+        text-align: center;
+        margin: -10px auto 0 auto !important;
+        font-size: 16px;
+        height: 16px;
+      }      
+      .textbox {
+        width: auto;
+        max-width: 95%;
+        height: auto;
+        max-height: 20vh;
+        filter:drop-shadow(0 0 5px rgba(0,0,0,1))
+      }
+      div.webring {
+        position:relative;
+        transform:translateX(185px) translateY(-30px);
+        padding:none;
+        margin-bottom:-100px;
+      }
+      .enterbutton {
+        content-align: middle;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        background-image: none;
+        width: 300px;
+        max-width:100%;
+        height: auto;
+      }
+      .enterbutton img {
+        position:relative;
+        width:150px;
+        height: auto;
+        margin: 0 auto;
+        padding: 0;
+        margin-bottom:20px;
+        z-index:0;
+        filter: drop-shadow(0 0 3px black) !important;
+      }
+      .enterbutton:hover {
+        background-image: url('images/misc/comicexplode.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: opacity 1s ease, background-color 1s ease, background-image 1s ease;z-index:0;
+      }
+      .pageviews {
+        position: fixed;
+        display: table;
+        min-width: 150px;
+        bottom: 7px;
+        right: 5px;
+        z-index: 999 !important;
+        font-family: 'basiic', sans-serif;
+        font-size: 16px;
+        color: white;
+        background-color: rgba(45, 99, 4, .5);
+        padding-left: 7px;
+        padding-top: 2px;
+        padding-right: 5px;
+        line-height: 16px;
+        pointer-events: none;
+      }
+      .grass {
+        position: fixed !important;
+        background-image: url('images/frutiger-aero/foregrounds_73.png');
+        width: 100%;
+        height: 248px;
+        position: absolute;
+        pointer-events: none;
+        z-index: 999;
+        bottom: -160px;
+        left: 0px;
+      }
+      img.outlined {
+        -webkit-filter: drop-shadow(2px 2px 0 white) 
+                        drop-shadow(-2px 2px 0 white) 
+                        drop-shadow(2px -2px 0 white) 
+                        drop-shadow(-2px -2px 0 white)
+                        drop-shadow(0 0 2px white)
+                        drop-shadow(0 0 5px white);
+        filter: drop-shadow(2px 2px 0 white) 
+                drop-shadow(-2px 2px 0 white) 
+                drop-shadow(2px -2px 0 white) 
+                drop-shadow(-2px -2px 0 white)
+                drop-shadow(0 0 2px white)
+                drop-shadow(0 0 5px white);
+      }
+      .flier {
+        pointer-events: none;
+        z-index: 9999999 !important; 
+      }
+      .flier>* {
+        animation: fly 50s linear infinite;
+        pointer-events: none !important;
+        top: 0;
+        left: 0;
+        transform: translateX(-120%) translateY(-120%) rotateZ(0);
+        position: fixed;
+        animation-delay: 1s;
+        z-index: 999999;
+        filter: drop-shadow(0 0 3px white) !important;
+      }
+      @keyframes fly {
+        98.001%,
+        0% {
+          display: block;
+          transform: translateX(-200%) translateY(100vh) rotateZ(0deg)
+        }
+        15% {
+          transform: translateX(100vw) translateY(-100%) rotateZ(180deg)
+        }
+        15.001%,
+        18% {
+          transform: translateX(100vw) translateY(-30%) rotateZ(0deg)
+        }
+        40% {
+          transform: translateX(-200%) translateY(3vh) rotateZ(-180deg)
+        }
+        40.001%,
+        43% {
+          transform: translateX(-200%) translateY(-100%) rotateZ(-180deg)
+        }
+        65% {
+          transform: translateX(100vw) translateY(50vh) rotateZ(0deg)
+        }
+        65.001%,
+        68% {
+          transform: translateX(20vw) translateY(-200%) rotateZ(180deg)
+        }
+        95% {
+          transform: translateX(10vw) translateY(100vh) rotateZ(0deg)
+        }
+      }
+      @media (max-height: 810px), (max-width: 700px) { 
+        div.webring { 
+          transform:none;
+          margin:10px 0 -15px 0
+        }
+      }     
+      #fluid-canvas {
+        z-index: 9999999999 !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    
+    <!-- right click context menu -->
+    <div id="win98-menu" class="context-menu">
+      <div class="menu-item" onclick="handleCut()"><u>C</u>ut</div>
+      <div class="menu-item" onclick="copyToClipboard()"><u>C</u>opy</div>
+      <div class="menu-item" onclick="pasteToElement()"><u>P</u>aste</div>
+      <div class="menu-separator"></div>
+      <div class="menu-item">Properties</div>
+    </div>  
+
+    <!--mouse thing-->
+    <canvas id="fluid-canvas"></canvas>
+
+    <!--sound effect-->
+    <audio autoplay>
+      <source src="https://hhroses.neocities.org/audio/medieval-fanfare.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio> 
+
+    <!--thingy i forget why but its important v -->
+    <div style="visibility: hidden;">google-site-verification: googlee9bd4a88d1b5bb86.html</div> 
+
+    <!--decor-->
+    <div class="coolcode" tite="cool green code"></div>
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <div class="gradient"></div>
+    <div class="fuzzy-overlay"></div>
+    <div class="grass" title="grass"></div>
+    <div class="clouds" title="clouds"></div>
+
+    <main>
+
+      <!--page content-->
+      <div class="maincontent">
+
+        <img
+          title="90s desktop computer"
+          src="images/90s_pc2.png"
+          class="computer outlined"
+          alt="computer image"
+          loading="lazy"
+        >
+
+        <br>
+
+        <img
+          class="textbox"
+          src="images/misc/ff5-Welcome%20to%20my%20website%20Its%20been%20optimized%20for%20computers.%20Mobile%20v.png"
+          title="chat bubble stating that this site may not be mobile-friendly"
+          loading="lazy"
+        >
+
+        <!-- webring -->
+        <div class="webring">
+          <div id="we_bring">
+            <script type="text/javascript" src="../brooklynights.nekoweb.org/we_bring/onionring-variables.js"></script>
+            <script type="text/javascript" src="../brooklynights.nekoweb.org/we_bring/onionring-widget.js"></script>
+          </div>
+        </div>
+        
+        
+        <br>
+
+        <div class="enterbutton">
+          <a href="bios-startup.html">
+            <img
+              title="enter button"
+              src="images/enterbutton3.png"
+              loading="lazy"
+            >
+          </a>
         </div>
 
+        <span style="text-shadow: 1px 1px white, -1px -1px #808080; mix-blend-mode: difference;padding-top:5px;background:transparent;">
+          ↓ Or keep scrolling? ↓
+        </span>
 
-        <div class="welcome-content">
+      </div>
+      
+      <!--page view counter-->
+      <div class="pageviews">
+        <span>page views:</span>
 
-            <h1>
-                Welcome!! 🌹
-            </h1>
+        <span
+          style="border: 2px solid green; border-radius: 3px; float: right; padding: 0; margin: -10px 0 0 0; height: 20px;"
+        >
+          <script
+            type="text/javascript"
+            src="https://counter.websiteout.com/js/6/8/450448/0"
+          ></script>
+        </span>
 
+      </div>
 
-            <p>
-
-                Welcome to H.H.Roses!!
-
-                <br>
-
-                A totally normal internet homepage.
-
-            </p>
-
-
-            <p>
-
-                🚆 trains
-                <br>
-
-                🐱 cats
-                <br>
-
-                🌹 roses
-                <br>
-
-                💿 90s internet energy
-
-            </p>
+    </main>
 
 
-            <button
-                class="win-button"
-                onclick="enterSite()">
-
-                ENTER WEBSITE
-
-            </button>
-
-        </div>
-
+    <!--flying fairy-->
+    <div class="flier" title="flying fairy">
+      <img
+        src="images/flying-fairy.gif"
+        alt="flying fairy"
+      >
     </div>
 
-</div>
 
+    <!--little gnome-->
+    <audio id="sfx">
+      <source src="https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3">
+    </audio>
 
+    <div>
 
-<!-- =======================================================
-     MAIN PAGE
-     ======================================================= -->
-
-<div class="page-wrap">
-
-
-    <!-- ===================================================
-         HEADER WINDOW
-         =================================================== -->
-
-    <div class="window">
-
-        <div class="title-bar">
-
-            🌹 H.H.Roses — Welcome!!
-
-        </div>
-
-
-        <div class="window-body">
-
-
-            <header class="site-header">
-
-                <h1>
-                    H.H.Roses 🌹
-                </h1>
-
-
-                <p>
-
-                    welcome to my little corner
-                    of the internet!!
-
-                </p>
-
-
-                <div class="marquee">
-
-                    <marquee scrollamount="6">
-
-                        ★★★ WELCOME TO H.H.ROSES ★★★
-                        🚆 TRAINS!!! 🚆
-                        🐱 CATS!!! 🐱
-                        🌹 ROSES!!! 🌹
-                        💿 90s INTERNET!!!
-                        ★★★ MEOW ★★★
-
-                    </marquee>
-
-                </div>
-
-            </header>
-
-
-            <hr>
-
-
-            <div class="intro">
-
-                <p>
-                    Hello and welcome!! 🌹
-                </p>
-
-
-                <p>
-
-                    This is my personal website
-                    where I put random things I like,
-                    cool pictures, trains, cats,
-                    roses, and other internet nonsense.
-
-                </p>
-
-
-                <p>
-
-                    Please enjoy your stay!!
-
-                </p>
-
-
-                <p>
-
-                    <b>
-                        🚆 TRAIN TIME 🚆
-                    </b>
-
-                    <br>
-
-                    <b>
-                        🐱 CAT TIME 🐱
-                    </b>
-
-                    <br>
-
-                    <b>
-                        🌹 ROSE TIME 🌹
-                    </b>
-
-                </p>
-
-            </div>
-
-        </div>
+      <img 
+        loading="lazy" 
+        class="gnome decoration" 
+        onclick="playsound();move();unlockAchievement(
+          'gnome_clicker',
+          'OOH!',
+          'https://wsrv.nl/?url=https://hhroses.neocities.org/images/little_gnome.png&amp;w=32&amp;h=32&amp;fit=cover%ef%b8%8f',
+          'Booped the gnome',
+          'games',
+          'https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3'
+        ); "
+        id="gnome"
+        src="images/little_gnome.png"
+        alt="little gnome" 
+        style="max-width: 10%; max-height: 10%; z-index: 999;"
+      />
 
     </div>
 
 
+    <script>
 
-    <!-- ===================================================
-         RANDOM PHOTO WINDOWS
-         =================================================== -->
+      // code for little gnome
+
+      window.onload = function() {
+        move()
+      }
+
+      function move() {
+        let img = document.getElementById('gnome')
+        img.style.left =
+          Math.floor(Math.random() * window.innerWidth) + "px"
+
+        img.style.top =
+          Math.floor(Math.random() * window.innerHeight) + "px"
+      }
+
+      function playsound() {
+        var sfx = document.getElementById("sfx");
+        sfx.autoplay = 'true';
+        sfx.load();
+      }
+
+
+      // for night/day backgrounds
+
+      const hour = new Date().getHours();
+
+      if (hour >= 20 || hour < 6) {
+
+        // nighttime: 8pm to 6am
+
+        document.body.style.backgroundImage =
+          "url('images/backgrounds/seamlessgalaxy3.jpg')";
+
+      } else {
+
+        // daytime: 6am to 8pm
+
+        document.body.style.backgroundImage =
+          "url('images/pink_clouds.jpg')";
+
+        document.querySelector('.coolcode').style.top = "0px";
+
+      }
+
+    </script>
+
+
+    <style>
+
+      .page2_wrap {
+        position: absolute;
+        top:100vh;
+        width:100%;
+        z-index:98;
+      }
+
+    </style>
+
 
     <div class="page2_wrap">
 
 
-        <!-- ===============================================
-             VR TRAIN WINDOW
-             =============================================== -->
+      <!-- ========================================================= -->
+      <!-- H.H.ROSES TRAIN / CAT / HELSINKI LIVE SECTION            -->
+      <!-- ========================================================= -->
 
-        <div class="photo-window">
 
+      <style>
 
-            <div class="photo-title">
+        .fun-widget {
 
-                🚆 Cool VR Train Photos!! 🚆
+          margin:5px auto;
 
-            </div>
+          width:610px;
 
+          max-width:90%;
 
-            <div class="photo-subtitle">
+          font-family:Times;
 
-                RANDOM FINNISH TRAIN GENERATOR!!!
-                <br>
-                <b>
-                    CLICK MORE TRAIN FOR TRAIN!!!
-                </b>
+          font-weight:900;
 
-            </div>
+          text-shadow:
+            0 0 1px black,
+            0 0 3px grey;
 
+          background:#c3c3c3;
 
-            <div class="photo-content">
+          z-index:98;
 
+          border-top:1px solid white;
+          border-left:1px solid white;
+          border-right:1px solid black;
+          border-bottom:1px solid black;
 
-                <img
-                    id="vrTrainImage"
-                    class="random-photo"
-                    src=""
-                    alt="Random VR train"
-                    onclick="openVRSource()"
-                >
+          box-shadow:inset -1px -1px #808080;
 
+          letter-spacing:1px;
 
-                <div
-                    id="vrTrainCaption"
-                    class="photo-caption">
+          padding:2px;
 
-                </div>
+        }
 
 
-                <a
-                    id="vrTrainSource"
-                    class="source-link"
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer">
+        .fun-widget .title-bar,
+        .fun-widget .title-bar-text {
 
-                    [ PHOTO SOURCE ]
+          text-align:left !important;
 
-                </a>
+          height:18px;
 
+        }
 
-                <br>
 
+        .fun-widget .title-bar-text {
 
-                <button
-                    class="photo-button"
-                    onclick="newVRTrain()">
+          flex-grow:1;
 
-                    🚆 MORE TRAIN!! 🚆
+          padding-left:5px;
 
-                </button>
+          padding-top:3px;
 
+        }
 
-                <div
-                    id="vrTrainNumber"
-                    class="photo-number">
 
-                </div>
+        .fun-widget .window-body {
 
+          margin:
+            3px 2px 2px 1px;
 
-            </div>
+          border-top:1px solid black;
+          border-left:1px solid black;
+          border-right:1px solid #c3c3c3;
+          border-bottom:1px solid #c3c3c3;
 
-        </div>
+          box-shadow:
+            inset 1px 1px #808080,
+            1px 1px white;
 
+          padding:10px;
 
+          background:white;
 
-        <!-- ===============================================
-             CAT WINDOW
-             =============================================== -->
+          text-align:center;
 
-        <div class="photo-window">
+        }
 
 
-            <div class="photo-title">
+        .photo-widget {
 
-                🐱 Cool Cat Photos Yay Meow! 🐱
+          width:500px;
 
-            </div>
+          max-width:90%;
 
+        }
 
-            <div class="photo-subtitle">
 
-                RANDOM CAT GENERATOR!!!
+        .photo-widget .window-body {
 
-                <br>
+          background:#000;
 
-                <b>
-                    CLICK MORE CAT FOR CAT!!!
-                </b>
+          padding:10px;
 
-            </div>
+        }
 
 
-            <div class="photo-content">
+        .random-photo {
 
+          width:100%;
 
-                <img
-                    id="catImage"
-                    class="random-photo"
-                    src=""
-                    alt="Random cat"
-                    onclick="openCatSource()"
-                >
+          max-width:460px;
 
+          height:300px;
 
-                <div
-                    id="catCaption"
-                    class="photo-caption">
+          object-fit:contain;
 
-                </div>
+          background:#000;
 
+          border:3px ridge #c0c0c0;
 
-                <a
-                    id="catSource"
-                    class="source-link"
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer">
+          box-shadow:
+            inset 1px 1px white,
+            inset -1px -1px #808080,
+            0 0 8px rgba(255,255,255,.35);
 
-                    [ PHOTO SOURCE ]
+          display:block;
 
-                </a>
+          margin:
+            0 auto 8px auto;
 
+          cursor:
+            url('cursors/pointer.png'),
+            pointer;
 
-                <br>
+        }
 
 
-                <button
-                    class="photo-button"
-                    onclick="newCat()">
+        .random-photo:hover {
 
-                    🐱 MORE CAT!!! MEOW!!!
+          scale:1.015;
 
-                </button>
+        }
 
 
-                <div
-                    id="catNumber"
-                    class="photo-number">
+        .photo-caption {
 
-                </div>
+          color:#fff;
 
+          background:#000080;
 
-            </div>
+          border:2px ridge #c0c0c0;
 
-        </div>
+          padding:5px;
 
+          font-family:'ComicSans',sans-serif;
 
-    </div>
+          font-size:14px;
 
+          text-shadow:1px 1px black;
 
+          margin-bottom:8px;
 
-    <!-- ===================================================
-         FUN BOX
-         =================================================== -->
+        }
 
-    <div class="window">
 
+        .photo-button {
+
+          font-family:'ComicSans',sans-serif;
+
+          font-weight:bold;
+
+          font-size:14px;
+
+          min-width:150px;
+
+          cursor:
+            url('cursors/pointer.png'),
+            pointer;
+
+        }
+
+
+        .photo-source {
+
+          display:block;
+
+          margin-top:7px;
+
+          color:#c0c0c0;
+
+          font-family:Arial,sans-serif;
+
+          font-size:10px;
+
+          text-decoration:underline;
+
+        }
+
+
+        /* =========================================================
+           HELSINKI TRAIN BOARD
+        ========================================================= */
+
+
+        .helsinki-trains {
+
+          width:720px;
+
+          max-width:94%;
+
+        }
+
+
+        .helsinki-trains .window-body {
+
+          padding:6px;
+
+          background:#000;
+
+        }
+
+
+        .train-board-header {
+
+          background:#000080;
+
+          color:white;
+
+          border:2px ridge #c0c0c0;
+
+          padding:8px;
+
+          margin-bottom:6px;
+
+          font-family:'ComicSans',Arial,sans-serif;
+
+          text-shadow:1px 1px black;
+
+        }
+
+
+        .train-board-header .big {
+
+          font-size:20px;
+
+          display:block;
+
+        }
+
+
+        .train-board-header .small {
+
+          font-family:'basiic',monospace;
+
+          font-size:11px;
+
+          display:block;
+
+          margin-top:3px;
+
+        }
+
+
+        .train-status {
+
+          color:#00ff00;
+
+          font-family:'Courier New',monospace;
+
+          font-size:12px;
+
+          margin:5px 0;
+
+          text-align:left;
+
+          padding-left:5px;
+
+        }
+
+
+        .train-table-wrap {
+
+          width:100%;
+
+          overflow-x:auto;
+
+          background:#000;
+
+        }
+
+
+        .train-table {
+
+          width:100%;
+
+          border-collapse:collapse;
+
+          color:#00ff00;
+
+          background:#000;
+
+          font-family:'Courier New',monospace;
+
+          font-size:12px;
+
+          text-shadow:0 0 3px #00ff00;
+
+        }
+
+
+        .train-table th {
+
+          background:#008000;
+
+          color:white;
+
+          border:1px solid #c0c0c0;
+
+          padding:5px 4px;
+
+          white-space:nowrap;
+
+          text-shadow:1px 1px black;
+
+        }
+
+
+        .train-table td {
+
+          border:1px solid #006600;
+
+          padding:5px 4px;
+
+          white-space:nowrap;
+
+        }
+
+
+        .train-table tr:nth-child(even) td {
+
+          background:#001900;
+
+        }
+
+
+        .train-table tr:hover td {
+
+          background:#003300;
+
+        }
+
+
+        .train-number {
+
+          color:#ffff00;
+
+          font-weight:bold;
+
+          font-size:14px;
+
+        }
+
+
+        .train-track {
+
+          color:#00ffff;
+
+          font-weight:bold;
+
+          font-size:14px;
+
+        }
+
+
+        .train-arrival {
+
+          color:#ffccff;
+
+        }
+
+
+        .train-departure {
+
+          color:#ffffff;
+
+        }
+
+
+        .train-delay {
+
+          color:#ff9900;
+
+          font-weight:bold;
+
+        }
+
+
+        .train-cancelled {
+
+          color:#ff3333 !important;
+
+          font-weight:bold;
+
+          text-shadow:0 0 4px red;
+
+        }
+
+
+        .train-ok {
+
+          color:#00ff00;
+
+        }
+
+
+        .train-error {
+
+          color:#ff5555;
+
+          background:#180000;
+
+          border:2px solid #800000;
+
+          padding:10px;
+
+          font-family:'Courier New',monospace;
+
+          text-align:left;
+
+          white-space:pre-wrap;
+
+        }
+
+
+        .train-footer {
+
+          margin-top:7px;
+
+          color:#aaa;
+
+          font-family:Arial,sans-serif;
+
+          font-size:10px;
+
+          text-align:center;
+
+        }
+
+
+        .train-footer a {
+
+          color:#00ffff;
+
+        }
+
+
+        .train-refresh {
+
+          margin-top:6px;
+
+          font-family:'ComicSans',sans-serif;
+
+          cursor:
+            url('cursors/pointer.png'),
+            pointer;
+
+        }
+
+
+        @media (max-width:700px) {
+
+          .photo-widget,
+          .helsinki-trains {
+
+            max-width:95%;
+
+          }
+
+
+          .random-photo {
+
+            height:230px;
+
+          }
+
+
+          .train-table {
+
+            font-size:10px;
+
+          }
+
+
+          .train-table th,
+          .train-table td {
+
+            padding:
+              4px 3px;
+
+          }
+
+        }
+
+      </style>
+
+
+      <!-- ========================================================= -->
+      <!-- 🚆 COOL VR TRAIN PHOTOS                                   -->
+      <!-- ========================================================= -->
+
+
+      <div class="fun-widget photo-widget">
 
         <div class="title-bar">
 
-            💿 H.H.ROSES INTERNET FUN ZONE 💿
+          <img src="images/icons/zone-internet-16x16.png">
+
+          <div
+            class="title-bar-text"
+            style="text-shadow:none;text-align:left;"
+          >
+            🚆 Cool VR Train Photos!! 🚆
+          </div>
+
+          <div class="title-bar-controls">
+
+            <button
+              aria-label="Close"
+            ></button>
+
+          </div>
 
         </div>
 
 
         <div class="window-body">
 
-            <center>
-
-                <p>
-
-                    ★★★★★★★★★★★★★★★★★
-
-                </p>
-
-
-                <p>
-
-                    🚆
-                    <b>
-                        TRAINS ARE COOL
-                    </b>
-                    🚆
-
-                </p>
+          <img
+            id="vrTrainPhoto"
+            class="random-photo"
+            src=""
+            alt="Random Finnish VR train photo"
+            loading="lazy"
+          >
 
 
-                <p>
-
-                    🐱
-                    <b>
-                        CATS ARE ALSO COOL
-                    </b>
-                    🐱
-
-                </p>
+          <div
+            id="vrTrainCaption"
+            class="photo-caption"
+          >
+            🚆 LOADING TRAIN 🚆
+          </div>
 
 
-                <p>
-
-                    🌹
-                    <b>
-                        ROSES ARE VERY COOL
-                    </b>
-                    🌹
-
-                </p>
-
-
-                <p>
-
-                    ★★★★★★★★★★★★★★★★★
-
-                </p>
+          <button
+            id="vrTrainButton"
+            class="photo-button"
+            type="button"
+            onclick="showRandomVRTrain()"
+          >
+            MORE TRAIN!!
+          </button>
 
 
-                <p>
-
-                    <blink>
-                        YOU HAVE ENTERED THE
-                        COOL INTERNET ZONE
-                    </blink>
-
-                </p>
-
-            </center>
+          <span
+            id="vrTrainSource"
+            class="photo-source"
+          ></span>
 
         </div>
 
-    </div>
-
-
-
-    <!-- ===================================================
-         TERMS
-         =================================================== -->
-
-    <div class="window">
-
-
-        <div class="title-bar">
-
-            📜 Terms of Being Here
-
-        </div>
-
-
-        <div class="window-body">
-
-
-            <div class="terms-box">
-
-
-                <div class="terms">
-
-
-                    <b>
-                        H.H.ROSES INTERNET TERMS:
-                    </b>
-
-
-                    <p>
-                        1. Have fun.
-                    </p>
-
-
-                    <p>
-                        2. Look at the cats.
-                    </p>
-
-
-                    <p>
-                        3. Appreciate Finnish trains.
-                    </p>
-
-
-                    <p>
-                        4. Roses are cool.
-                    </p>
-
-
-                    <p>
-                        5. The website is probably held
-                        together with duct tape.
-                    </p>
-
-
-                    <p>
-                        6. MEOW.
-                    </p>
-
-
-                    <p>
-                        7. 🚆 TRAIN.
-                    </p>
-
-
-                    <p>
-                        8. No boring websites allowed.
-                    </p>
-
-
-                    <p>
-                        9. The gnome knows everything.
-                    </p>
-
-
-                    <p>
-                        10. 🌹
-                    </p>
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ===================================================
-         NEOCITIES
-         =================================================== -->
-
-    <div class="window">
-
-
-        <div class="title-bar">
-
-            🌐 INTERNET STUFF
-
-        </div>
-
-
-        <div class="neocities">
-
-
-            <p>
-
-                This site lives on the internet!!
-
-            </p>
-
-
-            <p>
-
-                🌹 H.H.Roses 🌹
-
-            </p>
-
-
-            <p>
-
-                <a
-                    href="https://neocities.org/"
-                    target="_blank"
-                    rel="noopener noreferrer">
-
-                    NEOCITIES
-
-                </a>
-
-            </p>
-
-
-            <p>
-
-                ★ Made with HTML ★
-                <br>
-                ★ Made with love ★
-                <br>
-                ★ Made with questionable decisions ★
-
-            </p>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ===================================================
-         LANGUAGE
-         =================================================== -->
-
-    <div class="window">
-
-
-        <div class="title-bar">
-
-            🌍 Language
-
-        </div>
-
-
-        <div class="language-box">
-
-
-            <p>
-
-                Select your language:
-
-            </p>
-
-
-            <select
-                onchange="changeLanguage(this.value)">
-
-                <option value="en">
-                    English
-                </option>
-
-                <option value="fi">
-                    Suomi
-                </option>
-
-            </select>
-
-
-            <p id="languageMessage">
-
-                Language settings coming soon!!
-
-            </p>
-
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ===================================================
-         FOOTER
-         =================================================== -->
-
-    <footer>
-
-
-        🌹 H.H.Roses 🌹
-
-
-        <br>
-
-
-        Made with questionable amounts
-        of HTML
-
-
-        <br>
-
-
-        🚆 🐱 🌹 🚆 🐱 🌹 🚆 🐱
-
-
-        <br><br>
-
-
-        <small>
-
-            Best viewed with a CRT monitor
-            at 800×600
-
-        </small>
-
-
-    </footer>
-
-
-</div>
-
-
-
-<!-- =======================================================
-     GNOME
-     ======================================================= -->
-
-<div class="gnome">
-
-    🧙‍♂️
-
-</div>
-
-
-
-<!-- =======================================================
-     FAIRY
-     ======================================================= -->
-
-<div class="fairy">
-
-    🧚
-
-</div>
-
-
-
-<script>
-
-
-/* =========================================================
-   VR TRAIN PHOTO DATABASE
-   ========================================================= */
-
-const vrTrainPhotos = [
-
-    /* -----------------------------------------------------
-       YOUR ORIGINAL VR PHOTOS
-       ----------------------------------------------------- */
-
-    {
-        url:
-        "https://tse2.mm.bing.net/th/id/OIP.Tjw4iYJI_ngX0Bvoeb1djAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-
-        source:
-        "",
-
-        caption:
-        "VR TRAIN!!! 🚆🇫🇮"
-    },
-
-
-    {
-        url:
-        "https://tse2.mm.bing.net/th/id/OIP.rJe6QzBCjgIsN3sXa1fncwHaE9?r=0&w=1024&h=685&rs=1&pid=ImgDetMain&o=7&rm=3",
-
-        source:
-        "",
-
-        caption:
-        "ANOTHER VR TRAIN!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://thumbs.dreamstime.com/b/helsinki-finland-june-vr-class-sm-emu-operated-vr-group-helsinki-railway-station-train-vr-class-sm-emu-helsinki-railway-285534859.jpg?w=992",
-
-        source:
-        "",
-
-        caption:
-        "VR TRAIN AT HELSINKI!!! 🚉🚆"
-    },
-
-
-    {
-        url:
-        "https://tse2.mm.bing.net/th/id/OIP.3mA_tttjPl0_kHj4jK67swHaEc?r=0&w=800&h=480&rs=1&pid=ImgDetMain&o=7&rm=3",
-
-        source:
-        "",
-
-        caption:
-        "COOL VR TRAIN!!! 🚆✨"
-    },
-
-
-    /* -----------------------------------------------------
-       WIKIMEDIA COMMONS VR PHOTOS
-       ----------------------------------------------------- */
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Diesel_hauled_night_train_to_Helsinki_at_Tornio-Itäinen%3B_Finland%2C_2022_June.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Diesel_hauled_night_train_to_Helsinki_at_Tornio-It%C3%A4inen%3B_Finland,_2022_June.jpg",
-
-        caption:
-        "NIGHT TRAIN TO HELSINKI!!! 🌙🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_26_in_Oulu_20250620_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_26_in_Oulu_20250620_001.jpg",
-
-        caption:
-        "IC 26 IN OULU!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_26_in_Oulu_20250620_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_26_in_Oulu_20250620_002.jpg",
-
-        caption:
-        "IC 26 AGAIN!!! 🚆🇫🇮"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_26_in_Oulu_20250620_003.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_26_in_Oulu_20250620_003.jpg",
-
-        caption:
-        "ANOTHER IC 26!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_401_in_Tornio_20260822_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_401_in_Tornio_20260822_001.jpg",
-
-        caption:
-        "IC 401 IN TORNIO!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_401_in_Tornio_20260822_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_401_in_Tornio_20260822_002.jpg",
-
-        caption:
-        "IC 401 AGAIN!!! 🚆✨"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_407_in_Oulu_20260812_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_407_in_Oulu_20260812_001.jpg",
-
-        caption:
-        "IC 407 IN OULU!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_407_in_Oulu_20260812_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_407_in_Oulu_20260812_002.jpg",
-
-        caption:
-        "IC 407!!! 🇫🇮🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_407_in_Oulu_20260812_003.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_407_in_Oulu_20260812_003.jpg",
-
-        caption:
-        "IC 407 AGAIN!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_407_in_Tornio_20260821_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_407_in_Tornio_20260821_001.jpg",
-
-        caption:
-        "IC 407 IN TORNIO!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_42_in_Tampere_20260630_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_42_in_Tampere_20260630_001.jpg",
-
-        caption:
-        "IC 42 IN TAMPERE!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_IC_42_in_Tampere_20260630_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_IC_42_in_Tampere_20260630_002.jpg",
-
-        caption:
-        "IC 42 AGAIN!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_P269_in_Tornio_20210725_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_P269_in_Tornio_20210725_002.jpg",
-
-        caption:
-        "P269 IN TORNIO!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_269_in_Tornio_20241110_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_269_in_Tornio_20241110_001.jpg",
-
-        caption:
-        "PYO NIGHT TRAIN!!! 🌙🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_269_in_Tornio_20250708_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_269_in_Tornio_20250708_001.jpg",
-
-        caption:
-        "PYO 269!!! 🌙🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_269_in_Tornio_20260711_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_269_in_Tornio_20260711_001.jpg",
-
-        caption:
-        "PYO 269 SPOTTED!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_269_in_Tornio_20260711_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_269_in_Tornio_20260711_002.jpg",
-
-        caption:
-        "MORE PYO 269!!! 🌙"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_269_in_Tornio_20260711_003.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_269_in_Tornio_20260711_003.jpg",
-
-        caption:
-        "PYO 269!!! 🚆✨"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_269_in_Tornio_20260711_004.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_269_in_Tornio_20260711_004.jpg",
-
-        caption:
-        "NIGHT TRAIN!!! 🌙🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_269_in_Tornio_20260711_005.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_269_in_Tornio_20260711_005.jpg",
-
-        caption:
-        "PYO 269!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_269_in_Tornio_20260711_006.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_269_in_Tornio_20260711_006.jpg",
-
-        caption:
-        "MORE FINNISH NIGHT TRAIN!!! 🌙"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_269_in_Tornio_20260711_007.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_269_in_Tornio_20260711_007.jpg",
-
-        caption:
-        "PYO 269 FINAL BOSS!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_276_in_Tornio_20250718_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_276_in_Tornio_20250718_001.jpg",
-
-        caption:
-        "PYO 276 NIGHT TRAIN!!! 🌙🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_276_in_Tornio_20250718_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_276_in_Tornio_20250718_002.jpg",
-
-        caption:
-        "PYO 276 AGAIN!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_PYO_276_in_Tornio_20250718_003.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_PYO_276_in_Tornio_20250718_003.jpg",
-
-        caption:
-        "MORE PYO 276!!! 🌙"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_S_403_in_Tornio_20260823_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_S_403_in_Tornio_20260823_001.jpg",
-
-        caption:
-        "S 403!!! 🚆✨"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_S_403_in_Tornio_20260823_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_S_403_in_Tornio_20260823_002.jpg",
-
-        caption:
-        "S 403 AGAIN!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_T_5134_in_Tornio_20210211_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_T_5134_in_Tornio_20210211_001.jpg",
-
-        caption:
-        "T 5134!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_T_5134_in_Tornio_20210211_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_T_5134_in_Tornio_20210211_002.jpg",
-
-        caption:
-        "T 5134 AGAIN!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_T_5134_in_Tornio_20210211_003.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_T_5134_in_Tornio_20210211_003.jpg",
-
-        caption:
-        "MORE T 5134!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_T_5134_in_Tornio_20240603_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_T_5134_in_Tornio_20240603_001.jpg",
-
-        caption:
-        "T 5134 2024!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_T_5137_in_Tornio_20230128_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_T_5137_in_Tornio_20230128_001.jpg",
-
-        caption:
-        "T 5137!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_T_5137_in_Tornio_20240521_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_T_5137_in_Tornio_20240521_001.jpg",
-
-        caption:
-        "T 5137!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_T_5137_in_Tornio_20240521_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_T_5137_in_Tornio_20240521_002.jpg",
-
-        caption:
-        "T 5137 AGAIN!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish_train_T_5137_in_Tornio_20250503_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Finnish_train_T_5137_in_Tornio_20250503_001.jpg",
-
-        caption:
-        "T 5137 2025!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sr3_locomotive_in_Oulu_20250620_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Sr3_locomotive_in_Oulu_20250620_001.jpg",
-
-        caption:
-        "SR3 LOCOMOTIVE!!! ⚡🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR_Car_train%2C_Turku_station%2C_20241218_-_07.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:VR_Car_train,_Turku_station,_20241218_-_07.jpg",
-
-        caption:
-        "VR CAR TRAIN!!! 🚗🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR_Dr16_locomotive_with_freight_wagons_in_Tornio_Mar2012_001.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:VR_Dr16_locomotive_with_freight_wagons_in_Tornio_Mar2012_001.jpg",
-
-        caption:
-        "DR16 FREIGHT TRAIN!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR_Dr16_locomotive_with_freight_wagons_in_Tornio_Mar2012_002.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:VR_Dr16_locomotive_with_freight_wagons_in_Tornio_Mar2012_002.jpg",
-
-        caption:
-        "DR16 AGAIN!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR_Dr16_locomotive_with_freight_wagons_in_Tornio_Mar2012_003.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:VR_Dr16_locomotive_with_freight_wagons_in_Tornio_Mar2012_003.jpg",
-
-        caption:
-        "DR16 FREIGHT!!! 🚆"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR_Turku_train_station%2C_20241218_-_05.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:VR_Turku_train_station,_20241218_-_05.jpg",
-
-        caption:
-        "VR TURKU STATION!!! 🚉🚆"
-    }
-
-];
-
-
-
-/* =========================================================
-   CAT PHOTO DATABASE
-   ========================================================= */
-
-const catPhotos = [
-
-    /* -----------------------------------------------------
-       YOUR ORIGINAL CATS
-       ----------------------------------------------------- */
-
-    {
-        url:
-        "https://th.bing.com/th/id/R.92a36fd9faacda4790854fcd9fb4b037?rik=s8rKPsp2paFBBA&pid=ImgRaw&r=0",
-
-        source:
-        "",
-
-        caption:
-        "COOL CAT!!! 🐱"
-    },
-
-
-    {
-        url:
-        "https://i.ytimg.com/vi/Ie57fr8pCko/maxresdefault.jpg",
-
-        source:
-        "",
-
-        caption:
-        "CAT!!! MEOW!!! 🐱"
-    },
-
-
-    {
-        url:
-        "https://yt3.googleusercontent.com/Fjs8Z7mywNBjOqL5tIjdGZZWPhrqxDw3uzPXZBosol-Uu5r0ya1FFEMKVD0vsiGyeBrBEZA1UYY=s900-c-k-c0x00ffffff-no-rj",
-
-        source:
-        "",
-
-        caption:
-        "VERY COOL CAT!!! 🐱✨"
-    },
-
-
-    /* -----------------------------------------------------
-       WIKIMEDIA CATS
-       ----------------------------------------------------- */
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/%22Are_you_going_to_drink_my_milk%2C_odd_human%3F%22_%2823463302349%29.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:%22Are_you_going_to_drink_my_milk,_odd_human%3F%22_(23463302349).jpg",
-
-        caption:
-        "ARE YOU GOING TO DRINK MY MILK?! 🥛🐱"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/%22I_Come_In_Peace%2C_Take_Me_To_Your_Leader%21%22_%2824110029751%29.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:%22I_Come_In_Peace,_Take_Me_To_Your_Leader!%22_(24110029751).jpg",
-
-        caption:
-        "TAKE ME TO YOUR LEADER!!! 👽🐱"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/%22I_must_help_the_humans_remove_that_beautiful_ball...%21%21%22_%2823726684305%29.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:%22I_must_help_the_humans_remove_that_beautiful_ball...!!%22_(23726684305).jpg",
-
-        caption:
-        "MUST HELP HUMAN WITH BALL!!! ⚽🐱"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/%22I_want_to_ride_my_bicycle..%22_%282017%3B_cropped_2024%29.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:%22I_want_to_ride_my_bicycle..%22_(2017;_cropped_2024).jpg",
-
-        caption:
-        "CAT WANTS TO RIDE A BIKE!!! 🚲🐱"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/%22What%27s_that...%3F%22_%2826565615299%29.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:%22What's_that...%3F%22_(26565615299).jpg",
-
-        caption:
-        "WHAT'S THAT??? 👀🐱"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/A_cat_called_Mokoma_or_MIRRE.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:A_cat_called_Mokoma_or_MIRRE.jpg",
-
-        caption:
-        "MOKOMA / MIRRE!!! 🐱"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tarzanette_%2817010956062%29.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Tarzanette_(17010956062).jpg",
-
-        caption:
-        "TARZAN CAT!!! 🌴🐱"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tesjoen_kissa.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Tesjoen_kissa.jpg",
-
-        caption:
-        "FINNISH CAT!!! 🇫🇮🐱"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Mad_Hatter%3F_%2828688247590%29.png",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:The_Mad_Hatter%3F_(28688247590).png",
-
-        caption:
-        "THE MAD HATTER CAT??? 🎩🐱"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/THE_PARTY_IS_OVER%2C_HUMAN%21_%2827445264122%29.png",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:THE_PARTY_IS_OVER,_HUMAN!_(27445264122).png",
-
-        caption:
-        "THE PARTY IS OVER, HUMAN!!! 🐱"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tricolor_domestic_cat_in_Suomenlinna.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:Tricolor_domestic_cat_in_Suomenlinna.jpg",
-
-        caption:
-        "SUOMENLINNA CAT!!! 🇫🇮🐈"
-    },
-
-
-    {
-        url:
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/What%3F_My_Birthday%21_You%27re_kidding%21_%2820924906054%29.jpg",
-
-        source:
-        "https://commons.wikimedia.org/wiki/File:What%3F_My_Birthday!_You're_kidding!_(20924906054).jpg",
-
-        caption:
-        "MY BIRTHDAY?!? 🎂🐱"
-    }
-
-];
-
-
-
-/* =========================================================
-   RANDOMIZER STATE
-   ========================================================= */
-
-let lastVRTrain = -1;
-
-let lastCat = -1;
-
-let currentVRTrain = null;
-
-let currentCat = null;
-
-
-
-/* =========================================================
-   RANDOM VR TRAIN
-   ========================================================= */
-
-function newVRTrain() {
-
-
-    let index;
-
-
-    do {
-
-        index =
-            Math.floor(
-                Math.random()
-                *
+      </div>
+
+
+      <script>
+
+        const vrTrainPhotos = [
+
+          {
+            src:
+              "https://tse2.mm.bing.net/th/id/OIP.Tjw4iYJI_ngX0Bvoeb1djAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+            caption:
+              "🚆 VR TRAIN!!!"
+          },
+
+          {
+            src:
+              "https://tse2.mm.bing.net/th/id/OIP.rJe6QzBCjgIsN3sXa1fncwHaE9?r=0&w=1024&h=685&rs=1&pid=ImgDetMain&o=7&rm=3",
+            caption:
+              "🚆 ANOTHER VR TRAIN!!!"
+          },
+
+          {
+            src:
+              "https://thumbs.dreamstime.com/b/helsinki-finland-june-vr-class-sm-emu-operated-vr-group-helsinki-railway-station-train-vr-class-sm-emu-helsinki-railway-285534859.jpg?w=992",
+            caption:
+              "🚆 VR SM EMU AT HELSINKI!!!"
+          },
+
+          {
+            src:
+              "https://tse2.mm.bing.net/th/id/OIP.3mA_tttjPl0_kHj4jK67swHaEc?r=0&w=800&h=480&rs=1&pid=ImgDetMain&o=7&rm=3",
+            caption:
+              "🚆 VR TRAIN GO BRRRRRR"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20001.jpg",
+            caption:
+              "🚆 Finnish VR IC 407"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20002.jpg",
+            caption:
+              "🚆 IC 407 AGAIN!!!"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20001.jpg",
+            caption:
+              "🚆 Finnish IC 26"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20002.jpg",
+            caption:
+              "🚆 IC 26 BUT ANOTHER ANGLE"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20001.jpg",
+            caption:
+              "🚆 Finnish IC 401"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20002.jpg",
+            caption:
+              "🚆 IC 401!!!"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20001.jpg",
+            caption:
+              "🌙 VR NIGHT TRAIN PYO 269"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20002.jpg",
+            caption:
+              "🌙 PYO 269 NIGHT TRAIN"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20001.jpg",
+            caption:
+              "🌙 VR PYO 276"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20002.jpg",
+            caption:
+              "🌙 PYO 276!!!"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20S%20403%20in%20Tornio%2020260823%20001.jpg",
+            caption:
+              "🚆 VR S 403"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205134%20in%20Tornio%2020240603%20001.jpg",
+            caption:
+              "🚆 VR T 5134"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205137%20in%20Tornio%2020250503%20001.jpg",
+            caption:
+              "🚆 VR T 5137"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Car%20train%2C%20Turku%20station%2C%2020241218%20-%2007.jpg",
+            caption:
+              "🚗 VR CAR TRAIN!!!"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Dr16%20locomotive%20with%20freight%20wagons%20in%20Tornio%20Mar2012%20001.jpg",
+            caption:
+              "🚂 VR Dr16 + FREIGHT"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sr3%20locomotive%20in%20Oulu%2020250620%20001.jpg",
+            caption:
+              "🚂 VR Sr3 LOCOMOTIVE"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Sm4%20Kerava.jpg",
+            caption:
+              "🚆 VR Sm4 AT KERAVA"
+          }
+
+        ];
+
+
+        let lastVRTrainIndex = -1;
+
+
+        function showRandomVRTrain() {
+
+          if (!vrTrainPhotos.length)
+            return;
+
+
+          let index;
+
+
+          do {
+
+            index =
+              Math.floor(
+                Math.random() *
                 vrTrainPhotos.length
+              );
+
+          } while (
+            vrTrainPhotos.length > 1 &&
+            index === lastVRTrainIndex
+          );
+
+
+          lastVRTrainIndex =
+            index;
+
+
+          const train =
+            vrTrainPhotos[index];
+
+
+          const image =
+            document.getElementById(
+              "vrTrainPhoto"
             );
 
-    }
 
-    while (
-        vrTrainPhotos.length > 1 &&
-        index === lastVRTrain
-    );
-
-
-    lastVRTrain = index;
+          const caption =
+            document.getElementById(
+              "vrTrainCaption"
+            );
 
 
-    const photo =
-        vrTrainPhotos[index];
+          const source =
+            document.getElementById(
+              "vrTrainSource"
+            );
 
 
-    currentVRTrain =
-        photo;
+          image.src =
+            train.src;
 
 
-    const image =
-        document.getElementById(
-            "vrTrainImage"
+          image.alt =
+            train.caption;
+
+
+          caption.textContent =
+            train.caption;
+
+
+          if (
+            train.src.includes(
+              "commons.wikimedia.org"
+            )
+          ) {
+
+            source.innerHTML =
+              'Source: <a href="' +
+              train.src +
+              '" target="_blank" rel="noopener">' +
+              'Wikimedia Commons' +
+              '</a>';
+
+          } else {
+
+            source.textContent =
+              "Source: image link";
+
+          }
+
+        }
+
+
+        document.addEventListener(
+          "DOMContentLoaded",
+          function() {
+
+            showRandomVRTrain();
+
+          }
         );
 
-
-    const caption =
-        document.getElementById(
-            "vrTrainCaption"
-        );
+      </script>
 
 
-    const source =
-        document.getElementById(
-            "vrTrainSource"
-        );
+      <!-- ========================================================= -->
+      <!-- 🐱 COOL CAT PHOTOS                                        -->
+      <!-- ========================================================= -->
 
 
-    const number =
-        document.getElementById(
-            "vrTrainNumber"
-        );
+      <div class="fun-widget photo-widget">
+
+        <div class="title-bar">
+
+          <img
+            src="images/icons/zone-internet-16x16.png"
+          >
+
+          <div
+            class="title-bar-text"
+            style="text-shadow:none;text-align:left;"
+          >
+            🐱 Cool Cat Photos Yay Meow! 🐱
+          </div>
+
+          <div class="title-bar-controls">
+
+            <button
+              aria-label="Close"
+            ></button>
+
+          </div>
+
+        </div>
 
 
-    image.src =
-        photo.url;
+        <div class="window-body">
+
+          <img
+            id="catPhoto"
+            class="random-photo"
+            src=""
+            alt="Random cat photo"
+            loading="lazy"
+          >
 
 
-    image.alt =
-        photo.caption;
+          <div
+            id="catCaption"
+            class="photo-caption"
+          >
+            🐱 MEOW LOADING MEOW 🐱
+          </div>
 
 
-    caption.textContent =
-        photo.caption;
+          <button
+            id="catButton"
+            class="photo-button"
+            type="button"
+            onclick="showRandomCat()"
+          >
+            MORE CAT!!! MEOW!!!
+          </button>
 
 
-    if (
-        photo.source &&
-        photo.source !== ""
-    ) {
+          <span
+            id="catSource"
+            class="photo-source"
+          ></span>
 
-        source.href =
-            photo.source;
+        </div>
 
-        source.style.display =
-            "inline-block";
-
-    }
-
-    else {
-
-        source.style.display =
-            "none";
-    }
+      </div>
 
 
-    number.textContent =
-        "TRAIN PHOTO "
-        +
-        (index + 1)
-        +
-        " / "
-        +
-        vrTrainPhotos.length;
+      <script>
 
-}
+        const catPhotos = [
+
+          {
+            src:
+              "https://th.bing.com/th/id/R.92a36fd9faacda4790854fcd9fb4b037?rik=s8rKPsp2paFBBA&pid=ImgRaw&r=0",
+            caption:
+              "🐱 CAT!!! MEOW!!!"
+          },
+
+          {
+            src:
+              "https://i.ytimg.com/vi/Ie57fr8pCko/maxresdefault.jpg",
+            caption:
+              "🐱 VERY IMPORTANT CAT"
+          },
+
+          {
+            src:
+              "https://yt3.googleusercontent.com/Fjs8Z7mywNBjOqL5tIjdGZZWPhrqxDw3uzPXZBosol-Uu5r0ya1FFEMKVD0vsiGyeBrBEZA1UYY=s900-c-k-c0x00ffffff-no-rj",
+            caption:
+              "🐱 MEOW MEOW MEOW"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Are%20you%20going%20to%20drink%20my%20milk%2C%20odd%20human%3F%20%2823463302349%29.jpg",
+            caption:
+              "🐱 Are you going to drink my milk, odd human?"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20Come%20In%20Peace%2C%20Take%20Me%20To%20Your%20Leader%21%20%2824110029751%29.jpg",
+            caption:
+              "🐱 I COME IN PEACE!!!"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20must%20help%20the%20humans%20remove%20that%20beautiful%20ball...%21%21%20%2823726684305%29.jpg",
+            caption:
+              "🐱 CAT HAS A VERY IMPORTANT MISSION"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20want%20to%20ride%20my%20bicycle..%20cropped%202024.jpg",
+            caption:
+              "🐱 CAT WANTS TO RIDE A BICYCLE"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Not%20again%20with%20that%20camera...%20cropped%202025.jpg",
+            caption:
+              "🐱 NOT AGAIN WITH THAT CAMERA"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/What%27s%20that...%3F%20%2826565615299%29.jpg",
+            caption:
+              "🐱 WHAT'S THAT...?"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20cat%20called%20Mokoma%20or%20MIRRE.jpg",
+            caption:
+              "🐱 MOKOMA / MIRRE"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tarzanette.jpg",
+            caption:
+              "🐱 TARZANETTE!!!"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tesjoen%20kissa.jpg",
+            caption:
+              "🐱 TESJOKI KITTY"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Mad%20Hatter%3F.png",
+            caption:
+              "🐱 THE MAD HATTER?"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/THE%20PARTY%20IS%20OVER%2C%20HUMAN%21.png",
+            caption:
+              "🐱 THE PARTY IS OVER, HUMAN!"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tricolor%20domestic%20cat%20in%20Suomenlinna.jpg",
+            caption:
+              "🐱 SUOMENLINNA KITTY"
+          },
+
+          {
+            src:
+              "https://commons.wikimedia.org/wiki/Special:Redirect/file/What%3F%20My%20Birthday%21%20You%27re%20kidding%21.jpg",
+            caption:
+              "🐱 WHAT? MY BIRTHDAY?!"
+          }
+
+        ];
 
 
-
-/* =========================================================
-   OPEN VR SOURCE
-   ========================================================= */
-
-function openVRSource() {
-
-    if (
-        currentVRTrain &&
-        currentVRTrain.source
-    ) {
-
-        window.open(
-            currentVRTrain.source,
-            "_blank"
-        );
-
-    }
-
-}
+        let lastCatIndex = -1;
 
 
+        function showRandomCat() {
 
-/* =========================================================
-   RANDOM CAT
-   ========================================================= */
-
-function newCat() {
+          if (!catPhotos.length)
+            return;
 
 
-    let index;
+          let index;
 
 
-    do {
+          do {
 
-        index =
-            Math.floor(
-                Math.random()
-                *
+            index =
+              Math.floor(
+                Math.random() *
                 catPhotos.length
+              );
+
+          } while (
+            catPhotos.length > 1 &&
+            index === lastCatIndex
+          );
+
+
+          lastCatIndex =
+            index;
+
+
+          const cat =
+            catPhotos[index];
+
+
+          const image =
+            document.getElementById(
+              "catPhoto"
             );
 
-    }
 
-    while (
-        catPhotos.length > 1 &&
-        index === lastCat
-    );
-
-
-    lastCat = index;
+          const caption =
+            document.getElementById(
+              "catCaption"
+            );
 
 
-    const photo =
-        catPhotos[index];
+          const source =
+            document.getElementById(
+              "catSource"
+            );
 
 
-    currentCat =
-        photo;
+          image.src =
+            cat.src;
 
 
-    const image =
-        document.getElementById(
-            "catImage"
+          image.alt =
+            cat.caption;
+
+
+          caption.textContent =
+            cat.caption;
+
+
+          if (
+            cat.src.includes(
+              "commons.wikimedia.org"
+            )
+          ) {
+
+            source.innerHTML =
+              'Source: <a href="' +
+              cat.src +
+              '" target="_blank" rel="noopener">' +
+              'Wikimedia Commons' +
+              '</a>';
+
+          } else {
+
+            source.textContent =
+              "Source: image link";
+
+          }
+
+        }
+
+
+        document.addEventListener(
+          "DOMContentLoaded",
+          function() {
+
+            showRandomCat();
+
+          }
         );
 
+      </script>
 
-    const caption =
-        document.getElementById(
-            "catCaption"
-        );
 
+      <!-- ========================================================= -->
+      <!-- 🚉 TRAINS IN HELSINKI, FINLAND :3                       -->
+      <!-- ========================================================= -->
 
-    const source =
-        document.getElementById(
-            "catSource"
-        );
 
+      <div
+        class="fun-widget helsinki-trains"
+      >
 
-    const number =
-        document.getElementById(
-            "catNumber"
-        );
+        <div class="title-bar">
 
+          <img
+            src="images/icons/clock-16x16.png"
+          >
 
-    image.src =
-        photo.url;
+          <div
+            class="title-bar-text"
+            style="text-shadow:none;text-align:left;"
+          >
+            Trains in Helsinki, Finland :3
+          </div>
 
+          <div class="title-bar-controls">
 
-    image.alt =
-        photo.caption;
+            <button
+              aria-label="Close"
+            ></button>
 
+          </div>
 
-    caption.textContent =
-        photo.caption;
+        </div>
 
 
-    if (
-        photo.source &&
-        photo.source !== ""
-    ) {
+        <div class="window-body">
 
-        source.href =
-            photo.source;
 
-        source.style.display =
-            "inline-block";
+          <div class="train-board-header">
 
-    }
+            <span class="big">
+              🚉 HELSINKI CENTRAL STATION 🚉
+            </span>
 
-    else {
+            <span class="small">
+              FINTRAFFIC / DIGITRAFFIC LIVE TRAIN BOARD
+            </span>
 
-        source.style.display =
-            "none";
-    }
+          </div>
 
 
-    number.textContent =
-        "CAT PHOTO "
-        +
-        (index + 1)
-        +
-        " / "
-        +
-        catPhotos.length;
+          <div
+            id="helsinkiTrainStatus"
+            class="train-status"
+          >
+            [ CONNECTING TO FINTRAFFIC... ]
+          </div>
 
-}
 
+          <div class="train-table-wrap">
 
+            <table class="train-table">
 
-/* =========================================================
-   OPEN CAT SOURCE
-   ========================================================= */
+              <thead>
 
-function openCatSource() {
+                <tr>
 
-    if (
-        currentCat &&
-        currentCat.source
-    ) {
+                  <th>
+                    TRAIN
+                  </th>
 
-        window.open(
-            currentCat.source,
-            "_blank"
-        );
+                  <th>
+                    NUMBER
+                  </th>
 
-    }
+                  <th>
+                    TRACK
+                  </th>
 
-}
+                  <th>
+                    DIRECTION
+                  </th>
 
+                  <th>
+                    SCHEDULED
+                  </th>
 
+                  <th>
+                    EST./ACTUAL
+                  </th>
 
-/* =========================================================
-   ENTER WEBSITE
-   ========================================================= */
+                  <th>
+                    STATUS
+                  </th>
 
-function enterSite() {
+                </tr>
 
+              </thead>
 
-    const welcome =
-        document.getElementById(
-            "welcome-screen"
-        );
 
+              <tbody id="helsinkiTrainRows">
 
-    welcome.style.display =
-        "none";
+                <tr>
 
+                  <td colspan="7">
+                    Loading Helsinki trains...
+                  </td>
 
-    newVRTrain();
+                </tr>
 
-    newCat();
+              </tbody>
 
-}
+            </table>
 
+          </div>
 
 
-/* =========================================================
-   LANGUAGE
-   ========================================================= */
+          <button
+            class="train-refresh"
+            type="button"
+            onclick="loadHelsinkiTrains()"
+          >
+            🔄 REFRESH TRAINS
+          </button>
 
-function changeLanguage(language) {
 
+          <div class="train-footer">
 
-    const message =
-        document.getElementById(
-            "languageMessage"
-        );
+            Live railway information from
 
-
-    if (
-        language === "fi"
-    ) {
-
-        message.textContent =
-            "Suomen kieli on tulossa pian!! 🇫🇮";
-
-    }
-
-    else {
-
-        message.textContent =
-            "Language settings coming soon!!";
-
-    }
-
-}
-
-
-
-/* =========================================================
-   INITIAL PHOTO LOAD
-   ========================================================= */
-
-newVRTrain();
-
-newCat();
-
-
-
-/* =========================================================
-   SECRET KONAMI-STYLE EASTER EGG
-   ========================================================= */
-
-let secretKeys = [];
-
-const secretSequence = [
-    "ArrowUp",
-    "ArrowUp",
-    "ArrowDown",
-    "ArrowDown",
-    "ArrowLeft",
-    "ArrowRight",
-    "ArrowLeft",
-    "ArrowRight"
-];
-
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-
-        secretKeys.push(
-            event.key
-        );
-
-
-        if (
-            secretKeys.length
+            <a
+              href="https://www.digitraffic.fi/en/railway-traffic/"
+              target="_blank"
+              rel="noopener"
             >
-            secretSequence.length
-        ) {
+              Fintraffic Digitraffic
+            </a>
 
-            secretKeys.shift();
+            <br>
+
+            Helsinki station code: HKI
+
+            <br>
+
+            Data may be delayed or incomplete.
+            Track information is planned/commercial track data.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <script>
+
+        /*
+         * ==========================================================
+         * FINTRAFFIC / DIGITRAFFIC HELSINKI TRAIN BOARD
+         * ==========================================================
+         *
+         * Helsinki station:
+         *
+         *     HKI
+         *
+         * Digitraffic provides:
+         *
+         *     train number
+         *     train type
+         *     station event
+         *     arrival/departure
+         *     scheduled time
+         *     live estimate
+         *     actual time
+         *     cancellation
+         *     commercialTrack
+         *
+         * This board refreshes every 30 seconds.
+         */
+
+
+        const HELSINKI_TRAIN_API =
+          "https://rata.digitraffic.fi/api/v1/live-trains/station/HKI" +
+          "?arrived_trains=5" +
+          "&arriving_trains=15" +
+          "&departed_trains=5" +
+          "&departing_trains=25" +
+          "&include_nonstopping=false";
+
+
+        function escapeTrainHTML(value) {
+
+          if (
+            value === null ||
+            value === undefined
+          ) {
+
+            return "";
+
+          }
+
+
+          return String(value)
+
+            .replace(
+              /&/g,
+              "&amp;"
+            )
+
+            .replace(
+              /</g,
+              "&lt;"
+            )
+
+            .replace(
+              />/g,
+              "&gt;"
+            )
+
+            .replace(
+              /"/g,
+              "&quot;"
+            )
+
+            .replace(
+              /'/g,
+              "&#039;"
+            );
 
         }
 
 
-        if (
-            secretKeys.join(",")
-            ===
-            secretSequence.join(",")
-        ) {
+        function formatTime(value) {
 
-            document.body.style.transform =
-                "rotate(1deg)";
+          if (!value) {
+
+            return "—";
+
+          }
 
 
-            setTimeout(
-                function() {
+          const date =
+            new Date(value);
 
-                    document.body.style.transform =
-                        "";
 
-                },
-                250
+          if (
+            Number.isNaN(
+              date.getTime()
+            )
+          ) {
+
+            return "—";
+
+          }
+
+
+          return date.toLocaleTimeString(
+            "fi-FI",
+            {
+              hour:"2-digit",
+              minute:"2-digit"
+            }
+          );
+
+        }
+
+
+        function getTrainDisplayName(train) {
+
+          const type =
+            train.trainType ||
+            train.trainCategory ||
+            "TRAIN";
+
+
+          const number =
+            train.trainNumber ??
+            "?";
+
+
+          return (
+            type +
+            " " +
+            number
+          );
+
+        }
+
+
+        function getStationShortCode(row) {
+
+          return (
+            row.stationShortCode ||
+            row.station ||
+            ""
+          );
+
+        }
+
+
+        function getHelsinkiRows(train) {
+
+          if (
+            !Array.isArray(
+              train.timeTableRows
+            )
+          ) {
+
+            return [];
+
+          }
+
+
+          return train.timeTableRows.filter(
+            function(row) {
+
+              const code =
+                getStationShortCode(
+                  row
+                );
+
+
+              return (
+                String(code)
+                  .toUpperCase() ===
+                "HKI"
+              );
+
+            }
+          );
+
+        }
+
+
+        function getHelsinkiEvent(train) {
+
+          const rows =
+            getHelsinkiRows(
+              train
             );
 
 
-            alert(
-                "🌹 H.H.ROSES SECRET MODE 🌹\n\n" +
-                "YOU FOUND THE SECRET!!!\n" +
-                "🚆🐱🌹"
+          /*
+           * Normally there should only be one Helsinki
+           * stop in this response.
+           */
+
+          if (!rows.length) {
+
+            return null;
+
+          }
+
+
+          /*
+           * Prefer the next/current event when possible.
+           */
+
+          const departure =
+            rows.find(
+              function(row) {
+
+                return (
+                  row.type ===
+                  "DEPARTURE"
+                );
+
+              }
             );
 
 
-            secretKeys = [];
+          const arrival =
+            rows.find(
+              function(row) {
+
+                return (
+                  row.type ===
+                  "ARRIVAL"
+                );
+
+              }
+            );
+
+
+          return (
+            departure ||
+            arrival ||
+            rows[0]
+          );
 
         }
 
-    }
-);
+
+        function getDestination(train, event) {
+
+          /*
+           * Digitraffic timetable rows use previousStation
+           * and nextStation for adjacent locations.
+           */
+
+          if (!event) {
+
+            return "Helsinki";
+
+          }
 
 
+          if (
+            event.type ===
+            "DEPARTURE"
+          ) {
 
-/* =========================================================
-   PREVENT BROKEN IMAGE LOOKING UGLY
-   ========================================================= */
+            return (
+              event.nextStation ||
+              "DEPARTURE"
+            );
 
-document.addEventListener(
-    "error",
-    function(event) {
+          }
 
 
-        if (
-            event.target.tagName
-            ===
-            "IMG"
-        ) {
+          if (
+            event.type ===
+            "ARRIVAL"
+          ) {
 
-            event.target.alt =
-                "Image temporarily unavailable :(";
+            return (
+              event.previousStation ||
+              "ARRIVAL"
+            );
+
+          }
+
+
+          return "Helsinki";
 
         }
 
-    },
-    true
-);
 
-</script>
+        function getStatus(train, event) {
+
+          if (
+            train.cancelled === true
+          ) {
+
+            return {
+              text:"CANCELLED",
+              className:
+                "train-cancelled"
+            };
+
+          }
 
 
-</body>
+          if (
+            event &&
+            event.cancelled === true
+          ) {
 
+            return {
+              text:"CANCELLED",
+              className:
+                "train-cancelled"
+            };
+
+          }
+
+
+          if (!event) {
+
+            return {
+              text:"UNKNOWN",
+              className:
+                "train-delay"
+            };
+
+          }
+
+
+          const scheduled =
+            event.scheduledTime;
+
+
+          const estimate =
+            event.liveEstimateTime;
+
+
+          const actual =
+            event.actualTime;
+
+
+          if (actual) {
+
+            return {
+              text:"ACTUAL",
+              className:
+                "train-ok"
+            };
+
+          }
+
+
+          if (estimate && scheduled) {
+
+            const scheduledDate =
+              new Date(
+                scheduled
+              );
+
+
+            const estimateDate =
+              new Date(
+                estimate
+              );
+
+
+            if (
+              !Number.isNaN(
+                scheduledDate.getTime()
+              ) &&
+              !Number.isNaN(
+                estimateDate.getTime()
+              )
+            ) {
+
+              const delay =
+                Math.round(
+                  (
+                    estimateDate.getTime() -
+                    scheduledDate.getTime()
+                  ) /
+                  60000
+                );
+
+
+              if (delay > 0) {
+
+                return {
+                  text:
+                    "+" +
+                    delay +
+                    " MIN",
+                  className:
+                    "train-delay"
+                };
+
+              }
+
+
+              if (delay < 0) {
+
+                return {
+                  text:
+                    delay +
+                    " MIN",
+                  className:
+                    "train-ok"
+                };
+
+              }
+
+            }
+
+
+            return {
+              text:"ESTIMATED",
+              className:
+                "train-ok"
+            };
+
+          }
+
+
+          return {
+            text:"ON TIME",
+            className:
+              "train-ok"
+          };
+
+        }
+
+
+        function sortTrainEvents(a,b) {
+
+          const aTime =
+            new Date(
+              a.event.scheduledTime ||
+              0
+            ).getTime();
+
+
+          const bTime =
+            new Date(
+              b.event.scheduledTime ||
+              0
+            ).getTime();
+
+
+          return (
+            aTime -
+            bTime
+          );
+
+        }
+
+
+        async function loadHelsinkiTrains() {
+
+          const statusElement =
+            document.getElementById(
+              "helsinkiTrainStatus"
+            );
+
+
+          const rowsElement =
+            document.getElementById(
+              "helsinkiTrainRows"
+            );
+
+
+          statusElement.textContent =
+            "[ FETCHING LIVE TRAINS... ]";
+
+
+          try {
+
+            const response =
+              await fetch(
+                HELSINKI_TRAIN_API,
+                {
+                  cache:
+                    "no-store"
+                }
+              );
+
+
+            if (!response.ok) {
+
+              throw new Error(
+                "Digitraffic HTTP " +
+                response.status
+              );
+
+            }
+
+
+            const trains =
+              await response.json();
+
+
+            if (
+              !Array.isArray(
+                trains
+              )
+            ) {
+
+              throw new Error(
+                "Unexpected Digitraffic response."
+              );
+
+            }
+
+
+            const events = [];
+
+
+            trains.forEach(
+              function(train) {
+
+                const event =
+                  getHelsinkiEvent(
+                    train
+                  );
+
+
+                if (!event) {
+
+                  return;
+
+                }
+
+
+                events.push({
+
+                  train:
+                    train,
+
+                  event:
+                    event
+
+                });
+
+              }
+            );
+
+
+            events.sort(
+              sortTrainEvents
+            );
+
+
+            /*
+             * Remove duplicate train/event pairs.
+             */
+
+            const seen =
+              new Set();
+
+
+            const uniqueEvents =
+              events.filter(
+                function(item) {
+
+                  const key =
+                    String(
+                      item.train.trainNumber
+                    ) +
+                    "-" +
+                    String(
+                      item.event.type
+                    );
+
+
+                  if (
+                    seen.has(key)
+                  ) {
+
+                    return false;
+
+                  }
+
+
+                  seen.add(key);
+
+                  return true;
+
+                }
+              );
+
+
+            /*
+             * Keep the board from becoming enormous.
+             */
+
+            const displayEvents =
+              uniqueEvents.slice(
+                0,
+                30
+              );
+
+
+            if (
+              displayEvents.length === 0
+            ) {
+
+              rowsElement.innerHTML =
+                '<tr>' +
+                '<td colspan="7">' +
+                'No Helsinki train events found right now :(' +
+                '</td>' +
+                '</tr>';
+
+
+              statusElement.textContent =
+                "[ NO TRAIN EVENTS ]";
+
+
+              return;
+
+            }
+
+
+            rowsElement.innerHTML =
+              displayEvents
+                .map(
+                  function(item) {
+
+                    const train =
+                      item.train;
+
+
+                    const event =
+                      item.event;
+
+
+                    const status =
+                      getStatus(
+                        train,
+                        event
+                      );
+
+
+                    const type =
+                      train.trainType ||
+                      train.trainCategory ||
+                      "TRAIN";
+
+
+                    const number =
+                      train.trainNumber ??
+                      "?";
+
+
+                    const direction =
+                      getDestination(
+                        train,
+                        event
+                      );
+
+
+                    const scheduled =
+                      formatTime(
+                        event.scheduledTime
+                      );
+
+
+                    const estimate =
+                      event.actualTime
+                        ? formatTime(
+                            event.actualTime
+                          )
+                        : event.liveEstimateTime
+                          ? formatTime(
+                              event.liveEstimateTime
+                            )
+                          : "—";
+
+
+                    const track =
+                      event.commercialTrack ||
+                      "—";
+
+
+                    const eventType =
+                      event.type ===
+                      "ARRIVAL"
+
+                        ? "ARRIVAL"
+
+                        : "DEPARTURE";
+
+
+                    return (
+
+                      "<tr>" +
+
+                        "<td>" +
+
+                          escapeTrainHTML(
+                            type
+                          ) +
+
+                        "</td>" +
+
+
+                        "<td class=\"train-number\">" +
+
+                          escapeTrainHTML(
+                            number
+                          ) +
+
+                        "</td>" +
+
+
+                        "<td class=\"train-track\">" +
+
+                          escapeTrainHTML(
+                            track
+                          ) +
+
+                        "</td>" +
+
+
+                        "<td>" +
+
+                          escapeTrainHTML(
+                            direction
+                          ) +
+
+                        "</td>" +
+
+
+                        "<td>" +
+
+                          escapeTrainHTML(
+                            scheduled
+                          ) +
+
+                          "<br>" +
+
+                          "<small>" +
+
+                            eventType +
+
+                          "</small>" +
+
+                        "</td>" +
+
+
+                        "<td>" +
+
+                          escapeTrainHTML(
+                            estimate
+                          ) +
+
+                        "</td>" +
+
+
+                        "<td class=\"" +
+
+                          escapeTrainHTML(
+                            status.className
+                          ) +
+
+                        "\">" +
+
+                          escapeTrainHTML(
+                            status.text
+                          ) +
+
+                        "</td>" +
+
+                      "</tr>"
+
+                    );
+
+                  }
+                )
+                .join("");
+
+
+            const now =
+              new Date()
+                .toLocaleTimeString(
+                  "fi-FI",
+                  {
+                    hour:
+                      "2-digit",
+
+                    minute:
+                      "2-digit",
+
+                    second:
+                      "2-digit"
+                  }
+                );
+
+
+            statusElement.textContent =
+              "[ LIVE ] " +
+              displayEvents.length +
+              " HELSINKI EVENTS | UPDATED " +
+              now;
+
+          }
+
+
+          catch(error) {
+
+            console.error(
+              "Helsinki train board error:",
+              error
+            );
+
+
+            rowsElement.innerHTML =
+
+              '<tr>' +
+
+                '<td colspan="7">' +
+
+                  '<div class="train-error">' +
+
+                    'OH NO!! THE TRAIN COMPUTER BROKE :(<br><br>' +
+
+                    escapeTrainHTML(
+                      error.message
+                    ) +
+
+                    '<br><br>' +
+
+                    'Digitraffic may be temporarily unavailable.' +
+
+                  '</div>' +
+
+                '</td>' +
+
+              '</tr>';
+
+
+            statusElement.textContent =
+              "[ FINTRAFFIC CONNECTION ERROR ]";
+
+          }
+
+        }
+
+
+        /*
+         * Load immediately.
+         */
+
+        document.addEventListener(
+          "DOMContentLoaded",
+          function() {
+
+            loadHelsinkiTrains();
+
+          }
+        );
+
+
+        /*
+         * Refresh every 30 seconds.
+         */
+
+        setInterval(
+          loadHelsinkiTrains,
+          30000
+        );
+
+      </script>
+
+
+      <br>
+
+
+      <!-- ========================================================= -->
+      <!-- TERMS AND CONDITIONS                                      -->
+      <!-- ========================================================= -->
+
+
+      <style>
+
+        div.termsAndPolicy {
+
+          margin:5px auto;
+
+          width:300px !important;
+
+          padding:5px;
+
+          border-top:1px solid white;
+          border-left:1px solid white;
+          border-right:1px solid #808080;
+          border-bottom:1px solid #808080;
+
+          box-shadow:1px 1px black;
+
+          background:#c3c3c3;
+
+          display:grid;
+
+          align-content:end;
+
+          text-align:center;
+
+          font-size:14px;
+
+          z-index:9;
+
+          text-shadow:
+            1px 1px white,
+            -1px -1px rgba(0,0,0,.25);
+
+        }
+
+
+        div.termsAndPolicy div {
+
+          width:100%;
+
+          background:white;
+
+          box-shadow:
+            inset 1px 1px black,
+            inset 2px 2px #808080,
+            inset -1px -1px #c3c3c3,
+            1px 1px white;
+
+          justify-content:center;
+
+          align-items:center;
+
+          display:flex;
+
+          gap:10px;
+
+          padding:10px;
+
+        }
+
+      </style>
+
+
+      <div class="termsAndPolicy">
+
+        <div style=""> 
+
+          <a
+            title="https://hhroses.art/privacy-policy"
+            href="privacy-policy.html"
+            target="_blank"
+            style="font-family:times;font-size:1rem;;"
+          >
+            Privacy Policy
+          </a>
+
+
+          <a
+            title="https://hhroses.art/terms-of-service"
+            href="terms-of-service.html"
+            target="_blank"
+            style="font-family:times;font-size:1rem;"
+          >
+            Terms of Service
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <br>
+
+
+      <!-- ========================================================= -->
+      <!-- NEOCITIES PLUG                                            -->
+      <!-- ========================================================= -->
+
+
+      <style>
+
+        .neocities {
+
+          margin:10px auto !important;
+
+          border:10px solid white;
+
+          border-radius:25px;
+
+          box-shadow:
+            1px 1px pink,
+            2px 2px white,
+            -1px -1px #808080,
+            -2px -2px black;
+
+        }
+
+
+        .neocities:hover {
+
+          scale:1;
+
+          cursor:
+            url('cursors/pointer.png'),
+            pointer;
+
+        }
+
+      </style>
+
+
+      <center>
+
+        <a
+          href="https://neocities.org/site/hhroses"
+          title="https://neocities.org/site/hhroses"
+          target="_blank"
+        >
+
+          <img
+            src="neocities.png"
+            class="neocities"
+          >
+
+        </a>
+
+      </center>
+
+
+      <!-- ========================================================= -->
+      <!-- LANGUAGES                                                 -->
+      <!-- ========================================================= -->
+
+
+      <style>
+
+        .languages_wrap_wrap {
+
+          font-family:'Arial';
+
+          margin:5px auto;
+
+          top:900px;
+
+          width:185px;
+
+          padding:5px;
+
+          border-top:1px solid white;
+          border-left:1px solid white;
+          border-right:1px solid #808080;
+          border-bottom:1px solid #808080;
+
+          box-shadow:1px 1px black;
+
+          background:#c3c3c3;
+
+          display:grid;
+
+          align-content:end;
+
+          text-align:center;
+
+          font-size:14px;
+
+          z-index:99;
+
+          text-shadow:
+            1px 1px white,
+            -1px -1px rgba(0,0,0,.25);
+
+        }
+
+
+        /* stop Google Translate banner from pushing the page down */
+
+        .skiptranslate,
+        iframe.skiptranslate,
+        .goog-te-banner-frame {
+
+          display:none !important;
+
+          visibility:hidden !important;
+
+          height:0 !important;
+
+        }
+
+
+        body {
+
+          top:0 !important;
+
+          position:static !important;
+
+        }
+
+
+        .gtranslate_wrapper {
+
+          margin:5px auto !important;
+
+          filter:
+            drop-shadow(1px 1px white)
+            drop-shadow(-1px -1px rgba(0,0,0,.25));
+
+        }
+
+
+        .gtranslate_wrapper *::-webkit-scrollbar {
+
+          width:16px;
+
+        }
+
+
+        .gtranslate_wrapper *::-webkit-scrollbar-track {
+
+          background:#dfdfdf;
+
+          border-left:1px solid #fff;
+
+          border-top:1px solid #fff;
+
+        }
+
+
+        .gtranslate_wrapper *::-webkit-scrollbar-thumb {
+
+          background:#c0c0c0;
+
+          box-shadow:
+            inset 1px 1px #fff,
+            inset -1px -1px #0a0a0a,
+            inset 2px 2px #dfdfdf,
+            inset -2px -2px #808080;
+
+        }
+
+
+        .gtranslate_wrapper *::-webkit-scrollbar-button {
+
+          display:none;
+
+        }
+
+
+        .gtranslate_wrapper * {
+
+          scrollbar-width:thin;
+
+          scrollbar-color:
+            #c0c0c0
+            #dfdfdf;
+
+        }
+
+      </style>
+
+
+      <div class="languages_wrap_wrap">
+
+        <p>
+          Language:
+        </p>
+
+        <div class="gtranslate_wrapper"></div>
+
+      </div>
+
+
+      <script>
+
+        window.gtranslateSettings = {
+
+          "default_language":"en",
+
+          "native_language_names":true,
+
+          "detect_browser_language":true,
+
+          "wrapper_selector":".gtranslate_wrapper",
+
+          "flag_size":16,
+
+          "switcher_horizontal_position":"inline",
+
+          "switcher_open_direction":"top",
+
+          "flag_style":"3d",
+
+          "alt_flags":{
+            "en":"usa"
+          }
+
+        }
+
+      </script>
+
+
+      <script
+        src="../cdn.gtranslate.net/widgets/latest/dwf.js"
+        defer
+      ></script>
+      
+    </div>
+
+
+    <script>
+
+      // Silently record the pageview in the Cloudflare Worker
+
+      fetch(
+        'https://websiteviewshowerwowfintraffic.2nforfun.workers.dev/hit'
+      )
+
+      .catch(
+        err =>
+          console.error(
+            'Failed to log visit:',
+            err
+          )
+      );
+
+    </script>
+
+
+    <script>
+
+    (function(){
+
+      function c(){
+
+        var b =
+          a.contentDocument ||
+          (
+            a.contentWindow &&
+            a.contentWindow.document
+          );
+
+
+        if(b){
+
+          var d =
+            b.createElement(
+              'script'
+            );
+
+
+          d.innerHTML =
+            "window.__CF$cv$params={r:'a39686f1dd415424',t:'MTc4OTEyODE4NA=='};" +
+            "var a=document.createElement('script');" +
+            "a.src='cdn-cgi/challenge-platform/h/g/scripts/jsd/330e41bb475c/maind41d.js';" +
+            "document.getElementsByTagName('head')[0].appendChild(a);";
+
+
+          b.getElementsByTagName(
+            'head'
+          )[0].appendChild(d);
+
+        }
+
+      }
+
+
+      if(document.body){
+
+        var a =
+          document.createElement(
+            'iframe'
+          );
+
+
+        a.height=1;
+
+        a.width=1;
+
+        a.style.position='absolute';
+
+        a.style.top=0;
+
+        a.style.left=0;
+
+        a.style.border='none';
+
+        a.style.visibility='hidden';
+
+
+        document.body.appendChild(a);
+
+
+        if(
+          'loading' !==
+          document.readyState
+        )
+
+          c();
+
+        else if(
+          window.addEventListener
+        )
+
+          document.addEventListener(
+            'DOMContentLoaded',
+            c
+          );
+
+        else {
+
+          var e =
+            document.onreadystatechange ||
+            function(){};
+
+
+          document.onreadystatechange =
+            function(b){
+
+              e(b);
+
+              'loading' !==
+              document.readyState &&
+
+              (
+                document.onreadystatechange=e,
+                c()
+              );
+
+            }
+
+        }
+
+      }
+
+    })();
+
+    </script>
+
+  </body>
+
+<!-- Mirrored from https://hhroses.art/ by HTTrack Website Copier/3.x [XR&CO], Fri, 11 Sep 2026 12:03:27 GMT -->
 </html>
