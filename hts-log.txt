@@ -1,0 +1,43 @@
+HTTrack3.50-0 launched on Fri, 11 Sep 2026 15:02:20 at https://hhroses.art/home +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2%f#f -F "Mozilla/5.0 (compatible; HTTrack; +https://www.httrack.com/)" -%F "<!-- Mirrored from {url} by HTTrack Website Copier/3.x [XR&CO], {date} -->" -%l "en, *" https://hhroses.art/home -O1 "C:\My Web Sites13\f" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:03:07	Error: 	"Not Found" (404) at link https://hhroses.art/my-pictures/art-gallery/2026-Art/IMG_0101.png (from https://hhroses.art/home)
+15:03:07	Error: 	"Not Found" (404) at link https://hhroses.art/my-pictures/art-gallery/2026-Art/IMG_0168.png (from https://hhroses.art/home)
+15:03:14	Warning: 	Found for https://unpkg.com/robots.txt
+15:03:14	Warning: 	File has moved from https://unpkg.com/robots.txt to /robots.txt@1.1.0/index.js
+15:03:27	Error: 	"Not Found" (404) at link https://hhroses.art/j[lJ(dX.k (from https://hhroses.art/cdn-cgi/challenge-platform/h/g/scripts/jsd/330e41bb475c/main.js?)
+15:03:38	Error: 	"Not Found" (404) at link https://cdn.gtranslate.net/widgets/latest/Edg/ (from https://cdn.gtranslate.net/widgets/latest/lib.min.js)
+15:03:38	Error: 	"Not Found" (404) at link https://cdn.gtranslate.net/widgets/latest/+/ (from https://cdn.gtranslate.net/widgets/latest/lib.min.js)
+15:03:40	Error: 	"Not Found" (404) at link https://hhroses.art/cdn-cgi/l/email-protection (from https://hhroses.art/privacy-policy)
+15:04:41	Error: 	"Not Found" (404) at link https://hhroses.art/images/dividers/vintage-lace.png (from https://hhroses.art/2dart)
+15:04:41	Error: 	"Not Found" (404) at link https://hhroses.art/src/haileetheme/mobiledefault.css (from https://hhroses.art/music)
+15:04:56	Error: 	"Not Found" (404) at link https://hhroses.art/m[x.dj] (from https://5gvci.com/act/files/tag.min.js?z=11102782)
+15:04:56	Error: 	"Not Found" (404) at link https://hhroses.art/c[x.pK] (from https://5gvci.com/act/files/tag.min.js?z=11102782)
+15:05:06	Info: 	Retry after error -4 (No data (connection closed)) at link https://backrooms-pantheon.wdfiles.com/local--files/the-new-revolution-raceway/Dsc00777.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/0003b)
+15:05:13	Info: 	Retry after error -4 (No data (connection closed)) at link https://backrooms-pantheon.wdfiles.com/local--files/the-new-revolution-raceway/Dsc00777.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/0003b)
+15:05:13	Info: 	Retry after error -4 (No data (connection closed)) at link https://backrooms-pantheon.wdfiles.com/local--resized-images/the-new-revolution-raceway/Dsc00778.jpg/small.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/0004b)
+15:05:13	Info: 	Retry after error -4 (No data (connection closed)) at link https://backrooms-pantheon.wdfiles.com/local--resized-images/the-new-revolution-raceway/Dsc00779.jpg/small.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/0004b)
+15:05:24	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://backrooms-pantheon.wdfiles.com/local--files/the-new-revolution-raceway/Dsc00777.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/0003b)
+15:05:24	Info: 	Retry after error -4 (No data (connection closed)) at link https://backrooms-pantheon.wdfiles.com/local--resized-images/the-new-revolution-raceway/Dsc00778.jpg/small.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/0004b)
+15:05:24	Info: 	Retry after error -4 (No data (connection closed)) at link https://backrooms-pantheon.wdfiles.com/local--resized-images/the-new-revolution-raceway/Dsc00779.jpg/small.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/0004b)
+15:05:27	Info: 	Retry after error -4 (No data (connection closed)) at link https://backrooms-wiki.wdfiles.com/local--files/manila-room/ManilaRoom.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/Manila-Room/1)
+15:05:27	Error: 	"Forbidden" (403) at link https://remnant2.wiki.gg/images/The_Backrooms.jpg?fb6cd5 (from https://hhroses.art/programs/the-backrooms/level0000-threshold/x001)
+15:05:32	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://backrooms-pantheon.wdfiles.com/local--resized-images/the-new-revolution-raceway/Dsc00778.jpg/small.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/0004b)
+15:05:32	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://backrooms-pantheon.wdfiles.com/local--resized-images/the-new-revolution-raceway/Dsc00779.jpg/small.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/0004b)
+15:05:34	Info: 	Retry after error -4 (No data (connection closed)) at link https://backrooms-wiki.wdfiles.com/local--files/manila-room/ManilaRoom.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/Manila-Room/1)
+15:05:38	Error: 	"Bad Request" (400) at link https://bloody-disgusting.com/wp-content/uploads/2026/02/Screenshot-2026-02-24-091027.png (from https://hhroses.art/programs/the-backrooms/level0000-threshold/x000)
+15:05:44	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://backrooms-wiki.wdfiles.com/local--files/manila-room/ManilaRoom.jpg (from https://hhroses.art/programs/the-backrooms/level0000-threshold/Manila-Room/1)
+15:06:01	Info: 	Retry after error -4 (No data (connection closed)) at link https://backrooms-wiki.wikidot.com/local--files/level-7/level-7-cc.jpg (from https://hhroses.art/programs/the-backrooms/level0007-thalassophobia/entrance)
+15:06:09	Info: 	Retry after error -4 (No data (connection closed)) at link https://backrooms-wiki.wikidot.com/local--files/level-7/level-7-cc.jpg (from https://hhroses.art/programs/the-backrooms/level0007-thalassophobia/entrance)
+15:06:11	Error: 	"Not Found" (404) at link https://hhroses.art/programs/the-backrooms/level0000-threshold/0.7-Claustrophobia/0005b (from https://hhroses.art/programs/the-backrooms/level0000-threshold/0.7-Claustrophobia/exit)
+15:06:22	Error: 	"No data (connection closed)" (-4) after 2 retries at link https://backrooms-wiki.wikidot.com/local--files/level-7/level-7-cc.jpg (from https://hhroses.art/programs/the-backrooms/level0007-thalassophobia/entrance)
+15:06:39	Error: 	"Not Found" (404) at link https://hhroses.art/programs/the-backrooms/level0000-threshold/The-Darkrooms/0004b (from https://hhroses.art/programs/the-backrooms/level0000-threshold/The-Darkrooms/0003)
+15:06:52	Error: 	"Not Found" (404) at link https://hhroses.art/programs/the-backrooms/level0000-threshold/The-Darkrooms/0005b (from https://hhroses.art/programs/the-backrooms/level0000-threshold/The-Darkrooms/0004a)
+
+HTTrack Website Copier/3.50-0 mirror complete in 4 minutes 38 seconds : 508 links scanned, 475 files written (153228455 bytes overall) [152139554 bytes received at 547264 bytes/sec], 5059652 bytes transferred using HTTP compression in 219 files, ratio 53%, 4.4 requests per connection
+(20 errors, 2 warnings, 10 messages)

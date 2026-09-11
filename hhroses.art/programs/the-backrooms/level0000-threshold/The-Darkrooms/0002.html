@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from https://hhroses.art/programs/the-backrooms/level0000-threshold/The-Darkrooms/0002 by HTTrack Website Copier/3.x [XR&CO], Fri, 11 Sep 2026 12:06:16 GMT -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Backrooms Lvl.0 The Darkrooms</title>
+    <link rel="stylesheet" href="../../../../../unpkg.com/98.css%400.1.21/dist/98.css">
+    <link rel="stylesheet" href="../../src/style.css"> 
+    <style>
+      body { background-color:black; color:white }
+      .img {
+        background-image:url('../../../../../devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/5X/b/4/c/c/b4cca6773f653423787be6aafa6f97c93cd0e538.jpeg');
+        aspect-ratio: 10 /6;
+        background-size:cover;
+        background-position:center;
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="ambience" src="../../../../audio/backrooms/10-minutes-of-backrooms-light-buzzing.mp3" autoplay=""></audio>
+    <div class="container"> 
+      <div class="img"></div>
+      <br>
+      <p style="text-align:center;">
+        It's dark.
+      </p> 
+      <a href="0003.html">
+        <button>explore</button>
+      </a>
+      <br>
+      <a href="0001.html">
+        <button>turn back</button>
+      </a>
+    </div>
+    <script>
+      // noclips
+      const links = [
+        "https://hhroses.art/programs/the-backrooms/level0000-threshold/0.7-Claustrophobia/hallway",
+        "../0.7-Claustrophobia/smiler.html",
+        "../0.7-Claustrophobia/dark3.html"
+      ];
+      let secondsLeft = 3;
+      const timer = setInterval(() => {
+        secondsLeft--;
+        if (secondsLeft <= 0) {
+          clearInterval(timer);
+          const randomLink = links[Math.floor(Math.random() * links.length)];
+          window.location.href = randomLink;
+        }
+      }, 9000);
+    </script>
+    <script src="../../src/script.js"></script>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3968b661835e4e2',t:'MTc4OTEyODM2Nw=='};var a=document.createElement('script');a.src='../../../../cdn-cgi/challenge-platform/h/g/scripts/jsd/330e41bb475c/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+<!-- Mirrored from https://hhroses.art/programs/the-backrooms/level0000-threshold/The-Darkrooms/0002 by HTTrack Website Copier/3.x [XR&CO], Fri, 11 Sep 2026 12:06:19 GMT -->
+</html>

@@ -1,0 +1,175 @@
+@font-face {
+  font-family: 'ms sans serif';
+  src: local(''), url('../../../font/ms-sans-serif-1.otf') format('OpenType');
+  font-display: swap;
+}
+body,html{
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
+  font-family:'ms sans serif', Arial, Times;
+  cursor:url('../../../cursors/default.png'),auto;
+}
+*,
+*::before,
+*::after {box-sizing: border-box;margin: 0;}
+.fuzzy-overlay {
+  position: absolute;
+  inset: -200%;
+  background-image: url("../../../images/noise2.jpg");
+  opacity: .5;
+  z-index: 999999 !important;
+  pointer-events: none;
+  animation: shift 0.2s linear infinite both;
+}
+@keyframes shift {0% { transform: translateX(10%) translateY(10%);} 100% { transform: translateX(-10%) translateY(-10%);}}
+:root {
+  --crt-red: rgb(218, 49, 49);
+  --crt-green: rgb(112, 159, 115);
+  --crt-blue: rgb(40, 129, 206);
+}
+.crt::before,
+.crt::after,
+body::before,
+body::after {
+  content: "";
+  pointer-events: none;
+  opacity: .5;
+  mix-blend-mode: overlay;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2147483647;
+}
+.crt::before,
+body::before {
+  background: repeating-linear-gradient(var(--crt-red) 0px,
+      var(--crt-green) 2px,
+      var(--crt-blue) 4px);
+}
+.crt::after,
+body::after {
+  background: repeating-linear-gradient(90deg,
+      var(--crt-red) 1px,
+      var(--crt-green) 2px,
+      var(--crt-blue) 3px);
+}
+body { 
+  text-align:center;
+  color:black;
+  overflow:auto;
+  background:#d8d9ed;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  overflow-x: hidden;
+  box-shadow: inset 0 0 5px black, 
+              inset 0 0 10px rgba(0,0,0,.5), 
+              inset 0 0 50px rgba(0,0,0,.5), 
+              inset 0 0 100px rgba(0,0,0,.5)
+}
+.container {
+  margin: 0 !important; 
+  padding: 100px 0 0 0 !important;  
+  min-height: 100dvh;
+  width: 100%;
+  display: flex !important;
+  flex-direction: column !important; 
+  align-items: center !important;  
+  justify-content: flex-start !important; 
+  box-sizing: border-box; 
+  filter:contrast(120%) brightness(90%) blur(.5px);
+}
+h1, h2, h3, p, button {
+  text-shadow: 0 0 1px black;
+}
+h1 {
+  font-size:24px; 
+  font-family:Times;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  text-shadow: 1px 1px 0 rgba(0,0,0,.3),
+   1px 1px 0 rgba(0,0,0,.2), 
+   100px 10px 0 rgba(0,0,0,.2),
+   -50px -10px 0 rgba(0, 0, 255,.25);
+  cursor: url('../../../cursors/help.png'), help;
+}
+h1:hover {
+  text-shadow: 7px 6px 0 rgba(0,0,0,.3),
+   100px 1px 0 rgba(0,0,0,.2), 
+   3px 50px 0 rgba(0,0,0,.2),
+   -70px -10px 0 rgba(0, 0, 255,.25);
+  animation: shake 90s infinite;
+}
+h1:active {
+  text-shadow: 10px -10px 0 rgba(0,0,0,.3),
+   -20px 20px 0 rgba(0,0,0,.2), 
+   -9px 3px 0 rgba(0,0,0,.2),
+   5px 5px 0 rgba(0, 0, 255,.25);
+}
+@keyframes shake { 
+  0% {transform:translateX(0px) translateY(0px);}
+  10% {transform:translateX(2px) translateY(-3px);}
+  20% {transform:translateX(-1px) translateY(0px);}
+  30% {transform:translateX(0px) translateY(1px);}
+  40% {transform:translateX(-3px) translateY(2px);}
+  50% {transform:translateX(2px) translateY(5px);}
+  60% {transform:translateX(5px) translateY(4px);}
+  70% {transform:translateX(3px) translateY(1px);}
+  80% {transform:translateX(0px) translateY(5px);}
+  90% {transform:translateX(-5px) translateY(2px);}
+  100% {transform:translateX(0px) translateY(0px);}
+}
+p {
+  margin:10px auto;
+  text-align: center;
+  line-height:22px;
+  width:450px;
+  max-width:90%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  font-family:Arial;
+  font-size:18px;
+  cursor: url('../../../cursors/help.png'), help;
+  text-align:center;
+} 
+p:active {animation:shake .01s infinite}
+img,.img, iframe {
+  border:1px solid black;
+  box-shadow: 1px 1px rgba(0,0,0,.5), 
+              0 0 1px black, 
+              1px 1px 1px black, 
+        inset 1px 1px rgba(255,255,255,.25);
+  width:450px;
+  min-height:50px;
+  height:auto;
+  max-height:400px;
+  max-width:90%;
+  cursor: url('../../../cursors/help.png'), help;
+  margin:0 auto;
+  margin-top:0 !important;
+  padding:0;
+  background-size: 100% auto;
+  box-sizing: border-box;
+} 
+button {
+  background: #c3c3c3;
+  border:none;
+  padding:5px 10px;
+  margin:5px;
+  cursor:url('../../../cursors/pointer.png'), pointer;
+  scale:1.5;
+  min-width:30px;
+  border-top:1px solid white;
+  border-left: 1px solid white;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  box-shadow: inset 1px 1px #e6e8e8, 
+              inset -1px -1px #808080;
+} 
+
+
+

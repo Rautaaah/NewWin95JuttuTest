@@ -1,0 +1,5 @@
+const art2008 = [
+  { id: "art-000004", year: "2008", title: "2008-face-sketch-by-hhroses", img: "https://hhroses.art/my-pictures/2d-art-gallery/2008-Art/2008-face-sketch-by-hhroses.jpg", alt: "pencil drawing of a face by hhroses", overlay: "hhroses", tags: ["art","artwork","hhroses"] },
+  { id: "art-000005", year: "2008", title: "2008-girl-sketch-by-hhroses", img: "https://hhroses.art/my-pictures/2d-art-gallery/2008-Art/2008-girl-sketch-by-hhroses.jpg", alt: "pencil drawing of a face or portrait of a girl by hhroses", overlay: "hhroses", tags: ["art","artwork","hhroses"] },
+  { id: "art-000006", year: "2008", title: "2008-second-earth-fanart-collab-w-a-by-hhroses", img: "https://hhroses.art/my-pictures/2d-art-gallery/2008-Art/2008-second-earth-fanart-collab-w-a-by-hhroses.jpg", alt: "pencil drawing of a nature scene based off the book \"The Second Earth by Patrick Woodroffe\" by hhroses and amber", overlay: "hhroses", tags: ["art","artwork","hhroses"] },
+];

@@ -1,0 +1,38 @@
+.context-menu {
+  display: none; 
+  position: absolute;
+  z-index: 2147483647;
+  width: 150px;
+  box-shadow: 
+    inset -1px -1px 0 0 var(--theme-btndkshadow, #000000),
+    inset 1px 1px 0 0 var(--theme-btnhighlight, #ffffff),
+    inset -2px -2px 0 0 var(--theme-btnshadow, #808080),
+    inset 2px 2px 0 0 var(--theme-btnface, #c0c0c0) !important;
+  font-family: 'MS Sans Serif', Tahoma, sans-serif;
+  font-size: 12px;
+  padding: 2px;
+  background-color: var(--ButtonFace, #c0c0c0) !important;
+  color: var(--ButtonText, #000000) !important;
+  user-select: none;
+}
+.menu-item {
+  padding: 3px 15px;
+  color: var(--ButtonText, #000000) !important;
+  cursor: default;
+}
+.menu-item:hover {
+  background-color: var(--Hilight, #000080) !important;
+  color: var(--HilightText, #ffffff) !important;
+}
+.menu-separator {
+  margin: 3px 2px;
+  border-top: 1px solid var(--theme-btnshadow, #808080);
+  border-bottom: 1px solid var(--theme-btnhighlight, #ffffff);
+}
+.menu-item.disabled,
+.menu-item.disabled:hover {
+  color: #808080 !important;
+  text-shadow: 1px 1px 0 #ffffff !important;
+  background-color: var(--ButtonFace, #c0c0c0) !important;
+  pointer-events: none;
+}

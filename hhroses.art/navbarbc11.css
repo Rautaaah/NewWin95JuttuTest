@@ -1,0 +1,117 @@
+/* top navigation bar */
+#navbar {
+  font-size: 0; 
+  border-bottom: none !important;
+  height: 25px;
+  overflow: hidden;
+  background-color: grey;
+  position: fixed;
+  top: -2px;
+  width: 100%;
+  z-index: 21474836499 !important;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  transition:
+    top 1s ease,
+    background-color 1s ease,
+    border-top-left-radius 1s ease,
+    border-top-right-radius 1s ease;
+}
+.navbar button {
+  background-color: var(--ButtonFace, #c0c0c0) !important;
+  color: var(--theme-windowtext, #000);
+  height: 24px;
+  min-width:20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 2px 4px 0 2px;
+  margin: 0;
+  transition: height 0.5s ease, 
+              border-radius 0.5s ease;
+  cursor: url('cursors/pointer.png'), pointer !important;
+}
+.navbar button {
+  background-color: var(--ButtonFace, #c0c0c0) !important;
+  color: var(--ButtonText, #000000) !important;
+}  
+.navbar button:hover {
+  margin-top:-5px;
+  background-color: #e5ffff;
+  font-weight: 900 !important;
+}
+.navbar button span:hover {text-decoration: underline;}
+.navbar span {
+  font-size: 13px;
+  font-family: basiic;
+  font-weight: normal;
+  color: black;
+  padding:0;
+  margin-right:4px;
+  margin-left:4px;
+  font-weight: 900;
+}
+.navbar img {padding:0;margin:-2px -2px 0 2px;}
+.back-button span,.forward-button span {padding:2px;margin:auto;}
+
+.pinklacedivider, .navbardecor { display: none; }
+.menu-button{display:none;}
+
+/*------------------------------------------------------------------------
+MOBILE VERSION
+------------------------------------------------------------------------*/
+
+   
+@media (max-width: 768px) {
+  .navbar {
+    min-height:50px !important; 
+    height: auto !important;
+    overflow: visible !important;
+    padding:5px;
+    box-shadow: inset 1px 1px black, inset -1px -1px black;
+  }
+  .nav-btn { 
+    display: none; 
+    position:static !important;
+    border-radius:5px !important;
+    height:30px !important;
+    padding:5px;
+    padding-left:5px !important;padding-right:5px !important;
+    min-width:100px;
+    align-items: center;
+  }
+  .nav-btn img {
+    margin-bottom:3px;
+  }
+  button span {font-size:16px !important;margin-left:6px !important;}
+  .menu-button { 
+    display: block; 
+    height:40px !important; width:40px;
+    font-size:20px;
+    border-radius:5px !important;
+    font-weight:900;
+    align-items: center;
+    padding-bottom:5px !important;
+    margin:0;
+    float:left;
+  }
+  .menu-button:hover{transform:none !important;margin:0 !important;}
+
+  body:has(.menu-button.is-active) .navbar {
+    height: auto !important;
+    overflow: visible;
+    padding-bottom: 5px;
+  }
+  body:has(.menu-button.is-active) .nav-btn {
+    display: inline-block !important;
+  }
+  .menu-btns {
+    margin: 0 0 0 44px;
+    height:auto;
+  }
+  
+  .backbutton,.forwardbutton {display:none !important;}
+}
+
+
+

@@ -1,0 +1,10 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+web.archive.org	TRUE	/	FALSE	1999999999	wb-p-SERVER	wwwb-app204
+static.wikia.nocookie.net	TRUE	/	FALSE	1999999999	__cf_bm	_rt7wPma8h0LaC0CN7.aBSXMeJZ_1tMRXJYYwFkOJxA-1789128300.3975804-1.0.1.1-ant3QUe1J.0j6vqpf6Ax7oSS7RpoQkkuiswIkrpgnXb.KreBcO0E4bRkbBarWSmzHfuXZ7QEJ3lzTaRmxUkPUnkwiInRayP4kJgR9vLLTAw7TdC10WFxcyC2SqfBM6vE
+nocookie.net	TRUE	/	FALSE	1999999999	SameSite	None
+remnant2.wiki.gg	TRUE	/	FALSE	1999999999	__cf_bm	5jqO5UxBkrNPbvGag.kXyvUJ4rK_6n0RisA1ZfdKYuM-1789128319.368671-1.0.1.1-0j9zPYGpqUFU_fHvQXrBF1ZkTuj2e1ivSr_rIbddEjQbvslNwXC7ENm2gSzOnwMXlYuYECMyl0bH8dID0Ld0PorNyN81qDt4UtV8U0Wowc.yh5s56zmtpE64zfiUtwle
+wiki.gg	TRUE	/	FALSE	1999999999	SameSite	None
+upload.wikimedia.org	TRUE	/	FALSE	1999999999	WMF-Uniq	jzpGNpj1oWtXjkUzcoFZiwPYAAEBAFvd0UtqCFAeJ_1jRf6-2dC7VY7xk_gzqkzk
+upload.wikimedia.org	TRUE	/	FALSE	1999999999	SameSite	None
+

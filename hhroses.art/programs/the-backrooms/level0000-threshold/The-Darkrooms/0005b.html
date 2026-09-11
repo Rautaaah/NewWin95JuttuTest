@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>404 NOT FOUND</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-src/haileee's-comet_favicon.ico" />
+    <!--windows 98 style-->
+    <link rel="stylesheet" href="https://unpkg.com/98.css" /> 
+    <!--page defaults-->
+    <link rel="stylesheet" href="https://hhroses.art/defaultpage.css?v=2" />
+    <script src="https://hhroses.art/defaultpage.js?v=9999999"></script>
+    <link href="https://hhroses.art/navbar.css" rel="stylesheet" type="text/css">
+    <script src="https://hhroses.art/navbar.js?v=10"></script>
+    <!--chattable-->
+    <script src="https://iframe.chat/scripts/main.min.js defer"></script>
+    <!-- ads -->
+    <script src="https://quge5.com/88/tag.min.js" data-zone="246327" async data-cfasync="false"></script>
+    <style>
+      /* =============== defaults ================== */
+      body { 
+        background-color: black; 
+        overflow: hidden;
+        animation: changeCursor 0s ease 6s forwards;
+        background: url('https://hhroses.neocities.org/images/brokenscreen.jpg');
+        background-size: cover;
+      }
+      .centeredthing {
+        position:absolute;
+        bottom:0px;
+        right: 0px;
+        z-index: 9999998;
+        pointer-events: none;
+      }
+      .topglitch {
+        position: absolute; 
+        top: 0px; 
+        left: 0px; 
+        width: 30%; 
+        height: 30%; 
+        z-index: 9999998;
+        pointer-events: none; 
+      }    
+      /* startup splash screen */
+      .splash {
+        background-color: #0000ad;
+        position : fixed;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        transition: all ease-in-out 600ms;
+        cursor: wait;
+        z-index: 99999999999 !important;
+        cursor: url('https://hhroses.neocities.org/cursors/wait.png'), wait;
+      }
+      .splash > img {
+        position : fixed;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: auto;
+        left: 50%;
+        transform: translateX(calc(-50% - 0px));
+        z-index: 99;
+        box-shadow: inset 0 0 $blur-radius $spread-radius;
+        z-index: 9999999 !important;
+        cursor: url('https://hhroses.neocities.org/cursors/wait.png'), wait;
+      }
+      .hidden {
+        transition: .5s;
+        display: none;
+      }
+      /* =============== startup overlay ================== */
+      @keyframes changeCursor {to {cursor: url('https://hhroses.neocities.org/cursors/default.png'), auto;}}
+      .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }    
+      #startup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999;
+        animation: hideOverlay 0.01s ease 1s forwards;
+      }
+      @keyframes hideOverlay { 0% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+      /* =============== FOR big/average PC SCREENS ================== */
+      @media (min-width: 781px) {
+        .pagetitle {
+          position: absolute;
+          left: calc(50vw - 350px);
+          top: calc(50vh - 400px);
+          z-index: 9999997 !important;
+        }
+        .explorernotfoundpage {
+          width: 500px;
+          height: 500px;
+          left: calc(50vw - 250px) !important;
+          top: calc(50vh - 225px) !important;
+          z-index: 1 !important;
+        }
+      }
+      /* =============== MOBILE VERSION ================== */
+      @media (max-width: 780px) {
+        .pagetitle {
+          position: static;
+          margin: 0px auto !important;
+          width:100%; z-index:99999 !Importat;
+        }
+        .explorernotfoundpage, #explorernotfoundpage {
+          position:absolute;
+          display: table;
+          height: 500px; width:90%;
+          text-align:left !important;
+          top:200px !important;
+          left: 50% !important; transform: translateX(-50%) !important;
+          z-index: 1 !important;
+        }
+        .explorernotfoundpage iframe, #explorernotfoundpage iframe {
+          height: 100%; width: calc(100% - 6px); margin: 0 auto; border:none;
+        }
+        #explorernotfoundpage0 {display:none !important;}
+        .toplevel.window.mydiv.internet-explorer.resizeablewindow.explorernotfoundpage div.title-bar 
+        div.title-bar-text{text-align:left !important;margin:0;display:table;}
+      }
+    </style>
+  </head>
+  <body onload="openApp('explorernotfoundpage');">
+    <!-- loading image -->
+    <div id="startup-overlay">
+      <div class="loading">
+        <img loading="lazy" src="https://hhroses.neocities.org/images/STARTUPS/HRYJHZTUBHAGTNWE6YDVQJALWCY5VSE2.gif">
+        <div style="position: relative;bottom: 30px;  left: 10px; background-color: #c0c0c0; width: 260px; height: 20px; align-text: center;" loading="lazy" ><center><b>Loading...</b></center></div>
+      </div>
+    </div>
+    <!-- aesthetics-->
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <div class="gradient"></div>
+    <audio id="errorsound" src="https://hhroses.neocities.org/audio/Windows98ErrorSoundEffect.mp3" hidden></audio>
+    <!--desktop icons -->
+    <div class="deskicons" id="deskicons"></div>
+    <!--taskbar-->
+    <div id="taskbar-placeholder"></div>
+    <!--navbar-->
+    <div id="navbar-placeholder"></div>
+    <!--pink lace below navbar-->
+    <div class="pinklacedivider" id="pinklacedivider"></div>    
+    <!-- internet explorer 404 page-->
+    <div id="explorernotfoundpage" class="toplevel window mydiv internet-explorer resizeablewindow explorernotfoundpage" style="display: none;">
+      <div class="title-bar">
+        <img src="https://hhroses.neocities.org/images/icons/internet-explorer-16x16.png" />
+        <div class="title-bar-text">Internet Explorer</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button><button aria-label="Maximize"></button> <button aria-label="Close"></button>
+        </div>
+      </div>
+        <iframe loading="lazy" src="https://hhroses.neocities.org/programs/explorer/index.html?address=https://hhroses.art/aboutblank"></iframe>
+    </div>  
+    <!--page title-->
+    <img loading="lazy" class="pagetitle" src="https://hhroses.neocities.org/images/titles/404NotFound.gif" style="pointer-events: none;">
+    <!-- stuff -->
+    <img loading="lazy" class="centeredthing" src="https://hhroses.neocities.org/images/e61f4cb4a8251f9f9224a79443e108ee.gif" style="position:absolute; height:100%; width: auto; pointer-events: none;">
+    <img loading="lazy" class="centeredthing" src="https://hhroses.neocities.org/images/brokenglass.png" style="position:absolute; height: 100%; width: auto; pointer-events: none; pointer-events: none; opacity: 75%;">
+    <img loading="lazy" src="https://hhroses.neocities.org/images/D5XM.gif" class="topglitch" style="pointer-events: none;">
+    <!--sound effect-->
+    <div style="display:none">
+      <audio controls autoplay>
+        <source src="https://hhroses.neocities.org/audio/windows-error.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- splash screen -->
+    <div class="splash" id="load_screen">
+      <img src="https://hhroses.neocities.org/images/bluescreen_cat.gif" loading="lazy" >
+    </div>
+    <!--bootup sound effect-->
+    <div style="display:none">
+      <audio controls autoplay>
+          <source src="https://hhroses.neocities.org/audio/Slow-Computer-Processing-Sound-Effect.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+    </div>  
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Set initial positions (these can be overridden by drag)
+        var positions = {
+          'explorernotfoundpage': { left: 'calc(50vw - 290px)', top: 'calc(50vh - 400px)' }
+        };
+        for (var id in positions) {
+          var el = document.getElementById(id);
+          if (el) {
+            el.style.left = positions[id].left;
+            el.style.top = positions[id].top;
+          }
+        }
+        // For generated windows, wait a bit then position them
+        setTimeout(function() {
+          var generatedPositions = {
+            'chat': { left: 'calc(50vw - 670px)', top: 'calc(50vh - 150px)' },
+            'MSPaint': { left: 'calc(50vw - 500px)', top: 'calc(50vh - 335px)' }
+          };
+          // Find windows by class since IDs change after cloning
+          var chatWin = document.querySelector('.chat');
+          var mspaintWin = document.querySelector('.MSPaintwindow');
+          if (chatWin) {
+            chatWin.style.left = generatedPositions['chat'].left;
+            chatWin.style.top = generatedPositions['chat'].top;
+          }
+          if (mspaintWin) {
+            mspaintWin.style.left = generatedPositions['MSPaint'].left;
+            mspaintWin.style.top = generatedPositions['MSPaint'].top;
+          }
+        }, 100);
+      });
+      function playError() {
+        const sound = document.getElementById('errorsound');
+        sound.currentTime = 0;
+        sound.play().catch(e => console.log("Audio playback failed:", e));
+      }
+      // splash screen 
+      var splashScreen = document.querySelector('.splash');
+      addEventListener("load", function(){
+        setTimeout(function() { 
+            var load_screen = document.getElementById("load_screen");
+            document.body.removeChild(load_screen);
+        }, 3000);
+      });
+      // Reset scroll when crossing the mobile/desktop breakpoint
+      let wasMobileLayout = window.innerWidth <= 780;
+      window.addEventListener('resize', function() {
+        var isMobileLayout = window.innerWidth <= 780;
+        if (wasMobileLayout !== isMobileLayout) {
+          window.scrollTo(0, 0);
+        }
+        wasMobileLayout = isMobileLayout;
+      });
+    </script>
+    
+    <meta http-equiv="refresh" content="10; URL=https://hhroses.art/programs/the-backrooms/" />
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a3968c30d897e4e7',t:'MTc4OTEyODM5OQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

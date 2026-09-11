@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from https://hhroses.art/src/achievements/trophies-page by HTTrack Website Copier/3.x [XR&CO], Fri, 11 Sep 2026 12:03:39 GMT -->
+<head>
+    <title>User Trophies | H. H. Roses</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- achievements --> 
+    <script src="script5e1f.js?v=2"></script>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+      /* The hidden notification box */
+      @font-face{
+        font-family: 'basiic'; /* font by cinni.net !!! */
+        src: local(''), url('https://cinni.net/fonts/basiic.ttf') format('truetype');
+        font-display: swap;
+      }    
+      .achievement-toast {filter:invert(1)}
+      body, html { 
+        margin:0;
+        padding:0;
+        height:100%;
+        width:100%;
+        scrollbar-color: aqua #0028ff;
+        scrollbar-width:thin;
+      }
+      body {
+        cursor: url('../../cursors/default.png'), default;
+        font-family:'basiic',sans-serif;
+        background-image:url('../../../st.depositphotos.com/1043073/3514/i/450/depositphotos_35147139-stock-photo-abstract-gold-background.jpg');
+        background-size:auto 100%;
+        max-width: 625px;margin:0 auto;
+      }
+      h1 {
+        font-size:22px;
+        text-align:center;
+        font-weight:900;
+        margin-bottom:5px;
+        color:#0028ff;
+      }
+      p {
+        font-size:16px;
+        text-align:center;
+        font-weight:900;
+        margin-top:0;
+        margin-bottom:10px;
+        color:aquA;
+        padding-left:10px;
+        padding-right:10px;
+      }
+      .trophy-card {
+        background: #7f7f7f; 
+        border: 1px solid #4f4f51; 
+        box-shadow: 0 1px #4f4f51, 0 2px #4f4f51, 0 3px #4f4f51;
+        color: #fff; 
+        padding: 10px; 
+        border-radius: 10px; 
+        text-align: center;
+        display: grid;
+        place-content: center; 
+        GAP:0PX !important;
+        width:100%;
+        margin: 0 10px -10PX 10px;
+        filter:invert(1)
+      }
+      .trophy-figure {
+        background: #4f4f51;
+        border: 1px solid #393044;
+        color: white;
+        padding: 5px; 
+        border-radius: 10px; 
+        text-align: center; 
+        width: 180px; 
+        height:115px;
+        font-family:'basiic',sans-serif;
+        box-shadow: 0 3px 1px #393044, 0 1px 3px rgba(0,0,0,0.9);
+        cursor: url('../../cursors/pointer.png'), pointer;margin: 1PX !important;
+        MARGIN-LEFT:-5PX !important;
+        margin-right: -5PX !important;
+        margin-bottom: -10PX;
+      }
+      .trophy-figure:hover {filter:brightness(1.1);}
+      .trophy-figure:active {
+        filter:brightness(1.1);
+        transform:translateY(2px);
+        box-shadow: 0 1px 3px rgba(0,0,0,0.9);
+      }
+      .trophyIcon {
+        font-size: 40px; margin-bottom: 10px;
+        text-shadow: 1px 1px #393044, -1px 1px #393044, 1px -1px #393044, -1px -1px #393044;
+        -webkit-box-reflect: below -8px linear-gradient(to bottom, transparent 50%, rgba(255, 255, 255, 0.3));
+      }
+      .trophyName {
+        display: block; font-size: 18px; margin-bottom: 5px;
+        text-shadow: 1px 1px #393044, -1px 1px #393044, 1px -1px #393044, -1px -1px #393044;
+      }
+      .trophyDescription {
+        font-size: 14px; margin: 0; color: #ddd;
+        text-shadow: 1px 1px #393044, -1px 1px #393044, 1px -1px #393044, -1px -1px #393044;
+      }
+      /*for specific trophy cats*/
+      .trophy-card.backrooms {
+        border: 1px solid #ffcc00 !important;  
+        background: rgba(50, 40, 0, 0.7) !important;  
+        box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);  
+      }
+      .secretBtn { opacity:0;}
+      .secretBtn:hover {opacity:1};
+      button { font-family: 'basiic', Sans-Serif !important; }
+      .category-title {
+        font-size: 18px;
+        color: black;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding-top: 0px;
+        margin: -5PX 0 2px 0;
+        text-shadow: 1px 1px #393044, -1px 1px #393044, 1px -1px #393044, -1px -1px #393044;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Your Trophies</h1>
+    <p>You can earn trophies by exploring the site and playing games!</p>
+    
+    <!-- trophy case -->
+    <div id="trophy-case" style="display: flex; gap: 20px; flex-wrap: wrap;"></div>
+    <br>
+    <center>
+      <button style="font-family: 'basiic';" onclick="unlockAchievement('button_clicker', 'Curious Clicker', '🖱️','Clicked on the button','general', '../../audio/goblin/daviddumaisaudio-small-monster-attack-195712.mp3')">Don't Click Me</button>
+      <br><br>
+      <button style="font-family: 'basiic';" class="secretBtn" onclick="unlockAchievement('clicker_2', 'Master Clicker', '../../images/icons/winxp-doge-16x16.png', 'Found the secret button', 'general')">SECRET button</button>
+      <br><br>
+      <button style="font-family: 'basiic';" class="secretBtn" onclick="resetTrophies()" style="padding: 5px 10px; background: red; color: white; border: none; cursor: pointer; border-radius: 5px; ">Debug: Reset Trophies</button>
+      <br>
+      <br>
+      <span class="secretBtn">  
+        <p>Cheat Codes:</p>
+        <div style="display:flex;gap:10px;justify-content:center;align-items:center;">
+          <input type="text" id="cheatInput" placeholder="Enter trophy ID(s), comma-separated..."
+                 style="font-family:'basiic',sans-serif;"
+                 onkeydown="if(event.key==='Enter'){redeemCheatCode(this.value); this.value='';}">
+          <button onclick="redeemCheatCode(document.getElementById('cheatInput').value); document.getElementById('cheatInput').value='';"
+                  style="height:20px;font-family: 'basiic';">Redeem</button>
+        </div>
+      </span>
+    </center>
+    <script src="trophy_list.js"></script>
+    <script>
+      function getTrophies() {
+        let trophies = [];
+        try {
+            trophies = JSON.parse(localStorage.getItem('my_site_trophies')) || [];
+            if (!Array.isArray(trophies)) trophies = [];
+        } catch (error) {
+            console.error("Corrupted trophy data found! Wiping clean...", error);
+            localStorage.removeItem('my_site_trophies');
+        }
+        return trophies;
+      } 
+      function unlockAchievement(id, name, icon, description, category = 'general', soundUrl = null) {
+        let trophies = getTrophies();
+        let alreadyUnlocked = trophies.some(trophy => trophy.id === id); 
+        if (!alreadyUnlocked) { 
+          trophies.push({ 
+              id: id, 
+              name: name, 
+              icon: icon, 
+              description: description, 
+              category: category,
+              soundUrl: soundUrl
+          }); 
+          localStorage.setItem('my_site_trophies', JSON.stringify(trophies));
+          showNotification(name, icon, soundUrl);
+          renderTrophyCase();
+        }
+      }
+      function redeemCheatCode(input) {
+        const ids = (input || '').split(',').map(s => s.trim()).filter(Boolean);
+        if (ids.length === 0) return;
+      
+        const owned = [];
+        const notFound = [];
+        const unlocked = [];
+      
+        ids.forEach(id => {
+          const t = TROPHY_LIST[id];
+          if (!t) { notFound.push(id); return; }
+          if (getTrophies().some(trophy => trophy.id === id)) { owned.push(id); return; }
+          unlockAchievement(id, t.name, t.icon, t.description, t.category, t.soundUrl);
+          unlocked.push(id);
+        });
+      
+        let msg = [];
+        if (unlocked.length) msg.push('Unlocked: ' + unlocked.join(', '));
+        if (owned.length) msg.push('Already owned: ' + owned.join(', '));
+        if (notFound.length) msg.push('Not found: ' + notFound.join(', '));
+        if (owned.length || notFound.length) alert(msg.join('\n'));
+      }
+      function getToastDoc() {
+        try {
+          // same-origin iframe? target the top window so the toast isn't trapped in the iframe box
+          if (window.top && window.top !== window && window.top.document) {
+            return window.top.document;
+          }
+        } catch (e) {
+          // cross-origin iframe, can't reach window.top — fall back to rendering locally
+        }
+        return document;
+      }
+      function ensureToastStyles(doc) {
+        if (doc.getElementById('achievement-toast-styles')) return;
+        const style = doc.createElement('style');
+        style.id = 'achievement-toast-styles';
+        style.textContent = `
+          .achievement-toast {
+            position: fixed; top: -100px; left: 20px;
+            background: #4f4f51; color: #fff; padding: 15px 25px; border-radius: 5px;
+            display: flex; align-items: center; gap: 15px;
+            box-shadow: 0 3px 1px #393044, 0 1px 3px rgba(0,0,0,0.9);
+            transition: top 0.5s ease-in-out; z-index: 99999999999 !important;
+            font-family: 'basiic', sans-serif; border: 1px solid #393044;
+            width: 250px !important; height: 50px !important;
+          }
+          .achievement-toast.show { top: 20px; }
+          .achievement-toast .icon {
+            font-size: 30px; margin-left: -5px; margin-right: -10px; border: none;
+            text-shadow: 1px 1px #393044, -1px 1px #393044, 1px -1px #393044, -1px -1px #393044;
+            -webkit-box-reflect: below -8px linear-gradient(to bottom, transparent 50%, rgba(255,255,255,1));
+          }
+          .achievement-toast .icon img {
+            min-width: 50px; min-height: 50px; max-width: 100px; max-height: 50px;
+            object-fit: contain; vertical-align: middle; border: none;
+          }
+          .achievement-toast p { margin: 0 auto; text-align: center;
+            text-shadow: 1px 1px #393044, -1px 1px #393044, 1px -1px #393044, -1px -1px #393044; }
+          .achievement-toast p strong {
+            margin-top: 3px; display: block; font-size: 14px; width: 100%; color: #FFD700;
+            text-shadow: 1px 1px #393044, -1px 1px #393044, 1px -1px #393044, -1px -1px #393044;
+            line-height: 17px; text-align: center;
+          }
+        `;
+        doc.head.appendChild(style);
+      }
+      function showNotification(name, icon, soundUrl) {
+        const defaultSound = '../../audio/notifications/xbox-360-achievement-sound.mp3';
+        const ding = new Audio(defaultSound);
+        ding.play().catch(error => console.log("Browser blocked auto-play"));
+      
+        const formattedIcon = formatIcon(icon);
+        const targetDoc = getToastDoc();
+        ensureToastStyles(targetDoc);
+      
+        const toast = targetDoc.createElement('div');
+        toast.className = 'achievement-toast';
+        toast.innerHTML = `
+          <span class="icon">${formattedIcon}</span> 
+          <p>Achievement Unlocked!<br><strong>${name}</strong></p>
+        `;
+        targetDoc.body.appendChild(toast);
+        setTimeout(() => toast.classList.add('show'), 100);
+        setTimeout(() => {
+          toast.classList.remove('show');
+          setTimeout(() => toast.remove(), 500);
+        }, 4000);
+      }
+      function playTrophySound(soundUrl) {
+        const defaultSound = '../../audio/notifications/xbox-360-achievement-sound.mp3';
+        const finalSound = (soundUrl && soundUrl !== 'undefined' && soundUrl !== 'null') ? soundUrl : defaultSound;
+        
+        const audio = new Audio(finalSound);
+        audio.play().catch(error => console.log("Browser blocked auto-play"));
+      
+        // Check for the custom time limit in the URL and pause it
+        if (finalSound.includes('?playFor=')) {
+          const seconds = parseFloat(finalSound.split('?playFor=')[1]);
+          setTimeout(() => {
+            audio.pause();
+          }, seconds * 1000);
+        }
+      }
+      function renderTrophyCase() {
+        const caseDiv = document.getElementById('trophy-case');
+        if (!caseDiv) return;
+        const savedTrophies = getTrophies();
+        caseDiv.innerHTML = ""; // Wipe current HTML
+    
+        if (savedTrophies.length === 0) {
+          caseDiv.innerHTML = "<p>You haven't earned any trophies yet. Keep exploring!</p>";
+          return;
+        }
+    
+        // Group trophies by category
+        const groups = {};
+        savedTrophies.forEach(trophy => {
+          const cat = trophy.category || 'general';
+          if (!groups[cat]) groups[cat] = [];
+          groups[cat].push(trophy);
+        });
+    
+        // Build one card per category
+        Object.keys(groups).forEach(category => {
+          let figuresHtml = "";
+          groups[category].forEach(trophy => {
+            const formattedIcon = formatIcon(trophy.icon);
+            figuresHtml += `
+              <div class="trophy-figure" onclick="playTrophySound('${trophy.soundUrl}')">
+                  <div class="trophyIcon">${formattedIcon}</div>
+                  <strong class="trophyName">${trophy.name}</strong>
+                  <p class="trophyDescription">${trophy.description || 'No description available.'}</p>
+              </div>
+            `;
+          });
+    
+          caseDiv.innerHTML += `
+            <div class="trophy-card ${category}">
+              <h2 class="category-title">${category}</h2>
+              <div class="trophy-group" style="display: flex; column-gap: 15px; row-gap: 5px; flex-wrap: wrap; justify-content: center;">
+                ${figuresHtml}
+              </div>
+            </div>
+          `;
+        });
+    }
+      function resetTrophies() {
+          let areYouSure = confirm("Are you sure you want to delete all your trophies? This cannot be undone!");
+          if (areYouSure) {
+              localStorage.removeItem('my_site_trophies');
+              renderTrophyCase();
+          }
+      }
+      renderTrophyCase();
+    </script>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a39687b2aa22e4d1',t:'MTc4OTEyODIxNQ=='};var a=document.createElement('script');a.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/330e41bb475c/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+<!-- Mirrored from https://hhroses.art/src/achievements/trophies-page by HTTrack Website Copier/3.x [XR&CO], Fri, 11 Sep 2026 12:03:40 GMT -->
+</html>

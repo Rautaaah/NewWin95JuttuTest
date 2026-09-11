@@ -1,0 +1,4 @@
+const art2007 = [
+  { id: "art-000001", year: "2007", title: "2007-Dragon-King-by-hhroses", photos: [{ url: "https://hhroses.art/my-pictures/2d-art-gallery/2007-Art/2007-Dragon-King-by-hhroses.jpg", type: "image", alt: "traditional sketch of a chinese dragon by hhroses" }, { url: "https://hhroses.art/my-pictures/2d-art-gallery/2007-Art/2007-RAW-Dragon-King-by-hhroses.jpg", type: "image", alt: "traditional sketch of a chinese dragon by hhroses" }], overlay: "hhroses", tags: ["art","artwork","hhroses"] },
+  { id: "art-000002", year: "2007", title: "2007-random-doodle-by-hhroses", img: "https://hhroses.art/my-pictures/2d-art-gallery/2007-Art/2007-random-doodle-by-hhroses.jpg", alt: "childhood pencil drawing by hhroses", overlay: "hhroses", tags: ["art","artwork","hhroses"] },
+];
