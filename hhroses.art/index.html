@@ -1,491 +1,1208 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <!-- Mirrored from https://hhroses.art/ by HTTrack Website Copier/3.x [XR&CO], Fri, 11 Sep 2026 12:03:14 GMT -->
+
 <head>
-    <title>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 to H.H.Roses</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../unpkg.com/98.css%400.1.21/dist/98.css" />
-    <link rel="icon" type="image/x-icon" href="images/favicon-src/haileee%27s-comet_favicon.ico" />
-    <link href="src/haileetheme/contextmenu/contextmenu.css" rel="stylesheet" type="text/css">
-    <script src="src/haileetheme/contextmenu/contextmenuae52.js?v=5"></script>
-    <script src="programs/Splash-Cursor/splash-cursor.js" defer></script>
 
-    <!-- achievements -->
-    <script src="src/achievements/script5e1f.js?v=2"></script>
-    <link rel="stylesheet" href="src/achievements/style.css"/>
+  <title>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 to H.H.Roses</title>
 
-    <style>
-      *,*::before,*::after {
-        box-sizing:border-box;
-        margin:0;
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../unpkg.com/98.css%400.1.21/dist/98.css"
+  />
+
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="images/favicon-src/haileee%27s-comet_favicon.ico"
+  />
+
+  <link
+    href="src/haileetheme/contextmenu/contextmenu.css"
+    rel="stylesheet"
+    type="text/css"
+  >
+
+  <script
+    src="src/haileetheme/contextmenu/contextmenuae52.js?v=5"
+  ></script>
+
+  <script
+    src="programs/Splash-Cursor/splash-cursor.js"
+    defer
+  ></script>
+
+  <!-- achievements -->
+
+  <script
+    src="src/achievements/script5e1f.js?v=2"
+  ></script>
+
+  <link
+    rel="stylesheet"
+    href="src/achievements/style.css"
+  />
+
+
+  <style>
+
+    *,*::before,*::after {
+      box-sizing:border-box;
+      margin:0;
+    }
+
+
+    .fuzzy-overlay {
+      position:fixed;
+      top:0px !important;
+      left:0px !important;
+      width:100% !important;
+      height:100% !important;
+      background-image:url("images/noise2.jpg");
+      opacity:.0;
+      z-index:9999999999 !important;
+      pointer-events:none;
+      animation:shift 0.2s linear infinite both;
+    }
+
+
+    @keyframes shift {
+
+      0% {
+        transform:translateX(10%) translateY(10%);
       }
 
-      .fuzzy-overlay {
-        position:fixed;
-        top:0px !important;
-        left:0px !important;
-        width:100% !important;
-        height:100% !important;
-        background-image:url("images/noise2.jpg");
-        opacity:.0;
-        z-index:9999999999 !important;
-        pointer-events:none;
-        animation:shift 0.2s linear infinite both;
+      100% {
+        transform:translateX(-10%) translateY(-10%);
       }
 
-      @keyframes shift {
-        0% {
-          transform:translateX(10%) translateY(10%);
-        }
-        100% {
-          transform:translateX(-10%) translateY(-10%);
-        }
-      }
+    }
 
-      :root {
-        --crt-red:rgb(218,49,49);
-        --crt-green:rgb(112,159,115);
-        --crt-blue:rgb(40,129,206);
-        --ActiveTitle:#000080;
-        --GradientActiveTitle:#1084d0;
-        --InactiveTitle:#808080;
-        --GradientInactiveTitle:#b5b5b5;
-        --TitleText:#ffffff;
-        --InactiveTitleText:#c0c0c0;
-        --Background:#008080;
-        --Window:#ffffff;
-        --WindowText:#000000;
-        --ButtonFace:#c0c0c0;
-        --ButtonHilight:#ffffff;
-        --ButtonShadow:#808080;
-        --ButtonDkShadow:#000000;
-        --ButtonText:#000000;
-        --Hilight:#000080;
-        --HilightText:#ffffff;
-        --GrayText:#808080;
-      }
 
-      .crt::before,
-      .crt::after,
-      body::before,
-      body::after {
-        position:fixed;
-        content:"";
-        pointer-events:none;
-        opacity:.2;
-        mix-blend-mode:overlay;
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        z-index:900 !important;
-      }
+    :root {
 
-      .crt::before,
-      body::before {
-        position:fixed;
-        background:repeating-linear-gradient(
-          var(--crt-red) 0px,
-          var(--crt-green) 2px,
-          var(--crt-blue) 4px
+      --crt-red:rgb(218,49,49);
+      --crt-green:rgb(112,159,115);
+      --crt-blue:rgb(40,129,206);
+
+      --ActiveTitle:#000080;
+      --GradientActiveTitle:#1084d0;
+      --InactiveTitle:#808080;
+      --GradientInactiveTitle:#b5b5b5;
+      --TitleText:#ffffff;
+      --InactiveTitleText:#c0c0c0;
+
+      --Background:#008080;
+      --Window:#ffffff;
+      --WindowText:#000000;
+
+      --ButtonFace:#c0c0c0;
+      --ButtonHilight:#ffffff;
+      --ButtonShadow:#808080;
+      --ButtonDkShadow:#000000;
+      --ButtonText:#000000;
+
+      --Hilight:#000080;
+      --HilightText:#ffffff;
+
+      --GrayText:#808080;
+
+    }
+
+
+    .crt::before,
+    .crt::after,
+    body::before,
+    body::after {
+
+      position:fixed;
+      content:"";
+      pointer-events:none;
+      opacity:.2;
+      mix-blend-mode:overlay;
+
+      position:absolute;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:100%;
+
+      z-index:900 !important;
+
+    }
+
+
+    .crt::before,
+    body::before {
+
+      position:fixed;
+
+      background:repeating-linear-gradient(
+        var(--crt-red) 0px,
+        var(--crt-green) 2px,
+        var(--crt-blue) 4px
+      );
+
+    }
+
+
+    .crt::after,
+    body::after {
+
+      position:fixed;
+
+      background:repeating-linear-gradient(
+        90deg,
+        var(--crt-red) 1px,
+        var(--crt-green) 2px,
+        var(--crt-blue) 3px
+      );
+
+    }
+
+
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+
+    .overlay {
+
+      position:fixed;
+
+      top:0px !important;
+      left:0px !important;
+
+      width:100% !important;
+      height:100% !important;
+
+      background:url(
+        'images/backgrounds/pixel-star-background.gif'
+      ) top right repeat;
+
+      z-index:1;
+
+      mix-blend-mode:screen;
+
+      opacity:1;
+
+      pointer-events:none;
+
+    }
+
+
+    .gradient {
+
+      position:fixed;
+
+      top:0px !important;
+      left:0px !important;
+
+      width:100% !important;
+      height:100% !important;
+
+      background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0) 30%,
+        rgba(255,255,255,1) 1000%
+      );
+
+      z-index:1;
+
+      pointer-events:none;
+
+    }
+
+
+    #fluid-canvas {
+
+      position:fixed;
+
+      top:0;
+      left:0;
+
+      width:100vw;
+      height:100vh;
+
+      z-index:999;
+
+      pointer-events:none;
+
+    }
+
+
+    @font-face {
+
+      font-family:'basiic';
+
+      src:url(
+        https://cinni.net/fonts/basiic.ttf
+      );
+
+    }
+
+
+    @font-face {
+
+      font-family:'CelticBitThin';
+
+      src:url(
+        https://hhroses.neocities.org/font/CelticBitThin.woff
+      ) format('woff'),
+
+      url(
+        https://hhroses.neocities.org/font/CelticBitThin.ttf
+      ) format('truetype');
+
+      font-weight:normal;
+      font-style:normal;
+
+    }
+
+
+    @font-face {
+
+      font-family:"ComicSans";
+
+      src:url(
+        "https://hhroses.neocities.org/font/Ldfcomicsans-jj7l.ttf"
+      ) format("truetype");
+
+    }
+
+
+    ::-webkit-scrollbar-thumb {
+
+      background:#c0c0c0;
+
+      box-shadow:
+        inset 1px 1px #fff,
+        inset -1px -1px #0a0a0a,
+        inset 2px 2px #dfdfdf,
+        inset -2px -2px #808080;
+
+    }
+
+
+    body {
+
+      font-family:'CelticBitThin',sans-serif;
+
+      background-image:url(
+        'images/backgrounds/seamlessgalaxy3.jpg'
+      );
+
+      background-attachment:fixed;
+
+      background-color:black;
+
+      overflow-x:hidden;
+      overflow-y:auto;
+
+      margin:0;
+      padding:0;
+
+      cursor:url(
+        'cursors/default.png'
+      ),default;
+
+      width:100%;
+      height:3500px;
+
+    }
+
+
+    .coolcode {
+
+      position:fixed !important;
+
+      background-image:url(
+        'images/green_code.gif'
+      );
+
+      width:100%;
+      height:400px;
+
+      position:absolute;
+
+      z-index:-3;
+
+      top:-100px;
+
+      pointer-events:none;
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          black 30%,
+          transparent 100%
         );
-      }
 
-      .crt::after,
-      body::after {
-        position:fixed;
-        background:repeating-linear-gradient(
-          90deg,
-          var(--crt-red) 1px,
-          var(--crt-green) 2px,
-          var(--crt-blue) 3px
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black 30%,
+          transparent 100%
         );
-      }
 
-      * {
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-      }
+      transition:top 1s ease;
 
-      .overlay {
-        position:fixed;
-        top:0px !important;
-        left:0px !important;
-        width:100% !important;
-        height:100% !important;
-        background:url('images/backgrounds/pixel-star-background.gif') top right repeat;
-        z-index:1;
-        mix-blend-mode:screen;
-        opacity:1;
-        pointer-events:none;
-      }
+    }
 
-      .gradient {
-        position:fixed;
-        top:0px !important;
-        left:0px !important;
-        width:100% !important;
-        height:100% !important;
-        background:linear-gradient(
-          135deg,
-          rgba(255,255,255,0) 30%,
-          rgba(255,255,255,1) 1000%
+
+    .clouds {
+
+      position:absolute !important;
+
+      background-image:url(
+        'images/frutiger-aero/clouds_25.png'
+      );
+
+      background-size:contain;
+
+      background-repeat:no-repeat;
+
+      width:100%;
+
+      min-width:100%;
+
+      height:100vh;
+
+      position:absolute;
+
+      z-index:-5;
+
+      top:125px;
+
+      bottom:0px;
+
+      pointer-events:none;
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          black 30%,
+          transparent 90%
         );
-        z-index:1;
-        pointer-events:none;
-      }
 
-      #fluid-canvas {
-        position:fixed;
-        top:0;
-        left:0;
-        width:100vw;
-        height:100vh;
-        z-index:999;
-        pointer-events:none;
-      }
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black 30%,
+          transparent 90%
+        );
 
-      @font-face {
-        font-family:'basiic';
-        src:url(https://cinni.net/fonts/basiic.ttf);
-      }
+      transition:opacity 1s ease;
 
-      @font-face {
-        font-family:'CelticBitThin';
-        src:url(https://hhroses.neocities.org/font/CelticBitThin.woff) format('woff'),
-            url(https://hhroses.neocities.org/font/CelticBitThin.ttf) format('truetype');
-        font-weight:normal;
-        font-style:normal;
-      }
+    }
 
-      @font-face {
-        font-family:"ComicSans";
-        src:url("https://hhroses.neocities.org/font/Ldfcomicsans-jj7l.ttf") format("truetype");
-      }
 
-      ::-webkit-scrollbar-thumb {
-        background:#c0c0c0;
-        box-shadow:
-          inset 1px 1px #fff,
-          inset -1px -1px #0a0a0a,
-          inset 2px 2px #dfdfdf,
-          inset -2px -2px #808080;
-      }
+    a,#button {
 
-      body {
-        font-family:'CelticBitThin',sans-serif;
-        background-image:url('images/backgrounds/seamlessgalaxy3.jpg');
-        background-attachment:fixed;
-        background-color:black;
-        overflow-x:hidden;
-        overflow-y:auto;
-        margin:0;
-        padding:0;
-        cursor:url('cursors/default.png'),default;
-        width:100%;
-        height:3500px;
-      }
+      cursor:url(
+        'cursors/pointer.png'
+      ),pointer;
 
-      .coolcode {
-        position:fixed !important;
-        background-image:url('images/green_code.gif');
-        width:100%;
-        height:400px;
-        position:absolute;
-        z-index:-3;
-        top:-100px;
-        pointer-events:none;
-        -webkit-mask-image:linear-gradient(to bottom,black 30%,transparent 100%);
-        mask-image:linear-gradient(to bottom,black 30%,transparent 100%);
-        transition:top 1s ease;
-      }
+    }
 
-      .clouds {
-        position:absolute !important;
-        background-image:url('images/frutiger-aero/clouds_25.png');
-        background-size:contain;
-        background-repeat:no-repeat;
-        width:100%;
-        min-width:100%;
-        height:100vh;
-        position:absolute;
-        z-index:-5;
-        top:125px;
-        bottom:0px;
-        pointer-events:none;
-        -webkit-mask-image:linear-gradient(to bottom,black 30%,transparent 90%);
-        mask-image:linear-gradient(to bottom,black 30%,transparent 90%);
-        transition:opacity 1s ease;
-      }
 
-      a,#button {
-        cursor:url('cursors/pointer.png'),pointer;
-      }
+    img:hover {
+      scale:1.01;
+    }
 
-      img:hover {
-        scale:1.01;
-      }
 
-      .gnome {
-        z-index:99;
-        position:absolute;
-        max-width:10%;
-        max-height:10%;
-        z-index:999;
-        cursor:url('cursors/pointer.png'),pointer;
-        filter:drop-shadow(0 0 3px white) !important;
-      }
+    .gnome {
 
-      .gnome:hover {
-        scale:1.1 !important;
-      }
+      z-index:99;
 
-      .maincontent {
-        height:85vh !important;
-        width:100%;
-        position:absolute;
-        content-align:middle;
-        text-align:center;
-        margin-left:auto;
-        margin-right:auto;
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-50%);
-        z-index:2;
-        text-align:center;
-        width:100%;
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-      }
+      position:absolute;
 
-      .computer {
-        width:auto;
-        max-width:95% !important;
-        max-height:40vh;
-        max-width:418px;
-        margin:10px auto 0px auto;
+      max-width:10%;
+      max-height:10%;
+
+      z-index:999;
+
+      cursor:url(
+        'cursors/pointer.png'
+      ),pointer;
+
+      filter:
+        drop-shadow(
+          0 0 3px white
+        ) !important;
+
+    }
+
+
+    .gnome:hover {
+      scale:1.1 !important;
+    }
+
+
+    .maincontent {
+
+      height:85vh !important;
+
+      width:100%;
+
+      position:absolute;
+
+      content-align:middle;
+
+      text-align:center;
+
+      margin-left:auto;
+      margin-right:auto;
+
+      top:50%;
+      left:50%;
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+
+      z-index:2;
+
+      text-align:center;
+
+      width:100%;
+
+      display:flex;
+
+      flex-direction:column;
+
+      align-items:center;
+
+      justify-content:center;
+
+    }
+
+
+    .computer {
+
+      width:auto;
+
+      max-width:95% !important;
+
+      max-height:40vh;
+
+      max-width:418px;
+
+      margin:
+        10px auto 0px auto;
+
+      display:block;
+
+      vertical-align:top;
+
+      filter:
+        drop-shadow(
+          0 0 25px white
+        );
+
+    }
+
+
+    .maincontent span {
+
+      background-color:
+        rgba(
+          214,
+          195,
+          196,
+          .5
+        );
+
+      font-family:
+        'CelticBitThin',
+        sans-serif;
+
+      object-fit:contain;
+
+      text-align:center;
+
+      margin:
+        -10px auto 0 auto !important;
+
+      font-size:16px;
+
+      height:16px;
+
+    }
+
+
+    .textbox {
+
+      width:auto;
+
+      max-width:95%;
+
+      height:auto;
+
+      max-height:20vh;
+
+      filter:
+        drop-shadow(
+          0 0 5px
+          rgba(0,0,0,1)
+        );
+
+    }
+
+
+    div.webring {
+
+      position:relative;
+
+      transform:
+        translateX(185px)
+        translateY(-30px);
+
+      padding:none;
+
+      margin-bottom:-100px;
+
+    }
+
+
+    .enterbutton {
+
+      content-align:middle;
+
+      text-align:center;
+
+      margin-left:auto;
+      margin-right:auto;
+
+      display:block;
+
+      background-image:none;
+
+      width:300px;
+
+      max-width:100%;
+
+      height:auto;
+
+    }
+
+
+    .enterbutton img {
+
+      position:relative;
+
+      width:150px;
+
+      height:auto;
+
+      margin:0 auto;
+
+      padding:0;
+
+      margin-bottom:20px;
+
+      z-index:0;
+
+      filter:
+        drop-shadow(
+          0 0 3px black
+        ) !important;
+
+    }
+
+
+    .enterbutton:hover {
+
+      background-image:url(
+        'images/misc/comicexplode.png'
+      );
+
+      background-size:contain;
+
+      background-repeat:no-repeat;
+
+      background-position:center;
+
+      transition:
+        opacity 1s ease,
+        background-color 1s ease,
+        background-image 1s ease;
+
+      z-index:0;
+
+    }
+
+
+    /* =========================================================
+       PAGE VIEWS
+       ========================================================= */
+
+    .pageviews {
+
+      position:fixed;
+
+      display:table;
+
+      min-width:150px;
+
+      bottom:7px;
+      right:5px;
+
+      z-index:999 !important;
+
+      font-family:
+        'basiic',
+        sans-serif;
+
+      font-size:16px;
+
+      color:white;
+
+      background-color:
+        rgba(
+          45,
+          99,
+          4,
+          .5
+        );
+
+      padding-left:7px;
+      padding-top:2px;
+      padding-right:5px;
+
+      line-height:16px;
+
+      pointer-events:none;
+
+    }
+
+
+    .grass {
+
+      position:fixed !important;
+
+      background-image:url(
+        'images/frutiger-aero/foregrounds_73.png'
+      );
+
+      width:100%;
+
+      height:248px;
+
+      position:absolute;
+
+      pointer-events:none;
+
+      z-index:999;
+
+      bottom:-160px;
+
+      left:0px;
+
+    }
+
+
+    img.outlined {
+
+      -webkit-filter:
+
+        drop-shadow(
+          2px 2px 0 white
+        )
+
+        drop-shadow(
+          -2px 2px 0 white
+        )
+
+        drop-shadow(
+          2px -2px 0 white
+        )
+
+        drop-shadow(
+          -2px -2px 0 white
+        )
+
+        drop-shadow(
+          0 0 2px white
+        )
+
+        drop-shadow(
+          0 0 5px white
+        );
+
+      filter:
+
+        drop-shadow(
+          2px 2px 0 white
+        )
+
+        drop-shadow(
+          -2px 2px 0 white
+        )
+
+        drop-shadow(
+          2px -2px 0 white
+        )
+
+        drop-shadow(
+          -2px -2px 0 white
+        )
+
+        drop-shadow(
+          0 0 2px white
+        )
+
+        drop-shadow(
+          0 0 5px white
+        );
+
+    }
+
+
+    .flier {
+
+      pointer-events:none;
+
+      z-index:9999999 !important;
+
+    }
+
+
+    .flier>* {
+
+      animation:
+        fly 50s linear infinite;
+
+      pointer-events:none !important;
+
+      top:0;
+      left:0;
+
+      transform:
+        translateX(-120%)
+        translateY(-120%)
+        rotateZ(0);
+
+      position:fixed;
+
+      animation-delay:1s;
+
+      z-index:999999;
+
+      filter:
+        drop-shadow(
+          0 0 3px white
+        ) !important;
+
+    }
+
+
+    @keyframes fly {
+
+      98.001%,0% {
+
         display:block;
-        vertical-align:top;
-        filter:drop-shadow(0 0 25px white);
+
+        transform:
+          translateX(-200%)
+          translateY(100vh)
+          rotateZ(0deg)
+
       }
 
-      .maincontent span {
-        background-color:rgba(214,195,196,.5);
-        font-family:'CelticBitThin',sans-serif;
-        object-fit:contain;
-        text-align:center;
-        margin:-10px auto 0 auto !important;
-        font-size:16px;
-        height:16px;
+      15% {
+
+        transform:
+          translateX(100vw)
+          translateY(-100%)
+          rotateZ(180deg)
+
       }
 
-      .textbox {
-        width:auto;
-        max-width:95%;
-        height:auto;
-        max-height:20vh;
-        filter:drop-shadow(0 0 5px rgba(0,0,0,1));
+      15.001%,18% {
+
+        transform:
+          translateX(100vw)
+          translateY(-30%)
+          rotateZ(0deg)
+
       }
+
+      40% {
+
+        transform:
+          translateX(-200%)
+          translateY(3vh)
+          rotateZ(-180deg)
+
+      }
+
+      40.001%,43% {
+
+        transform:
+          translateX(-200%)
+          translateY(-100%)
+          rotateZ(-180deg)
+
+      }
+
+      65% {
+
+        transform:
+          translateX(100vw)
+          translateY(50vh)
+          rotateZ(0deg)
+
+      }
+
+      65.001%,68% {
+
+        transform:
+          translateX(20vw)
+          translateY(-200%)
+          rotateZ(180deg)
+
+      }
+
+      95% {
+
+        transform:
+          translateX(10vw)
+          translateY(100vh)
+          rotateZ(0deg)
+
+      }
+
+    }
+
+
+    @media (
+      max-height:810px
+    ),
+    (
+      max-width:700px
+    ) {
 
       div.webring {
-        position:relative;
-        transform:translateX(185px) translateY(-30px);
-        padding:none;
-        margin-bottom:-100px;
+
+        transform:none;
+
+        margin:
+          10px 0 -15px 0
+
       }
 
-      .enterbutton {
-        content-align:middle;
-        text-align:center;
-        margin-left:auto;
-        margin-right:auto;
-        display:block;
-        background-image:none;
-        width:300px;
-        max-width:100%;
-        height:auto;
+    }
+
+
+    #fluid-canvas {
+
+      z-index:9999999999 !important;
+
+    }
+
+
+    /* =========================================================
+       KRIS COMPANION
+       ========================================================= */
+
+    #kris-companion {
+
+      position:fixed;
+
+      left:300px;
+      top:180px;
+
+      width:260px;
+      height:340px;
+
+      z-index:50000;
+
+      cursor:grab;
+
+      user-select:none;
+      -webkit-user-select:none;
+
+      touch-action:none;
+
+      box-sizing:border-box;
+
+    }
+
+
+    #kris-companion.dragging {
+
+      cursor:grabbing;
+
+      z-index:99999;
+
+    }
+
+
+    #kris-gif {
+
+      position:absolute;
+
+      left:50%;
+      bottom:0;
+
+      width:230px;
+
+      height:auto;
+
+      transform:
+        translateX(-50%);
+
+      pointer-events:none;
+
+      user-select:none;
+
+      -webkit-user-drag:none;
+
+    }
+
+
+    #kris-dialogue {
+
+      position:absolute;
+
+      left:50%;
+      bottom:250px;
+
+      transform:
+        translateX(-50%);
+
+      min-width:220px;
+
+      max-width:340px;
+
+      padding:14px 16px;
+
+      box-sizing:border-box;
+
+      background:#000;
+
+      border:4px solid #fff;
+
+      color:#fff;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:18px;
+
+      font-weight:bold;
+
+      line-height:1.3;
+
+      z-index:10000;
+
+      pointer-events:none;
+
+      white-space:normal;
+
+      text-align:left;
+
+      box-shadow:
+        4px 4px 0
+        rgba(
+          0,
+          0,
+          0,
+          .5
+        );
+
+    }
+
+
+    #kris-dialogue.hidden {
+      display:none;
+    }
+
+
+    #kris-dialogue::after {
+
+      content:"";
+
+      position:absolute;
+
+      left:50%;
+
+      bottom:-9px;
+
+      width:12px;
+      height:12px;
+
+      background:#000;
+
+      border-right:
+        3px solid #fff;
+
+      border-bottom:
+        3px solid #fff;
+
+      transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    }
+
+
+    @media (max-width:700px) {
+
+      #kris-companion {
+
+        width:210px;
+        height:280px;
+
       }
 
-      .enterbutton img {
-        position:relative;
-        width:150px;
-        height:auto;
-        margin:0 auto;
-        padding:0;
-        margin-bottom:20px;
-        z-index:0;
-        filter:drop-shadow(0 0 3px black) !important;
+
+      #kris-gif {
+
+        width:185px;
+
       }
 
-      .enterbutton:hover {
-        background-image:url('images/misc/comicexplode.png');
-        background-size:contain;
-        background-repeat:no-repeat;
-        background-position:center;
-        transition:
-          opacity 1s ease,
-          background-color 1s ease,
-          background-image 1s ease;
-        z-index:0;
+
+      #kris-dialogue {
+
+        min-width:180px;
+
+        max-width:260px;
+
+        font-size:15px;
+
+        padding:
+          10px 12px;
+
       }
 
-      .pageviews {
-        position:fixed;
-        display:table;
-        min-width:150px;
-        bottom:7px;
-        right:5px;
-        z-index:999 !important;
-        font-family:'basiic',sans-serif;
-        font-size:16px;
-        color:white;
-        background-color:rgba(45,99,4,.5);
-        padding-left:7px;
-        padding-top:2px;
-        padding-right:5px;
-        line-height:16px;
-        pointer-events:none;
-      }
+    }
 
-      .grass {
-        position:fixed !important;
-        background-image:url('images/frutiger-aero/foregrounds_73.png');
-        width:100%;
-        height:248px;
-        position:absolute;
-        pointer-events:none;
-        z-index:999;
-        bottom:-160px;
-        left:0px;
-      }
+  </style>
 
-      img.outlined {
-        -webkit-filter:
-          drop-shadow(2px 2px 0 white)
-          drop-shadow(-2px 2px 0 white)
-          drop-shadow(2px -2px 0 white)
-          drop-shadow(-2px -2px 0 white)
-          drop-shadow(0 0 2px white)
-          drop-shadow(0 0 5px white);
-
-        filter:
-          drop-shadow(2px 2px 0 white)
-          drop-shadow(-2px 2px 0 white)
-          drop-shadow(2px -2px 0 white)
-          drop-shadow(-2px -2px 0 white)
-          drop-shadow(0 0 2px white)
-          drop-shadow(0 0 5px white);
-      }
-
-      .flier {
-        pointer-events:none;
-        z-index:9999999 !important;
-      }
-
-      .flier>* {
-        animation:fly 50s linear infinite;
-        pointer-events:none !important;
-        top:0;
-        left:0;
-        transform:translateX(-120%) translateY(-120%) rotateZ(0);
-        position:fixed;
-        animation-delay:1s;
-        z-index:999999;
-        filter:drop-shadow(0 0 3px white) !important;
-      }
-
-      @keyframes fly {
-        98.001%,0% {
-          display:block;
-          transform:translateX(-200%) translateY(100vh) rotateZ(0deg)
-        }
-
-        15% {
-          transform:translateX(100vw) translateY(-100%) rotateZ(180deg)
-        }
-
-        15.001%,18% {
-          transform:translateX(100vw) translateY(-30%) rotateZ(0deg)
-        }
-
-        40% {
-          transform:translateX(-200%) translateY(3vh) rotateZ(-180deg)
-        }
-
-        40.001%,43% {
-          transform:translateX(-200%) translateY(-100%) rotateZ(-180deg)
-        }
-
-        65% {
-          transform:translateX(100vw) translateY(50vh) rotateZ(0deg)
-        }
-
-        65.001%,68% {
-          transform:translateX(20vw) translateY(-200%) rotateZ(180deg)
-        }
-
-        95% {
-          transform:translateX(10vw) translateY(100vh) rotateZ(0deg)
-        }
-      }
-
-      @media (max-height:810px),(max-width:700px) {
-        div.webring {
-          transform:none;
-          margin:10px 0 -15px 0
-        }
-      }
-
-      #fluid-canvas {
-        z-index:9999999999 !important;
-      }
-    </style>
 </head>
+
 
 <body>
 
+
   <!-- right click context menu -->
-  <div id="win98-menu" class="context-menu">
-    <div class="menu-item" onclick="handleCut()"><u>C</u>ut</div>
-    <div class="menu-item" onclick="copyToClipboard()"><u>C</u>opy</div>
-    <div class="menu-item" onclick="pasteToElement()"><u>P</u>aste</div>
+
+  <div
+    id="win98-menu"
+    class="context-menu"
+  >
+
+    <div
+      class="menu-item"
+      onclick="handleCut()"
+    >
+      <u>C</u>ut
+    </div>
+
+    <div
+      class="menu-item"
+      onclick="copyToClipboard()"
+    >
+      <u>C</u>opy
+    </div>
+
+    <div
+      class="menu-item"
+      onclick="pasteToElement()"
+    >
+      <u>P</u>aste
+    </div>
+
     <div class="menu-separator"></div>
-    <div class="menu-item">Properties</div>
+
+    <div class="menu-item">
+      Properties
+    </div>
+
   </div>
+
 
   <!-- mouse thing -->
+
   <canvas id="fluid-canvas"></canvas>
 
+
   <!-- sound effect -->
+
   <audio autoplay>
-    <source src="https://hhroses.neocities.org/audio/medieval-fanfare.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+
+    <source
+      src="https://hhroses.neocities.org/audio/medieval-fanfare.mp3"
+      type="audio/mpeg"
+    >
+
+    Your browser does not support
+    the audio element.
+
   </audio>
 
+
   <!-- thingy i forget why but its important v -->
+
   <div style="visibility:hidden;">
-    google-site-verification: googlee9bd4a88d1b5bb86.html
+
+    google-site-verification:
+    googlee9bd4a88d1b5bb86.html
+
   </div>
 
+
   <!-- decor -->
-  <div class="coolcode" tite="cool green code"></div>
+
+  <div
+    class="coolcode"
+    tite="cool green code"
+  ></div>
+
   <div class="background"></div>
+
   <div class="overlay"></div>
+
   <div class="gradient"></div>
+
   <div class="fuzzy-overlay"></div>
-  <div class="grass" title="grass"></div>
-  <div class="clouds" title="clouds"></div>
+
+  <div
+    class="grass"
+    title="grass"
+  ></div>
+
+  <div
+    class="clouds"
+    title="clouds"
+  ></div>
+
 
   <main>
 
+
     <!-- page content -->
+
     <div class="maincontent">
+
 
       <img
         title="90s desktop computer"
@@ -495,7 +1212,9 @@
         loading="lazy"
       >
 
+
       <br>
+
 
       <img
         class="textbox"
@@ -504,85 +1223,166 @@
         loading="lazy"
       >
 
+
       <!-- webring -->
+
       <div class="webring">
+
         <div id="we_bring">
-          <script type="text/javascript" src="../brooklynights.nekoweb.org/we_bring/onionring-variables.js"></script>
-          <script type="text/javascript" src="../brooklynights.nekoweb.org/we_bring/onionring-widget.js"></script>
+
+          <script
+            type="text/javascript"
+            src="../brooklynights.nekoweb.org/we_bring/onionring-variables.js"
+          ></script>
+
+          <script
+            type="text/javascript"
+            src="../brooklynights.nekoweb.org/we_bring/onionring-widget.js"
+          ></script>
+
         </div>
+
       </div>
+
 
       <br>
 
+
       <div class="enterbutton">
+
         <a href="bios-startup.html">
+
           <img
             title="enter button"
             src="images/enterbutton3.png"
             loading="lazy"
           >
+
         </a>
+
       </div>
 
+
       <span
-        style="text-shadow:1px 1px white,-1px -1px #808080;mix-blend-mode:difference;padding-top:5px;background:transparent;"
+        style="
+          text-shadow:
+            1px 1px white,
+            -1px -1px #808080;
+
+          mix-blend-mode:difference;
+
+          padding-top:5px;
+
+          background:transparent;
+        "
       >
+
         ↓ Or keep scrolling? ↓
+
       </span>
+
 
     </div>
 
-    <!-- page view counter -->
+
+    <!-- =========================================================
+         PAGE VIEW COUNTER
+         ========================================================= -->
+
     <div class="pageviews">
 
-      <span>page views:</span>
+      <span>
+        page views:
+      </span>
+
 
       <span
-        style="border:2px solid green;border-radius:3px;float:right;padding:0;margin:-10px 0 0 0;height:20px;"
+        id="pageViewCounter"
+        style="
+          border:2px solid green;
+          border-radius:3px;
+          float:right;
+          padding:0;
+          margin:-10px 0 0 0;
+          height:20px;
+          min-width:45px;
+          text-align:center;
+          background:#000;
+          color:#00ff00;
+          line-height:16px;
+        "
       >
-        <script
-          type="text/javascript"
-          src="https://counter.websiteout.com/js/6/8/450448/0"
-        ></script>
+
+        ...
+
       </span>
 
     </div>
+
 
   </main>
 
+
   <!-- flying fairy -->
-  <div class="flier" title="flying fairy">
+
+  <div
+    class="flier"
+    title="flying fairy"
+  >
+
     <img
       src="images/flying-fairy.gif"
       alt="flying fairy"
     >
+
   </div>
 
+
   <!-- little gnome -->
+
   <audio id="sfx">
-    <source src="https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3">
+
+    <source
+      src="https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3"
+    >
+
   </audio>
+
 
   <div>
 
     <img
       loading="lazy"
       class="gnome decoration"
-      onclick="playsound();move();unlockAchievement(
-        'gnome_clicker',
-        'OOH!',
-        'https://wsrv.nl/?url=https://hhroses.neocities.org/images/little_gnome.png&amp;w=32&amp;h=32&amp;fit=cover%ef%b8%8f',
-        'Booped the gnome',
-        'games',
-        'https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3'
-      );"
+
+      onclick="
+        playsound();
+        move();
+        unlockAchievement(
+          'gnome_clicker',
+          'OOH!',
+          'https://wsrv.nl/?url=https://hhroses.neocities.org/images/little_gnome.png&amp;w=32&amp;h=32&amp;fit=cover%ef%b8%8f',
+          'Booped the gnome',
+          'games',
+          'https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3'
+        );
+      "
+
       id="gnome"
+
       src="images/little_gnome.png"
+
       alt="little gnome"
-      style="max-width:10%;max-height:10%;z-index:999;"
+
+      style="
+        max-width:10%;
+        max-height:10%;
+        z-index:999;
+      "
     />
 
   </div>
+
 
   <script>
 
@@ -590,47 +1390,85 @@
       move()
     }
 
+
     function move() {
-      let img = document.getElementById('gnome')
+
+      let img =
+        document.getElementById(
+          'gnome'
+        );
+
 
       img.style.left =
-        Math.floor(Math.random() * window.innerWidth) + "px"
+        Math.floor(
+          Math.random() *
+          window.innerWidth
+        ) + "px";
+
 
       img.style.top =
-        Math.floor(Math.random() * window.innerHeight) + "px"
+        Math.floor(
+          Math.random() *
+          window.innerHeight
+        ) + "px";
+
     }
+
 
     function playsound() {
-      var sfx = document.getElementById("sfx");
+
+      var sfx =
+        document.getElementById(
+          "sfx"
+        );
+
       sfx.autoplay = 'true';
+
       sfx.load();
+
     }
 
-    const hour = new Date().getHours();
 
-    if (hour >= 20 || hour < 6) {
+    const hour =
+      new Date().getHours();
+
+
+    if (
+      hour >= 20 ||
+      hour < 6
+    ) {
 
       document.body.style.backgroundImage =
         "url('images/backgrounds/seamlessgalaxy3.jpg')";
 
-    } else {
+    }
+
+    else {
 
       document.body.style.backgroundImage =
         "url('images/pink_clouds.jpg')";
 
-      document.querySelector('.coolcode').style.top = "0px";
+      document.querySelector(
+        '.coolcode'
+      ).style.top = "0px";
 
     }
 
   </script>
 
+
   <style>
 
     .page2_wrap {
+
       position:absolute;
+
       top:100vh;
+
       width:100%;
+
       z-index:98;
+
     }
 
   </style>
@@ -638,9 +1476,10 @@
 
   <div class="page2_wrap">
 
-    <!-- ========================================================= -->
-    <!-- H.H.ROSES WEBSITE VIEWS WORLDWIDE                         -->
-    <!-- ========================================================= -->
+
+    <!-- =========================================================
+         H.H.ROSES WEBSITE VIEWS WORLDWIDE
+         ========================================================= -->
 
     <style>
 
@@ -667,11 +1506,13 @@
         border-right:1px solid black;
         border-bottom:1px solid black;
 
-        box-shadow:inset -1px -1px #808080;
+        box-shadow:
+          inset -1px -1px #808080;
 
         padding:2px;
 
       }
+
 
       .worldwide-widget .window-body {
 
@@ -683,11 +1524,14 @@
 
       }
 
+
       .worldwide-title {
 
         text-align:left;
 
-        font-family:'ComicSans',sans-serif;
+        font-family:
+          'ComicSans',
+          sans-serif;
 
         font-size:15px;
 
@@ -702,9 +1546,12 @@
 
       }
 
+
       .worldwide-note {
 
-        font-family:Arial,sans-serif;
+        font-family:
+          Arial,
+          sans-serif;
 
         font-size:11px;
 
@@ -713,6 +1560,7 @@
         margin-top:6px;
 
       }
+
 
       .worldwide-map {
 
@@ -734,33 +1582,49 @@
 
     <div class="fun-widget worldwide-widget">
 
+
       <div class="title-bar">
+
 
         <img
           src="images/icons/zone-internet-16x16.png"
           alt=""
         >
 
+
         <div
           class="title-bar-text"
-          style="text-shadow:none;text-align:left;"
+          style="
+            text-shadow:none;
+            text-align:left;
+          "
         >
+
           🌎 Website Views Worldwide 🌎
+
         </div>
+
 
         <div class="title-bar-controls">
 
-          <button aria-label="Close"></button>
+          <button
+            aria-label="Close"
+          ></button>
 
         </div>
+
 
       </div>
 
 
       <div class="window-body">
 
+
         <div class="worldwide-title">
-          🌍 H.H.Roses visitors from around the world!! 🌍
+
+          🌍 H.H.Roses visitors
+          from around the world!! 🌍
+
         </div>
 
 
@@ -768,29 +1632,40 @@
           id="map"
           class="worldwide-map"
         >
+
           Loading worldwide visitor map...
+
         </div>
 
 
         <div class="worldwide-note">
-          ✨ Visitor locations are shown here when available ✨
+
+          ✨ Visitor locations are shown here
+          when available ✨
+
         </div>
 
+
       </div>
+
 
     </div>
 
 
     <!-- Existing H.H.Roses geographical visitor tracker -->
-    <script src="src/site-view-geo-tracker/script.js"></script>
+
+    <script
+      src="src/site-view-geo-tracker/script.js"
+    ></script>
 
 
-    <!-- ========================================================= -->
-    <!-- H.H.ROSES TRAIN / CAT / HELSINKI LIVE SECTION            -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         FUN WIDGETS
+         ========================================================= -->
 
 
     <style>
+
 
       .fun-widget {
 
@@ -817,7 +1692,8 @@
         border-right:1px solid black;
         border-bottom:1px solid black;
 
-        box-shadow:inset -1px -1px #808080;
+        box-shadow:
+          inset -1px -1px #808080;
 
         letter-spacing:1px;
 
@@ -846,12 +1722,6 @@
 
       }
 
-
-      /*
-       * LIGHT WINDOWS 98 CONTENT AREA
-       *
-       * Do NOT make these black.
-       */
 
       .fun-widget .window-body {
 
@@ -887,10 +1757,6 @@
       }
 
 
-      /*
-       * WHITE PHOTO WINDOW
-       */
-
       .photo-widget .window-body {
 
         background:#fff;
@@ -919,7 +1785,12 @@
         box-shadow:
           inset 1px 1px white,
           inset -1px -1px #808080,
-          0 0 8px rgba(0,0,0,.25);
+          0 0 8px rgba(
+            0,
+            0,
+            0,
+            .25
+          );
 
         display:block;
 
@@ -934,27 +1805,29 @@
 
 
       .random-photo:hover {
-
         scale:1.015;
-
       }
 
 
       .photo-caption {
 
-        color:#fff;
+        color:#000;
 
-        background:#000080;
+        background:#c0c0c0;
 
-        border:2px ridge #c0c0c0;
+        border:
+          2px ridge #c0c0c0;
 
         padding:5px;
 
-        font-family:'ComicSans',sans-serif;
+        font-family:
+          'ComicSans',
+          sans-serif;
 
         font-size:14px;
 
-        text-shadow:1px 1px black;
+        text-shadow:
+          1px 1px white;
 
         margin-bottom:8px;
 
@@ -963,7 +1836,9 @@
 
       .photo-button {
 
-        font-family:'ComicSans',sans-serif;
+        font-family:
+          'ComicSans',
+          sans-serif;
 
         font-weight:bold;
 
@@ -986,7 +1861,9 @@
 
         color:#000080;
 
-        font-family:Arial,sans-serif;
+        font-family:
+          Arial,
+          sans-serif;
 
         font-size:10px;
 
@@ -997,7 +1874,7 @@
 
       /* =========================================================
          HELSINKI TRAIN BOARD
-      ========================================================= */
+         ========================================================= */
 
 
       .helsinki-trains {
@@ -1008,10 +1885,6 @@
 
       }
 
-
-      /*
-       * WHITE 98.CSS WINDOW
-       */
 
       .helsinki-trains .window-body {
 
@@ -1030,15 +1903,20 @@
 
         color:white;
 
-        border:2px ridge #c0c0c0;
+        border:
+          2px ridge #c0c0c0;
 
         padding:8px;
 
         margin-bottom:6px;
 
-        font-family:'ComicSans',Arial,sans-serif;
+        font-family:
+          'ComicSans',
+          Arial,
+          sans-serif;
 
-        text-shadow:1px 1px black;
+        text-shadow:
+          1px 1px black;
 
       }
 
@@ -1054,7 +1932,9 @@
 
       .train-board-header .small {
 
-        font-family:'basiic',monospace;
+        font-family:
+          'basiic',
+          monospace;
 
         font-size:11px;
 
@@ -1071,7 +1951,9 @@
 
         background:#fff;
 
-        font-family:'Courier New',monospace;
+        font-family:
+          'Courier New',
+          monospace;
 
         font-size:12px;
 
@@ -1081,14 +1963,11 @@
 
         padding:5px;
 
-        border:2px inset #c0c0c0;
+        border:
+          2px inset #c0c0c0;
 
       }
 
-
-      /*
-       * LIGHT 98.CSS TABLE
-       */
 
       .train-table-wrap {
 
@@ -1098,7 +1977,8 @@
 
         background:#fff;
 
-        border:2px inset #c0c0c0;
+        border:
+          2px inset #c0c0c0;
 
       }
 
@@ -1113,7 +1993,9 @@
 
         background:#fff;
 
-        font-family:'Courier New',monospace;
+        font-family:
+          'Courier New',
+          monospace;
 
         font-size:12px;
 
@@ -1128,7 +2010,8 @@
 
         color:#000;
 
-        border:1px solid #808080;
+        border:
+          1px solid #808080;
 
         padding:5px 4px;
 
@@ -1141,7 +2024,8 @@
 
       .train-table td {
 
-        border:1px solid #c0c0c0;
+        border:
+          1px solid #c0c0c0;
 
         padding:5px 4px;
 
@@ -1153,9 +2037,7 @@
 
 
       .train-table tr:nth-child(even) td {
-
         background:#dfdfdf;
-
       }
 
 
@@ -1191,16 +2073,12 @@
 
 
       .train-arrival {
-
         color:#800080;
-
       }
 
 
       .train-departure {
-
         color:#000;
-
       }
 
 
@@ -1223,9 +2101,7 @@
 
 
       .train-ok {
-
         color:#008000;
-
       }
 
 
@@ -1235,11 +2111,14 @@
 
         background:#fff;
 
-        border:2px inset #c0c0c0;
+        border:
+          2px inset #c0c0c0;
 
         padding:10px;
 
-        font-family:'Courier New',monospace;
+        font-family:
+          'Courier New',
+          monospace;
 
         text-align:left;
 
@@ -1254,7 +2133,9 @@
 
         color:#000;
 
-        font-family:Arial,sans-serif;
+        font-family:
+          Arial,
+          sans-serif;
 
         font-size:10px;
 
@@ -1264,9 +2145,7 @@
 
 
       .train-footer a {
-
         color:#000080;
-
       }
 
 
@@ -1274,7 +2153,9 @@
 
         margin-top:6px;
 
-        font-family:'ComicSans',sans-serif;
+        font-family:
+          'ComicSans',
+          sans-serif;
 
         cursor:
           url('cursors/pointer.png'),
@@ -1294,16 +2175,12 @@
 
 
         .random-photo {
-
           height:230px;
-
         }
 
 
         .train-table {
-
           font-size:10px;
-
         }
 
 
@@ -1320,34 +2197,50 @@
     </style>
 
 
-    <!-- ========================================================= -->
-    <!-- 🚆 COOL VR TRAIN PHOTOS                                   -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         🚆 COOL VR TRAIN PHOTOS
+         ========================================================= -->
 
 
     <div class="fun-widget photo-widget">
 
+
       <div class="title-bar">
 
-        <img src="images/icons/zone-internet-16x16.png">
+
+        <img
+          src="images/icons/zone-internet-16x16.png"
+          alt=""
+        >
+
 
         <div
           class="title-bar-text"
-          style="text-shadow:none;text-align:left;"
+          style="
+            text-shadow:none;
+            text-align:left;
+          "
         >
+
           🚆 Cool VR Train Photos!! 🚆
+
         </div>
+
 
         <div class="title-bar-controls">
 
-          <button aria-label="Close"></button>
+          <button
+            aria-label="Close"
+          ></button>
 
         </div>
+
 
       </div>
 
 
       <div class="window-body">
+
 
         <img
           id="vrTrainPhoto"
@@ -1362,7 +2255,9 @@
           id="vrTrainCaption"
           class="photo-caption"
         >
+
           🚆 LOADING TRAIN 🚆
+
         </div>
 
 
@@ -1372,7 +2267,9 @@
           type="button"
           onclick="showRandomVRTrain()"
         >
+
           MORE TRAIN!!
+
         </button>
 
 
@@ -1381,7 +2278,9 @@
           class="photo-source"
         ></span>
 
+
       </div>
+
 
     </div>
 
@@ -1393,6 +2292,7 @@
         {
           src:
             "https://tse2.mm.bing.net/th/id/OIP.Tjw4iYJI_ngX0Bvoeb1djAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+
           caption:
             "🚆 VR TRAIN!!!"
         },
@@ -1400,6 +2300,7 @@
         {
           src:
             "https://tse2.mm.bing.net/th/id/OIP.rJe6QzBCjgIsN3sXa1fncwHaE9?r=0&w=1024&h=685&rs=1&pid=ImgDetMain&o=7&rm=3",
+
           caption:
             "🚆 ANOTHER VR TRAIN!!!"
         },
@@ -1407,6 +2308,7 @@
         {
           src:
             "https://thumbs.dreamstime.com/b/helsinki-finland-june-vr-class-sm-emu-operated-vr-group-helsinki-railway-station-train-vr-class-sm-emu-helsinki-railway-285534859.jpg?w=992",
+
           caption:
             "🚆 VR SM EMU AT HELSINKI!!!"
         },
@@ -1414,6 +2316,7 @@
         {
           src:
             "https://tse2.mm.bing.net/th/id/OIP.3mA_tttjPl0_kHj4jK67swHaEc?r=0&w=800&h=480&rs=1&pid=ImgDetMain&o=7&rm=3",
+
           caption:
             "🚆 VR TRAIN GO BRRRRRR"
         },
@@ -1421,6 +2324,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20001.jpg",
+
           caption:
             "🚆 Finnish VR IC 407"
         },
@@ -1428,6 +2332,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20002.jpg",
+
           caption:
             "🚆 IC 407 AGAIN!!!"
         },
@@ -1435,6 +2340,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20001.jpg",
+
           caption:
             "🚆 Finnish IC 26"
         },
@@ -1442,6 +2348,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20002.jpg",
+
           caption:
             "🚆 IC 26 BUT ANOTHER ANGLE"
         },
@@ -1449,6 +2356,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20001.jpg",
+
           caption:
             "🚆 Finnish IC 401"
         },
@@ -1456,6 +2364,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20002.jpg",
+
           caption:
             "🚆 IC 401!!!"
         },
@@ -1463,6 +2372,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20001.jpg",
+
           caption:
             "🌙 VR NIGHT TRAIN PYO 269"
         },
@@ -1470,6 +2380,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20002.jpg",
+
           caption:
             "🌙 PYO 269 NIGHT TRAIN"
         },
@@ -1477,6 +2388,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20001.jpg",
+
           caption:
             "🌙 VR PYO 276"
         },
@@ -1484,6 +2396,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20002.jpg",
+
           caption:
             "🌙 PYO 276!!!"
         },
@@ -1491,6 +2404,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20S%20403%20in%20Tornio%2020260823%20001.jpg",
+
           caption:
             "🚆 VR S 403"
         },
@@ -1498,6 +2412,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205134%20in%20Tornio%2020240603%20001.jpg",
+
           caption:
             "🚆 VR T 5134"
         },
@@ -1505,6 +2420,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205137%20in%20Tornio%2020250503%20001.jpg",
+
           caption:
             "🚆 VR T 5137"
         },
@@ -1512,6 +2428,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Car%20train%2C%20Turku%20station%2C%2020241218%20-%2007.jpg",
+
           caption:
             "🚗 VR CAR TRAIN!!!"
         },
@@ -1519,6 +2436,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Dr16%20locomotive%20with%20freight%20wagons%20in%20Tornio%20Mar2012%20001.jpg",
+
           caption:
             "🚂 VR Dr16 + FREIGHT"
         },
@@ -1526,6 +2444,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sr3%20locomotive%20in%20Oulu%2020250620%20001.jpg",
+
           caption:
             "🚂 VR Sr3 LOCOMOTIVE"
         },
@@ -1533,6 +2452,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Sm4%20Kerava.jpg",
+
           caption:
             "🚆 VR Sm4 AT KERAVA"
         }
@@ -1548,7 +2468,9 @@
         if (!vrTrainPhotos.length)
           return;
 
+
         let index;
+
 
         do {
 
@@ -1558,37 +2480,50 @@
               vrTrainPhotos.length
             );
 
-        } while (
+        }
+
+        while (
           vrTrainPhotos.length > 1 &&
           index === lastVRTrainIndex
         );
 
+
         lastVRTrainIndex = index;
+
 
         const train =
           vrTrainPhotos[index];
+
 
         const image =
           document.getElementById(
             "vrTrainPhoto"
           );
 
+
         const caption =
           document.getElementById(
             "vrTrainCaption"
           );
+
 
         const source =
           document.getElementById(
             "vrTrainSource"
           );
 
-        image.src = train.src;
 
-        image.alt = train.caption;
+        image.src =
+          train.src;
+
+
+        image.alt =
+          train.caption;
+
 
         caption.textContent =
           train.caption;
+
 
         if (
           train.src.includes(
@@ -1603,7 +2538,9 @@
             'Wikimedia Commons' +
             '</a>';
 
-        } else {
+        }
+
+        else {
 
           source.textContent =
             "Source: image link";
@@ -1625,36 +2562,50 @@
     </script>
 
 
-    <!-- ========================================================= -->
-    <!-- 🐱 COOL CAT PHOTOS                                        -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         🐱 COOL CAT PHOTOS
+         ========================================================= -->
 
 
     <div class="fun-widget photo-widget">
 
+
       <div class="title-bar">
+
 
         <img
           src="images/icons/zone-internet-16x16.png"
+          alt=""
         >
+
 
         <div
           class="title-bar-text"
-          style="text-shadow:none;text-align:left;"
+          style="
+            text-shadow:none;
+            text-align:left;
+          "
         >
+
           🐱 Cool Cat Photos Yay Meow! 🐱
+
         </div>
+
 
         <div class="title-bar-controls">
 
-          <button aria-label="Close"></button>
+          <button
+            aria-label="Close"
+          ></button>
 
         </div>
+
 
       </div>
 
 
       <div class="window-body">
+
 
         <img
           id="catPhoto"
@@ -1669,7 +2620,9 @@
           id="catCaption"
           class="photo-caption"
         >
+
           🐱 MEOW LOADING MEOW 🐱
+
         </div>
 
 
@@ -1679,7 +2632,9 @@
           type="button"
           onclick="showRandomCat()"
         >
+
           MORE CAT!!! MEOW!!!
+
         </button>
 
 
@@ -1688,7 +2643,9 @@
           class="photo-source"
         ></span>
 
+
       </div>
+
 
     </div>
 
@@ -1700,6 +2657,7 @@
         {
           src:
             "https://th.bing.com/th/id/R.92a36fd9faacda4790854fcd9fb4b037?rik=s8rKPsp2paFBBA&pid=ImgRaw&r=0",
+
           caption:
             "🐱 CAT!!! MEOW!!!"
         },
@@ -1707,6 +2665,7 @@
         {
           src:
             "https://i.ytimg.com/vi/Ie57fr8pCko/maxresdefault.jpg",
+
           caption:
             "🐱 VERY IMPORTANT CAT"
         },
@@ -1714,6 +2673,7 @@
         {
           src:
             "https://yt3.googleusercontent.com/Fjs8Z7mywNBjOqL5tIjdGZZWPhrqxDw3uzPXZBosol-Uu5r0ya1FFEMKVD0vsiGyeBrBEZA1UYY=s900-c-k-c0x00ffffff-no-rj",
+
           caption:
             "🐱 MEOW MEOW MEOW"
         },
@@ -1721,6 +2681,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Are%20you%20going%20to%20drink%20my%20milk%2C%20odd%20human%3F%20%2823463302349%29.jpg",
+
           caption:
             "🐱 Are you going to drink my milk, odd human?"
         },
@@ -1728,6 +2689,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20Come%20In%20Peace%2C%20Take%20Me%20To%20Your%20Leader%21%20%2824110029751%29.jpg",
+
           caption:
             "🐱 I COME IN PEACE!!!"
         },
@@ -1735,6 +2697,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20must%20help%20the%20humans%20remove%20that%20beautiful%20ball...%21%21%20%2823726684305%29.jpg",
+
           caption:
             "🐱 CAT HAS A VERY IMPORTANT MISSION"
         },
@@ -1742,6 +2705,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20want%20to%20ride%20my%20bicycle..%20cropped%202024.jpg",
+
           caption:
             "🐱 CAT WANTS TO RIDE A BICYCLE"
         },
@@ -1749,6 +2713,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Not%20again%20with%20that%20camera...%20cropped%202025.jpg",
+
           caption:
             "🐱 NOT AGAIN WITH THAT CAMERA"
         },
@@ -1756,6 +2721,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/What%27s%20that...%3F%20%2826565615299%29.jpg",
+
           caption:
             "🐱 WHAT'S THAT...?"
         },
@@ -1763,6 +2729,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20cat%20called%20Mokoma%20or%20MIRRE.jpg",
+
           caption:
             "🐱 MOKOMA / MIRRE"
         },
@@ -1770,6 +2737,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tarzanette.jpg",
+
           caption:
             "🐱 TARZANETTE!!!"
         },
@@ -1777,6 +2745,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tesjoen%20kissa.jpg",
+
           caption:
             "🐱 TESJOKI KITTY"
         },
@@ -1784,6 +2753,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Mad%20Hatter%3F.png",
+
           caption:
             "🐱 THE MAD HATTER?"
         },
@@ -1791,6 +2761,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/THE%20PARTY%20IS%20OVER%2C%20HUMAN%21.png",
+
           caption:
             "🐱 THE PARTY IS OVER, HUMAN!"
         },
@@ -1798,6 +2769,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tricolor%20domestic%20cat%20in%20Suomenlinna.jpg",
+
           caption:
             "🐱 SUOMENLINNA KITTY"
         },
@@ -1805,6 +2777,7 @@
         {
           src:
             "https://commons.wikimedia.org/wiki/Special:Redirect/file/What%3F%20My%20Birthday%21%20You%27re%20kidding%21.jpg",
+
           caption:
             "🐱 WHAT? MY BIRTHDAY?!"
         }
@@ -1820,7 +2793,9 @@
         if (!catPhotos.length)
           return;
 
+
         let index;
+
 
         do {
 
@@ -1830,37 +2805,50 @@
               catPhotos.length
             );
 
-        } while (
+        }
+
+        while (
           catPhotos.length > 1 &&
           index === lastCatIndex
         );
 
+
         lastCatIndex = index;
+
 
         const cat =
           catPhotos[index];
+
 
         const image =
           document.getElementById(
             "catPhoto"
           );
 
+
         const caption =
           document.getElementById(
             "catCaption"
           );
+
 
         const source =
           document.getElementById(
             "catSource"
           );
 
-        image.src = cat.src;
 
-        image.alt = cat.caption;
+        image.src =
+          cat.src;
+
+
+        image.alt =
+          cat.caption;
+
 
         caption.textContent =
           cat.caption;
+
 
         if (
           cat.src.includes(
@@ -1875,7 +2863,9 @@
             'Wikimedia Commons' +
             '</a>';
 
-        } else {
+        }
+
+        else {
 
           source.textContent =
             "Source: image link";
@@ -1897,48 +2887,69 @@
     </script>
 
 
-    <!-- ========================================================= -->
-    <!-- 🚉 TRAINS IN HELSINKI, FINLAND :3                       -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         🚉 TRAINS IN HELSINKI, FINLAND :3
+         ========================================================= -->
 
 
     <div
       class="fun-widget helsinki-trains"
     >
 
+
       <div class="title-bar">
+
 
         <img
           src="images/icons/clock-16x16.png"
+          alt=""
         >
+
 
         <div
           class="title-bar-text"
-          style="text-shadow:none;text-align:left;"
+          style="
+            text-shadow:none;
+            text-align:left;
+          "
         >
+
           Trains in Helsinki, Finland :3
+
         </div>
+
 
         <div class="title-bar-controls">
 
-          <button aria-label="Close"></button>
+          <button
+            aria-label="Close"
+          ></button>
 
         </div>
+
 
       </div>
 
 
       <div class="window-body">
 
+
         <div class="train-board-header">
 
+
           <span class="big">
+
             🚉 HELSINKI CENTRAL STATION 🚉
+
           </span>
 
+
           <span class="small">
+
             FINTRAFFIC / DIGITRAFFIC LIVE TRAIN BOARD
+
           </span>
+
 
         </div>
 
@@ -1947,30 +2958,28 @@
           id="helsinkiTrainStatus"
           class="train-status"
         >
+
           [ CONNECTING TO FINTRAFFIC... ]
+
         </div>
 
 
         <div class="train-table-wrap">
 
+
           <table class="train-table">
+
 
             <thead>
 
               <tr>
 
                 <th>TRAIN</th>
-
                 <th>NUMBER</th>
-
                 <th>TRACK</th>
-
                 <th>DIRECTION</th>
-
                 <th>SCHEDULED</th>
-
                 <th>EST./ACTUAL</th>
-
                 <th>STATUS</th>
 
               </tr>
@@ -1983,14 +2992,18 @@
               <tr>
 
                 <td colspan="7">
+
                   Loading Helsinki trains...
+
                 </td>
 
               </tr>
 
             </tbody>
 
+
           </table>
+
 
         </div>
 
@@ -2000,7 +3013,9 @@
           type="button"
           onclick="loadHelsinkiTrains()"
         >
+
           🔄 REFRESH TRAINS
+
         </button>
 
 
@@ -2027,7 +3042,9 @@
 
         </div>
 
+
       </div>
+
 
     </div>
 
@@ -2049,15 +3066,38 @@
           value === null ||
           value === undefined
         ) {
+
           return "";
+
         }
 
+
         return String(value)
-          .replace(/&/g,"&amp;")
-          .replace(/</g,"&lt;")
-          .replace(/>/g,"&gt;")
-          .replace(/"/g,"&quot;")
-          .replace(/'/g,"&#039;");
+
+          .replace(
+            /&/g,
+            "&amp;"
+          )
+
+          .replace(
+            /</g,
+            "&lt;"
+          )
+
+          .replace(
+            />/g,
+            "&gt;"
+          )
+
+          .replace(
+            /"/g,
+            "&quot;"
+          )
+
+          .replace(
+            /'/g,
+            "&#039;"
+          );
 
       }
 
@@ -2068,15 +3108,21 @@
           return "—";
         }
 
-        const date = new Date(value);
+
+        const date =
+          new Date(value);
+
 
         if (
           Number.isNaN(
             date.getTime()
           )
         ) {
+
           return "—";
+
         }
+
 
         return date.toLocaleTimeString(
           "fi-FI",
@@ -2096,8 +3142,11 @@
             train.timeTableRows
           )
         ) {
+
           return [];
+
         }
+
 
         return train.timeTableRows.filter(
           function(row) {
@@ -2106,6 +3155,7 @@
               row.stationShortCode ||
               row.station ||
               "";
+
 
             return (
               String(code)
@@ -2124,23 +3174,33 @@
         const rows =
           getHelsinkiRows(train);
 
+
         if (!rows.length) {
           return null;
         }
 
+
         const departure =
           rows.find(
             function(row) {
-              return row.type === "DEPARTURE";
+
+              return row.type ===
+                "DEPARTURE";
+
             }
           );
+
 
         const arrival =
           rows.find(
             function(row) {
-              return row.type === "ARRIVAL";
+
+              return row.type ===
+                "ARRIVAL";
+
             }
           );
+
 
         return (
           departure ||
@@ -2151,38 +3211,51 @@
       }
 
 
-      function getDestination(train,event) {
+      function getDestination(
+        train,
+        event
+      ) {
 
         if (!event) {
           return "Helsinki";
         }
 
+
         if (
           event.type ===
           "DEPARTURE"
         ) {
+
           return (
             event.nextStation ||
             "DEPARTURE"
           );
+
         }
+
 
         if (
           event.type ===
           "ARRIVAL"
         ) {
+
           return (
             event.previousStation ||
             "ARRIVAL"
           );
+
         }
+
 
         return "Helsinki";
 
       }
 
 
-      function getStatus(train,event) {
+      function getStatus(
+        train,
+        event
+      ) {
 
         if (
           train.cancelled === true ||
@@ -2193,38 +3266,56 @@
         ) {
 
           return {
+
             text:"CANCELLED",
-            className:"train-cancelled"
+
+            className:
+              "train-cancelled"
+
           };
 
         }
+
 
         if (!event) {
 
           return {
+
             text:"UNKNOWN",
-            className:"train-delay"
+
+            className:
+              "train-delay"
+
           };
 
         }
+
 
         const scheduled =
           event.scheduledTime;
 
+
         const estimate =
           event.liveEstimateTime;
+
 
         const actual =
           event.actualTime;
 
+
         if (actual) {
 
           return {
+
             text:"ACTUAL",
-            className:"train-ok"
+
+            className:
+              "train-ok"
+
           };
 
         }
+
 
         if (
           estimate &&
@@ -2232,10 +3323,16 @@
         ) {
 
           const scheduledDate =
-            new Date(scheduled);
+            new Date(
+              scheduled
+            );
+
 
           const estimateDate =
-            new Date(estimate);
+            new Date(
+              estimate
+            );
+
 
           if (
             !Number.isNaN(
@@ -2248,42 +3345,70 @@
 
             const delay =
               Math.round(
+
                 (
                   estimateDate.getTime() -
                   scheduledDate.getTime()
+
                 ) / 60000
+
               );
+
 
             if (delay > 0) {
 
               return {
-                text:"+" + delay + " MIN",
-                className:"train-delay"
+
+                text:
+                  "+" +
+                  delay +
+                  " MIN",
+
+                className:
+                  "train-delay"
+
               };
 
             }
 
+
             if (delay < 0) {
 
               return {
-                text:delay + " MIN",
-                className:"train-ok"
+
+                text:
+                  delay +
+                  " MIN",
+
+                className:
+                  "train-ok"
+
               };
 
             }
 
           }
 
+
           return {
+
             text:"ESTIMATED",
-            className:"train-ok"
+
+            className:
+              "train-ok"
+
           };
 
         }
 
+
         return {
+
           text:"ON TIME",
-          className:"train-ok"
+
+          className:
+            "train-ok"
+
         };
 
       }
@@ -2296,10 +3421,12 @@
             a.event.scheduledTime || 0
           ).getTime();
 
+
         const bTime =
           new Date(
             b.event.scheduledTime || 0
           ).getTime();
+
 
         return aTime - bTime;
 
@@ -2313,10 +3440,12 @@
             "helsinkiTrainStatus"
           );
 
+
         const rowsElement =
           document.getElementById(
             "helsinkiTrainRows"
           );
+
 
         statusElement.textContent =
           "[ FETCHING LIVE TRAINS... ]";
@@ -2365,15 +3494,22 @@
             function(train) {
 
               const event =
-                getHelsinkiEvent(train);
+                getHelsinkiEvent(
+                  train
+                );
+
 
               if (!event) {
                 return;
               }
 
+
               events.push({
+
                 train:train,
+
                 event:event
+
               });
 
             }
@@ -2385,7 +3521,8 @@
           );
 
 
-          const seen = new Set();
+          const seen =
+            new Set();
 
 
           const uniqueEvents =
@@ -2401,11 +3538,18 @@
                     item.event.type
                   );
 
-                if (seen.has(key)) {
+
+                if (
+                  seen.has(key)
+                ) {
+
                   return false;
+
                 }
 
+
                 seen.add(key);
+
 
                 return true;
 
@@ -2414,7 +3558,10 @@
 
 
           const displayEvents =
-            uniqueEvents.slice(0,30);
+            uniqueEvents.slice(
+              0,
+              30
+            );
 
 
           if (
@@ -2428,8 +3575,10 @@
               '</td>' +
               '</tr>';
 
+
             statusElement.textContent =
               "[ NO TRAIN EVENTS ]";
+
 
             return;
 
@@ -2444,8 +3593,10 @@
                   const train =
                     item.train;
 
+
                   const event =
                     item.event;
+
 
                   const status =
                     getStatus(
@@ -2453,14 +3604,17 @@
                       event
                     );
 
+
                   const type =
                     train.trainType ||
                     train.trainCategory ||
                     "TRAIN";
 
+
                   const number =
                     train.trainNumber ??
                     "?";
+
 
                   const direction =
                     getDestination(
@@ -2468,30 +3622,40 @@
                       event
                     );
 
+
                   const scheduled =
                     formatTime(
                       event.scheduledTime
                     );
 
+
                   const estimate =
                     event.actualTime
+
                       ? formatTime(
                           event.actualTime
                         )
+
                       : event.liveEstimateTime
+
                         ? formatTime(
                             event.liveEstimateTime
                           )
+
                         : "—";
+
 
                   const track =
                     event.commercialTrack ||
                     "—";
 
+
                   const eventType =
                     event.type ===
                     "ARRIVAL"
+
                       ? "ARRIVAL"
+
                       : "DEPARTURE";
 
 
@@ -2500,42 +3664,81 @@
                     "<tr>" +
 
                       "<td>" +
-                        escapeTrainHTML(type) +
+
+                        escapeTrainHTML(
+                          type
+                        ) +
+
                       "</td>" +
+
 
                       "<td class=\"train-number\">" +
-                        escapeTrainHTML(number) +
+
+                        escapeTrainHTML(
+                          number
+                        ) +
+
                       "</td>" +
+
 
                       "<td class=\"train-track\">" +
-                        escapeTrainHTML(track) +
+
+                        escapeTrainHTML(
+                          track
+                        ) +
+
                       "</td>" +
 
-                      "<td>" +
-                        escapeTrainHTML(direction) +
-                      "</td>" +
 
                       "<td>" +
-                        escapeTrainHTML(scheduled) +
+
+                        escapeTrainHTML(
+                          direction
+                        ) +
+
+                      "</td>" +
+
+
+                      "<td>" +
+
+                        escapeTrainHTML(
+                          scheduled
+                        ) +
+
                         "<br>" +
+
                         "<small>" +
+
                           eventType +
+
                         "</small>" +
+
                       "</td>" +
 
+
                       "<td>" +
-                        escapeTrainHTML(estimate) +
+
+                        escapeTrainHTML(
+                          estimate
+                        ) +
+
                       "</td>" +
+
 
                       "<td class=\"" +
+
                         escapeTrainHTML(
                           status.className
                         ) +
+
                       "\">" +
+
                         escapeTrainHTML(
                           status.text
                         ) +
+
                       "</td>" +
+
 
                     "</tr>"
 
@@ -2629,9 +3832,9 @@
     <br>
 
 
-    <!-- ========================================================= -->
-    <!-- PRIVACY POLICY                                            -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         PRIVACY POLICY
+         ========================================================= -->
 
 
     <style>
@@ -2649,7 +3852,8 @@
         border-right:1px solid #808080;
         border-bottom:1px solid #808080;
 
-        box-shadow:1px 1px black;
+        box-shadow:
+          1px 1px black;
 
         background:#c3c3c3;
 
@@ -2665,7 +3869,12 @@
 
         text-shadow:
           1px 1px white,
-          -1px -1px rgba(0,0,0,.25);
+          -1px -1px rgba(
+            0,
+            0,
+            0,
+            .25
+          );
 
       }
 
@@ -2705,9 +3914,14 @@
           title="https://hhroses.art/privacy-policy"
           href="privacy-policy.html"
           target="_blank"
-          style="font-family:times;font-size:1rem;"
+          style="
+            font-family:times;
+            font-size:1rem;
+          "
         >
+
           Privacy Policy
+
         </a>
 
       </div>
@@ -2718,9 +3932,9 @@
     <br>
 
 
-    <!-- ========================================================= -->
-    <!-- NEOCITIES PLUG                                            -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         NEOCITIES PLUG
+         ========================================================= -->
 
 
     <style>
@@ -2766,6 +3980,7 @@
         <img
           src="neocities.png"
           class="neocities"
+          alt="Neocities"
         >
 
       </a>
@@ -2773,9 +3988,9 @@
     </center>
 
 
-    <!-- ========================================================= -->
-    <!-- LANGUAGES                                                 -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         LANGUAGES
+         ========================================================= -->
 
 
     <style>
@@ -2797,7 +4012,8 @@
         border-right:1px solid #808080;
         border-bottom:1px solid #808080;
 
-        box-shadow:1px 1px black;
+        box-shadow:
+          1px 1px black;
 
         background:#c3c3c3;
 
@@ -2813,7 +4029,12 @@
 
         text-shadow:
           1px 1px white,
-          -1px -1px rgba(0,0,0,.25);
+          -1px -1px rgba(
+            0,
+            0,
+            0,
+            .25
+          );
 
       }
 
@@ -2845,8 +4066,19 @@
         margin:5px auto !important;
 
         filter:
-          drop-shadow(1px 1px white)
-          drop-shadow(-1px -1px rgba(0,0,0,.25));
+          drop-shadow(
+            1px 1px white
+          )
+
+          drop-shadow(
+            -1px -1px
+            rgba(
+              0,
+              0,
+              0,
+              .25
+            )
+          );
 
       }
 
@@ -2863,7 +4095,6 @@
         background:#dfdfdf;
 
         border-left:1px solid #fff;
-
         border-top:1px solid #fff;
 
       }
@@ -2883,9 +4114,7 @@
 
 
       .gtranslate_wrapper *::-webkit-scrollbar-button {
-
         display:none;
-
       }
 
 
@@ -2907,6 +4136,7 @@
       <p>
         Language:
       </p>
+
 
       <div class="gtranslate_wrapper"></div>
 
@@ -2937,7 +4167,7 @@
           "en":"usa"
         }
 
-      }
+      };
 
     </script>
 
@@ -2947,26 +4177,1078 @@
       defer
     ></script>
 
+
   </div>
 
 
-  <script>
+  <!-- =========================================================
+       PAGE VIEW TRACKING
+       ========================================================= -->
 
-    // Silently record the pageview in the Cloudflare Worker
+  <script>
 
     fetch(
       'https://websiteviewshowerwowfintraffic.2nforfun.workers.dev/hit'
     )
 
+    .then(
+      function() {
+
+        console.log(
+          "Page view recorded."
+        );
+
+      }
+    )
+
     .catch(
-      err =>
+      function(err) {
+
         console.error(
           'Failed to log visit:',
           err
-        )
+        );
+
+      }
+    );
+
+
+  </script>
+
+
+  <!-- =========================================================
+       PAGE VIEW DISPLAY
+       ========================================================= -->
+
+  <script>
+
+    /*
+     * The old websiteout.com counter was removed.
+     *
+     * This displays the number returned by the
+     * H.H.Roses Cloudflare Worker instead.
+     *
+     * If the worker returns a JSON object containing
+     * "count", "views", or "total", it will use that.
+     */
+
+    async function updatePageViewCounter() {
+
+      const counter =
+        document.getElementById(
+          "pageViewCounter"
+        );
+
+
+      if (!counter)
+        return;
+
+
+      try {
+
+        const response =
+          await fetch(
+            'https://websiteviewshowerwowfintraffic.2nforfun.workers.dev/count',
+            {
+              cache:"no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Counter HTTP " +
+            response.status
+          );
+
+        }
+
+
+        const data =
+          await response.json();
+
+
+        let count = null;
+
+
+        if (
+          typeof data === "number"
+        ) {
+
+          count = data;
+
+        }
+
+
+        else if (
+          data &&
+          typeof data.count === "number"
+        ) {
+
+          count = data.count;
+
+        }
+
+
+        else if (
+          data &&
+          typeof data.views === "number"
+        ) {
+
+          count = data.views;
+
+        }
+
+
+        else if (
+          data &&
+          typeof data.total === "number"
+        ) {
+
+          count = data.total;
+
+        }
+
+
+        if (
+          count !== null &&
+          Number.isFinite(count)
+        ) {
+
+          counter.textContent =
+            Number(
+              count
+            ).toLocaleString(
+              "en-US"
+            );
+
+        }
+
+        else {
+
+          counter.textContent =
+            "—";
+
+        }
+
+      }
+
+
+      catch(error) {
+
+        console.warn(
+          "Page view counter unavailable:",
+          error
+        );
+
+
+        /*
+         * Don't show a giant error on the site.
+         */
+
+        counter.textContent =
+          "—";
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        updatePageViewCounter();
+
+      }
     );
 
   </script>
+
+
+  <!-- =========================================================
+       KRIS COMPANION
+       ========================================================= -->
+
+
+  <div id="kris-companion">
+
+
+    <div
+      id="kris-dialogue"
+      class="hidden"
+    >
+
+      <span
+        id="kris-dialogue-text"
+      ></span>
+
+    </div>
+
+
+    <img
+      id="kris-gif"
+      src="images/krisdancinggif.gif"
+      alt="Dancing Kris"
+      draggable="false"
+    >
+
+
+  </div>
+
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+
+        const kris =
+          document.getElementById(
+            "kris-companion"
+          );
+
+
+        const dialogue =
+          document.getElementById(
+            "kris-dialogue"
+          );
+
+
+        const dialogueText =
+          document.getElementById(
+            "kris-dialogue-text"
+          );
+
+
+        if (
+          !kris ||
+          !dialogue ||
+          !dialogueText
+        ) {
+
+          console.error(
+            "Kris Companion: Missing required element."
+          );
+
+          return;
+
+        }
+
+
+        /* =====================================================
+           QUOTES
+           ===================================================== */
+
+
+        const quotes = [
+
+          "what are you doing.",
+
+          "you opened that?",
+
+          "wow.",
+
+          "i'm watching you.",
+
+          "this is productive.",
+
+          "you have too much free time.",
+
+          "i'm judging you.",
+
+          "have you tried pressing X?",
+
+          "the world is revolving.",
+
+          "don't forget your [HeartShapedObject].",
+
+          "you look like someone who would trust Spamton.",
+
+          "NOELLE WOULD NOT APPROVE OF THIS.",
+
+          "where's Susie when you need her?",
+
+          "i wonder what Ralsei is baking.",
+
+          "this desktop feels like a Dark World.",
+
+          "did you just open another window?",
+
+          "that's not very [[BIG SHOT]] of you.",
+
+          "HEY EVERY !! IT'S ME.",
+
+          "CHAOS, CHAOS!",
+
+          "you ever wonder why the fountain is still there?",
+
+          "Kris... where are we?",
+
+          "this isn't Castle Town.",
+
+          "the prophecy did not mention Windows 98.",
+
+          "Susie would probably break this computer.",
+
+          "Ralsei would probably say something nice.",
+
+          "Lancer would probably eat the mouse.",
+
+          "Queen would probably buy this computer.",
+
+          "Berdly would explain why he's better at Minesweeper.",
+
+          "Noelle is probably nervous about something right now.",
+
+          "okay, serious question. why are there so many icons?",
+
+          "you know you can just close the window, right?",
+
+          "i've been dancing this entire time.",
+
+          "my legs are getting tired. probably.",
+
+          "do you think the Recycle Bin actually recycles anything?",
+
+          "Internet Explorer? In this economy?",
+
+          "wait. you actually use this?",
+
+          "i have questions. many questions.",
+
+          "you could be doing literally anything else right now.",
+
+          "don't mind me. i'm just standing here.",
+
+          "...",
+
+          "... okay.",
+
+          "this feels like a side quest.",
+
+          "is this your save file?",
+
+          "i think we're both lost.",
+
+          "maybe try turning it off and on again.",
+
+          "i've seen worse desktops.",
+
+          "actually, no i haven't.",
+
+          "WHY ARE YOU CLICKING THAT.",
+
+          "hello???",
+
+          "what is that.",
+
+          "WHY.",
+
+          "interesting choice.",
+
+          "fascinating.",
+
+          "i'm concerned.",
+
+          "this computer has seen things.",
+
+          "you are really committed to this.",
+
+          "stop opening things.",
+
+          "please.",
+
+          "Kris.exe has stopped responding.",
+
+          "my patience.exe has stopped responding.",
+
+          "this is getting out of hand.",
+
+          "okay this is actually kinda funny.",
+
+          "i wasn't expecting that.",
+
+          "you did WHAT.",
+
+          "bruh.",
+
+          "no way.",
+
+          "what.",
+
+          "what.",
+
+          "WHAT.",
+
+          "i'm just a little guy.",
+
+          "i live here now.",
+
+          "don't close me.",
+
+          "i know what you did.",
+
+          "i saw that.",
+
+          "I SAW THAT."
+
+        ];
+
+
+        /* =====================================================
+           DRAG QUOTES
+           ===================================================== */
+
+
+        const dragQuotes = [
+
+          "HEY.",
+
+          "WAIT.",
+
+          "WHERE ARE WE GOING.",
+
+          "why are you dragging me.",
+
+          "put me down.",
+
+          "NO.",
+
+          "STOP.",
+
+          "okay this is kinda fun.",
+
+          "weeeeee.",
+
+          "KRIS AIRLINES.",
+
+          "i am being relocated.",
+
+          "WHERE IS MY HOUSE.",
+
+          "you can't just move me around.",
+
+          "bro i'm not an icon.",
+
+          "okay okay okay.",
+
+          "let me dance over here.",
+
+          "destination: unknown.",
+
+          "this is not Castle Town."
+
+        ];
+
+
+        function randomQuote(list) {
+
+          return list[
+            Math.floor(
+              Math.random() *
+              list.length
+            )
+          ];
+
+        }
+
+
+        /* =====================================================
+           TALK
+           ===================================================== */
+
+
+        let dialogueTimer = null;
+
+
+        function talk(
+          message,
+          duration = 1500
+        ) {
+
+          clearTimeout(
+            dialogueTimer
+          );
+
+
+          dialogueText.textContent =
+            message;
+
+
+          dialogue.classList.remove(
+            "hidden"
+          );
+
+
+          dialogueTimer =
+            setTimeout(
+              function() {
+
+                dialogue.classList.add(
+                  "hidden"
+                );
+
+              },
+              duration
+            );
+
+        }
+
+
+        /* =====================================================
+           DRAGGING
+           ===================================================== */
+
+
+        let dragging = false;
+
+        let offsetX = 0;
+        let offsetY = 0;
+
+
+        function clampKrisPosition(
+          x,
+          y
+        ) {
+
+          const width =
+            kris.offsetWidth;
+
+
+          const height =
+            kris.offsetHeight;
+
+
+          const maxX =
+            Math.max(
+              0,
+              window.innerWidth -
+              width
+            );
+
+
+          const maxY =
+            Math.max(
+              0,
+              window.innerHeight -
+              height
+            );
+
+
+          return {
+
+            x:
+              Math.max(
+                0,
+                Math.min(
+                  x,
+                  maxX
+                )
+              ),
+
+
+            y:
+              Math.max(
+                0,
+                Math.min(
+                  y,
+                  maxY
+                )
+              )
+
+          };
+
+        }
+
+
+        function moveKris(
+          clientX,
+          clientY
+        ) {
+
+          let x =
+            clientX -
+            offsetX;
+
+
+          let y =
+            clientY -
+            offsetY;
+
+
+          const position =
+            clampKrisPosition(
+              x,
+              y
+            );
+
+
+          kris.style.left =
+            position.x +
+            "px";
+
+
+          kris.style.top =
+            position.y +
+            "px";
+
+        }
+
+
+        function saveKrisPosition() {
+
+          localStorage.setItem(
+            "kris-companion-position",
+
+            JSON.stringify({
+
+              x:
+                parseInt(
+                  kris.style.left
+                ) || 300,
+
+
+              y:
+                parseInt(
+                  kris.style.top
+                ) || 180
+
+            })
+          );
+
+        }
+
+
+        /* =====================================================
+           MOUSE DOWN
+           ===================================================== */
+
+
+        kris.addEventListener(
+          "mousedown",
+          function(event) {
+
+
+            if (
+              event.button !== 0
+            )
+              return;
+
+
+            event.preventDefault();
+
+
+            const rect =
+              kris.getBoundingClientRect();
+
+
+            dragging = true;
+
+
+            offsetX =
+              event.clientX -
+              rect.left;
+
+
+            offsetY =
+              event.clientY -
+              rect.top;
+
+
+            kris.classList.add(
+              "dragging"
+            );
+
+
+            talk(
+              randomQuote(
+                dragQuotes
+              ),
+              1000
+            );
+
+          }
+        );
+
+
+        /* =====================================================
+           MOUSE MOVE
+           ===================================================== */
+
+
+        document.addEventListener(
+          "mousemove",
+          function(event) {
+
+
+            if (!dragging)
+              return;
+
+
+            event.preventDefault();
+
+
+            moveKris(
+              event.clientX,
+              event.clientY
+            );
+
+          }
+        );
+
+
+        /* =====================================================
+           MOUSE RELEASE
+           ===================================================== */
+
+
+        document.addEventListener(
+          "mouseup",
+          function() {
+
+
+            if (!dragging)
+              return;
+
+
+            dragging = false;
+
+
+            kris.classList.remove(
+              "dragging"
+            );
+
+
+            saveKrisPosition();
+
+
+            talk(
+              randomQuote(
+                dragQuotes
+              ),
+              1000
+            );
+
+          }
+        );
+
+
+        /* =====================================================
+           TOUCH START
+           ===================================================== */
+
+
+        kris.addEventListener(
+          "touchstart",
+          function(event) {
+
+
+            const touch =
+              event.touches[0];
+
+
+            const rect =
+              kris.getBoundingClientRect();
+
+
+            dragging = true;
+
+
+            offsetX =
+              touch.clientX -
+              rect.left;
+
+
+            offsetY =
+              touch.clientY -
+              rect.top;
+
+
+            kris.classList.add(
+              "dragging"
+            );
+
+
+            talk(
+              randomQuote(
+                dragQuotes
+              ),
+              1000
+            );
+
+          },
+          {
+            passive:true
+          }
+        );
+
+
+        /* =====================================================
+           TOUCH MOVE
+           ===================================================== */
+
+
+        document.addEventListener(
+          "touchmove",
+          function(event) {
+
+
+            if (!dragging)
+              return;
+
+
+            event.preventDefault();
+
+
+            const touch =
+              event.touches[0];
+
+
+            moveKris(
+              touch.clientX,
+              touch.clientY
+            );
+
+          },
+          {
+            passive:false
+          }
+        );
+
+
+        /* =====================================================
+           TOUCH END
+           ===================================================== */
+
+
+        document.addEventListener(
+          "touchend",
+          function() {
+
+
+            if (!dragging)
+              return;
+
+
+            dragging = false;
+
+
+            kris.classList.remove(
+              "dragging"
+            );
+
+
+            saveKrisPosition();
+
+          }
+        );
+
+
+        /* =====================================================
+           RESTORE POSITION
+           ===================================================== */
+
+
+        const savedPosition =
+          localStorage.getItem(
+            "kris-companion-position"
+          );
+
+
+        if (savedPosition) {
+
+          try {
+
+            const position =
+              JSON.parse(
+                savedPosition
+              );
+
+
+            const safePosition =
+              clampKrisPosition(
+
+                Number(
+                  position.x
+                ) || 300,
+
+                Number(
+                  position.y
+                ) || 180
+
+              );
+
+
+            kris.style.left =
+              safePosition.x +
+              "px";
+
+
+            kris.style.top =
+              safePosition.y +
+              "px";
+
+          }
+
+
+          catch(error) {
+
+            console.warn(
+              "Kris Companion: Couldn't restore position.",
+              error
+            );
+
+          }
+
+        }
+
+
+        /* =====================================================
+           FIRST MESSAGE
+           ===================================================== */
+
+
+        setTimeout(
+          function() {
+
+            talk(
+              "oh. you found me.",
+              2500
+            );
+
+          },
+          1000
+        );
+
+
+        /* =====================================================
+           RANDOM YAPPING
+           ===================================================== */
+
+
+        function randomComment() {
+
+
+          if (!dragging) {
+
+            talk(
+              randomQuote(
+                quotes
+              ),
+              1500
+            );
+
+          }
+
+
+          const nextDelay =
+            3000 +
+            Math.random() * 4000;
+
+
+          setTimeout(
+            randomComment,
+            nextDelay
+          );
+
+        }
+
+
+        setTimeout(
+          randomComment,
+          3500
+        );
+
+
+        /* =====================================================
+           RANDOM YAP BURSTS
+           ===================================================== */
+
+
+        function yapBurst() {
+
+
+          if (!dragging) {
+
+            talk(
+              randomQuote(
+                quotes
+              ),
+              900
+            );
+
+          }
+
+
+          const nextBurst =
+            15000 +
+            Math.random() * 25000;
+
+
+          setTimeout(
+            yapBurst,
+            nextBurst
+          );
+
+        }
+
+
+        setTimeout(
+          yapBurst,
+          12000
+        );
+
+
+        /* =====================================================
+           KEEP KRIS ON SCREEN
+           ===================================================== */
+
+
+        window.addEventListener(
+          "resize",
+          function() {
+
+
+            const position =
+              clampKrisPosition(
+
+                parseInt(
+                  kris.style.left
+                ) || 300,
+
+                parseInt(
+                  kris.style.top
+                ) || 180
+
+              );
+
+
+            kris.style.left =
+              position.x +
+              "px";
+
+
+            kris.style.top =
+              position.y +
+              "px";
+
+          }
+        );
+
+
+      }
+
+    );
+
+  </script>
+
+
+  <!-- =========================================================
+       CLOUDFLARE CHALLENGE
+       ========================================================= -->
 
 
   <script>
@@ -3040,6 +5322,7 @@
 
           c();
 
+
         else if(
           window.addEventListener
         )
@@ -3048,6 +5331,7 @@
             'DOMContentLoaded',
             c
           );
+
 
         else {
 
@@ -3079,7 +5363,9 @@
 
   </script>
 
+
 </body>
+
 
 <!-- Mirrored from https://hhroses.art/ by HTTrack Website Copier/3.x [XR&CO], Fri, 11 Sep 2026 12:03:27 GMT -->
 
