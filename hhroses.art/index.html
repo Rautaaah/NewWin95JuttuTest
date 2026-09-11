@@ -1490,9 +1490,13 @@
     }
 
 
-    .traffic-chart-wrap {
+    #trafficChart {
 
-      height:300px;
+      display:block;
+
+      width:100% !important;
+
+      height:300px !important;
 
       background:#000;
 
@@ -1500,17 +1504,6 @@
 
       box-shadow:
         inset 1px 1px #808080;
-
-    }
-
-
-    #trafficChart {
-
-      width:100% !important;
-
-      height:100% !important;
-
-      display:block;
 
     }
 
@@ -2272,8 +2265,8 @@
       }
 
 
-      .traffic-chart-wrap {
-        height:250px;
+      #trafficChart {
+        height:250px !important;
       }
 
     }
@@ -4880,8 +4873,7 @@
 
   <script>
 
-    let visitorMapInstance =
-      null;
+    let visitorMapInstance = null;
 
 
     function countryName(code) {
@@ -5204,9 +5196,6 @@
       entries.forEach(
         function(entry) {
 
-          const code =
-            entry[0];
-
           const amount =
             Number(entry[1]);
 
@@ -5220,7 +5209,7 @@
               amount;
 
             topCode =
-              code;
+              entry[0];
 
           }
 
@@ -5285,6 +5274,60 @@
     }
 
 
+    function waitForWorldMap() {
+
+      return new Promise(
+        function(resolve,reject) {
+
+          const started =
+            Date.now();
+
+
+          const timer =
+            setInterval(
+              function() {
+
+                if (
+                  window.jsVectorMap &&
+                  window.jsVectorMap.maps &&
+                  window.jsVectorMap.maps.world
+                ) {
+
+                  clearInterval(timer);
+
+                  resolve();
+
+                  return;
+
+                }
+
+
+                if (
+                  Date.now() -
+                  started >
+                  10000
+                ) {
+
+                  clearInterval(timer);
+
+                  reject(
+                    new Error(
+                      "jsVectorMap world map data did not load."
+                    )
+                  );
+
+                }
+
+              },
+              50
+            );
+
+        }
+      );
+
+    }
+
+
     function createVisitorMap(values) {
 
       const mapElement =
@@ -5328,23 +5371,7 @@
 
 
       if (
-        typeof window.jsVectorMap ===
-        "undefined"
-      ) {
-
-        mapElement.textContent =
-          "Map library failed to load.";
-
-        console.error(
-          "jsVectorMap is not available."
-        );
-
-        return;
-
-      }
-
-
-      if (
+        !window.jsVectorMap ||
         !window.jsVectorMap.maps ||
         !window.jsVectorMap.maps.world
       ) {
@@ -5458,15 +5485,11 @@
                   );
 
 
-                const name =
-                  countryName(
-                    normalizedCode
-                  );
-
-
                 tooltip.text(
 
-                  name +
+                  countryName(
+                    normalizedCode
+                  ) +
                   " - " +
                   views.toLocaleString(
                     "en-US"
@@ -5524,6 +5547,14 @@
 
 
       try {
+
+        /*
+         * Wait until both the jsVectorMap core
+         * and world.js have registered themselves.
+         */
+
+        await waitForWorldMap();
+
 
         const response =
           await fetch(
@@ -5594,14 +5625,8 @@
         );
 
 
-        if (
-          !visitorMapInstance
-        ) {
-
-          mapElement.textContent =
-            "Unable to load visitor map.";
-
-        }
+        mapElement.textContent =
+          "Unable to load visitor map.";
 
       }
 
@@ -5611,11 +5636,6 @@
     document.addEventListener(
       "DOMContentLoaded",
       function() {
-
-        /*
-         * The library scripts in <head> use defer,
-         * so DOMContentLoaded waits for them.
-         */
 
         loadGeographicalViews();
 
@@ -5652,7 +5672,7 @@
 
 
       /*
-       * Normal expected response:
+       * Expected worker response:
        *
        * {
        *   dates: {
@@ -5661,6 +5681,7 @@
        *   }
        * }
        */
+
 
       if (
         data.dates &&
@@ -5677,38 +5698,29 @@
        * Also support:
        *
        * {
-       *   "2026-09-01": 5,
-       *   "2026-09-02": 8
+       *   traffic: {
+       *     dates: {...}
+       *   }
        * }
        */
 
-      const possibleDates = {};
 
-
-      for (
-        const [key,value]
-        of Object.entries(data)
+      if (
+        data.traffic &&
+        typeof data.traffic === "object"
       ) {
 
         if (
-          /^\d{4}-\d{2}-\d{2}$/.test(key)
+          data.traffic.dates &&
+          typeof data.traffic.dates === "object"
         ) {
 
-          possibleDates[key] =
-            value;
+          return data.traffic.dates;
 
         }
 
-      }
 
-
-      if (
-        Object.keys(
-          possibleDates
-        ).length
-      ) {
-
-        return possibleDates;
+        return data.traffic;
 
       }
 
@@ -5723,19 +5735,131 @@
        * }
        */
 
+
       if (
         data.data &&
-        typeof data.data === "object" &&
-        data.data.dates &&
-        typeof data.data.dates === "object"
+        typeof data.data === "object"
       ) {
 
-        return data.data.dates;
+        if (
+          data.data.dates &&
+          typeof data.data.dates === "object"
+        ) {
+
+          return data.data.dates;
+
+        }
+
+
+        const nestedDates = {};
+
+
+        for (
+          const [key,value]
+          of Object.entries(data.data)
+        ) {
+
+          if (
+            /^\d{4}-\d{2}-\d{2}$/.test(key)
+          ) {
+
+            nestedDates[key] =
+              value;
+
+          }
+
+        }
+
+
+        if (
+          Object.keys(
+            nestedDates
+          ).length
+        ) {
+
+          return nestedDates;
+
+        }
+
+      }
+
+
+      /*
+       * Also support the dates being returned
+       * directly at the top level.
+       */
+
+
+      const directDates = {};
+
+
+      for (
+        const [key,value]
+        of Object.entries(data)
+      ) {
+
+        if (
+          /^\d{4}-\d{2}-\d{2}$/.test(key)
+        ) {
+
+          directDates[key] =
+            value;
+
+        }
+
+      }
+
+
+      if (
+        Object.keys(
+          directDates
+        ).length
+      ) {
+
+        return directDates;
 
       }
 
 
       return null;
+
+    }
+
+
+    function trafficValue(value) {
+
+      if (
+        typeof value === "number" ||
+        typeof value === "string"
+      ) {
+
+        return (
+          Number(value) ||
+          0
+        );
+
+      }
+
+
+      if (
+        value &&
+        typeof value === "object"
+      ) {
+
+        return Number(
+
+          value.views ??
+          value.count ??
+          value.total ??
+          value.value ??
+          0
+
+        ) || 0;
+
+      }
+
+
+      return 0;
 
     }
 
@@ -5768,11 +5892,17 @@
 
       try {
 
+        /*
+         * IMPORTANT:
+         * The 2nforfun worker exposes /traffic,
+         * NOT /counts.
+         */
+
         const response =
           await fetch(
 
             ANALYTICS_WORKER +
-            "/counts",
+            "/traffic",
 
             {
               method:"GET",
@@ -5814,12 +5944,9 @@
 
         if (!dateStats) {
 
-          console.error(
-            "No usable date data found in /counts response.",
-            liveData
+          throw new Error(
+            "The /traffic response did not contain usable date data."
           );
-
-          return;
 
         }
 
@@ -5834,31 +5961,8 @@
           sortedDates.map(
             function(date) {
 
-              const raw =
-                dateStats[date];
-
-
-              if (
-                raw &&
-                typeof raw === "object"
-              ) {
-
-                return Number(
-
-                  raw.views ??
-                  raw.count ??
-                  raw.total ??
-                  raw.value ??
-                  0
-
-                ) || 0;
-
-              }
-
-
-              return (
-                Number(raw) ||
-                0
+              return trafficValue(
+                dateStats[date]
               );
 
             }
@@ -5869,11 +5973,9 @@
           !sortedDates.length
         ) {
 
-          console.warn(
-            "Traffic API returned no dates."
+          throw new Error(
+            "The /traffic response contains no dates."
           );
-
-          return;
 
         }
 
@@ -5904,13 +6006,13 @@
         }
 
 
-        const context =
+        const ctx =
           canvas.getContext(
             "2d"
           );
 
 
-        if (!context) {
+        if (!ctx) {
 
           throw new Error(
             "Could not get traffic chart canvas context."
@@ -5922,7 +6024,7 @@
         trafficChartInstance =
           new window.Chart(
 
-            context,
+            ctx,
 
             {
 
@@ -5981,7 +6083,6 @@
 
                 color:
                   "#00ff00",
-
 
                 animation:
                   false,
@@ -6065,9 +6166,7 @@
 
 
         console.log(
-          "Traffic graph rendered.",
-          sortedDates,
-          viewCounts
+          "Traffic graph rendered successfully."
         );
 
       }
