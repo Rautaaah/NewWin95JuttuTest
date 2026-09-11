@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>𝓦𝓮𝓵𝓬𝓸𝓶𝓮 to H.H.Roses</title>
+  <title>Welcome to H.H.Roses</title>
 
   <meta charset="UTF-8">
 
@@ -47,50 +47,31 @@
     href="src/achievements/style.css"
   >
 
-  <!-- World map libraries -->
+  <!-- Interactive country map -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/css/jsvectormap.min.css"
+  >
+
   <script
-    src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"
-    defer
+    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/js/jsvectormap.min.js"
   ></script>
 
   <script
-    src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"
-    defer
+    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.js"
+  ></script>
+
+  <!-- Traffic graph -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/chart.js"
   ></script>
 
 
   <style>
 
-    *,*::before,*::after {
+    *, *::before, *::after {
       box-sizing:border-box;
       margin:0;
-    }
-
-
-    .fuzzy-overlay {
-      position:fixed;
-      top:0 !important;
-      left:0 !important;
-      width:100% !important;
-      height:100% !important;
-      background-image:url("images/noise2.jpg");
-      opacity:0;
-      z-index:9999999999 !important;
-      pointer-events:none;
-      animation:shift 0.2s linear infinite both;
-    }
-
-
-    @keyframes shift {
-
-      0% {
-        transform:translateX(10%) translateY(10%);
-      }
-
-      100% {
-        transform:translateX(-10%) translateY(-10%);
-      }
-
     }
 
 
@@ -122,6 +103,49 @@
 
       --GrayText:#808080;
 
+      --no-data:#eeeeee;
+      --c1:#ffd6d6;
+      --c2:#ff9999;
+      --c3:#ff5555;
+      --c4:#d80000;
+      --c5:#700000;
+
+    }
+
+
+    .fuzzy-overlay {
+
+      position:fixed !important;
+
+      top:0 !important;
+      left:0 !important;
+
+      width:100% !important;
+      height:100% !important;
+
+      background-image:url("images/noise2.jpg");
+
+      opacity:0;
+
+      z-index:9999999999 !important;
+
+      pointer-events:none;
+
+      animation:shift .2s linear infinite both;
+
+    }
+
+
+    @keyframes shift {
+
+      0% {
+        transform:translateX(10%) translateY(10%);
+      }
+
+      100% {
+        transform:translateX(-10%) translateY(-10%);
+      }
+
     }
 
 
@@ -131,9 +155,13 @@
     body::after {
 
       position:fixed;
+
       content:"";
+
       pointer-events:none;
+
       opacity:.2;
+
       mix-blend-mode:overlay;
 
       top:0;
@@ -182,6 +210,7 @@
     .overlay {
 
       position:fixed;
+
       top:0 !important;
       left:0 !important;
 
@@ -206,6 +235,7 @@
     .gradient {
 
       position:fixed;
+
       top:0 !important;
       left:0 !important;
 
@@ -323,6 +353,21 @@
     }
 
 
+    a,
+    #button {
+
+      cursor:url(
+        'cursors/pointer.png'
+      ),pointer;
+
+    }
+
+
+    img:hover {
+      scale:1.01;
+    }
+
+
     .coolcode {
 
       position:fixed !important;
@@ -404,20 +449,6 @@
     }
 
 
-    a,#button {
-
-      cursor:url(
-        'cursors/pointer.png'
-      ),pointer;
-
-    }
-
-
-    img:hover {
-      scale:1.01;
-    }
-
-
     .gnome {
 
       position:absolute;
@@ -453,9 +484,6 @@
       position:absolute;
 
       text-align:center;
-
-      margin-left:auto;
-      margin-right:auto;
 
       top:50%;
       left:50%;
@@ -628,10 +656,7 @@
     }
 
 
-    /* =========================================================
-       PAGE VIEWS
-       ========================================================= */
-
+    /* PAGE VIEW COUNTER */
 
     .pageviews {
 
@@ -662,9 +687,8 @@
           .5
         );
 
-      padding-left:7px;
-      padding-top:2px;
-      padding-right:5px;
+      padding:
+        2px 5px 0 7px;
 
       line-height:16px;
 
@@ -698,57 +722,14 @@
 
     img.outlined {
 
-      -webkit-filter:
-
-        drop-shadow(
-          2px 2px 0 white
-        )
-
-        drop-shadow(
-          -2px 2px 0 white
-        )
-
-        drop-shadow(
-          2px -2px 0 white
-        )
-
-        drop-shadow(
-          -2px -2px 0 white
-        )
-
-        drop-shadow(
-          0 0 2px white
-        )
-
-        drop-shadow(
-          0 0 5px white
-        );
-
       filter:
 
-        drop-shadow(
-          2px 2px 0 white
-        )
-
-        drop-shadow(
-          -2px 2px 0 white
-        )
-
-        drop-shadow(
-          2px -2px 0 white
-        )
-
-        drop-shadow(
-          -2px -2px 0 white
-        )
-
-        drop-shadow(
-          0 0 2px white
-        )
-
-        drop-shadow(
-          0 0 5px white
-        );
+        drop-shadow(2px 2px 0 white)
+        drop-shadow(-2px 2px 0 white)
+        drop-shadow(2px -2px 0 white)
+        drop-shadow(-2px -2px 0 white)
+        drop-shadow(0 0 2px white)
+        drop-shadow(0 0 5px white);
 
     }
 
@@ -870,9 +851,157 @@
     }
 
 
-    /* =========================================================
-       FUN WIDGETS
-       ========================================================= */
+    /* KRIS */
+
+    #kris-companion {
+
+      position:fixed;
+
+      left:300px;
+      top:180px;
+
+      width:260px;
+      height:340px;
+
+      z-index:50000;
+
+      cursor:grab;
+
+      user-select:none;
+      -webkit-user-select:none;
+
+      touch-action:none;
+
+    }
+
+
+    #kris-companion.dragging {
+
+      cursor:grabbing;
+
+      z-index:99999;
+
+    }
+
+
+    #kris-gif {
+
+      position:absolute;
+
+      left:50%;
+      bottom:0;
+
+      width:230px;
+      height:auto;
+
+      transform:
+        translateX(-50%);
+
+      pointer-events:none;
+
+      user-select:none;
+
+      -webkit-user-drag:none;
+
+    }
+
+
+    #kris-dialogue {
+
+      position:absolute;
+
+      left:50%;
+      bottom:250px;
+
+      transform:
+        translateX(-50%);
+
+      min-width:220px;
+      max-width:340px;
+
+      padding:14px 16px;
+
+      background:#000;
+
+      border:4px solid #fff;
+
+      color:#fff;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:18px;
+
+      font-weight:bold;
+
+      line-height:1.3;
+
+      z-index:10000;
+
+      pointer-events:none;
+
+      white-space:normal;
+
+      text-align:left;
+
+      box-shadow:
+        4px 4px 0
+        rgba(
+          0,
+          0,
+          0,
+          .5
+        );
+
+    }
+
+
+    #kris-dialogue.hidden {
+      display:none;
+    }
+
+
+    #kris-dialogue::after {
+
+      content:"";
+
+      position:absolute;
+
+      left:50%;
+
+      bottom:-9px;
+
+      width:12px;
+      height:12px;
+
+      background:#000;
+
+      border-right:3px solid #fff;
+      border-bottom:3px solid #fff;
+
+      transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    }
+
+
+    /* COMMON WIDGET */
+
+    .page2_wrap {
+
+      position:absolute;
+
+      top:100vh;
+
+      width:100%;
+
+      z-index:98;
+
+      padding-bottom:300px;
+
+    }
 
 
     .fun-widget {
@@ -925,7 +1054,6 @@
       flex-grow:1;
 
       padding-left:5px;
-
       padding-top:3px;
 
     }
@@ -955,6 +1083,287 @@
 
     }
 
+
+    /* CLOCK */
+
+    .clock-widget {
+
+      width:300px;
+
+    }
+
+
+    .digital-clock {
+
+      background:#000;
+
+      color:#00ff00;
+
+      border:
+        3px inset #808080;
+
+      padding:12px 5px;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:26px;
+
+      font-weight:bold;
+
+      letter-spacing:2px;
+
+      text-shadow:
+        0 0 4px #00ff00;
+
+    }
+
+
+    .clock-date {
+
+      margin-top:6px;
+
+      color:#000;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:12px;
+
+    }
+
+
+    /* GEOGRAPHICAL VIEW COUNTER */
+
+    .geo-widget {
+
+      width:720px;
+
+      max-width:94%;
+
+    }
+
+
+    .geo-widget .window-body {
+
+      padding:8px;
+
+    }
+
+
+    .geo-intro {
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:12px;
+
+      margin-bottom:7px;
+
+      line-height:1.4;
+
+    }
+
+
+    .geo-stats {
+
+      display:flex;
+
+      justify-content:center;
+
+      gap:5px;
+
+      flex-wrap:wrap;
+
+      margin:7px 0;
+
+    }
+
+
+    .geo-stat {
+
+      min-width:125px;
+
+      background:#c0c0c0;
+
+      border:
+        2px ridge #c0c0c0;
+
+      padding:5px;
+
+      text-align:center;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+    }
+
+
+    .geo-stat b {
+
+      display:block;
+
+      font-size:18px;
+
+    }
+
+
+    .geo-stat span {
+
+      display:block;
+
+      font-size:10px;
+
+      margin-top:2px;
+
+    }
+
+
+    #visitorMap {
+
+      width:100%;
+
+      height:310px;
+
+      background:#dfefff;
+
+      border:
+        2px inset #c0c0c0;
+
+      overflow:hidden;
+
+      transition:
+        transform .2s ease;
+
+    }
+
+
+    #visitorMap:hover {
+
+      transform:scale(1.015);
+
+    }
+
+
+    #visitorMap .jvm-container {
+
+      background:#dfefff !important;
+
+    }
+
+
+    #visitorMap .jvm-zoom-btn {
+
+      background:#c0c0c0 !important;
+
+      color:#000 !important;
+
+      border:
+        1px solid #000 !important;
+
+      box-shadow:
+        inset 1px 1px #fff;
+
+    }
+
+
+    .geo-legend {
+
+      display:flex;
+
+      justify-content:center;
+
+      flex-wrap:wrap;
+
+      gap:8px;
+
+      margin-top:7px;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:10px;
+
+    }
+
+
+    .geo-legend span {
+
+      display:flex;
+
+      align-items:center;
+
+      gap:3px;
+
+    }
+
+
+    .geo-legend i {
+
+      width:13px;
+      height:13px;
+
+      display:inline-block;
+
+      border:1px solid grey;
+
+    }
+
+
+    .geo-note {
+
+      margin-top:7px;
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:10px;
+
+      line-height:1.35;
+
+    }
+
+
+    /* TRAFFIC GRAPH */
+
+    .traffic-widget {
+
+      width:650px;
+
+      max-width:94%;
+
+    }
+
+
+    .traffic-chart-wrap {
+
+      height:300px;
+
+      background:#000;
+
+      border:
+        2px inset #c0c0c0;
+
+      padding:8px;
+
+    }
+
+
+    #trafficChart {
+
+      width:100% !important;
+      height:100% !important;
+
+    }
+
+
+    /* PHOTO WIDGETS */
 
     .photo-widget {
 
@@ -988,7 +1397,8 @@
 
       background:#fff;
 
-      border:3px ridge #c0c0c0;
+      border:
+        3px ridge #c0c0c0;
 
       box-shadow:
         inset 1px 1px white,
@@ -1080,306 +1490,11 @@
     }
 
 
-    /* =========================================================
-       ANALYTICS WIDGET
-       ========================================================= */
-
-
-    .analytics-widget {
-
-      width:720px;
-
-      max-width:94%;
-
-    }
-
-
-    .analytics-widget .window-body {
-
-      padding:8px;
-
-      background:#fff;
-
-      color:#000;
-
-    }
-
-
-    .analytics-header {
-
-      background:#000080;
-
-      color:white;
-
-      padding:8px;
-
-      border:
-        2px ridge #c0c0c0;
-
-      font-family:
-        'ComicSans',
-        Arial,
-        sans-serif;
-
-      text-align:left;
-
-      text-shadow:
-        1px 1px black;
-
-      margin-bottom:7px;
-
-    }
-
-
-    .analytics-header .big {
-
-      display:block;
-
-      font-size:19px;
-
-    }
-
-
-    .analytics-header .small {
-
-      display:block;
-
-      font-family:
-        'basiic',
-        monospace;
-
-      font-size:11px;
-
-      margin-top:3px;
-
-    }
-
-
-    .analytics-status {
-
-      font-family:
-        'Courier New',
-        monospace;
-
-      font-size:12px;
-
-      text-align:left;
-
-      background:#fff;
-
-      border:
-        2px inset #c0c0c0;
-
-      padding:5px;
-
-      margin-bottom:7px;
-
-    }
-
-
-    .analytics-chart {
-
-      width:100%;
-
-      height:240px;
-
-      background:#fff;
-
-      border:
-        2px inset #c0c0c0;
-
-      display:block;
-
-    }
-
-
-    .analytics-legend {
-
-      font-family:
-        Arial,
-        sans-serif;
-
-      font-size:10px;
-
-      text-align:center;
-
-      margin-top:5px;
-
-      color:#333;
-
-    }
-
-
-    /* =========================================================
-       GEOGRAPHIC VISITOR MAP
-       ========================================================= */
-
-
-    .visitor-map-wrap {
-
-      position:relative;
-
-      width:100%;
-
-      min-height:330px;
-
-      background:
-        linear-gradient(
-          #dff7ff,
-          #ffffff
-        );
-
-      border:
-        2px inset #c0c0c0;
-
-      overflow:hidden;
-
-    }
-
-
-    #visitorMap {
-
-      width:100%;
-
-      height:330px;
-
-      display:block;
-
-    }
-
-
-    .visitor-map-country {
-
-      stroke:#000;
-
-      stroke-width:.35;
-
-      vector-effect:non-scaling-stroke;
-
-      cursor:pointer;
-
-      transition:
-        filter .15s ease,
-        stroke-width .15s ease;
-
-    }
-
-
-    .visitor-map-country:hover {
-
-      filter:
-        brightness(1.3)
-        drop-shadow(
-          0 0 4px white
-        );
-
-      stroke-width:1.5;
-
-    }
-
-
-    .visitor-map-tooltip {
-
-      position:absolute;
-
-      display:none;
-
-      pointer-events:none;
-
-      background:#000;
-
-      color:#fff;
-
-      border:
-        2px solid #fff;
-
-      padding:6px 8px;
-
-      font-family:
-        'Courier New',
-        monospace;
-
-      font-size:12px;
-
-      line-height:1.3;
-
-      box-shadow:
-        3px 3px 0
-        rgba(0,0,0,.4);
-
-      z-index:20;
-
-      white-space:nowrap;
-
-    }
-
-
-    .visitor-map-loading {
-
-      position:absolute;
-
-      inset:0;
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      font-family:
-        'Courier New',
-        monospace;
-
-      color:#000;
-
-      pointer-events:none;
-
-    }
-
-
-    .country-list {
-
-      display:flex;
-
-      flex-wrap:wrap;
-
-      gap:4px;
-
-      margin-top:7px;
-
-      justify-content:center;
-
-      font-family:
-        'Courier New',
-        monospace;
-
-      font-size:10px;
-
-    }
-
-
-    .country-pill {
-
-      background:#c0c0c0;
-
-      border:
-        2px ridge #c0c0c0;
-
-      padding:2px 5px;
-
-      color:#000;
-
-    }
-
-
-    /* =========================================================
-       HELSINKI TRAIN BOARD
-       ========================================================= */
-
+    /* TRAINS */
 
     .helsinki-trains {
 
-      width:720px;
+      width:760px;
 
       max-width:94%;
 
@@ -1397,6 +1512,60 @@
     }
 
 
+    .train-search {
+
+      display:flex;
+
+      gap:5px;
+
+      margin-bottom:6px;
+
+    }
+
+
+    .train-search input {
+
+      flex:1;
+
+      min-width:0;
+
+      font-family:
+        "Courier New",
+        monospace;
+
+      font-size:12px;
+
+      padding:4px;
+
+    }
+
+
+    .train-search button {
+
+      font-family:
+        "ComicSans",
+        sans-serif;
+
+      font-size:12px;
+
+    }
+
+
+    .train-search-help {
+
+      font-family:
+        Arial,
+        sans-serif;
+
+      font-size:9px;
+
+      text-align:left;
+
+      margin-bottom:5px;
+
+    }
+
+
     .train-board-header {
 
       background:#000080;
@@ -1406,9 +1575,9 @@
       border:
         2px ridge #c0c0c0;
 
-      padding:8px;
+      padding:6px;
 
-      margin-bottom:6px;
+      margin-bottom:5px;
 
       font-family:
         'ComicSans',
@@ -1423,7 +1592,7 @@
 
     .train-board-header .big {
 
-      font-size:20px;
+      font-size:16px;
 
       display:block;
 
@@ -1436,11 +1605,11 @@
         'basiic',
         monospace;
 
-      font-size:11px;
+      font-size:9px;
 
       display:block;
 
-      margin-top:3px;
+      margin-top:2px;
 
     }
 
@@ -1455,13 +1624,13 @@
         'Courier New',
         monospace;
 
-      font-size:12px;
+      font-size:10px;
 
-      margin:5px 0;
+      margin:4px 0;
 
       text-align:left;
 
-      padding:5px;
+      padding:4px;
 
       border:
         2px inset #c0c0c0;
@@ -1497,7 +1666,7 @@
         'Courier New',
         monospace;
 
-      font-size:12px;
+      font-size:10px;
 
       text-shadow:none;
 
@@ -1513,7 +1682,7 @@
       border:
         1px solid #808080;
 
-      padding:5px 4px;
+      padding:4px 3px;
 
       white-space:nowrap;
 
@@ -1527,7 +1696,7 @@
       border:
         1px solid #c0c0c0;
 
-      padding:5px 4px;
+      padding:4px 3px;
 
       white-space:nowrap;
 
@@ -1556,8 +1725,6 @@
 
       font-weight:bold;
 
-      font-size:14px;
-
     }
 
 
@@ -1567,18 +1734,6 @@
 
       font-weight:bold;
 
-      font-size:14px;
-
-    }
-
-
-    .train-arrival {
-      color:#800080;
-    }
-
-
-    .train-departure {
-      color:#000;
     }
 
 
@@ -1614,7 +1769,7 @@
       border:
         2px inset #c0c0c0;
 
-      padding:10px;
+      padding:8px;
 
       font-family:
         'Courier New',
@@ -1629,7 +1784,7 @@
 
     .train-footer {
 
-      margin-top:7px;
+      margin-top:5px;
 
       color:#000;
 
@@ -1637,7 +1792,7 @@
         Arial,
         sans-serif;
 
-      font-size:10px;
+      font-size:9px;
 
       text-align:center;
 
@@ -1651,7 +1806,7 @@
 
     .train-refresh {
 
-      margin-top:6px;
+      margin-top:5px;
 
       font-family:
         'ComicSans',
@@ -1664,10 +1819,7 @@
     }
 
 
-    /* =========================================================
-       PRIVACY
-       ========================================================= */
-
+    /* PRIVACY */
 
     div.termsAndPolicy {
 
@@ -1722,22 +1874,16 @@
         1px 1px white;
 
       justify-content:center;
-
       align-items:center;
 
       display:flex;
-
-      gap:10px;
 
       padding:10px;
 
     }
 
 
-    /* =========================================================
-       NEOCITIES
-       ========================================================= */
-
+    /* NEOCITIES */
 
     .neocities {
 
@@ -1767,10 +1913,7 @@
     }
 
 
-    /* =========================================================
-       LANGUAGES
-       ========================================================= */
-
+    /* LANGUAGES */
 
     .languages_wrap_wrap {
 
@@ -1859,9 +2002,7 @@
 
 
     .gtranslate_wrapper *::-webkit-scrollbar {
-
       width:16px;
-
     }
 
 
@@ -1904,154 +2045,6 @@
     }
 
 
-    /* =========================================================
-       KRIS COMPANION
-       ========================================================= */
-
-
-    #kris-companion {
-
-      position:fixed;
-
-      left:300px;
-      top:180px;
-
-      width:260px;
-      height:340px;
-
-      z-index:50000;
-
-      cursor:grab;
-
-      user-select:none;
-      -webkit-user-select:none;
-
-      touch-action:none;
-
-      box-sizing:border-box;
-
-    }
-
-
-    #kris-companion.dragging {
-
-      cursor:grabbing;
-
-      z-index:99999;
-
-    }
-
-
-    #kris-gif {
-
-      position:absolute;
-
-      left:50%;
-      bottom:0;
-
-      width:230px;
-
-      height:auto;
-
-      transform:
-        translateX(-50%);
-
-      pointer-events:none;
-
-      user-select:none;
-
-      -webkit-user-drag:none;
-
-    }
-
-
-    #kris-dialogue {
-
-      position:absolute;
-
-      left:50%;
-      bottom:250px;
-
-      transform:
-        translateX(-50%);
-
-      min-width:220px;
-
-      max-width:340px;
-
-      padding:14px 16px;
-
-      box-sizing:border-box;
-
-      background:#000;
-
-      border:4px solid #fff;
-
-      color:#fff;
-
-      font-family:
-        "Courier New",
-        monospace;
-
-      font-size:18px;
-
-      font-weight:bold;
-
-      line-height:1.3;
-
-      z-index:10000;
-
-      pointer-events:none;
-
-      white-space:normal;
-
-      text-align:left;
-
-      box-shadow:
-        4px 4px 0
-        rgba(
-          0,
-          0,
-          0,
-          .5
-        );
-
-    }
-
-
-    #kris-dialogue.hidden {
-      display:none;
-    }
-
-
-    #kris-dialogue::after {
-
-      content:"";
-
-      position:absolute;
-
-      left:50%;
-
-      bottom:-9px;
-
-      width:12px;
-      height:12px;
-
-      background:#000;
-
-      border-right:
-        3px solid #fff;
-
-      border-bottom:
-        3px solid #fff;
-
-      transform:
-        translateX(-50%)
-        rotate(45deg);
-
-    }
-
-
     @media (
       max-height:810px
     ),
@@ -2064,7 +2057,7 @@
         transform:none;
 
         margin:
-          10px 0 -15px 0
+          10px 0 -15px 0;
 
       }
 
@@ -2082,9 +2075,7 @@
 
 
       #kris-gif {
-
         width:185px;
-
       }
 
 
@@ -2102,22 +2093,13 @@
       }
 
 
-      .photo-widget,
-      .helsinki-trains,
-      .analytics-widget {
-
-        max-width:95%;
-
-      }
-
-
       .random-photo {
         height:230px;
       }
 
 
       .train-table {
-        font-size:10px;
+        font-size:9px;
       }
 
 
@@ -2125,29 +2107,18 @@
       .train-table td {
 
         padding:
-          4px 3px;
-
-      }
-
-
-      .analytics-chart {
-
-        height:200px;
+          3px 2px;
 
       }
 
 
       #visitorMap {
-
-        height:260px;
-
+        height:240px;
       }
 
 
-      .visitor-map-wrap {
-
-        min-height:260px;
-
+      .traffic-chart-wrap {
+        height:250px;
       }
 
     }
@@ -2160,10 +2131,7 @@
 <body>
 
 
-  <!-- =========================================================
-       RIGHT CLICK MENU
-       ========================================================= -->
-
+  <!-- Windows 98 context menu -->
 
   <div
     id="win98-menu"
@@ -2203,11 +2171,6 @@
   <canvas id="fluid-canvas"></canvas>
 
 
-  <!-- =========================================================
-       SOUND
-       ========================================================= -->
-
-
   <audio autoplay>
 
     <source
@@ -2224,11 +2187,6 @@
     googlee9bd4a88d1b5bb86.html
 
   </div>
-
-
-  <!-- =========================================================
-       DECOR
-       ========================================================= -->
 
 
   <div
@@ -2256,11 +2214,6 @@
 
 
   <main>
-
-
-    <!-- =======================================================
-         LANDING AREA
-         ======================================================= -->
 
 
     <div class="maincontent">
@@ -2337,7 +2290,7 @@
         "
       >
 
-        ↓ Or keep scrolling? ↓
+        Or keep scrolling?
 
       </span>
 
@@ -2345,17 +2298,11 @@
     </div>
 
 
-    <!-- =======================================================
-         PAGE VIEW COUNTER
-         ======================================================= -->
-
-
     <div class="pageviews">
 
       <span>
         page views:
       </span>
-
 
       <span
         id="pageViewCounter"
@@ -2382,11 +2329,6 @@
   </main>
 
 
-  <!-- =========================================================
-       FLYING FAIRY
-       ========================================================= -->
-
-
   <div
     class="flier"
     title="flying fairy"
@@ -2398,11 +2340,6 @@
     >
 
   </div>
-
-
-  <!-- =========================================================
-       GNOME
-       ========================================================= -->
 
 
   <audio id="sfx">
@@ -2451,9 +2388,12 @@
 
   <script>
 
-    window.onload = function() {
-      move();
-    };
+    window.addEventListener(
+      "load",
+      function() {
+        move();
+      }
+    );
 
 
     function move() {
@@ -2467,19 +2407,13 @@
       img.style.left =
         Math.floor(
           Math.random() *
-          Math.max(
-            1,
-            window.innerWidth - 100
-          )
+          window.innerWidth
         ) + "px";
 
       img.style.top =
         Math.floor(
           Math.random() *
-          Math.max(
-            1,
-            window.innerHeight - 100
-          )
+          window.innerHeight
         ) + "px";
 
     }
@@ -2493,22 +2427,20 @@
       if (!sfx)
         return;
 
-      sfx.currentTime = 0;
+      sfx.autoplay = true;
 
-      sfx.play().catch(
-        function() {}
-      );
+      sfx.load();
 
     }
 
 
-    const hour =
+    const currentHour =
       new Date().getHours();
 
 
     if (
-      hour >= 20 ||
-      hour < 6
+      currentHour >= 20 ||
+      currentHour < 6
     ) {
 
       document.body.style.backgroundImage =
@@ -2521,47 +2453,25 @@
       document.body.style.backgroundImage =
         "url('images/pink_clouds.jpg')";
 
-      const coolCode =
+      const code =
         document.querySelector(
-          ".coolcode"
+          '.coolcode'
         );
 
-      if (coolCode) {
-        coolCode.style.top = "0px";
-      }
+      if (code)
+        code.style.top = "0px";
 
     }
 
   </script>
 
 
-  <style>
-
-    .page2_wrap {
-
-      position:absolute;
-
-      top:100vh;
-
-      width:100%;
-
-      z-index:98;
-
-    }
-
-  </style>
-
-
   <div class="page2_wrap">
 
 
-    <!-- =======================================================
-         TRAFFIC OVER TIME
-         ======================================================= -->
+    <!-- CLOCK -->
 
-
-    <div class="fun-widget analytics-widget">
-
+    <div class="fun-widget clock-widget">
 
       <div class="title-bar">
 
@@ -2570,14 +2480,10 @@
           alt=""
         >
 
-        <div
-          class="title-bar-text"
-          style="
-            text-shadow:none;
-            text-align:left;
-          "
-        >
-          H.H.Roses Traffic Over Time
+        <div class="title-bar-text">
+
+          H.H.Roses Clock
+
         </div>
 
         <div class="title-bar-controls">
@@ -2593,58 +2499,31 @@
 
       <div class="window-body">
 
-
-        <div class="analytics-header">
-
-          <span class="big">
-            Website Traffic
-          </span>
-
-          <span class="small">
-            LIVE DATA FROM CLOUDFLARE D1
-          </span>
-
+        <div
+          id="digitalClock"
+          class="digital-clock"
+        >
+          --:--:--
         </div>
-
 
         <div
-          id="trafficStatus"
-          class="analytics-status"
+          id="clockDate"
+          class="clock-date"
         >
-          [ LOADING TRAFFIC DATA... ]
+          Loading date...
         </div>
-
-
-        <svg
-          id="trafficChart"
-          class="analytics-chart"
-          viewBox="0 0 900 240"
-          preserveAspectRatio="none"
-          aria-label="Website traffic chart"
-        ></svg>
-
-
-        <div class="analytics-legend">
-
-          Daily page views are shown when available.
-          Recent hourly traffic is used for the latest activity.
-
-        </div>
-
 
       </div>
-
 
     </div>
 
 
-    <!-- =======================================================
-         GEOGRAPHIC VISITORS
-         ======================================================= -->
+    <br>
 
 
-    <div class="fun-widget analytics-widget">
+    <!-- GEOGRAPHICAL VISITOR COUNTER -->
 
+    <div class="fun-widget geo-widget">
 
       <div class="title-bar">
 
@@ -2653,14 +2532,10 @@
           alt=""
         >
 
-        <div
-          class="title-bar-text"
-          style="
-            text-shadow:none;
-            text-align:left;
-          "
-        >
-          H.H.Roses Geographic Visitors
+        <div class="title-bar-text">
+
+          Geographical View Counter
+
         </div>
 
         <div class="title-bar-controls">
@@ -2676,75 +2551,169 @@
 
       <div class="window-body">
 
+        <div class="geo-intro">
 
-        <div class="analytics-header">
-
-          <span class="big">
-            Visitors Around The World
-          </span>
-
-          <span class="small">
-            COUNTRY DATA FROM CLOUDFLARE
-          </span>
+          Welcome to H.H.Roses. This map shows landing-page
+          views recorded by the H.H.Roses analytics server.
 
         </div>
 
 
-        <div
-          id="countryStatus"
-          class="analytics-status"
-        >
-          [ LOADING VISITOR LOCATIONS... ]
-        </div>
+        <div class="geo-stats">
 
+          <div class="geo-stat">
 
-        <div class="visitor-map-wrap">
+            <b id="geoCountries">
+              0
+            </b>
 
+            <span>
+              countries
+            </span>
 
-          <svg
-            id="visitorMap"
-            viewBox="0 0 960 500"
-            preserveAspectRatio="xMidYMid meet"
-            aria-label="World visitor map"
-          ></svg>
-
-
-          <div
-            id="visitorMapLoading"
-            class="visitor-map-loading"
-          >
-            Loading world map...
           </div>
 
 
-          <div
-            id="visitorMapTooltip"
-            class="visitor-map-tooltip"
-          ></div>
+          <div class="geo-stat">
 
+            <b id="geoViews">
+              0
+            </b>
+
+            <span>
+              total views
+            </span>
+
+          </div>
+
+
+          <div class="geo-stat">
+
+            <b id="geoTop">
+              —
+            </b>
+
+            <span>
+              most views
+            </span>
+
+          </div>
 
         </div>
 
 
         <div
-          id="countryList"
-          class="country-list"
-        ></div>
+          id="visitorMap"
+        >
+          Loading map...
+        </div>
 
+
+        <div class="geo-legend">
+
+          <span>
+            <i style="background:var(--no-data)"></i>
+            none
+          </span>
+
+          <span>
+            <i style="background:var(--c1)"></i>
+            1
+          </span>
+
+          <span>
+            <i style="background:var(--c2)"></i>
+            2-5
+          </span>
+
+          <span>
+            <i style="background:var(--c3)"></i>
+            6-20
+          </span>
+
+          <span>
+            <i style="background:var(--c4)"></i>
+            21-100
+          </span>
+
+          <span>
+            <i style="background:var(--c5)"></i>
+            100+
+          </span>
+
+        </div>
+
+
+        <div class="geo-note">
+
+          Hover over a country to see its country name
+          and recorded views.
+
+        </div>
 
       </div>
-
 
     </div>
 
 
-    <!-- =======================================================
-         COOL VR TRAIN PHOTOS
-         ======================================================= -->
+    <br>
 
+
+    <!-- TRAFFIC OVER TIME -->
+
+    <div class="fun-widget traffic-widget">
+
+      <div class="title-bar">
+
+        <img
+          src="images/icons/clock-16x16.png"
+          alt=""
+        >
+
+        <div class="title-bar-text">
+
+          Traffic Over Time
+
+        </div>
+
+        <div class="title-bar-controls">
+
+          <button
+            aria-label="Close"
+          ></button>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="window-body"
+        style="
+          padding:5px;
+          background:#000;
+        "
+      >
+
+        <div class="traffic-chart-wrap">
+
+          <canvas
+            id="trafficChart"
+          ></canvas>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <br>
+
+
+    <!-- VR TRAIN PHOTOS -->
 
     <div class="fun-widget photo-widget">
-
 
       <div class="title-bar">
 
@@ -2753,14 +2722,10 @@
           alt=""
         >
 
-        <div
-          class="title-bar-text"
-          style="
-            text-shadow:none;
-            text-align:left;
-          "
-        >
+        <div class="title-bar-text">
+
           Cool VR Train Photos
+
         </div>
 
         <div class="title-bar-controls">
@@ -2775,7 +2740,6 @@
 
 
       <div class="window-body">
-
 
         <img
           id="vrTrainPhoto"
@@ -2809,9 +2773,7 @@
           class="photo-source"
         ></span>
 
-
       </div>
-
 
     </div>
 
@@ -2821,171 +2783,108 @@
       const vrTrainPhotos = [
 
         {
-          src:
-            "https://tse2.mm.bing.net/th/id/OIP.Tjw4iYJI_ngX0Bvoeb1djAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-
-          caption:
-            "VR TRAIN"
+          src:"https://tse2.mm.bing.net/th/id/OIP.Tjw4iYJI_ngX0Bvoeb1djAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+          caption:"VR TRAIN"
         },
 
         {
-          src:
-            "https://tse2.mm.bing.net/th/id/OIP.rJe6QzBCjgIsN3sXa1fncwHaE9?r=0&w=1024&h=685&rs=1&pid=ImgDetMain&o=7&rm=3",
-
-          caption:
-            "ANOTHER VR TRAIN"
+          src:"https://tse2.mm.bing.net/th/id/OIP.rJe6QzBCjgIsN3sXa1fncwHaE9?r=0&w=1024&h=685&rs=1&pid=ImgDetMain&o=7&rm=3",
+          caption:"ANOTHER VR TRAIN"
         },
 
         {
-          src:
-            "https://thumbs.dreamstime.com/b/helsinki-finland-june-vr-class-sm-emu-operated-vr-group-helsinki-railway-station-train-vr-class-sm-emu-helsinki-railway-285534859.jpg?w=992",
-
-          caption:
-            "VR SM EMU AT HELSINKI"
+          src:"https://thumbs.dreamstime.com/b/helsinki-finland-june-vr-class-sm-emu-operated-vr-group-helsinki-railway-station-train-vr-class-sm-emu-helsinki-railway-285534859.jpg?w=992",
+          caption:"VR SM EMU AT HELSINKI"
         },
 
         {
-          src:
-            "https://tse2.mm.bing.net/th/id/OIP.3mA_tttjPl0_kHj4jK67swHaEc?r=0&w=800&h=480&rs=1&pid=ImgDetMain&o=7&rm=3",
-
-          caption:
-            "VR TRAIN GO BRRRRRR"
+          src:"https://tse2.mm.bing.net/th/id/OIP.3mA_tttjPl0_kHj4jK67swHaEc?r=0&w=800&h=480&rs=1&pid=ImgDetMain&o=7&rm=3",
+          caption:"VR TRAIN GO BRRRRRR"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20001.jpg",
-
-          caption:
-            "Finnish VR IC 407"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20001.jpg",
+          caption:"Finnish VR IC 407"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20002.jpg",
-
-          caption:
-            "IC 407 AGAIN"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20002.jpg",
+          caption:"IC 407 AGAIN"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20001.jpg",
-
-          caption:
-            "Finnish IC 26"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20001.jpg",
+          caption:"Finnish IC 26"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20002.jpg",
-
-          caption:
-            "IC 26 ANOTHER ANGLE"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20002.jpg",
+          caption:"IC 26 ANOTHER ANGLE"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20001.jpg",
-
-          caption:
-            "Finnish IC 401"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20001.jpg",
+          caption:"Finnish IC 401"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20002.jpg",
-
-          caption:
-            "IC 401"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20002.jpg",
+          caption:"IC 401"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20001.jpg",
-
-          caption:
-            "VR NIGHT TRAIN PYO 269"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20001.jpg",
+          caption:"VR NIGHT TRAIN PYO 269"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20002.jpg",
-
-          caption:
-            "PYO 269 NIGHT TRAIN"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20002.jpg",
+          caption:"PYO 269 NIGHT TRAIN"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20001.jpg",
-
-          caption:
-            "VR PYO 276"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20001.jpg",
+          caption:"VR PYO 276"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20002.jpg",
-
-          caption:
-            "PYO 276"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20002.jpg",
+          caption:"PYO 276"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20S%20403%20in%20Tornio%2020260823%20001.jpg",
-
-          caption:
-            "VR S 403"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20S%20403%20in%20Tornio%2020260823%20001.jpg",
+          caption:"VR S 403"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205134%20in%20Tornio%2020240603%20001.jpg",
-
-          caption:
-            "VR T 5134"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205134%20in%20Tornio%2020240603%20001.jpg",
+          caption:"VR T 5134"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205137%20in%20Tornio%2020250503%20001.jpg",
-
-          caption:
-            "VR T 5137"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205137%20in%20Tornio%2020250503%20001.jpg",
+          caption:"VR T 5137"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Car%20train%2C%20Turku%20station%2C%2020241218%20-%2007.jpg",
-
-          caption:
-            "VR CAR TRAIN"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Car%20train%2C%20Turku%20station%2C%2020241218%20-%2007.jpg",
+          caption:"VR CAR TRAIN"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Dr16%20locomotive%20with%20freight%20wagons%20in%20Tornio%20Mar2012%20001.jpg",
-
-          caption:
-            "VR Dr16 + FREIGHT"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Dr16%20locomotive%20with%20freight%20wagons%20in%20Tornio%20Mar2012%20001.jpg",
+          caption:"VR Dr16 AND FREIGHT"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sr3%20locomotive%20in%20Oulu%2020250620%20001.jpg",
-
-          caption:
-            "VR Sr3 LOCOMOTIVE"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Sr3%20locomotive%20in%20Oulu%2020250620%20001.jpg",
+          caption:"VR Sr3 LOCOMOTIVE"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Sm4%20Kerava.jpg",
-
-          caption:
-            "VR Sm4 AT KERAVA"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Sm4%20Kerava.jpg",
+          caption:"VR Sm4 AT KERAVA"
         }
 
       ];
@@ -3044,13 +2943,9 @@
           );
 
 
-        image.src =
-          train.src;
+        image.src = train.src;
 
-
-        image.alt =
-          train.caption;
-
+        image.alt = train.caption;
 
         caption.textContent =
           train.caption;
@@ -3089,13 +2984,9 @@
     </script>
 
 
-    <!-- =======================================================
-         CAT PHOTOS
-         ======================================================= -->
-
+    <!-- CAT PHOTOS -->
 
     <div class="fun-widget photo-widget">
-
 
       <div class="title-bar">
 
@@ -3104,14 +2995,10 @@
           alt=""
         >
 
-        <div
-          class="title-bar-text"
-          style="
-            text-shadow:none;
-            text-align:left;
-          "
-        >
+        <div class="title-bar-text">
+
           Cool Cat Photos
+
         </div>
 
         <div class="title-bar-controls">
@@ -3127,7 +3014,6 @@
 
       <div class="window-body">
 
-
         <img
           id="catPhoto"
           class="random-photo"
@@ -3141,7 +3027,7 @@
           id="catCaption"
           class="photo-caption"
         >
-          MEOW LOADING
+          MEOW LOADING MEOW
         </div>
 
 
@@ -3160,9 +3046,7 @@
           class="photo-source"
         ></span>
 
-
       </div>
-
 
     </div>
 
@@ -3172,131 +3056,83 @@
       const catPhotos = [
 
         {
-          src:
-            "https://th.bing.com/th/id/R.92a36fd9faacda4790854fcd9fb4b037?rik=s8rKPsp2paFBBA&pid=ImgRaw&r=0",
-
-          caption:
-            "CAT"
+          src:"https://th.bing.com/th/id/R.92a36fd9faacda4790854fcd9fb4b037?rik=s8rKPsp2paFBBA&pid=ImgRaw&r=0",
+          caption:"CAT MEOW"
         },
 
         {
-          src:
-            "https://i.ytimg.com/vi/Ie57fr8pCko/maxresdefault.jpg",
-
-          caption:
-            "VERY IMPORTANT CAT"
+          src:"https://i.ytimg.com/vi/Ie57fr8pCko/maxresdefault.jpg",
+          caption:"VERY IMPORTANT CAT"
         },
 
         {
-          src:
-            "https://yt3.googleusercontent.com/Fjs8Z7mywNBjOqL5tIjdGZZWPhrqxDw3uzPXZBosol-Uu5r0ya1FFEMKVD0vsiGyeBrBEZA1UYY=s900-c-k-c0x00ffffff-no-rj",
-
-          caption:
-            "MEOW MEOW MEOW"
+          src:"https://yt3.googleusercontent.com/Fjs8Z7mywNBjOqL5tIjdGZZWPhrqxDw3uzPXZBosol-Uu5r0ya1FFEMKVD0vsiGyeBrBEZA1UYY=s900-c-k-c0x00ffffff-no-rj",
+          caption:"MEOW MEOW MEOW"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Are%20you%20going%20to%20drink%20my%20milk%2C%20odd%20human%3F%20%2823463302349%29.jpg",
-
-          caption:
-            "ARE YOU GOING TO DRINK MY MILK, ODD HUMAN?"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Are%20you%20going%20to%20drink%20my%20milk%2C%20odd%20human%3F%20%2823463302349%29.jpg",
+          caption:"Are you going to drink my milk, odd human?"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20Come%20In%20Peace%2C%20Take%20Me%20To%20Your%20Leader%21%20%2824110029751%29.jpg",
-
-          caption:
-            "I COME IN PEACE"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20Come%20In%20Peace%2C%20Take%20Me%20To%20Your%20Leader%21%20%2824110029751%29.jpg",
+          caption:"I COME IN PEACE"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20must%20help%20the%20humans%20remove%20that%20beautiful%20ball...%21%21%20%2823726684305%29.jpg",
-
-          caption:
-            "CAT HAS A VERY IMPORTANT MISSION"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20must%20help%20the%20humans%20remove%20that%20beautiful%20ball...%21%21%20%2823726684305%29.jpg",
+          caption:"CAT HAS A VERY IMPORTANT MISSION"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20want%20to%20ride%20my%20bicycle..%20cropped%202024.jpg",
-
-          caption:
-            "CAT WANTS TO RIDE A BICYCLE"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20want%20to%20ride%20my%20bicycle..%20cropped%202024.jpg",
+          caption:"CAT WANTS TO RIDE A BICYCLE"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Not%20again%20with%20that%20camera...%20cropped%202025.jpg",
-
-          caption:
-            "NOT AGAIN WITH THAT CAMERA"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Not%20again%20with%20that%20camera...%20cropped%202025.jpg",
+          caption:"NOT AGAIN WITH THAT CAMERA"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/What%27s%20that...%3F%20%2826565615299%29.jpg",
-
-          caption:
-            "WHAT'S THAT?"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/What%27s%20that...%3F%20%2826565615299%29.jpg",
+          caption:"WHAT'S THAT?"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20cat%20called%20Mokoma%20or%20MIRRE.jpg",
-
-          caption:
-            "MOKOMA / MIRRE"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20cat%20called%20Mokoma%20or%20MIRRE.jpg",
+          caption:"MOKOMA / MIRRE"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tarzanette.jpg",
-
-          caption:
-            "TARZANETTE"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tarzanette.jpg",
+          caption:"TARZANETTE"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tesjoen%20kissa.jpg",
-
-          caption:
-            "TESJOKI KITTY"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tesjoen%20kissa.jpg",
+          caption:"TESJOKI KITTY"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Mad%20Hatter%3F.png",
-
-          caption:
-            "THE MAD HATTER?"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Mad%20Hatter%3F.png",
+          caption:"THE MAD HATTER?"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/THE%20PARTY%20IS%20OVER%2C%20HUMAN%21.png",
-
-          caption:
-            "THE PARTY IS OVER, HUMAN"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/THE%20PARTY%20IS%20OVER%2C%20HUMAN%21.png",
+          caption:"THE PARTY IS OVER, HUMAN"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tricolor%20domestic%20cat%20in%20Suomenlinna.jpg",
-
-          caption:
-            "SUOMENLINNA KITTY"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tricolor%20domestic%20cat%20in%20Suomenlinna.jpg",
+          caption:"SUOMENLINNA KITTY"
         },
 
         {
-          src:
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/What%3F%20My%20Birthday%21%20You%27re%20kidding%21.jpg",
-
-          caption:
-            "WHAT? MY BIRTHDAY?"
+          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/What%3F%20My%20Birthday%21%20You%27re%20kidding%21.jpg",
+          caption:"WHAT? MY BIRTHDAY?"
         }
 
       ];
@@ -3355,13 +3191,9 @@
           );
 
 
-        image.src =
-          cat.src;
+        image.src = cat.src;
 
-
-        image.alt =
-          cat.caption;
-
+        image.alt = cat.caption;
 
         caption.textContent =
           cat.caption;
@@ -3400,15 +3232,11 @@
     </script>
 
 
-    <!-- =======================================================
-         HELSINKI TRAINS
-         ======================================================= -->
-
+    <!-- HELSINKI / CUSTOM STATION TRAINS -->
 
     <div
       class="fun-widget helsinki-trains"
     >
-
 
       <div class="title-bar">
 
@@ -3417,14 +3245,10 @@
           alt=""
         >
 
-        <div
-          class="title-bar-text"
-          style="
-            text-shadow:none;
-            text-align:left;
-          "
-        >
-          Trains in Helsinki, Finland
+        <div class="title-bar-text">
+
+          Finnish Live Trains
+
         </div>
 
         <div class="title-bar-controls">
@@ -3441,14 +3265,49 @@
       <div class="window-body">
 
 
+        <div class="train-search">
+
+          <input
+            id="stationSearch"
+            type="text"
+            list="stationList"
+            placeholder="Station name or code, for example Helsinki or HKI"
+            autocomplete="off"
+          >
+
+          <datalist id="stationList"></datalist>
+
+
+          <button
+            type="button"
+            onclick="searchStation()"
+          >
+            Search
+          </button>
+
+        </div>
+
+
+        <div class="train-search-help">
+
+          Enter a Finnish railway station name or station code.
+
+        </div>
+
+
         <div class="train-board-header">
 
-          <span class="big">
-            HELSINKI CENTRAL STATION
+          <span
+            id="trainStationTitle"
+            class="big"
+          >
+            Helsinki Central Station
           </span>
 
           <span class="small">
-            FINTRAFFIC / DIGITRAFFIC LIVE TRAIN BOARD
+
+            FINTRAFFIC DIGITRAFFIC LIVE TRAIN BOARD
+
           </span>
 
         </div>
@@ -3458,26 +3317,22 @@
           id="helsinkiTrainStatus"
           class="train-status"
         >
-          [ CONNECTING TO FINTRAFFIC... ]
+          [ CONNECTING ]
         </div>
 
 
         <div class="train-table-wrap">
 
-
           <table class="train-table">
-
 
             <thead>
 
               <tr>
 
                 <th>TRAIN</th>
-                <th>NUMBER</th>
                 <th>TRACK</th>
                 <th>DIRECTION</th>
-                <th>SCHEDULED</th>
-                <th>EST./ACTUAL</th>
+                <th>TIME</th>
                 <th>STATUS</th>
 
               </tr>
@@ -3489,19 +3344,15 @@
 
               <tr>
 
-                <td colspan="7">
-
-                  Loading Helsinki trains...
-
+                <td colspan="5">
+                  Loading trains...
                 </td>
 
               </tr>
 
             </tbody>
 
-
           </table>
-
 
         </div>
 
@@ -3511,14 +3362,13 @@
           type="button"
           onclick="loadHelsinkiTrains()"
         >
-          REFRESH TRAINS
+          Refresh
         </button>
 
 
         <div class="train-footer">
 
           Live railway information from
-
           <a
             href="https://www.digitraffic.fi/en/railway-traffic/"
             target="_blank"
@@ -3529,31 +3379,39 @@
 
           <br>
 
-          Helsinki station code: HKI
+          Station:
+          <span id="trainFooterStation">
+            HKI
+          </span>
 
           <br>
 
           Data may be delayed or incomplete.
-          Track information is planned/commercial data.
 
         </div>
 
-
       </div>
-
 
     </div>
 
 
     <script>
 
-      const HELSINKI_TRAIN_API =
-        "https://rata.digitraffic.fi/api/v1/live-trains/station/HKI" +
-        "?arrived_trains=5" +
-        "&arriving_trains=15" +
-        "&departed_trains=5" +
-        "&departing_trains=25" +
-        "&include_nonstopping=false";
+      const DIGITRAFFIC_BASE =
+        "https://rata.digitraffic.fi/api/v1";
+
+
+      const STATION_METADATA_API =
+        DIGITRAFFIC_BASE +
+        "/metadata/stations";
+
+
+      let stationMetadata = [];
+
+      let currentStationCode = "HKI";
+
+      let currentStationName =
+        "Helsinki Central Station";
 
 
       function escapeTrainHTML(value) {
@@ -3611,17 +3469,169 @@
       }
 
 
+      async function loadStationMetadata() {
+
+        try {
+
+          const response =
+            await fetch(
+              STATION_METADATA_API,
+              {
+                cache:"no-store"
+              }
+            );
+
+
+          if (!response.ok)
+            throw new Error(
+              "Station metadata HTTP " +
+              response.status
+            );
+
+
+          const data =
+            await response.json();
+
+
+          if (
+            !Array.isArray(data)
+          )
+            throw new Error(
+              "Invalid station metadata"
+            );
+
+
+          stationMetadata =
+            data
+              .filter(
+                station =>
+                  station &&
+                  station.stationShortCode
+              )
+              .sort(
+                (a,b) =>
+                  String(
+                    a.stationName || ""
+                  ).localeCompare(
+                    String(
+                      b.stationName || ""
+                    )
+                  )
+              );
+
+
+          const list =
+            document.getElementById(
+              "stationList"
+            );
+
+
+          list.innerHTML =
+            stationMetadata
+              .map(
+                station => {
+
+                  const name =
+                    station.stationName ||
+                    station.stationShortCode;
+
+                  const code =
+                    station.stationShortCode;
+
+                  return (
+                    "<option value=\"" +
+                    escapeTrainHTML(name) +
+                    "\">" +
+                    escapeTrainHTML(code) +
+                    "</option>"
+                  );
+
+                }
+              )
+              .join("");
+
+        }
+
+        catch(error) {
+
+          console.warn(
+            "Could not load station metadata:",
+            error
+          );
+
+        }
+
+      }
+
+
+      function findStation(query) {
+
+        const value =
+          String(
+            query || ""
+          ).trim();
+
+
+        if (!value)
+          return null;
+
+
+        const upper =
+          value.toUpperCase();
+
+
+        const exactCode =
+          stationMetadata.find(
+            station =>
+              String(
+                station.stationShortCode
+              ).toUpperCase() === upper
+          );
+
+
+        if (exactCode)
+          return exactCode;
+
+
+        const exactName =
+          stationMetadata.find(
+            station =>
+              String(
+                station.stationName || ""
+              ).toLowerCase() ===
+              value.toLowerCase()
+          );
+
+
+        if (exactName)
+          return exactName;
+
+
+        const partialName =
+          stationMetadata.find(
+            station =>
+              String(
+                station.stationName || ""
+              ).toLowerCase()
+              .includes(
+                value.toLowerCase()
+              )
+          );
+
+
+        return partialName || null;
+
+      }
+
+
       function getHelsinkiRows(train) {
 
         if (
           !Array.isArray(
             train.timeTableRows
           )
-        ) {
-
+        )
           return [];
-
-        }
 
 
         return train.timeTableRows.filter(
@@ -3632,10 +3642,12 @@
               row.station ||
               "";
 
+
             return (
               String(code)
                 .toUpperCase() ===
-              "HKI"
+              currentStationCode
+                .toUpperCase()
             );
 
           }
@@ -3644,7 +3656,7 @@
       }
 
 
-      function getHelsinkiEvent(train) {
+      function getStationEvent(train) {
 
         const rows =
           getHelsinkiRows(train);
@@ -3656,23 +3668,15 @@
 
         const departure =
           rows.find(
-            function(row) {
-
-              return row.type ===
-                "DEPARTURE";
-
-            }
+            row =>
+              row.type === "DEPARTURE"
           );
 
 
         const arrival =
           rows.find(
-            function(row) {
-
-              return row.type ===
-                "ARRIVAL";
-
-            }
+            row =>
+              row.type === "ARRIVAL"
           );
 
 
@@ -3691,7 +3695,7 @@
       ) {
 
         if (!event)
-          return "Helsinki";
+          return "Unknown";
 
 
         if (
@@ -3701,7 +3705,7 @@
 
           return (
             event.nextStation ||
-            "DEPARTURE"
+            "Departure"
           );
 
         }
@@ -3714,18 +3718,18 @@
 
           return (
             event.previousStation ||
-            "ARRIVAL"
+            "Arrival"
           );
 
         }
 
 
-        return "Helsinki";
+        return "Unknown";
 
       }
 
 
-      function getStatus(
+      function getTrainStatus(
         train,
         event
       ) {
@@ -3739,8 +3743,12 @@
         ) {
 
           return {
+
             text:"CANCELLED",
-            className:"train-cancelled"
+
+            className:
+              "train-cancelled"
+
           };
 
         }
@@ -3749,59 +3757,62 @@
         if (!event) {
 
           return {
+
             text:"UNKNOWN",
-            className:"train-delay"
+
+            className:
+              "train-delay"
+
           };
 
         }
 
 
-        const scheduled =
-          event.scheduledTime;
-
-        const estimate =
-          event.liveEstimateTime;
-
-        const actual =
-          event.actualTime;
-
-
-        if (actual) {
+        if (event.actualTime) {
 
           return {
+
             text:"ACTUAL",
-            className:"train-ok"
+
+            className:
+              "train-ok"
+
           };
 
         }
 
 
         if (
-          estimate &&
-          scheduled
+          event.liveEstimateTime &&
+          event.scheduledTime
         ) {
 
-          const scheduledDate =
-            new Date(scheduled);
+          const scheduled =
+            new Date(
+              event.scheduledTime
+            );
 
-          const estimateDate =
-            new Date(estimate);
+
+          const estimate =
+            new Date(
+              event.liveEstimateTime
+            );
 
 
           if (
             !Number.isNaN(
-              scheduledDate.getTime()
+              scheduled.getTime()
             ) &&
             !Number.isNaN(
-              estimateDate.getTime()
+              estimate.getTime()
             )
           ) {
 
             const delay =
               Math.round(
                 (
-                  estimateDate.getTime() -
-                  scheduledDate.getTime()
+                  estimate.getTime() -
+                  scheduled.getTime()
                 ) / 60000
               );
 
@@ -3809,8 +3820,15 @@
             if (delay > 0) {
 
               return {
-                text:"+" + delay + " MIN",
-                className:"train-delay"
+
+                text:
+                  "+" +
+                  delay +
+                  " MIN",
+
+                className:
+                  "train-delay"
+
               };
 
             }
@@ -3819,8 +3837,14 @@
             if (delay < 0) {
 
               return {
-                text:delay + " MIN",
-                className:"train-ok"
+
+                text:
+                  delay +
+                  " MIN",
+
+                className:
+                  "train-ok"
+
               };
 
             }
@@ -3829,16 +3853,24 @@
 
 
           return {
+
             text:"ESTIMATED",
-            className:"train-ok"
+
+            className:
+              "train-ok"
+
           };
 
         }
 
 
         return {
+
           text:"ON TIME",
-          className:"train-ok"
+
+          className:
+            "train-ok"
+
         };
 
       }
@@ -3878,14 +3910,27 @@
 
 
         statusElement.textContent =
-          "[ FETCHING LIVE TRAINS... ]";
+          "[ FETCHING ]";
+
+
+        const api =
+          DIGITRAFFIC_BASE +
+          "/live-trains/station/" +
+          encodeURIComponent(
+            currentStationCode
+          ) +
+          "?arrived_trains=2" +
+          "&arriving_trains=6" +
+          "&departed_trains=2" +
+          "&departing_trains=10" +
+          "&include_nonstopping=false";
 
 
         try {
 
           const response =
             await fetch(
-              HELSINKI_TRAIN_API,
+              api,
               {
                 cache:"no-store"
               }
@@ -3924,7 +3969,9 @@
             function(train) {
 
               const event =
-                getHelsinkiEvent(train);
+                getStationEvent(
+                  train
+                );
 
 
               if (!event)
@@ -3965,11 +4012,8 @@
 
                 if (
                   seen.has(key)
-                ) {
-
+                )
                   return false;
-
-                }
 
 
                 seen.add(key);
@@ -3981,7 +4025,10 @@
 
 
           const displayEvents =
-            uniqueEvents.slice(0,30);
+            uniqueEvents.slice(
+              0,
+              16
+            );
 
 
           if (
@@ -3990,15 +4037,14 @@
 
             rowsElement.innerHTML =
               '<tr>' +
-              '<td colspan="7">' +
-              'No Helsinki train events found right now.' +
+              '<td colspan="5">' +
+              'No train events found.' +
               '</td>' +
               '</tr>';
 
 
             statusElement.textContent =
               "[ NO TRAIN EVENTS ]";
-
 
             return;
 
@@ -4013,49 +4059,42 @@
                   const train =
                     item.train;
 
+
                   const event =
                     item.event;
 
+
                   const status =
-                    getStatus(
+                    getTrainStatus(
                       train,
                       event
                     );
 
-                  const type =
-                    train.trainType ||
-                    train.trainCategory ||
-                    "TRAIN";
 
                   const number =
                     train.trainNumber ??
                     "?";
 
-                  const direction =
+
+                  const destination =
                     getDestination(
                       train,
                       event
                     );
 
-                  const scheduled =
-                    formatTime(
-                      event.scheduledTime
-                    );
 
-                  const estimate =
+                  const time =
                     event.actualTime
-
                       ? formatTime(
                           event.actualTime
                         )
-
                       : event.liveEstimateTime
-
                         ? formatTime(
                             event.liveEstimateTime
                           )
-
-                        : "—";
+                        : formatTime(
+                            event.scheduledTime
+                          );
 
 
                   const track =
@@ -4063,13 +4102,10 @@
                     "—";
 
 
-                  const eventType =
-                    event.type ===
-                    "ARRIVAL"
-
-                      ? "ARRIVAL"
-
-                      : "DEPARTURE";
+                  const type =
+                    train.trainType ||
+                    train.trainCategory ||
+                    "TRAIN";
 
 
                   return (
@@ -4077,31 +4113,37 @@
                     "<tr>" +
 
                       "<td>" +
-                        escapeTrainHTML(type) +
-                      "</td>" +
 
-                      "<td class=\"train-number\">" +
-                        escapeTrainHTML(number) +
+                        escapeTrainHTML(
+                          type +
+                          " " +
+                          number
+                        ) +
+
                       "</td>" +
 
                       "<td class=\"train-track\">" +
-                        escapeTrainHTML(track) +
+
+                        escapeTrainHTML(
+                          track
+                        ) +
+
                       "</td>" +
 
                       "<td>" +
-                        escapeTrainHTML(direction) +
+
+                        escapeTrainHTML(
+                          destination
+                        ) +
+
                       "</td>" +
 
                       "<td>" +
-                        escapeTrainHTML(scheduled) +
-                        "<br>" +
-                        "<small>" +
-                          eventType +
-                        "</small>" +
-                      "</td>" +
 
-                      "<td>" +
-                        escapeTrainHTML(estimate) +
+                        escapeTrainHTML(
+                          time
+                        ) +
+
                       "</td>" +
 
                       "<td class=\"" +
@@ -4109,9 +4151,11 @@
                           status.className
                         ) +
                       "\">" +
+
                         escapeTrainHTML(
                           status.text
                         ) +
+
                       "</td>" +
 
                     "</tr>"
@@ -4138,16 +4182,15 @@
           statusElement.textContent =
             "[ LIVE ] " +
             displayEvents.length +
-            " HELSINKI EVENTS | UPDATED " +
+            " EVENTS | " +
             now;
 
         }
 
-
         catch(error) {
 
           console.error(
-            "Helsinki train board error:",
+            "Train board error:",
             error
           );
 
@@ -4156,19 +4199,16 @@
 
             '<tr>' +
 
-              '<td colspan="7">' +
+              '<td colspan="5">' +
 
                 '<div class="train-error">' +
 
-                  'OH NO. THE TRAIN COMPUTER BROKE.<br><br>' +
+                  'Train data could not be loaded.' +
+                  '<br><br>' +
 
                   escapeTrainHTML(
                     error.message
                   ) +
-
-                  '<br><br>' +
-
-                  'Digitraffic may be temporarily unavailable.' +
 
                 '</div>' +
 
@@ -4178,16 +4218,94 @@
 
 
           statusElement.textContent =
-            "[ FINTRAFFIC CONNECTION ERROR ]";
+            "[ CONNECTION ERROR ]";
 
         }
 
       }
 
 
+      function searchStation() {
+
+        const input =
+          document.getElementById(
+            "stationSearch"
+          );
+
+
+        const station =
+          findStation(
+            input.value
+          );
+
+
+        if (!station) {
+
+          const status =
+            document.getElementById(
+              "helsinkiTrainStatus"
+            );
+
+
+          status.textContent =
+            "[ STATION NOT FOUND ]";
+
+          return;
+
+        }
+
+
+        currentStationCode =
+          station.stationShortCode;
+
+
+        currentStationName =
+          station.stationName ||
+          station.stationShortCode;
+
+
+        document.getElementById(
+          "trainStationTitle"
+        ).textContent =
+          currentStationName;
+
+
+        document.getElementById(
+          "trainFooterStation"
+        ).textContent =
+          currentStationCode;
+
+
+        loadHelsinkiTrains();
+
+      }
+
+
+      document
+        .getElementById(
+          "stationSearch"
+        )
+        .addEventListener(
+          "keydown",
+          function(event) {
+
+            if (
+              event.key === "Enter"
+            ) {
+
+              searchStation();
+
+            }
+
+          }
+        );
+
+
       document.addEventListener(
         "DOMContentLoaded",
-        function() {
+        async function() {
+
+          await loadStationMetadata();
 
           loadHelsinkiTrains();
 
@@ -4203,10 +4321,10 @@
     </script>
 
 
-    <!-- =======================================================
-         PRIVACY POLICY
-         ======================================================= -->
+    <br>
 
+
+    <!-- PRIVACY POLICY -->
 
     <div class="termsAndPolicy">
 
@@ -4232,10 +4350,7 @@
     <br>
 
 
-    <!-- =======================================================
-         NEOCITIES
-         ======================================================= -->
-
+    <!-- NEOCITIES -->
 
     <center>
 
@@ -4243,6 +4358,7 @@
         href="https://neocities.org/site/hhroses"
         title="https://neocities.org/site/hhroses"
         target="_blank"
+        rel="noopener"
       >
 
         <img
@@ -4256,10 +4372,7 @@
     </center>
 
 
-    <!-- =======================================================
-         LANGUAGES
-         ======================================================= -->
-
+    <!-- LANGUAGES -->
 
     <div class="languages_wrap_wrap">
 
@@ -4267,7 +4380,9 @@
         Language:
       </p>
 
-      <div class="gtranslate_wrapper"></div>
+      <div
+        class="gtranslate_wrapper"
+      ></div>
 
     </div>
 
@@ -4310,32 +4425,42 @@
   </div>
 
 
-  <!-- =========================================================
-       H.H.ROSES ANALYTICS
-       ========================================================= -->
-
+  <!-- PAGE VIEW TRACKING -->
 
   <script>
 
-    const HHROSES_ANALYTICS =
+    const ANALYTICS_WORKER =
       "https://websiteviewshowerwowfintraffic.2nforfun.workers.dev";
 
-
-    /*
-     * Record this page view.
-     */
 
     async function recordPageView() {
 
       try {
 
-        await fetch(
-          HHROSES_ANALYTICS +
-          "/hit",
-          {
-            method:"GET",
-            cache:"no-store"
-          }
+        const response =
+          await fetch(
+            ANALYTICS_WORKER +
+            "/hit",
+            {
+              method:"GET",
+              cache:"no-store",
+              keepalive:true
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Analytics HTTP " +
+            response.status
+          );
+
+        }
+
+
+        console.log(
+          "H.H.Roses page view recorded."
         );
 
       }
@@ -4343,7 +4468,7 @@
       catch(error) {
 
         console.warn(
-          "Analytics hit failed:",
+          "Page view could not be recorded:",
           error
         );
 
@@ -4352,9 +4477,14 @@
     }
 
 
-    /*
-     * Load total page views.
-     */
+    recordPageView();
+
+  </script>
+
+
+  <!-- PAGE VIEW DISPLAY -->
+
+  <script>
 
     async function updatePageViewCounter() {
 
@@ -4372,7 +4502,7 @@
 
         const response =
           await fetch(
-            HHROSES_ANALYTICS +
+            ANALYTICS_WORKER +
             "/count",
             {
               cache:"no-store"
@@ -4399,6 +4529,7 @@
             data?.views ??
             data?.count ??
             data?.total ??
+            data ??
             0
           );
 
@@ -4430,6 +4561,7 @@
           error
         );
 
+
         counter.textContent =
           "—";
 
@@ -4438,1195 +4570,143 @@
     }
 
 
-    /*
-     * Draw the traffic graph.
-     */
+    document.addEventListener(
+      "DOMContentLoaded",
+      updatePageViewCounter
+    );
 
-    function drawTrafficChart(
-      dailyData,
-      hourlyData
-    ) {
+  </script>
 
-      const svg =
+
+  <!-- CLOCK -->
+
+  <script>
+
+    function updateClock() {
+
+      const clock =
         document.getElementById(
-          "trafficChart"
+          "digitalClock"
         );
 
 
-      if (!svg)
+      const dateElement =
+        document.getElementById(
+          "clockDate"
+        );
+
+
+      if (!clock || !dateElement)
         return;
 
 
-      svg.innerHTML = "";
+      const now =
+        new Date();
 
 
-      const width = 900;
-      const height = 240;
-
-      const padLeft = 48;
-      const padRight = 12;
-      const padTop = 15;
-      const padBottom = 35;
-
-
-      let data = [];
-
-
-      if (
-        Array.isArray(dailyData) &&
-        dailyData.length
-      ) {
-
-        data =
-          dailyData.map(
-            function(row) {
-
-              return {
-                label:
-                  String(
-                    row.day
-                  ),
-
-                value:
-                  Number(
-                    row.views
-                  ) || 0
-
-              };
-
-            }
-          );
-
-      }
-
-
-      if (
-        data.length === 0 &&
-        Array.isArray(hourlyData)
-      ) {
-
-        data =
-          hourlyData
-            .slice(-48)
-            .map(
-              function(row) {
-
-                return {
-                  label:
-                    String(
-                      row.hour
-                    ),
-
-                  value:
-                    Number(
-                      row.views
-                    ) || 0
-
-                };
-
-              }
-            );
-
-      }
-
-
-      if (!data.length) {
-
-        svg.innerHTML =
-          '<text x="450" y="120" ' +
-          'text-anchor="middle" ' +
-          'font-family="monospace" ' +
-          'font-size="16">' +
-          'No traffic data yet.' +
-          '</text>';
-
-        return;
-
-      }
-
-
-      const values =
-        data.map(
-          function(item) {
-            return item.value;
+      clock.textContent =
+        now.toLocaleTimeString(
+          undefined,
+          {
+            hour:"2-digit",
+            minute:"2-digit",
+            second:"2-digit",
+            hour12:false
           }
         );
 
 
-      const maxValue =
-        Math.max(
-          1,
-          ...values
+      dateElement.textContent =
+        now.toLocaleDateString(
+          undefined,
+          {
+            weekday:"long",
+            year:"numeric",
+            month:"long",
+            day:"numeric"
+          }
         );
-
-
-      const chartWidth =
-        width -
-        padLeft -
-        padRight;
-
-
-      const chartHeight =
-        height -
-        padTop -
-        padBottom;
-
-
-      function x(index) {
-
-        if (data.length === 1)
-          return padLeft;
-
-        return (
-          padLeft +
-          (
-            index /
-            (data.length - 1)
-          ) *
-          chartWidth
-        );
-
-      }
-
-
-      function y(value) {
-
-        return (
-          padTop +
-          chartHeight -
-          (
-            value /
-            maxValue
-          ) *
-          chartHeight
-        );
-
-      }
-
-
-      /*
-       * Grid lines.
-       */
-
-      for (
-        let i = 0;
-        i <= 4;
-        i++
-      ) {
-
-        const value =
-          Math.round(
-            maxValue *
-            (i / 4)
-          );
-
-
-        const yy =
-          y(value);
-
-
-        const line =
-          document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "line"
-          );
-
-
-        line.setAttribute(
-          "x1",
-          padLeft
-        );
-
-        line.setAttribute(
-          "x2",
-          width - padRight
-        );
-
-        line.setAttribute(
-          "y1",
-          yy
-        );
-
-        line.setAttribute(
-          "y2",
-          yy
-        );
-
-        line.setAttribute(
-          "stroke",
-          "#c0c0c0"
-        );
-
-        line.setAttribute(
-          "stroke-width",
-          "1"
-        );
-
-
-        svg.appendChild(line);
-
-
-        const label =
-          document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "text"
-          );
-
-
-        label.setAttribute(
-          "x",
-          padLeft - 7
-        );
-
-        label.setAttribute(
-          "y",
-          yy + 4
-        );
-
-        label.setAttribute(
-          "text-anchor",
-          "end"
-        );
-
-        label.setAttribute(
-          "font-family",
-          "monospace"
-        );
-
-        label.setAttribute(
-          "font-size",
-          "10"
-        );
-
-        label.textContent =
-          value;
-
-
-        svg.appendChild(label);
-
-      }
-
-
-      /*
-       * Build line.
-       */
-
-      let pathData = "";
-
-
-      data.forEach(
-        function(item,index) {
-
-          const xx =
-            x(index);
-
-          const yy =
-            y(item.value);
-
-
-          pathData +=
-            (
-              index === 0
-                ? "M"
-                : "L"
-            ) +
-            xx +
-            " " +
-            yy +
-            " ";
-
-        }
-      );
-
-
-      const path =
-        document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "path"
-        );
-
-
-      path.setAttribute(
-        "d",
-        pathData
-      );
-
-      path.setAttribute(
-        "fill",
-        "none"
-      );
-
-      path.setAttribute(
-        "stroke",
-        "#000080"
-      );
-
-      path.setAttribute(
-        "stroke-width",
-        "3"
-      );
-
-
-      svg.appendChild(path);
-
-
-      /*
-       * Points.
-       */
-
-      data.forEach(
-        function(item,index) {
-
-          const circle =
-            document.createElementNS(
-              "http://www.w3.org/2000/svg",
-              "circle"
-            );
-
-
-          circle.setAttribute(
-            "cx",
-            x(index)
-          );
-
-          circle.setAttribute(
-            "cy",
-            y(item.value)
-          );
-
-          circle.setAttribute(
-            "r",
-            "4"
-          );
-
-          circle.setAttribute(
-            "fill",
-            "#00a000"
-          );
-
-          circle.setAttribute(
-            "stroke",
-            "#000"
-          );
-
-
-          const title =
-            document.createElementNS(
-              "http://www.w3.org/2000/svg",
-              "title"
-            );
-
-
-          title.textContent =
-            item.label +
-            ": " +
-            item.value +
-            " views";
-
-
-          circle.appendChild(title);
-
-          svg.appendChild(circle);
-
-        }
-      );
-
-
-      /*
-       * X-axis labels.
-       */
-
-      const labelCount =
-        Math.min(
-          6,
-          data.length
-        );
-
-
-      for (
-        let i = 0;
-        i < labelCount;
-        i++
-      ) {
-
-        const index =
-          Math.round(
-            i *
-            (
-              (data.length - 1) /
-              Math.max(
-                1,
-                labelCount - 1
-              )
-            )
-          );
-
-
-        const text =
-          document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "text"
-          );
-
-
-        text.setAttribute(
-          "x",
-          x(index)
-        );
-
-        text.setAttribute(
-          "y",
-          height - 10
-        );
-
-        text.setAttribute(
-          "text-anchor",
-          "middle"
-        );
-
-        text.setAttribute(
-          "font-family",
-          "monospace"
-        );
-
-        text.setAttribute(
-          "font-size",
-          "9"
-        );
-
-
-        let label =
-          data[index].label;
-
-
-        if (
-          label.length > 16
-        ) {
-
-          label =
-            label.slice(
-              0,
-              16
-            );
-
-        }
-
-
-        text.textContent =
-          label;
-
-
-        svg.appendChild(text);
-
-      }
 
     }
 
 
-    /*
-     * Load traffic data.
-     */
+    updateClock();
 
-    async function loadTrafficData() {
 
-      const status =
-        document.getElementById(
-          "trafficStatus"
-        );
+    setInterval(
+      updateClock,
+      1000
+    );
 
+  </script>
+
+
+  <!-- GEOGRAPHICAL ANALYTICS MAP -->
+
+  <script>
+
+    let visitorMapInstance =
+      null;
+
+
+    const countryNames =
+      new Intl.DisplayNames(
+        ["en"],
+        {
+          type:"region"
+        }
+      );
+
+
+    function countryName(code) {
 
       try {
 
-        const response =
-          await fetch(
-            HHROSES_ANALYTICS +
-            "/traffic",
-            {
-              cache:"no-store"
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "Traffic HTTP " +
-            response.status
-          );
-
-        }
-
-
-        const data =
-          await response.json();
-
-
-        const daily =
-          Array.isArray(
-            data.daily
-          )
-            ? data.daily
-            : [];
-
-
-        const hourly =
-          Array.isArray(
-            data.hourly
-          )
-            ? data.hourly
-            : [];
-
-
-        drawTrafficChart(
-          daily,
-          hourly
-        );
-
-
-        status.textContent =
-          "[ TRAFFIC ONLINE ] " +
-          daily.length +
-          " DAYS | " +
-          hourly.length +
-          " HOURLY RECORDS";
+        return countryNames.of(
+          String(code)
+            .toUpperCase()
+        ) || code;
 
       }
 
       catch(error) {
 
-        console.warn(
-          "Traffic data unavailable:",
-          error
-        );
-
-
-        status.textContent =
-          "[ TRAFFIC DATA UNAVAILABLE ]";
-
-
-        drawTrafficChart(
-          [],
-          []
-        );
+        return code;
 
       }
 
     }
 
 
-    /*
-     * Country names.
-     *
-     * Cloudflare sends ISO 3166-1 alpha-2
-     * country codes through request.cf.country.
-     */
-
-    const countryNames = {
-
-      AF:"Afghanistan",
-      AL:"Albania",
-      DZ:"Algeria",
-      AS:"American Samoa",
-      AD:"Andorra",
-      AO:"Angola",
-      AI:"Anguilla",
-      AQ:"Antarctica",
-      AG:"Antigua and Barbuda",
-      AR:"Argentina",
-      AM:"Armenia",
-      AW:"Aruba",
-      AU:"Australia",
-      AT:"Austria",
-      AZ:"Azerbaijan",
-
-      BS:"Bahamas",
-      BH:"Bahrain",
-      BD:"Bangladesh",
-      BB:"Barbados",
-      BY:"Belarus",
-      BE:"Belgium",
-      BZ:"Belize",
-      BJ:"Benin",
-      BM:"Bermuda",
-      BT:"Bhutan",
-      BO:"Bolivia",
-      BQ:"Bonaire, Sint Eustatius and Saba",
-      BA:"Bosnia and Herzegovina",
-      BW:"Botswana",
-      BV:"Bouvet Island",
-      BR:"Brazil",
-      IO:"British Indian Ocean Territory",
-      BN:"Brunei",
-      BG:"Bulgaria",
-      BF:"Burkina Faso",
-      BI:"Burundi",
-
-      CV:"Cabo Verde",
-      KH:"Cambodia",
-      CM:"Cameroon",
-      CA:"Canada",
-      KY:"Cayman Islands",
-      CF:"Central African Republic",
-      TD:"Chad",
-      CL:"Chile",
-      CN:"China",
-      CX:"Christmas Island",
-      CC:"Cocos Islands",
-      CO:"Colombia",
-      KM:"Comoros",
-      CG:"Congo",
-      CD:"Democratic Republic of the Congo",
-      CK:"Cook Islands",
-      CR:"Costa Rica",
-      CI:"Côte d'Ivoire",
-      HR:"Croatia",
-      CU:"Cuba",
-      CW:"Curaçao",
-      CY:"Cyprus",
-      CZ:"Czechia",
-
-      DK:"Denmark",
-      DJ:"Djibouti",
-      DM:"Dominica",
-      DO:"Dominican Republic",
-
-      EC:"Ecuador",
-      EG:"Egypt",
-      SV:"El Salvador",
-      GQ:"Equatorial Guinea",
-      ER:"Eritrea",
-      EE:"Estonia",
-      SZ:"Eswatini",
-      ET:"Ethiopia",
-
-      FK:"Falkland Islands",
-      FO:"Faroe Islands",
-      FJ:"Fiji",
-      FI:"Finland",
-      FR:"France",
-      GF:"French Guiana",
-      PF:"French Polynesia",
-      TF:"French Southern Territories",
-
-      GA:"Gabon",
-      GM:"Gambia",
-      GE:"Georgia",
-      DE:"Germany",
-      GH:"Ghana",
-      GI:"Gibraltar",
-      GR:"Greece",
-      GL:"Greenland",
-      GD:"Grenada",
-      GP:"Guadeloupe",
-      GU:"Guam",
-      GT:"Guatemala",
-      GG:"Guernsey",
-      GN:"Guinea",
-      GW:"Guinea-Bissau",
-      GY:"Guyana",
-
-      HT:"Haiti",
-      HM:"Heard Island and McDonald Islands",
-      VA:"Vatican City",
-      HN:"Honduras",
-      HK:"Hong Kong",
-      HU:"Hungary",
-
-      IS:"Iceland",
-      IN:"India",
-      ID:"Indonesia",
-      IR:"Iran",
-      IQ:"Iraq",
-      IE:"Ireland",
-      IM:"Isle of Man",
-      IL:"Israel",
-      IT:"Italy",
-
-      JM:"Jamaica",
-      JP:"Japan",
-      JE:"Jersey",
-      JO:"Jordan",
-
-      KZ:"Kazakhstan",
-      KE:"Kenya",
-      KI:"Kiribati",
-      KP:"North Korea",
-      KR:"South Korea",
-      KW:"Kuwait",
-      KG:"Kyrgyzstan",
-
-      LA:"Laos",
-      LV:"Latvia",
-      LB:"Lebanon",
-      LS:"Lesotho",
-      LR:"Liberia",
-      LY:"Libya",
-      LI:"Liechtenstein",
-      LT:"Lithuania",
-      LU:"Luxembourg",
-
-      MO:"Macao",
-      MG:"Madagascar",
-      MW:"Malawi",
-      MY:"Malaysia",
-      MV:"Maldives",
-      ML:"Mali",
-      MT:"Malta",
-      MH:"Marshall Islands",
-      MQ:"Martinique",
-      MR:"Mauritania",
-      MU:"Mauritius",
-      YT:"Mayotte",
-      MX:"Mexico",
-      FM:"Micronesia",
-      MD:"Moldova",
-      MC:"Monaco",
-      MN:"Mongolia",
-      ME:"Montenegro",
-      MS:"Montserrat",
-      MA:"Morocco",
-      MZ:"Mozambique",
-      MM:"Myanmar",
-
-      NA:"Namibia",
-      NR:"Nauru",
-      NP:"Nepal",
-      NL:"Netherlands",
-      NC:"New Caledonia",
-      NZ:"New Zealand",
-      NI:"Nicaragua",
-      NE:"Niger",
-      NG:"Nigeria",
-      NU:"Niue",
-      NF:"Norfolk Island",
-      MK:"North Macedonia",
-      MP:"Northern Mariana Islands",
-      NO:"Norway",
-
-      OM:"Oman",
-
-      PK:"Pakistan",
-      PW:"Palau",
-      PS:"Palestine",
-      PA:"Panama",
-      PG:"Papua New Guinea",
-      PY:"Paraguay",
-      PE:"Peru",
-      PH:"Philippines",
-      PN:"Pitcairn",
-      PL:"Poland",
-      PT:"Portugal",
-      PR:"Puerto Rico",
-
-      QA:"Qatar",
-
-      RE:"Réunion",
-      RO:"Romania",
-      RU:"Russia",
-      RW:"Rwanda",
-
-      BL:"Saint Barthélemy",
-      SH:"Saint Helena",
-      KN:"Saint Kitts and Nevis",
-      LC:"Saint Lucia",
-      MF:"Saint Martin",
-      PM:"Saint Pierre and Miquelon",
-      VC:"Saint Vincent and the Grenadines",
-      WS:"Samoa",
-      SM:"San Marino",
-      ST:"São Tomé and Príncipe",
-      SA:"Saudi Arabia",
-      SN:"Senegal",
-      RS:"Serbia",
-      SC:"Seychelles",
-      SL:"Sierra Leone",
-      SG:"Singapore",
-      SX:"Sint Maarten",
-      SK:"Slovakia",
-      SI:"Slovenia",
-      SB:"Solomon Islands",
-      SO:"Somalia",
-      ZA:"South Africa",
-      GS:"South Georgia and South Sandwich Islands",
-      SS:"South Sudan",
-      ES:"Spain",
-      LK:"Sri Lanka",
-      SD:"Sudan",
-      SR:"Suriname",
-      SJ:"Svalbard and Jan Mayen",
-      SE:"Sweden",
-      CH:"Switzerland",
-      SY:"Syria",
-
-      TW:"Taiwan",
-      TJ:"Tajikistan",
-      TZ:"Tanzania",
-      TH:"Thailand",
-      TL:"Timor-Leste",
-      TG:"Togo",
-      TK:"Tokelau",
-      TO:"Tonga",
-      TT:"Trinidad and Tobago",
-      TN:"Tunisia",
-      TR:"Türkiye",
-      TM:"Turkmenistan",
-      TC:"Turks and Caicos Islands",
-      TV:"Tuvalu",
-
-      UG:"Uganda",
-      UA:"Ukraine",
-      AE:"United Arab Emirates",
-      GB:"United Kingdom",
-      US:"United States",
-      UM:"United States Minor Outlying Islands",
-      UY:"Uruguay",
-      UZ:"Uzbekistan",
-
-      VU:"Vanuatu",
-      VE:"Venezuela",
-      VN:"Vietnam",
-      VG:"British Virgin Islands",
-      VI:"U.S. Virgin Islands",
-
-      WF:"Wallis and Futuna",
-      EH:"Western Sahara",
-
-      YE:"Yemen",
-
-      ZM:"Zambia",
-      ZW:"Zimbabwe"
-
-    };
-
-
-    /*
-     * Map ISO alpha-2 codes to the numeric IDs used by
-     * the world-atlas TopoJSON dataset.
-     */
-
-    const countryNumericCodes = {
-
-      AF:"004",
-      AL:"008",
-      DZ:"012",
-      AS:"016",
-      AD:"020",
-      AO:"024",
-      AI:"660",
-      AQ:"010",
-      AG:"028",
-      AR:"032",
-      AM:"051",
-      AW:"533",
-      AU:"036",
-      AT:"040",
-      AZ:"031",
-
-      BS:"044",
-      BH:"048",
-      BD:"050",
-      BB:"052",
-      BY:"112",
-      BE:"056",
-      BZ:"084",
-      BJ:"204",
-      BM:"060",
-      BT:"064",
-      BO:"068",
-      BQ:"535",
-      BA:"070",
-      BW:"072",
-      BV:"074",
-      BR:"076",
-      IO:"086",
-      BN:"096",
-      BG:"100",
-      BF:"854",
-      BI:"108",
-
-      CV:"132",
-      KH:"116",
-      CM:"120",
-      CA:"124",
-      KY:"136",
-      CF:"140",
-      TD:"148",
-      CL:"152",
-      CN:"156",
-      CX:"162",
-      CC:"166",
-      CO:"170",
-      KM:"174",
-      CG:"178",
-      CD:"180",
-      CK:"184",
-      CR:"188",
-      CI:"384",
-      HR:"191",
-      CU:"192",
-      CW:"531",
-      CY:"196",
-      CZ:"203",
-
-      DK:"208",
-      DJ:"262",
-      DM:"212",
-      DO:"214",
-
-      EC:"218",
-      EG:"818",
-      SV:"222",
-      GQ:"226",
-      ER:"232",
-      EE:"233",
-      SZ:"748",
-      ET:"231",
-
-      FK:"238",
-      FO:"234",
-      FJ:"242",
-      FI:"246",
-      FR:"250",
-      GF:"254",
-      PF:"258",
-      TF:"260",
-
-      GA:"266",
-      GM:"270",
-      GE:"268",
-      DE:"276",
-      GH:"288",
-      GI:"292",
-      GR:"300",
-      GL:"304",
-      GD:"308",
-      GP:"312",
-      GU:"316",
-      GT:"320",
-      GG:"831",
-      GN:"324",
-      GW:"624",
-      GY:"328",
-
-      HT:"332",
-      VA:"336",
-      HN:"340",
-      HK:"344",
-      HU:"348",
-
-      IS:"352",
-      IN:"356",
-      ID:"360",
-      IR:"364",
-      IQ:"368",
-      IE:"372",
-      IM:"833",
-      IL:"376",
-      IT:"380",
-
-      JM:"388",
-      JP:"392",
-      JE:"832",
-      JO:"400",
-
-      KZ:"398",
-      KE:"404",
-      KI:"296",
-      KP:"408",
-      KR:"410",
-      KW:"414",
-      KG:"417",
-
-      LA:"418",
-      LV:"428",
-      LB:"422",
-      LS:"426",
-      LR:"430",
-      LY:"434",
-      LI:"438",
-      LT:"440",
-      LU:"442",
-
-      MO:"446",
-      MG:"450",
-      MW:"454",
-      MY:"458",
-      MV:"462",
-      ML:"466",
-      MT:"470",
-      MH:"584",
-      MQ:"474",
-      MR:"478",
-      MU:"480",
-      YT:"175",
-      MX:"484",
-      FM:"583",
-      MD:"498",
-      MC:"492",
-      MN:"496",
-      ME:"499",
-      MS:"500",
-      MA:"504",
-      MZ:"508",
-      MM:"104",
-
-      NA:"516",
-      NR:"520",
-      NP:"524",
-      NL:"528",
-      NC:"540",
-      NZ:"554",
-      NI:"558",
-      NE:"562",
-      NG:"566",
-      NU:"570",
-      NF:"574",
-      MK:"807",
-      MP:"580",
-      NO:"578",
-
-      OM:"512",
-
-      PK:"586",
-      PW:"585",
-      PS:"275",
-      PA:"591",
-      PG:"598",
-      PY:"600",
-      PE:"604",
-      PH:"608",
-      PN:"612",
-      PL:"616",
-      PT:"620",
-      PR:"630",
-
-      QA:"634",
-
-      RE:"638",
-      RO:"642",
-      RU:"643",
-      RW:"646",
-
-      BL:"652",
-      SH:"654",
-      KN:"659",
-      LC:"662",
-      MF:"663",
-      PM:"666",
-      VC:"670",
-      WS:"882",
-      SM:"674",
-      ST:"678",
-      SA:"682",
-      SN:"686",
-      RS:"688",
-      SC:"690",
-      SL:"694",
-      SG:"702",
-      SX:"534",
-      SK:"703",
-      SI:"705",
-      SB:"090",
-      SO:"706",
-      ZA:"710",
-      GS:"239",
-      SS:"728",
-      ES:"724",
-      LK:"144",
-      SD:"729",
-      SR:"740",
-      SJ:"744",
-      SE:"752",
-      CH:"756",
-      SY:"760",
-
-      TW:"158",
-      TJ:"762",
-      TZ:"834",
-      TH:"764",
-      TL:"626",
-      TG:"768",
-      TK:"772",
-      TO:"776",
-      TT:"780",
-      TN:"788",
-      TR:"792",
-      TM:"795",
-      TC:"796",
-      TV:"798",
-
-      UG:"800",
-      UA:"804",
-      AE:"784",
-      GB:"826",
-      US:"840",
-      UY:"858",
-      UZ:"860",
-
-      VU:"548",
-      VE:"862",
-      VN:"704",
-      VG:"092",
-      VI:"850",
-
-      WF:"876",
-      EH:"732",
-
-      YE:"887",
-
-      ZM:"894",
-      ZW:"716"
-
-    };
-
-
-    /*
-     * Convert visitor count to map colour.
-     */
-
-    function visitorColor(
-      value,
-      max
+    function getCountryColorScale(
+      value
     ) {
 
-      if (!value)
-        return "#e8e8e8";
+      if (value <= 0)
+        return "#eeeeee";
 
+      if (value === 1)
+        return "#ffd6d6";
 
-      if (max <= 1)
-        return "#00aa00";
+      if (value <= 5)
+        return "#ff9999";
 
+      if (value <= 20)
+        return "#ff5555";
 
-      const ratio =
-        Math.min(
-          1,
-          value / max
-        );
+      if (value <= 100)
+        return "#d80000";
 
-
-      if (ratio >= .75)
-        return "#0044aa";
-
-      if (ratio >= .5)
-        return "#0066cc";
-
-      if (ratio >= .25)
-        return "#00a0aa";
-
-      return "#66bb66";
+      return "#700000";
 
     }
 
 
-    /*
-     * Load geographic visitor data.
-     */
+    async function loadGeographicalViews() {
 
-    async function loadCountryData() {
-
-      const status =
+      const mapElement =
         document.getElementById(
-          "countryStatus"
+          "visitorMap"
         );
 
 
@@ -5634,7 +4714,7 @@
 
         const response =
           await fetch(
-            HHROSES_ANALYTICS +
+            ANALYTICS_WORKER +
             "/countries",
             {
               cache:"no-store"
@@ -5645,7 +4725,7 @@
         if (!response.ok) {
 
           throw new Error(
-            "Country HTTP " +
+            "Countries HTTP " +
             response.status
           );
 
@@ -5664,663 +4744,430 @@
             : [];
 
 
-        const cleaned =
-          countries
-            .map(
-              function(item) {
+        const values = {};
 
-                return {
 
-                  code:
-                    String(
-                      item.country ||
-                      ""
-                    ).toUpperCase(),
+        let totalViews = 0;
 
-                  views:
-                    Number(
-                      item.views
-                    ) || 0
+        let topCountry = "—";
 
-                };
+        let topViews = 0;
 
-              }
-            )
-            .filter(
-              function(item) {
 
-                return (
-                  item.code.length === 2 &&
-                  item.views > 0
-                );
+        countries.forEach(
+          function(item) {
 
-              }
+            const code =
+              String(
+                item.country || ""
+              ).toUpperCase();
+
+
+            const views =
+              Number(
+                item.views || 0
+              );
+
+
+            if (!code)
+              return;
+
+
+            values[code] = views;
+
+
+            totalViews += views;
+
+
+            if (views > topViews) {
+
+              topViews = views;
+
+              topCountry =
+                countryName(code);
+
+            }
+
+          }
+        );
+
+
+        document.getElementById(
+          "geoCountries"
+        ).textContent =
+          countries.length
+            .toLocaleString(
+              "en-US"
             );
 
 
-        renderCountryMap(
-          cleaned
-        );
-
-
-        const total =
-          cleaned.reduce(
-            function(sum,item) {
-
-              return sum + item.views;
-
-            },
-            0
-          );
-
-
-        status.textContent =
-          "[ GEO DATA ONLINE ] " +
-          cleaned.length +
-          " COUNTRIES | " +
-          total.toLocaleString(
+        document.getElementById(
+          "geoViews"
+        ).textContent =
+          totalViews.toLocaleString(
             "en-US"
-          ) +
-          " VISITS";
-
-      }
-
-      catch(error) {
-
-        console.warn(
-          "Country data unavailable:",
-          error
-        );
-
-
-        status.textContent =
-          "[ GEO DATA UNAVAILABLE ]";
-
-
-        renderCountryMap([]);
-
-      }
-
-    }
-
-
-    /*
-     * Draw the world map.
-     */
-
-    async function renderCountryMap(
-      countryData
-    ) {
-
-      const svg =
-        document.getElementById(
-          "visitorMap"
-        );
-
-
-      const loading =
-        document.getElementById(
-          "visitorMapLoading"
-        );
-
-
-      const tooltip =
-        document.getElementById(
-          "visitorMapTooltip"
-        );
-
-
-      const list =
-        document.getElementById(
-          "countryList"
-        );
-
-
-      if (
-        !svg ||
-        !loading
-      )
-        return;
-
-
-      svg.innerHTML = "";
-
-      list.innerHTML = "";
-
-
-      try {
-
-        if (
-          typeof d3 === "undefined" ||
-          typeof topojson === "undefined"
-        ) {
-
-          throw new Error(
-            "Map libraries have not loaded."
           );
+
+
+        document.getElementById(
+          "geoTop"
+        ).textContent =
+          topCountry;
+
+
+        if (visitorMapInstance) {
+
+          visitorMapInstance.destroy();
+
+          visitorMapInstance = null;
 
         }
 
 
-        const world =
-          await fetch(
-            "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json",
-            {
-              cache:"force-cache"
-            }
-          )
-          .then(
-            function(response) {
-
-              if (!response.ok)
-                throw new Error(
-                  "World map HTTP " +
-                  response.status
-                );
-
-              return response.json();
-
-            }
-          );
+        mapElement.innerHTML = "";
 
 
-        const countries =
-          topojson.feature(
-            world,
-            world.objects.countries
-          );
+        visitorMapInstance =
+          new jsVectorMap({
 
+            selector:
+              "#visitorMap",
 
-        const lookup = {};
+            map:
+              "world",
 
+            backgroundColor:
+              "#dfefff",
 
-        countryData.forEach(
-          function(item) {
+            zoomButtons:true,
 
-            lookup[
-              item.code
-            ] =
-              item.views;
+            zoomOnScroll:true,
 
-          }
-        );
+            zoomStep:1.4,
 
+            zoomMax:8,
 
-        const max =
-          Math.max(
-            1,
-            ...countryData.map(
-              function(item) {
-                return item.views;
+            zoomMin:1,
+
+            draggable:true,
+
+            showTooltip:true,
+
+            visualizeData:{
+
+              scale:[
+                "#ffd6d6",
+                "#700000"
+              ],
+
+              values:values
+
+            },
+
+            regionStyle:{
+
+              initial:{
+
+                fill:"#eeeeee",
+
+                stroke:"#777777",
+
+                strokeWidth:.5,
+
+                fillOpacity:1
+
+              },
+
+              hover:{
+
+                fill:"#00aa00",
+
+                fillOpacity:.9
+
               }
-            )
-          );
 
+            },
 
-        const width = 960;
-        const height = 500;
-
-
-        const projection =
-          d3.geoNaturalEarth1()
-            .fitSize(
-              [width,height],
-              countries
-            );
-
-
-        const path =
-          d3.geoPath()
-            .projection(
-              projection
-            );
-
-
-        /*
-         * The world-atlas dataset uses numeric
-         * ISO country IDs.
-         */
-
-        countries.features.forEach(
-          function(feature) {
-
-            const numericId =
-              String(
-                feature.id
-              ).padStart(
-                3,
-                "0"
-              );
-
-
-            let code = null;
-
-
-            for (
-              const possibleCode
-              of Object.keys(
-                countryNumericCodes
-              )
-            ) {
-
-              if (
-                countryNumericCodes[
-                  possibleCode
-                ] === numericId
+            onRegionTooltipShow:
+              function(
+                event,
+                tooltip,
+                code
               ) {
 
-                code =
-                  possibleCode;
-
-                break;
-
-              }
-
-            }
-
-
-            const views =
-              code
-                ? (
-                    lookup[code] ||
-                    0
-                  )
-                : 0;
-
-
-            const countryName =
-              code
-                ? (
-                    countryNames[code] ||
-                    code
-                  )
-                : "Unknown country";
-
-
-            const countryPath =
-              document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "path"
-              );
-
-
-            countryPath.setAttribute(
-              "d",
-              path(feature)
-            );
-
-
-            countryPath.setAttribute(
-              "class",
-              "visitor-map-country"
-            );
-
-
-            countryPath.setAttribute(
-              "fill",
-              visitorColor(
-                views,
-                max
-              )
-            );
-
-
-            countryPath.setAttribute(
-              "data-country",
-              countryName
-            );
-
-
-            countryPath.setAttribute(
-              "data-views",
-              views
-            );
-
-
-            /*
-             * Native SVG title as a fallback,
-             * plus the custom tooltip below.
-             */
-
-            const title =
-              document.createElementNS(
-                "http://www.w3.org/2000/svg",
-                "title"
-              );
-
-
-            title.textContent =
-              countryName +
-              ": " +
-              views.toLocaleString(
-                "en-US"
-              ) +
-              " visits";
-
-
-            countryPath.appendChild(
-              title
-            );
-
-
-            countryPath.addEventListener(
-              "mouseenter",
-              function(event) {
-
-                tooltip.style.display =
-                  "block";
-
-
-                tooltip.innerHTML =
-                  "<strong>" +
-                  countryName +
-                  "</strong><br>" +
-                  views.toLocaleString(
-                    "en-US"
-                  ) +
-                  " visitor" +
-                  (
-                    views === 1
-                      ? ""
-                      : "s"
+                const views =
+                  Number(
+                    values[
+                      String(code)
+                        .toUpperCase()
+                    ] || 0
                   );
 
 
-                positionMapTooltip(
-                  event
+                const name =
+                  countryName(
+                    code
+                  );
+
+
+                tooltip.text(
+                  name +
+                  " - " +
+                  views.toLocaleString(
+                    "en-US"
+                  ) +
+                  " views"
                 );
 
               }
-            );
 
-
-            countryPath.addEventListener(
-              "mousemove",
-              function(event) {
-
-                positionMapTooltip(
-                  event
-                );
-
-              }
-            );
-
-
-            countryPath.addEventListener(
-              "mouseleave",
-              function() {
-
-                tooltip.style.display =
-                  "none";
-
-              }
-            );
-
-
-            svg.appendChild(
-              countryPath
-            );
-
-          }
-        );
-
-
-        /*
-         * Country list under the map.
-         */
-
-        countryData
-          .slice()
-          .sort(
-            function(a,b) {
-              return b.views - a.views;
-            }
-          )
-          .slice(
-            0,
-            20
-          )
-          .forEach(
-            function(item) {
-
-              const pill =
-                document.createElement(
-                  "div"
-                );
-
-
-              pill.className =
-                "country-pill";
-
-
-              pill.textContent =
-                (
-                  countryNames[
-                    item.code
-                  ] ||
-                  item.code
-                ) +
-                ": " +
-                item.views.toLocaleString(
-                  "en-US"
-                );
-
-
-              list.appendChild(
-                pill
-              );
-
-            }
-          );
-
-
-        loading.style.display =
-          "none";
+          });
 
       }
 
       catch(error) {
 
-        console.warn(
-          "World map failed:",
+        console.error(
+          "Geographical map failed:",
           error
         );
 
 
-        loading.textContent =
-          "World map unavailable. Country totals are still available below.";
-
-
-        countryData
-          .slice()
-          .sort(
-            function(a,b) {
-              return b.views - a.views;
-            }
-          )
-          .forEach(
-            function(item) {
-
-              const pill =
-                document.createElement(
-                  "div"
-                );
-
-
-              pill.className =
-                "country-pill";
-
-
-              pill.textContent =
-                (
-                  countryNames[
-                    item.code
-                  ] ||
-                  item.code
-                ) +
-                ": " +
-                item.views.toLocaleString(
-                  "en-US"
-                );
-
-
-              list.appendChild(
-                pill
-              );
-
-            }
-          );
+        mapElement.textContent =
+          "Visitor map could not be loaded.";
 
       }
 
     }
 
-
-    function positionMapTooltip(
-      event
-    ) {
-
-      const wrap =
-        document.querySelector(
-          ".visitor-map-wrap"
-        );
-
-
-      const tooltip =
-        document.getElementById(
-          "visitorMapTooltip"
-        );
-
-
-      if (
-        !wrap ||
-        !tooltip
-      )
-        return;
-
-
-      const rect =
-        wrap.getBoundingClientRect();
-
-
-      let x =
-        event.clientX -
-        rect.left +
-        12;
-
-
-      let y =
-        event.clientY -
-        rect.top +
-        12;
-
-
-      const tooltipWidth =
-        tooltip.offsetWidth || 160;
-
-
-      const tooltipHeight =
-        tooltip.offsetHeight || 45;
-
-
-      if (
-        x +
-        tooltipWidth >
-        rect.width
-      ) {
-
-        x =
-          event.clientX -
-          rect.left -
-          tooltipWidth -
-          12;
-
-      }
-
-
-      if (
-        y +
-        tooltipHeight >
-        rect.height
-      ) {
-
-        y =
-          event.clientY -
-          rect.top -
-          tooltipHeight -
-          12;
-
-      }
-
-
-      tooltip.style.left =
-        Math.max(
-          4,
-          x
-        ) +
-        "px";
-
-
-      tooltip.style.top =
-        Math.max(
-          4,
-          y
-        ) +
-        "px";
-
-    }
-
-
-    /*
-     * Start analytics.
-     */
 
     document.addEventListener(
       "DOMContentLoaded",
-      function() {
-
-        recordPageView();
-
-        updatePageViewCounter();
-
-        loadTrafficData();
-
-        loadCountryData();
-
-      }
-    );
-
-
-    /*
-     * Refresh displayed analytics periodically.
-     * Do NOT call /hit again here because that would
-     * artificially create additional page views.
-     */
-
-    setInterval(
-      updatePageViewCounter,
-      30000
+      loadGeographicalViews
     );
 
 
     setInterval(
-      loadTrafficData,
-      60000
-    );
-
-
-    setInterval(
-      loadCountryData,
+      loadGeographicalViews,
       60000
     );
 
   </script>
 
 
-  <!-- =========================================================
-       KRIS COMPANION
-       ========================================================= -->
+  <!-- TRAFFIC GRAPH -->
 
+  <script>
+
+    let trafficChartInstance =
+      null;
+
+
+    async function renderTrafficGraph() {
+
+      const canvas =
+        document.getElementById(
+          "trafficChart"
+        );
+
+
+      if (!canvas)
+        return;
+
+
+      try {
+
+        const response =
+          await fetch(
+            ANALYTICS_WORKER +
+            "/traffic",
+            {
+              cache:"no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Traffic HTTP " +
+            response.status
+          );
+
+        }
+
+
+        const liveData =
+          await response.json();
+
+
+        const daily =
+          Array.isArray(
+            liveData.daily
+          )
+            ? liveData.daily
+            : [];
+
+
+        if (trafficChartInstance) {
+
+          trafficChartInstance.destroy();
+
+        }
+
+
+        const labels =
+          daily.map(
+            item =>
+              item.day
+          );
+
+
+        const values =
+          daily.map(
+            item =>
+              Number(
+                item.views || 0
+              )
+          );
+
+
+        trafficChartInstance =
+          new Chart(
+            canvas.getContext("2d"),
+            {
+
+              type:"line",
+
+              data:{
+
+                labels:labels,
+
+                datasets:[{
+
+                  label:"Page Views",
+
+                  data:values,
+
+                  borderColor:"#00ff00",
+
+                  backgroundColor:
+                    "rgba(0,255,0,.15)",
+
+                  borderWidth:2,
+
+                  pointBackgroundColor:
+                    "#ffffff",
+
+                  pointBorderColor:
+                    "#00ff00",
+
+                  pointRadius:4,
+
+                  tension:.3,
+
+                  fill:true
+
+                }]
+
+              },
+
+
+              options:{
+
+                responsive:true,
+
+                maintainAspectRatio:false,
+
+                color:"#00ff00",
+
+                scales:{
+
+                  x:{
+
+                    ticks:{
+                      color:"#00ff00"
+                    },
+
+                    grid:{
+                      color:
+                        "rgba(0,255,0,.2)"
+                    }
+
+                  },
+
+                  y:{
+
+                    beginAtZero:true,
+
+                    ticks:{
+                      color:"#00ff00",
+                      stepSize:1
+                    },
+
+                    grid:{
+                      color:
+                        "rgba(0,255,0,.2)"
+                    }
+
+                  }
+
+                },
+
+
+                plugins:{
+
+                  legend:{
+
+                    labels:{
+
+                      color:"#00ff00",
+
+                      font:{
+                        family:
+                          "'Courier New', Courier, monospace"
+                      }
+
+                    }
+
+                  }
+
+                }
+
+              }
+
+            }
+          );
+
+      }
+
+      catch(error) {
+
+        console.error(
+          "Traffic graph failed:",
+          error
+        );
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      renderTrafficGraph
+    );
+
+
+    setInterval(
+      renderTrafficGraph,
+      60000
+    );
+
+  </script>
+
+
+  <!-- KRIS COMPANION -->
 
   <div id="kris-companion">
 
@@ -6344,7 +5191,6 @@
       draggable="false"
     >
 
-
   </div>
 
 
@@ -6353,7 +5199,6 @@
     document.addEventListener(
       "DOMContentLoaded",
       function() {
-
 
         const kris =
           document.getElementById(
@@ -6610,11 +5455,9 @@
           const position =
             clampKrisPosition(
 
-              clientX -
-              offsetX,
+              clientX - offsetX,
 
-              clientY -
-              offsetY
+              clientY - offsetY
 
             );
 
@@ -6760,10 +5603,6 @@
               event.touches[0];
 
 
-            if (!touch)
-              return;
-
-
             const rect =
               kris.getBoundingClientRect();
 
@@ -6813,10 +5652,6 @@
 
             const touch =
               event.touches[0];
-
-
-            if (!touch)
-              return;
 
 
             moveKris(
@@ -6894,11 +5729,10 @@
 
           }
 
-
           catch(error) {
 
             console.warn(
-              "Kris Companion: Couldn't restore position.",
+              "Kris Companion: Could not restore position.",
               error
             );
 
@@ -7016,9 +5850,7 @@
           }
         );
 
-
       }
-
     );
 
   </script>
