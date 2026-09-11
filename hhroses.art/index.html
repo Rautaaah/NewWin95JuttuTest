@@ -103,6 +103,22 @@
 
       --GrayText:#808080;
 
+      /*
+       * Geographical map colors copied from the H.H.Roses map.
+       * Kept separate from the rest of the site's color variables.
+       */
+      --geo-ink:#1c1c1c;
+      --geo-muted:#6b6b6b;
+      --geo-rule:#d8d5cd;
+      --geo-paper:#f5f3ee;
+      --geo-sea:#4b7c9b;
+      --geo-no-data:#e4e1da;
+      --geo-c1:#ffffcc;
+      --geo-c2:#d9f0a3;
+      --geo-c3:#addd8e;
+      --geo-c4:#41ab5d;
+      --geo-c5:#006837;
+
       --no-data:#eeeeee;
       --c1:#ffd6d6;
       --c2:#ff9999;
@@ -1054,6 +1070,7 @@
       flex-grow:1;
 
       padding-left:5px;
+
       padding-top:3px;
 
     }
@@ -1139,31 +1156,61 @@
 
     .geo-widget {
 
-      width:720px;
+      width:610px;
 
-      max-width:94%;
+      max-width:90%;
 
     }
 
 
     .geo-widget .window-body {
 
-      padding:8px;
+      padding:10px;
 
     }
 
 
     .geo-intro {
 
-      font-family:
-        Arial,
-        sans-serif;
+      color:var(--geo-muted);
 
-      font-size:12px;
+      font-family:Times, serif;
 
-      margin-bottom:7px;
+      font-weight:500;
+
+      font-size:1rem;
+
+      margin-bottom:.65rem;
 
       line-height:1.4;
+
+    }
+
+
+    .geo-widget h1 {
+
+      font-size:1.12rem;
+
+      font-weight:900;
+
+      margin:0 0 .25rem;
+
+      text-align:center;
+
+    }
+
+
+    .geo-sub {
+
+      color:var(--geo-muted);
+
+      font-weight:500;
+
+      font-size:1rem;
+
+      margin-bottom:.65rem;
+
+      text-align:center;
 
     }
 
@@ -1172,33 +1219,46 @@
 
       display:flex;
 
-      justify-content:center;
-
-      gap:5px;
+      gap:10px;
 
       flex-wrap:wrap;
 
-      margin:7px 0;
+      align-items:center;
+
+      justify-content:center;
+
+      background:#c3c3c3;
+
+      padding:5px;
+
+      border-radius:25px;
+
+      border:1px solid grey;
+
+      text-shadow:none;
+
+      width:350px;
+
+      margin:0 auto 1rem auto;
+
+      max-width:90%;
 
     }
 
 
     .geo-stat {
 
-      min-width:125px;
+      min-width:auto;
 
-      background:#c0c0c0;
+      background:transparent;
 
-      border:
-        2px ridge #c0c0c0;
+      border:0;
 
-      padding:5px;
+      padding:0;
 
       text-align:center;
 
-      font-family:
-        "Courier New",
-        monospace;
+      font-family:Times, serif;
 
     }
 
@@ -1207,7 +1267,9 @@
 
       display:block;
 
-      font-size:18px;
+      font-size:1rem;
+
+      font-weight:900;
 
     }
 
@@ -1216,42 +1278,95 @@
 
       display:block;
 
-      font-size:10px;
+      font-size:.7rem;
 
-      margin-top:2px;
+      font-weight:900;
+
+      letter-spacing:0;
+
+      color:var(--geo-muted);
+
+      margin-top:0;
 
     }
 
 
     #visitorMap {
 
+      background:var(--geo-sea);
+
       width:100%;
 
-      height:310px;
+      height:400px;
 
-      background:#dfefff;
+      max-height:400px;
 
-      border:
-        2px inset #c0c0c0;
+      border:20px solid tan;
+
+      border-radius:1px;
+
+      box-shadow:
+        0 0 3px rgba(0,0,0,.05),
+        1px 1px 5px rgba(0,0,0,.05);
 
       overflow:hidden;
 
-      transition:
-        transform .2s ease;
+      margin-left:0;
+      margin-right:0;
+
+      outline:1px solid grey;
+
+      transition:none;
 
     }
 
 
     #visitorMap:hover {
 
-      transform:scale(1.015);
+      transform:none;
 
     }
 
 
     #visitorMap .jvm-container {
 
-      background:#dfefff !important;
+      background:var(--geo-sea) !important;
+
+    }
+
+
+    #visitorMap svg {
+
+      width:100%;
+
+      height:auto;
+
+      display:block;
+
+    }
+
+
+    #visitorMap path {
+
+      transition:fill .12s ease;
+
+    }
+
+
+    #visitorMap path[data-hit] {
+
+      cursor:url(
+        'cursors/pointer.png'
+      ),pointer;
+
+    }
+
+
+    #visitorMap path[data-hit]:hover {
+
+      stroke:var(--geo-ink);
+
+      stroke-width:.8;
 
     }
 
@@ -1262,8 +1377,7 @@
 
       color:#000 !important;
 
-      border:
-        1px solid #000 !important;
+      border:1px solid #000 !important;
 
       box-shadow:
         inset 1px 1px #fff;
@@ -1275,55 +1389,82 @@
 
       display:flex;
 
+      align-items:center;
+
       justify-content:center;
 
+      gap:5px;
+
+      font-size:16px;
+
+      color:var(--geo-muted);
+
+      margin-top:.9rem;
+
       flex-wrap:wrap;
-
-      gap:8px;
-
-      margin-top:7px;
-
-      font-family:
-        Arial,
-        sans-serif;
-
-      font-size:10px;
 
     }
 
 
     .geo-legend span {
 
+      background:#c3c3c3;
+
+      border:1px solid grey;
+
+      border-radius:5px;
+
+      padding:5px;
+
+      height:30px;
+
+      font-size:.7rem;
+
       display:flex;
 
       align-items:center;
 
-      gap:3px;
+      justify-content:center !important;
+
+      gap:5px;
+
+      text-shadow:none;
+
+      color:black;
+
+      font-weight:900;
 
     }
 
 
     .geo-legend i {
 
-      width:13px;
-      height:13px;
+      width:22px;
+
+      height:100%;
+
+      border-radius:5px;
 
       display:inline-block;
 
-      border:1px solid grey;
+      border:1px solid rgba(0,0,0,.08);
 
     }
 
 
     .geo-note {
 
-      margin-top:7px;
+      margin-top:1.75rem;
 
-      font-family:
-        Arial,
-        sans-serif;
+      padding-top:1.25rem;
 
-      font-size:10px;
+      border-top:1px solid var(--geo-rule);
+
+      font-family:Times, serif;
+
+      font-size:13px;
+
+      color:var(--geo-muted);
 
       line-height:1.35;
 
@@ -1334,9 +1475,18 @@
 
     .traffic-widget {
 
-      width:650px;
+      width:300px;
 
-      max-width:94%;
+      max-width:90%;
+
+    }
+
+
+    .traffic-widget .window-body {
+
+      padding:0;
+
+      background:#000;
 
     }
 
@@ -1347,10 +1497,10 @@
 
       background:#000;
 
-      border:
-        2px inset #c0c0c0;
+      padding:10px;
 
-      padding:8px;
+      box-shadow:
+        inset 1px 1px #808080;
 
     }
 
@@ -1358,6 +1508,7 @@
     #trafficChart {
 
       width:100% !important;
+
       height:100% !important;
 
     }
@@ -2114,6 +2265,9 @@
 
       #visitorMap {
         height:240px;
+
+        border-width:10px;
+
       }
 
 
@@ -2553,10 +2707,24 @@
 
         <div class="geo-intro">
 
-          Welcome to H.H.Roses. This map shows landing-page
-          views recorded by the H.H.Roses analytics server.
+          Welcome to my site! Enjoy the art, games, books,
+          music, videos, and more, all created by H.H.Roses!
 
         </div>
+
+
+        <h1>
+          Where visitors come from
+        </h1>
+
+
+        <p class="geo-sub">
+
+          Countries are shaded based on landing page views
+          since July 30th, 2026.<br>
+          Views on other pages of this website are not counted.
+
+        </p>
 
 
         <div class="geo-stats">
@@ -2605,51 +2773,88 @@
         <div
           id="visitorMap"
         >
-          Loading map...
+          Loading map&hellip;
         </div>
 
 
         <div class="geo-legend">
 
           <span>
-            <i style="background:var(--no-data)"></i>
+            <i
+              style="
+                background:var(--geo-no-data);
+                border:1px solid grey;
+              "
+            ></i>
             none
           </span>
 
           <span>
-            <i style="background:var(--c1)"></i>
+            <i
+              style="
+                background:var(--geo-c1);
+                border:1px solid grey;
+              "
+            ></i>
             1
           </span>
 
           <span>
-            <i style="background:var(--c2)"></i>
-            2-5
+            <i
+              style="
+                background:var(--geo-c2);
+                border:1px solid grey;
+              "
+            ></i>
+            2&ndash;5
           </span>
 
           <span>
-            <i style="background:var(--c3)"></i>
-            6-20
+            <i
+              style="
+                background:var(--geo-c3);
+                border:1px solid grey;
+              "
+            ></i>
+            6&ndash;20
           </span>
 
           <span>
-            <i style="background:var(--c4)"></i>
-            21-100
+            <i
+              style="
+                background:var(--geo-c4);
+                border:1px solid grey;
+              "
+            ></i>
+            21&ndash;100
           </span>
 
           <span>
-            <i style="background:var(--c5)"></i>
+            <i
+              style="
+                background:var(--geo-c5);
+                border:1px solid grey;
+              "
+            ></i>
             100+
           </span>
 
         </div>
 
 
-        <div class="geo-note">
+        <p
+          class="geo-note"
+          style="margin-top:.75rem;margin-bottom:0;"
+        >
 
-          Hover over a country to see its country name
-          and recorded views.
+          *Because I'm using the free-version of a backend
+          server, only 1000 operations are allotted to me a
+          day, resulting in numbers in this map and graph
+          appearing less than what they really are, especially
+          since I have other backend operations besides the
+          viewcounters.
 
-        </div>
+        </p>
 
       </div>
 
@@ -2690,18 +2895,21 @@
       <div
         class="window-body"
         style="
-          padding:5px;
+          padding:0;
           background:#000;
         "
       >
 
-        <div class="traffic-chart-wrap">
-
-          <canvas
-            id="trafficChart"
-          ></canvas>
-
-        </div>
+        <canvas
+          id="trafficChart"
+          style="
+            width:100%;
+            max-height:300px;
+            background:#000;
+            padding:10px;
+            box-shadow:inset 1px 1px #808080;
+          "
+        ></canvas>
 
       </div>
 
@@ -4649,23 +4857,26 @@
       null;
 
 
-    const countryNames =
-      new Intl.DisplayNames(
-        ["en"],
-        {
-          type:"region"
-        }
-      );
-
-
     function countryName(code) {
 
       try {
 
-        return countryNames.of(
-          String(code)
-            .toUpperCase()
-        ) || code;
+        const names =
+          new Intl.DisplayNames(
+            ["en"],
+            {
+              type:"region"
+            }
+          );
+
+
+        return (
+          names.of(
+            String(code)
+              .toUpperCase()
+          ) ||
+          code
+        );
 
       }
 
@@ -4678,26 +4889,618 @@
     }
 
 
-    function getCountryColorScale(
-      value
-    ) {
+    /*
+     * The 2nforfun /countries endpoint can return
+     * country information in slightly different shapes.
+     *
+     * This normalizes all of the common forms into:
+     *
+     * {
+     *   US: 10,
+     *   FI: 5,
+     *   JP: 2
+     * }
+     */
 
-      if (value <= 0)
-        return "#eeeeee";
+    function normalizeCountryData(data) {
 
-      if (value === 1)
-        return "#ffd6d6";
+      const values = {};
 
-      if (value <= 5)
-        return "#ff9999";
 
-      if (value <= 20)
-        return "#ff5555";
+      function add(code, amount) {
 
-      if (value <= 100)
-        return "#d80000";
+        if (!code)
+          return;
 
-      return "#700000";
+
+        const key =
+          String(code)
+            .trim()
+            .toUpperCase();
+
+
+        const number =
+          Number(amount);
+
+
+        if (
+          !/^[A-Z]{2}$/.test(key) ||
+          !Number.isFinite(number)
+        ) {
+
+          return;
+
+        }
+
+
+        values[key] =
+          (
+            values[key] || 0
+          ) +
+          number;
+
+      }
+
+
+      function extractAmount(value) {
+
+        if (
+          typeof value === "number" ||
+          typeof value === "string"
+        ) {
+
+          return value;
+
+        }
+
+
+        if (
+          value &&
+          typeof value === "object"
+        ) {
+
+          return (
+            value.views ??
+            value.viewCount ??
+            value.visits ??
+            value.count ??
+            value.total ??
+            value.value ??
+            0
+          );
+
+        }
+
+
+        return 0;
+
+      }
+
+
+      function parseEntry(entry) {
+
+        if (
+          !entry ||
+          typeof entry !== "object"
+        ) {
+
+          return;
+
+        }
+
+
+        const code =
+          entry.country ||
+          entry.code ||
+          entry.iso2 ||
+          entry.iso ||
+          entry.countryCode ||
+          entry.country_code;
+
+
+        const amount =
+          entry.views ??
+          entry.viewCount ??
+          entry.visits ??
+          entry.count ??
+          entry.total ??
+          entry.value;
+
+
+        if (
+          code &&
+          amount !== undefined &&
+          amount !== null
+        ) {
+
+          add(
+            code,
+            amount
+          );
+
+          return;
+
+        }
+
+
+        for (
+          const [key,value]
+          of Object.entries(entry)
+        ) {
+
+          if (
+            /^[A-Za-z]{2}$/.test(key)
+          ) {
+
+            add(
+              key,
+              extractAmount(value)
+            );
+
+          }
+
+        }
+
+      }
+
+
+      /*
+       * Direct array response:
+       *
+       * [
+       *   { country:"FI", views:10 },
+       *   { country:"US", views:5 }
+       * ]
+       */
+
+      if (
+        Array.isArray(data)
+      ) {
+
+        data.forEach(
+          parseEntry
+        );
+
+      }
+
+
+      if (
+        data &&
+        typeof data === "object"
+      ) {
+
+        /*
+         * Look inside common wrapper properties.
+         */
+
+        const sources = [
+
+          data.countries,
+
+          data.visits,
+
+          data.countryCounts,
+
+          data.data
+
+        ];
+
+
+        sources.forEach(
+          function(source) {
+
+            if (!source)
+              return;
+
+
+            if (
+              Array.isArray(source)
+            ) {
+
+              source.forEach(
+                parseEntry
+              );
+
+              return;
+
+            }
+
+
+            if (
+              typeof source === "object"
+            ) {
+
+              for (
+                const [key,value]
+                of Object.entries(source)
+              ) {
+
+                if (
+                  /^[A-Za-z]{2}$/.test(key)
+                ) {
+
+                  add(
+                    key,
+                    extractAmount(value)
+                  );
+
+                }
+
+                else {
+
+                  parseEntry(value);
+
+                }
+
+              }
+
+            }
+
+          }
+        );
+
+
+        /*
+         * Also accept a direct object:
+         *
+         * {
+         *   FI:10,
+         *   US:5
+         * }
+         */
+
+        for (
+          const [key,value]
+          of Object.entries(data)
+        ) {
+
+          if (
+            /^[A-Za-z]{2}$/.test(key)
+          ) {
+
+            add(
+              key,
+              extractAmount(value)
+            );
+
+          }
+
+        }
+
+      }
+
+
+      return values;
+
+    }
+
+
+    function updateGeoStats(values) {
+
+      const entries =
+        Object.entries(values)
+          .filter(
+            function(entry) {
+
+              return Number(
+                entry[1]
+              ) > 0;
+
+            }
+          );
+
+
+      const total =
+        entries.reduce(
+          function(sum,entry) {
+
+            return (
+              sum +
+              Number(entry[1])
+            );
+
+          },
+          0
+        );
+
+
+      let topCode = "";
+
+      let topValue = 0;
+
+
+      entries.forEach(
+        function(entry) {
+
+          const code =
+            entry[0];
+
+          const amount =
+            Number(entry[1]);
+
+
+          if (
+            amount >
+            topValue
+          ) {
+
+            topValue =
+              amount;
+
+            topCode =
+              code;
+
+          }
+
+        }
+      );
+
+
+      const countriesElement =
+        document.getElementById(
+          "geoCountries"
+        );
+
+
+      const viewsElement =
+        document.getElementById(
+          "geoViews"
+        );
+
+
+      const topElement =
+        document.getElementById(
+          "geoTop"
+        );
+
+
+      if (countriesElement) {
+
+        countriesElement.textContent =
+          entries.length.toLocaleString(
+            "en-US"
+          );
+
+      }
+
+
+      if (viewsElement) {
+
+        viewsElement.textContent =
+          total.toLocaleString(
+            "en-US"
+          );
+
+      }
+
+
+      if (topElement) {
+
+        topElement.textContent =
+          topCode
+            ? countryName(
+                topCode
+              ) +
+              " (" +
+              topValue.toLocaleString(
+                "en-US"
+              ) +
+              ")"
+            : "—";
+
+      }
+
+    }
+
+
+    function createVisitorMap(values) {
+
+      const mapElement =
+        document.getElementById(
+          "visitorMap"
+        );
+
+
+      if (!mapElement)
+        return;
+
+
+      if (
+        visitorMapInstance
+      ) {
+
+        try {
+
+          visitorMapInstance.destroy();
+
+        }
+
+        catch(error) {
+
+          console.warn(
+            "Could not destroy previous map:",
+            error
+          );
+
+        }
+
+
+        visitorMapInstance =
+          null;
+
+      }
+
+
+      mapElement.innerHTML =
+        "";
+
+
+      /*
+       * Make absolutely sure the map library and
+       * world map have loaded before creating it.
+       */
+
+      if (
+        typeof jsVectorMap ===
+        "undefined"
+      ) {
+
+        mapElement.textContent =
+          "Map library failed to load.";
+
+        return;
+
+      }
+
+
+      if (
+        !jsVectorMap.maps ||
+        !jsVectorMap.maps.world
+      ) {
+
+        mapElement.textContent =
+          "World map data failed to load.";
+
+        return;
+
+      }
+
+
+      visitorMapInstance =
+        new jsVectorMap({
+
+          selector:
+            "#visitorMap",
+
+          map:
+            "world",
+
+          backgroundColor:
+            "#4b7c9b",
+
+          zoomButtons:true,
+
+          zoomOnScroll:true,
+
+          zoomStep:1.4,
+
+          zoomMax:8,
+
+          zoomMin:1,
+
+          draggable:true,
+
+          showTooltip:true,
+
+
+          visualizeData:{
+
+            scale:[
+
+              "#ffffcc",
+
+              "#006837"
+
+            ],
+
+            values:
+              values
+
+          },
+
+
+          regionStyle:{
+
+            initial:{
+
+              fill:
+                "#e4e1da",
+
+              stroke:
+                "#777777",
+
+              strokeWidth:
+                .5,
+
+              fillOpacity:
+                1
+
+            },
+
+
+            hover:{
+
+              fill:
+                "#00aa00",
+
+              fillOpacity:
+                .9
+
+            }
+
+          },
+
+
+          onRegionTooltipShow:
+            function(
+              event,
+              tooltip,
+              code
+            ) {
+
+              const normalizedCode =
+                String(code)
+                  .toUpperCase();
+
+
+              const views =
+                Number(
+                  values[
+                    normalizedCode
+                  ] || 0
+                );
+
+
+              const name =
+                countryName(
+                  normalizedCode
+                );
+
+
+              tooltip.text(
+
+                name +
+                " - " +
+                views.toLocaleString(
+                  "en-US"
+                ) +
+                " views"
+
+              );
+
+            }
+
+        });
+
+
+      /*
+       * jsVectorMap 1.7 supports setValues().
+       * Calling it after construction also makes sure
+       * the visualization receives the normalized values.
+       */
+
+      if (
+        visitorMapInstance &&
+        typeof
+          visitorMapInstance.setValues ===
+          "function"
+      ) {
+
+        visitorMapInstance.setValues(
+          values
+        );
+
+      }
 
     }
 
@@ -4710,23 +5513,35 @@
         );
 
 
+      if (!mapElement)
+        return;
+
+
       try {
 
         const response =
           await fetch(
+
             ANALYTICS_WORKER +
             "/countries",
+
             {
+              method:"GET",
+
               cache:"no-store"
+
             }
+
           );
 
 
         if (!response.ok) {
 
           throw new Error(
-            "Countries HTTP " +
+
+            "Countries API returned HTTP " +
             response.status
+
           );
 
         }
@@ -4736,214 +5551,67 @@
           await response.json();
 
 
-        const countries =
-          Array.isArray(
-            data.countries
-          )
-            ? data.countries
-            : [];
+        /*
+         * Useful when debugging the actual
+         * 2nforfun response in the browser console.
+         */
 
-
-        const values = {};
-
-
-        let totalViews = 0;
-
-        let topCountry = "—";
-
-        let topViews = 0;
-
-
-        countries.forEach(
-          function(item) {
-
-            const code =
-              String(
-                item.country || ""
-              ).toUpperCase();
-
-
-            const views =
-              Number(
-                item.views || 0
-              );
-
-
-            if (!code)
-              return;
-
-
-            values[code] = views;
-
-
-            totalViews += views;
-
-
-            if (views > topViews) {
-
-              topViews = views;
-
-              topCountry =
-                countryName(code);
-
-            }
-
-          }
+        console.log(
+          "2nforfun country API:",
+          data
         );
 
 
-        document.getElementById(
-          "geoCountries"
-        ).textContent =
-          countries.length
-            .toLocaleString(
-              "en-US"
-            );
-
-
-        document.getElementById(
-          "geoViews"
-        ).textContent =
-          totalViews.toLocaleString(
-            "en-US"
+        const values =
+          normalizeCountryData(
+            data
           );
 
 
-        document.getElementById(
-          "geoTop"
-        ).textContent =
-          topCountry;
+        updateGeoStats(
+          values
+        );
 
 
-        if (visitorMapInstance) {
-
-          visitorMapInstance.destroy();
-
-          visitorMapInstance = null;
-
-        }
-
-
-        mapElement.innerHTML = "";
-
-
-        visitorMapInstance =
-          new jsVectorMap({
-
-            selector:
-              "#visitorMap",
-
-            map:
-              "world",
-
-            backgroundColor:
-              "#dfefff",
-
-            zoomButtons:true,
-
-            zoomOnScroll:true,
-
-            zoomStep:1.4,
-
-            zoomMax:8,
-
-            zoomMin:1,
-
-            draggable:true,
-
-            showTooltip:true,
-
-            visualizeData:{
-
-              scale:[
-                "#ffd6d6",
-                "#700000"
-              ],
-
-              values:values
-
-            },
-
-            regionStyle:{
-
-              initial:{
-
-                fill:"#eeeeee",
-
-                stroke:"#777777",
-
-                strokeWidth:.5,
-
-                fillOpacity:1
-
-              },
-
-              hover:{
-
-                fill:"#00aa00",
-
-                fillOpacity:.9
-
-              }
-
-            },
-
-            onRegionTooltipShow:
-              function(
-                event,
-                tooltip,
-                code
-              ) {
-
-                const views =
-                  Number(
-                    values[
-                      String(code)
-                        .toUpperCase()
-                    ] || 0
-                  );
-
-
-                const name =
-                  countryName(
-                    code
-                  );
-
-
-                tooltip.text(
-                  name +
-                  " - " +
-                  views.toLocaleString(
-                    "en-US"
-                  ) +
-                  " views"
-                );
-
-              }
-
-          });
+        createVisitorMap(
+          values
+        );
 
       }
 
       catch(error) {
 
         console.error(
-          "Geographical map failed:",
+          "Geographical map failed to load:",
           error
         );
 
 
-        mapElement.textContent =
-          "Visitor map could not be loaded.";
+        if (
+          !visitorMapInstance
+        ) {
+
+          mapElement.textContent =
+            "Unable to load visitor map.";
+
+        }
 
       }
 
     }
 
 
+    /*
+     * Wait for DOM + external jsVectorMap assets.
+     */
+
     document.addEventListener(
       "DOMContentLoaded",
-      loadGeographicalViews
+      function() {
+
+        loadGeographicalViews();
+
+      }
     );
 
 
@@ -4965,33 +5633,45 @@
 
     async function renderTrafficGraph() {
 
-      const canvas =
+      const chartCanvas =
         document.getElementById(
           "trafficChart"
         );
 
 
-      if (!canvas)
+      if (!chartCanvas)
         return;
 
 
       try {
 
+        /*
+         * KEEPING THE 2NFORFUN API.
+         */
+
         const response =
           await fetch(
+
             ANALYTICS_WORKER +
             "/counts",
+
             {
+              method:"GET",
+
               cache:"no-store"
+
             }
+
           );
 
 
         if (!response.ok) {
 
           throw new Error(
-            "Traffic HTTP " +
+
+            "Traffic API returned HTTP " +
             response.status
+
           );
 
         }
@@ -5001,7 +5681,10 @@
           await response.json();
 
 
-        if (!liveData || !liveData.dates) {
+        if (
+          !liveData ||
+          !liveData.dates
+        ) {
 
           console.error(
             "No date data found to graph."
@@ -5016,51 +5699,78 @@
           liveData.dates;
 
 
-        const labels =
+        const sortedDates =
           Object.keys(
             dateStats
           ).sort();
 
 
-        const values =
-          labels.map(
-            date =>
-              Number(
-                dateStats[date] || 0
-              )
+        const viewCounts =
+          sortedDates.map(
+            function(date) {
+
+              return (
+                Number(
+                  dateStats[date]
+                ) || 0
+              );
+
+            }
           );
 
 
-        if (trafficChartInstance) {
+        const ctx =
+          chartCanvas.getContext(
+            "2d"
+          );
+
+
+        if (
+          trafficChartInstance
+        ) {
 
           trafficChartInstance.destroy();
+
+          trafficChartInstance =
+            null;
 
         }
 
 
+        /*
+         * This is the traffic graph style
+         * copied from the H.H.Roses version.
+         */
+
         trafficChartInstance =
           new Chart(
-            canvas.getContext("2d"),
+            ctx,
             {
 
               type:"line",
 
+
               data:{
 
-                labels:labels,
+                labels:
+                  sortedDates,
 
                 datasets:[{
 
-                  label:"Page Views",
+                  label:
+                    "Page Views",
 
-                  data:values,
+                  data:
+                    viewCounts,
 
-                  borderColor:"#00ff00",
+                  borderColor:
+                    "#00ff00",
 
                   backgroundColor:
-                    "rgba(0,255,0,.15)",
+                    "rgba(0, 255, 0, 0.15)",
 
-                  borderWidth:2,
+                  borderWidth:
+                    2,
 
                   pointBackgroundColor:
                     "#ffffff",
@@ -5068,11 +5778,14 @@
                   pointBorderColor:
                     "#00ff00",
 
-                  pointRadius:4,
+                  pointRadius:
+                    4,
 
-                  tension:.3,
+                  tension:
+                    .3,
 
-                  fill:true
+                  fill:
+                    true
 
                 }]
 
@@ -5081,39 +5794,57 @@
 
               options:{
 
-                responsive:true,
+                responsive:
+                  true,
 
-                maintainAspectRatio:false,
+                maintainAspectRatio:
+                  false,
 
-                color:"#00ff00",
+                color:
+                  "#00ff00",
+
 
                 scales:{
 
                   x:{
 
                     ticks:{
-                      color:"#00ff00"
+
+                      color:
+                        "#00ff00"
+
                     },
 
                     grid:{
+
                       color:
-                        "rgba(0,255,0,.2)"
+                        "rgba(0, 255, 0, 0.2)"
+
                     }
 
                   },
 
+
                   y:{
 
-                    beginAtZero:true,
+                    beginAtZero:
+                      true,
 
                     ticks:{
-                      color:"#00ff00",
-                      stepSize:1
+
+                      color:
+                        "#00ff00",
+
+                      stepSize:
+                        1
+
                     },
 
                     grid:{
+
                       color:
-                        "rgba(0,255,0,.2)"
+                        "rgba(0, 255, 0, 0.2)"
+
                     }
 
                   }
@@ -5127,11 +5858,14 @@
 
                     labels:{
 
-                      color:"#00ff00",
+                      color:
+                        "#00ff00",
 
                       font:{
+
                         family:
                           "'Courier New', Courier, monospace"
+
                       }
 
                     }
@@ -5150,7 +5884,7 @@
       catch(error) {
 
         console.error(
-          "Traffic graph failed:",
+          "Traffic graph failed to load:",
           error
         );
 
@@ -5161,14 +5895,18 @@
 
     document.addEventListener(
       "DOMContentLoaded",
-      renderTrafficGraph
+      function() {
+
+        renderTrafficGraph();
+
+      }
     );
 
-    setInterval(
-      renderTrafficGraph,
-      60000
-    );
 
+    /*
+     * Only ONE refresh interval.
+     * The previous file had this twice.
+     */
 
     setInterval(
       renderTrafficGraph,
