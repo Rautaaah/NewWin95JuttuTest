@@ -55,18 +55,15 @@
 
   <script
     src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.js"
-    defer
   ></script>
 
   <script
-    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.js"
-    defer
+    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.min.js"
   ></script>
 
   <!-- Traffic graph -->
   <script
     src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"
-    defer
   ></script>
 
 
@@ -4873,7 +4870,8 @@
 
   <script>
 
-    let visitorMapInstance = null;
+    let visitorMapInstance =
+      null;
 
 
     function countryName(code) {
@@ -4891,8 +4889,7 @@
 
         return (
           names.of(
-            String(code)
-              .toUpperCase()
+            String(code).toUpperCase()
           ) ||
           code
         );
@@ -4913,7 +4910,7 @@
       const values = {};
 
 
-      function add(code, amount) {
+      function add(code,amount) {
 
         if (!code)
           return;
@@ -4940,9 +4937,7 @@
 
 
         values[key] =
-          (
-            values[key] || 0
-          ) +
+          (values[key] || 0) +
           number;
 
       }
@@ -5279,7 +5274,7 @@
       return new Promise(
         function(resolve,reject) {
 
-          const started =
+          const start =
             Date.now();
 
 
@@ -5290,12 +5285,19 @@
                 if (
                   window.jsVectorMap &&
                   window.jsVectorMap.maps &&
-                  window.jsVectorMap.maps.world
+                  (
+                    window.jsVectorMap.maps.world ||
+                    window.jsVectorMap.maps.world_merc
+                  )
                 ) {
 
                   clearInterval(timer);
 
-                  resolve();
+                  resolve(
+                    window.jsVectorMap.maps.world
+                      ? "world"
+                      : "world_merc"
+                  );
 
                   return;
 
@@ -5304,7 +5306,7 @@
 
                 if (
                   Date.now() -
-                  started >
+                  start >
                   10000
                 ) {
 
@@ -5328,7 +5330,10 @@
     }
 
 
-    function createVisitorMap(values) {
+    function createVisitorMap(
+      values,
+      mapName
+    ) {
 
       const mapElement =
         document.getElementById(
@@ -5350,15 +5355,7 @@
 
         }
 
-        catch(error) {
-
-          console.warn(
-            "Could not destroy previous map:",
-            error
-          );
-
-        }
-
+        catch(error) {}
 
         visitorMapInstance =
           null;
@@ -5370,34 +5367,15 @@
         "";
 
 
-      if (
-        !window.jsVectorMap ||
-        !window.jsVectorMap.maps ||
-        !window.jsVectorMap.maps.world
-      ) {
-
-        mapElement.textContent =
-          "World map data failed to load.";
-
-        console.error(
-          "jsVectorMap world map is not available."
-        );
-
-        return;
-
-      }
-
-
       try {
 
         visitorMapInstance =
           new window.jsVectorMap({
 
-            selector:
-              "#visitorMap",
+            selector:"#visitorMap",
 
             map:
-              "world",
+              mapName,
 
             backgroundColor:
               "#4b7c9b",
@@ -5516,6 +5494,11 @@
 
         }
 
+
+        console.log(
+          "Geographical map rendered successfully."
+        );
+
       }
 
       catch(error) {
@@ -5548,12 +5531,8 @@
 
       try {
 
-        /*
-         * Wait until both the jsVectorMap core
-         * and world.js have registered themselves.
-         */
-
-        await waitForWorldMap();
+        const mapName =
+          await waitForWorldMap();
 
 
         const response =
@@ -5612,7 +5591,8 @@
 
 
         createVisitorMap(
-          values
+          values,
+          mapName
         );
 
       }
@@ -5659,164 +5639,88 @@
       null;
 
 
-    function extractTrafficDates(data) {
-
-      if (
-        !data ||
-        typeof data !== "object"
-      ) {
-
-        return null;
-
-      }
-
+    function getTrafficPoints(data) {
 
       /*
-       * Expected worker response:
+       * Exact 2nforfun response:
        *
        * {
-       *   dates: {
-       *     "2026-09-01": 5,
-       *     "2026-09-02": 8
-       *   }
-       * }
-       */
-
-
-      if (
-        data.dates &&
-        typeof data.dates === "object" &&
-        !Array.isArray(data.dates)
-      ) {
-
-        return data.dates;
-
-      }
-
-
-      /*
-       * Also support:
+       *   daily:[
+       *     {
+       *       day:"2026-09-11",
+       *       views:52
+       *     }
+       *   ],
        *
-       * {
-       *   traffic: {
-       *     dates: {...}
-       *   }
+       *   hourly:[
+       *     {
+       *       hour:"2026-09-11T16:00:00Z",
+       *       views:6
+       *     }
+       *   ]
        * }
-       */
-
-
-      if (
-        data.traffic &&
-        typeof data.traffic === "object"
-      ) {
-
-        if (
-          data.traffic.dates &&
-          typeof data.traffic.dates === "object"
-        ) {
-
-          return data.traffic.dates;
-
-        }
-
-
-        return data.traffic;
-
-      }
-
-
-      /*
-       * Also support:
        *
-       * {
-       *   data: {
-       *     dates: {...}
-       *   }
-       * }
+       * Use daily data when available.
        */
 
-
       if (
-        data.data &&
-        typeof data.data === "object"
+        data &&
+        Array.isArray(data.daily)
       ) {
 
-        if (
-          data.data.dates &&
-          typeof data.data.dates === "object"
-        ) {
+        return {
 
-          return data.data.dates;
+          type:"daily",
 
-        }
+          rows:
+            data.daily
+              .filter(
+                row =>
+                  row &&
+                  row.day !== undefined
+              )
+              .sort(
+                (a,b) =>
+                  String(a.day)
+                    .localeCompare(
+                      String(b.day)
+                    )
+              )
 
-
-        const nestedDates = {};
-
-
-        for (
-          const [key,value]
-          of Object.entries(data.data)
-        ) {
-
-          if (
-            /^\d{4}-\d{2}-\d{2}$/.test(key)
-          ) {
-
-            nestedDates[key] =
-              value;
-
-          }
-
-        }
-
-
-        if (
-          Object.keys(
-            nestedDates
-          ).length
-        ) {
-
-          return nestedDates;
-
-        }
+        };
 
       }
 
 
       /*
-       * Also support the dates being returned
-       * directly at the top level.
+       * Fall back to hourly data.
        */
 
-
-      const directDates = {};
-
-
-      for (
-        const [key,value]
-        of Object.entries(data)
-      ) {
-
-        if (
-          /^\d{4}-\d{2}-\d{2}$/.test(key)
-        ) {
-
-          directDates[key] =
-            value;
-
-        }
-
-      }
-
-
       if (
-        Object.keys(
-          directDates
-        ).length
+        data &&
+        Array.isArray(data.hourly)
       ) {
 
-        return directDates;
+        return {
+
+          type:"hourly",
+
+          rows:
+            data.hourly
+              .filter(
+                row =>
+                  row &&
+                  row.hour !== undefined
+              )
+              .sort(
+                (a,b) =>
+                  String(a.hour)
+                    .localeCompare(
+                      String(b.hour)
+                    )
+              )
+
+        };
 
       }
 
@@ -5826,40 +5730,44 @@
     }
 
 
-    function trafficValue(value) {
+    function formatTrafficLabel(
+      value,
+      type
+    ) {
 
       if (
-        typeof value === "number" ||
-        typeof value === "string"
+        type === "daily"
       ) {
 
-        return (
-          Number(value) ||
-          0
-        );
+        return String(value);
 
       }
 
 
+      const date =
+        new Date(value);
+
+
       if (
-        value &&
-        typeof value === "object"
+        Number.isNaN(
+          date.getTime()
+        )
       ) {
 
-        return Number(
-
-          value.views ??
-          value.count ??
-          value.total ??
-          value.value ??
-          0
-
-        ) || 0;
+        return String(value);
 
       }
 
 
-      return 0;
+      return date.toLocaleString(
+        undefined,
+        {
+          month:"2-digit",
+          day:"2-digit",
+          hour:"2-digit",
+          minute:"2-digit"
+        }
+      );
 
     }
 
@@ -5894,8 +5802,7 @@
 
         /*
          * IMPORTANT:
-         * The 2nforfun worker exposes /traffic,
-         * NOT /counts.
+         * 2nforfun exposes /traffic.
          */
 
         const response =
@@ -5936,48 +5843,54 @@
         );
 
 
-        const dateStats =
-          extractTrafficDates(
+        const traffic =
+          getTrafficPoints(
             liveData
           );
 
 
-        if (!dateStats) {
+        if (
+          !traffic ||
+          !traffic.rows.length
+        ) {
 
           throw new Error(
-            "The /traffic response did not contain usable date data."
+            "The /traffic endpoint returned no traffic data."
           );
 
         }
 
 
-        const sortedDates =
-          Object.keys(
-            dateStats
-          ).sort();
+        const labels =
+          traffic.rows.map(
+            function(row) {
 
+              return formatTrafficLabel(
 
-        const viewCounts =
-          sortedDates.map(
-            function(date) {
+                traffic.type === "daily"
+                  ? row.day
+                  : row.hour,
 
-              return trafficValue(
-                dateStats[date]
+                traffic.type
+
               );
 
             }
           );
 
 
-        if (
-          !sortedDates.length
-        ) {
+        const values =
+          traffic.rows.map(
+            function(row) {
 
-          throw new Error(
-            "The /traffic response contains no dates."
+              return (
+                Number(
+                  row.views
+                ) || 0
+              );
+
+            }
           );
-
-        }
 
 
         if (
@@ -5990,15 +5903,7 @@
 
           }
 
-          catch(error) {
-
-            console.warn(
-              "Could not destroy previous traffic chart:",
-              error
-            );
-
-          }
-
+          catch(error) {}
 
           trafficChartInstance =
             null;
@@ -6015,7 +5920,7 @@
         if (!ctx) {
 
           throw new Error(
-            "Could not get traffic chart canvas context."
+            "Could not get traffic chart canvas."
           );
 
         }
@@ -6034,7 +5939,7 @@
               data:{
 
                 labels:
-                  sortedDates,
+                  labels,
 
                 datasets:[{
 
@@ -6042,7 +5947,7 @@
                     "Page Views",
 
                   data:
-                    viewCounts,
+                    values,
 
                   borderColor:
                     "#00ff00",
@@ -6075,17 +5980,13 @@
 
               options:{
 
-                responsive:
-                  true,
+                responsive:true,
 
-                maintainAspectRatio:
-                  false,
+                maintainAspectRatio:false,
 
-                color:
-                  "#00ff00",
+                color:"#00ff00",
 
-                animation:
-                  false,
+                animation:false,
 
 
                 scales:{
@@ -6095,7 +5996,13 @@
                     ticks:{
 
                       color:
-                        "#00ff00"
+                        "#00ff00",
+
+                      maxRotation:
+                        45,
+
+                      minRotation:
+                        0
 
                     },
 
@@ -6111,8 +6018,7 @@
 
                   y:{
 
-                    beginAtZero:
-                      true,
+                    beginAtZero:true,
 
                     ticks:{
 
