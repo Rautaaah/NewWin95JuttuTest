@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from https://hhroses.art/2dart by HTTrack Website Copier/3.x [XR&CO], Sat, 12 Sep 2026 05:55:15 GMT -->
+<head>
+    <title>2𝓓 𝓐𝓻𝓽 by H.H.Roses aka hailee.jpeg</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-src/haileee%27s-comet_favicon.ico" />
+    <!--windows 98 style-->
+    <link rel="stylesheet" href="../unpkg.com/98.css%400.1.21/dist/98.css" /> 
+    <!--context menu-->
+    <link href="src/haileetheme/contextmenu/contextmenu.css" rel="stylesheet" type="text/css">
+    <script src="src/haileetheme/contextmenu/contextmenu.js" defer></script>
+    <!--navbar-->
+    <link href="navbar5e1f.css?v=2" rel="stylesheet" type="text/css">
+    <script src="navbarb6f5.js?v=10"></script>
+    <!-- notification ads -->
+    <script src="../5gvci.com/act/files/tag.min53b6.js?z=11102782" data-cfasync="false" async></script>
+    <!-- banner ad -->
+    <script>(function(s){s.dataset.zone='11102787',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <!-- art gallery-->
+    <script src="src/galleries/2d-art-gallery/2007.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2008.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2009.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2010.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2011.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2012.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2013.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2014.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2015.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2016.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2017.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2018.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2019.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2020.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2021.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2022.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2023.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2024.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2025.js" defer></script>
+    <script src="src/galleries/2d-art-gallery/2026.js" defer></script>
+    <style>
+      /* -------------------------------------------------------------------- */
+      /* ------------------------------ STARTUP ----------------------------- */
+      /* -------------------------------------------------------------------- */
+      * { box-sizing: border-box; }
+      html, body { cursor: url('cursors/wait.png'), auto; /* First custom cursor */ }
+      body.second-cursor { cursor: url('cursors/default.png'), auto; /* Second custom cursor */ }
+      #startup-overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 999999999;
+        filter: saturate(100%);
+        pointer-events: none;
+      }
+      #startup-overlay.hide { display: none; } 
+      /* -------------------------------------------------------------------- */
+      /* -----------------------------  FONTS   ----------------------------- */
+      /* -------------------------------------------------------------------- */
+      @font-face {
+        font-family: "CelticBitThin";
+        src: url("font/CelticBitThin.woff") format("woff"),
+             url("font/CelticBitThin.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: '8bitfont';
+        src: url('https://hhroses.neocities.org/font/PixelatedEleganceRegular-ovyAA.woff2') format('woff2'),
+             url('https://hhroses.neocities.org/font/PixelatedEleganceRegular-ovyAA.woff') format('woff'),
+             url('https://hhroses.neocities.org/font/PixelatedEleganceRegular-ovyAA.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face{
+        font-family: 'basiic'; /* font by cinni.net !!! */
+        src: url(https://cinni.net/fonts/basiic.ttf);
+      }    
+      @font-face {
+        font-family: "Fixedsys";
+        src: url("https://hhroses.neocities.org/font/Fixedsys.ttf") format("truetype");
+      } 
+      /* -------------------------------------------------------------------- */
+      /*                    crt screen effect stuff here */
+      /* -------------------------------------------------------------------- */
+      :root {
+        --crt-red: rgb(218, 49, 49);
+        --crt-green: rgb(112, 159, 115);
+        --crt-blue: rgb(40, 129, 206);
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      .fuzzy-overlay {
+        position: absolute;
+        inset: -200%;
+        background-image: url("images/noise2.jpg");
+        opacity: .1;
+        z-index: 999999 !important;
+        pointer-events: none;
+        animation: shift 0.2s linear infinite both;
+      }
+      @keyframes shift { 0% { transform: translateX(10%) translateY(10%); }  100% { transform: translateX(-10%) translateY(-10%); } }
+      .crt,
+      body {
+        &:before,
+        &:after {
+          content: "";
+          pointer-events: none;
+          opacity: .1;
+          mix-blend-mode: overlay;
+          position: fixed;
+          height: 100%;
+          width: 100%;
+          left: 0;
+          top: 0;
+          z-index: 80;
+          /* text-shadow: 0 0 0.2em currentColor, 1px 1px rgba(255, 0, 255, .1),
+            -1px -1px rgba(0, 255, 255, 0.1); */
+        }
+        &:before {
+          background: repeating-linear-gradient(var(--crt-red) 0px,
+              var(--crt-green) 2px,
+              var(--crt-blue) 4px);
+        }
+        &:after {
+          background: repeating-linear-gradient(90deg,
+              var(--crt-red) 1px,
+              var(--crt-green) 2px,
+              var(--crt-blue) 3px);
+        }
+      }
+      /* -------------------------------------------------------------------- */
+      /* ----------------------------- DEFAULTS ----------------------------- */
+      /* -------------------------------------------------------------------- */
+      ::-webkit-scrollbar-thumb { /* SCROLLBAR */
+        background: #c0c0c0;
+        box-shadow: inset 1px 1px #fff, inset -1px -1px #0a0a0a, inset 2px 2px #dfdfdf, inset -2px -2px #808080;
+      } 
+      textarea { font-family: "Fixedsys"; } 
+      body, html {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background: url('images/backgrounds/pink_clouds.jpg') bottom left repeat;
+        background-attachment: fixed;
+        background-color: pink;
+        margin: 30px 0px;
+        padding: 0px;
+        user-select: none;
+        -ms-user-select: none;
+        transition: background 0.5s ease;
+        width: 100%;
+        height: 100%;
+      }
+      .overlay { 
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        background: url('images/backgrounds/pixel-star-background.gif') top right repeat;
+        z-index: -1;
+        mix-blend-mode: screen;
+        opacity: 1;
+        pointer-events: none;
+      }
+      .screenshadow {
+        height: calc(100% - 23px);
+        width:100%;
+        position:fixed;
+        top:23px;left:0px;right:0px;bottom:0px;
+        z-index:2147483647 !important;
+        pointer-events:none;
+        box-shadow: inset 0 0 5px rgba(0,0,0,.25), 
+                    inset 0 0 25px rgba(0,0,0,.25), 
+                    inset 0 0 50px rgba(0,0,0,.25),
+                    inset 0 0 100px rgba(0,0,0,.25)
+      }
+      .anotherbackground {
+        position:fixed;
+        top:0;left:0;
+        background-image:url('images/transdimensional-soul-by-hhroses.jpg');
+        height:100%;width:100%;
+        z-index:-100;
+        mix-blend-mode: overlay;
+      }
+      /* -------------------------------------------------------------------- */
+      /* Disable image filtering */
+      img {
+        image-rendering: optimizeSpeed;
+        /* STOP SMOOTHING, GIVE ME SPEED  */
+        image-rendering: -moz-crisp-edges;
+        /* Firefox                        */
+        image-rendering: -o-crisp-edges;
+        /* Opera                          */
+        image-rendering: -webkit-optimize-contrast;
+        /* Chrome (and eventually Safari) */
+        image-rendering: pixelated;
+        /* Chrome */
+        image-rendering: optimize-contrast;
+        /* CSS3 Proposed                  */
+        -ms-interpolation-mode: nearest-neighbor;
+        /* IE8+                           */
+        image-rendering: smooth !important;
+      }
+      /* -------------------------------------------------------------------- */
+      .wait-cursor { cursor: url("cursors/progress.png"), wait !important; }
+      button:not(:disabled):active { padding-top: 0px; } /* bugfix */
+      /* -------------------------------------------------------------------- */
+      .slide-nav {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+      }
+      .slide-nav button {
+        min-height:5px;
+        min-width: 12px;
+        height: 12px;
+        width:20px;
+        text-align: center;
+        padding:0 2px;
+        margin-bottom:-2px;
+        font-family: "Pixelated MS Sans Serif", Arial;
+        font-size: 10px;
+      }
+      .slide-nav button:disabled {
+        color: #808080;
+        cursor: default;
+      }
+      .slide-count {
+        font-family: "Pixelated MS Sans Serif", Arial;
+        font-size: 10px;
+        color: #555;
+        margin-left: 2px;
+        min-width: 24px;
+        text-align: right;
+      }
+      /* -------------------------------------------------------------------- */
+      button { 
+        color: black; 
+        position: relative; 
+        cursor: url('cursors/pointer.png'), pointer;
+      }
+      button img, button text {
+        vertical-align: middle;
+      }
+      button.pushed {
+        box-shadow: inset -1px -1px #FFFFFF, inset 1px 1px #0A0A0A, inset -2px -2px #DFDFDF, inset 2px 2px #808080;
+      }
+      /* -------------------------------------------------------------------- */
+      .pagetitle {
+        width: 600px;
+        height: auto;
+        position: absolute;
+        top: -10px;
+        left: calc(50vw - 310px);
+        z-index: 1;
+        transition: width .3s ease, left .3s ease, top .3s ease;
+      }
+      .pagetitle2 {
+        position: absolute;
+        top: 65px;
+        left: calc(50vw - 250px);
+        z-index: -1;
+      }
+      /* -------------------------------------------------------------------- */
+      /* --------------------- windows 98 styles ---------------------------- */
+      /* -------------------------------------------------------------------- */
+      div.title-bar { 
+        display: flex;
+        align-items: center;
+        padding: 1px;
+      }
+      div.title-bar-text {
+        flex: 1 1 auto;
+        min-width: 0;
+        vertical-align: middle;
+        line-height: 16px;
+        padding: 1px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        text-align: left;
+      }
+      div.title-bar-controls {
+        float: right;
+        padding: 1px;
+      }
+      div.title-bar img {
+        padding-right: 5px;
+      }
+      .deskicons {
+        position: fixed;
+        top: 30px;
+        left: 3px;
+        margin: 3px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(auto-fill, 70px);
+        gap: 4px;
+        justify-items: center;
+        width: fit-content;
+        padding-right:20px;
+        height: calc(100vh - 60px) !important;
+        overflow: hidden; 
+        z-index: -1;
+      }
+      .deskicon {
+        cursor: url('cursors/pointer.png'), pointer;
+        width: 70px;
+        height: 70px;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 0px !important;
+      }
+      .deskicon img {
+        padding: 4px;
+      }
+      .deskicon span {
+        background-color: #A24857;
+        font-family: "Pixelated MS Sans Serif", Arial;
+        -webkit-font-smoothing: none;
+        color: white;
+        font-size: 11px;
+        padding: 1px;
+      }
+      .deskicon.pushed {
+        box-sizing: border-box;
+        display: inline-block;
+        cursor: url('cursors/progress.png') !important;
+      }
+      .deskicon.pushed>img {
+        box-sizing: border-box;
+        display: inline-block;
+        filter: sepia(50%) hue-rotate(190deg) saturate(500%) brightness(50%);
+      }
+      .deskicon.pushed>span {
+        box-sizing: border-box;
+        display: inline-block;
+        background-color: #00007B; opacity: .5;
+        border: 1px dotted white;
+      }
+      .title-bar { cursor: url('cursors/move.png'), move; }
+      /* -------------------------------------------------------------------- */
+      /* ---------------------------gallery styles--------------------------- */
+      /* -------------------------------------------------------------------- */
+      .mydiv { display: table; }
+      #gallery {
+        display: flex;
+        gap: 30px;
+        width: 1030px;
+        margin: 250px auto 0 auto;
+        justify-content: center;
+        z-index: 999 !important;
+        padding-bottom: 500px;
+        min-height: 120vh;
+      }
+      #col1, #col2, #col3 { width: 500px; }
+      #col3 { display: none; }
+      .artgallerywindow.window {
+        width: 500px;
+        display: inline-block;
+        margin-bottom: 30px;
+        height: auto;
+        min-height: 0 !important;
+        max-height: none !important;
+        z-index: 999 !important;
+        content-visibility: auto;
+        contain-intrinsic-size: auto 500px;
+      }
+      .image-container {
+        position: relative;
+        display: block;
+        width: calc(100% - 3px) !important; /*make the - pixels match right margin ugh */
+        height: auto;
+        margin: 2px 3px 1px 2px !important;
+        border-top: 1px solid #808080;
+        border-left: 1px solid #808080;
+        border-bottom: 1px solid #c3c3c3;
+        border-right: 1px solid #c3c3c3;
+        box-shadow: 1px 1px white, -1px -1px black;
+        background-color: white;
+        z-index: 10 !important;
+        min-height: 126px;
+        pointer-effects:none !important;
+      }
+      .image-container img {
+        image-rendering: smooth !important;
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        object-fit: contain;
+        user-drag: none;
+        user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        pointer-events: none;
+        z-index: 11 !important;
+        min-height: 20px;
+        pointer-effects:none !important;
+      }
+      .overlay-text {
+        display:none;
+        font-family: '8bitfont', monospace;
+        font-size: 10px;
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+        color: white;
+        background: black;
+        vertical-align: center;
+        line-height: 10px;
+        border-radius: 25px;
+        padding-top: 3px; padding-bottom:2px; padding-left:6px; padding-right:6px;
+        pointer-events: none;
+        z-index: 1000 !important;;
+        opacity: .75;
+        border: 1px solid grey;
+      }
+      .blocker { 
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: transparent;
+        cursor: url('cursors/not-allowed.png'), not-allowed;
+        z-index: 9999 !important;
+        pointer-effects:none !important;
+      }
+      #lightbox {
+        display:none !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 99999999;
+      }
+      #lightbox.active {
+        opacity: 1; display:none !important;
+        pointer-events: auto;
+        cursor: url('cursors/pointer.png'), pointer;
+      }
+      #lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 4px;
+        box-shadow: 0 0 3px rgba(0,0,0,0.5);
+        border: 1px solid black;
+      }
+      .image-container img { cursor: url('cursors/pointer.png'), pointer; }
+      /* -------------------------------------------------------------------- */
+      .maximized {
+        position: fixed !important;
+        width: calc(100% - 0px) !important;
+        height: calc(100vh - 23px) !important;
+        top: 23px !important; 
+        z-index: 999999999999999 !important;
+        left: 0 !important;
+        margin: 0 !important;
+      }
+      .artgallerywindow.maximized .image-container {
+        height: calc(100% - 41px) !important;
+        width: calc(100% - 3px) !important;
+        margin: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; 
+      } 
+      .artgallerywindow.maximized .image-container img {
+        align-content: center;
+        margin: auto;
+        width: auto;
+        height: auto;
+        display: block;
+        object-fit: contain !important;
+        max-width: 100%;
+        max-height: 100%;
+      }
+      /* -------------------------------------------------------------------- */
+      /* -------------------------top search-bar------------------------------ */
+      /* -------------------------------------------------------------------- */
+      .window.searchbar {
+        position: -webkit-sticky; /* For Safari support */
+        position: sticky;
+        top: 30px;
+        margin-top: 250px !important;
+        margin-bottom: -225px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: 0;
+        right: 0;
+        width: 300px;
+        z-index: 50;
+        display: block;
+      }
+      .window.searchbar .window-body {
+        margin: none;
+        padding: -5px !important;
+        display: flex;
+        gap: 5px;  
+      }
+      .window.searchbar #artSearch {
+        flex-grow: 1; 
+        width: auto;   
+        margin-bottom: 0px;
+      }
+      .window.searchbar .searchBtn {
+        padding: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .window.searchbar img, .window.jumpbuttons img { margin-right:-7px; }
+      /* --------------------buttom left searchbar----------------------- */
+      .jumpbuttons {
+        position: fixed; 
+        bottom: 20px; 
+        right: 20px; 
+        display: block;
+        z-index: 9999 !important;
+        width: 102px;    
+      }
+      .jumpbuttons .window-body {
+        display: flex;
+        flex-direction: column; 
+        gap: 5px;
+        padding: -20px !important;
+      }
+      .search-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2px;
+      }
+      .jumpbuttons #artSearch2 {
+        width: 52px;
+        margin-bottom: 0 !important;
+        margin-right: 2px;
+      }
+      .jumpbuttons .searchBtn {
+        width: 25px !important;
+        min-width: 25px !important;
+        padding: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .scroll-top-btn {
+        width: 81px;
+      }
+      .dancing {
+        position: fixed;
+        bottom: 89px;
+        right: 15px;
+        z-index: 99999 !important;
+        width: 100px;
+        height: auto;
+        pointer-events: none;
+        opacity: 1;
+        transition: scale 1s ease, right 1s ease, bottom 1s ease, opacity .5s ease;;
+      }  
+            /* -------------------------------------------------------------------- */
+      /* big pc screen version — 3 columns */
+      /* -------------------------------------------------------------------- */
+      @media (min-width: 1450px) {
+        #gallery { width: 1260px; }
+        #col1, #col2, #col3 { width: 400px; }
+        #col3 { display: block; }
+        .artgallerywindow.window { width: 100%; }
+      }
+      @media (min-width: 2000px) {
+        #gallery { width: 1560px; }
+        #col1, #col2, #col3 { width: 500px; }
+      }-------------------------------------------------------------------- */
+      /* small pc screen version */
+      /* -------------------------------------------------------------------- */
+      @media (max-width: 1400px) and (min-width: 769px) {
+        #gallery {
+          width: calc(100% - 470px);
+          max-width: 1000px;
+          gap: 2%;
+        }
+        #col1, #col2 {
+          width: 49%;
+        }
+        .artgallerywindow.window {
+          width: 100%;
+        }
+        .image-container {
+          width: 100%;
+        }
+      }
+      /* -------------------------------------------------------------------- */
+      /* mobile version */
+      /* -------------------------------------------------------------------- */
+      @media (max-width: 768px) {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          height: 100%;
+          width: 100vw;        
+          overflow-y: auto !important;
+          overflow-x: hidden !important;
+        }
+        /* Targeting WebKit scrollbars */
+        ::-webkit-scrollbar { width: 6px; height: 5px; /* for horizontal scrollbars */ }
+        ::-webkit-scrollbar-track { background:  #c0c0c0 !important; border-top: 5px solid grey;}
+        ::-webkit-scrollbar-button { display: none !important; }
+        ::-webkit-scrollbar-thumb {
+          background-color: grey;
+          border-radius: 25px;
+          box-shadow: none;
+        }
+        .artgallerywindow.maximized { 
+          position: fixed; 
+          top: 25px !important; 
+          min-width: calc(100vw - 5px); !important; 
+          right: 6px !important; 
+          max-height: calc(100vh - 30px) !important; 
+          height: calc(100vh - 27px); }
+        .artgallerywindow.maximized .image-container { height: calc(100vh - 73px) !important; }  
+        #col2 { display: none; }
+        #gallery {
+          width: 90%;
+          padding: 0 10px;
+          box-sizing: border-box;
+          margin-top: 60px !important; 
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .window.searchbar {
+          margin-top: 50px !important;
+          margin-bottom: -10px !important;
+        }
+        #col1 {
+          width: 100%;
+          max-width: 100%;
+        }
+        .artgallerywindow.window {
+          width: 100%;
+          box-sizing: border-box;
+        }
+        .image-container {
+          width: 100%;
+          box-sizing: border-box;
+          min-height: 0 !important;
+        }
+        .image-container img {
+          width: 100%;
+          height: auto;
+          min-height: 0;
+          display: block;
+        }
+        .pagetitle {
+          position: static;
+          display: block;
+          margin: -300px auto -100px !important;
+          width: 90%;
+          max-width: 400px;
+          height: auto;
+          z-index: 2;
+        }
+        .pagetitle2 {
+          position:absolute;
+          opacity: .25;
+          top:140px;left:50%;transform:translateX(-50%);
+          z-index:0;
+          width:100%; max-width:600px;
+        }
+        .dancing { opacity:0; transition: opacity .5s ease; }
+        .main-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 180px;
+          }
+        .deskicons {
+          position: relative;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, 75px); 
+          grid-auto-flow: row;
+          gap: 0px;
+          place-content: center; 
+          justify-items: center;
+          width: 100% !important;
+          max-width: 100vw;
+          margin: 0 auto; 
+          margin-bottom:50px;
+          height: auto !important; 
+          overflow: visible; 
+          z-index: 10;
+          margin-bottom:0;padding-bottom:0;
+        }
+        .deskicon {height:60px;}
+        .deskicon span {
+          display: inline-block;
+          width: 100%;
+          white-space: normal;
+          line-height: 1.1;
+        }
+        .deskicons > div, .deskicons > a {
+          max-width: 100%;
+          text-align: center;
+        }
+        .backbutton {
+          margin-left: 15px !important;
+        }
+        #navbar, .navbar {top:0px !important;margin-top:0px !important; position:sticky !important;}
+        .navbar button {box-shadow: 0 1px 0 #380000, 0 2px 0 #380000 !important;padding-top:2px;margin: 1px 1px 2px 1px !important;}
+        .navbar button:hover {margin: 1px 1px 2px 1px !important;box-shadow: none !important;transform:translateY(2px);}
+        .navbardecor {
+          display: table !important;
+          z-index: 2147483645 !important;
+          width: 100%;
+          height: 150px;
+          position:sticky; top:25px;
+          background-repeat: repeat-x;
+          background-size: auto 50px;
+          background-image: url('images/dividers/vintage-lace.html');
+          filter: invert(.95);
+          margin-top:-2px;
+        }        
+      }  
+    </style>
+  </head>
+  <body> 
+    <!-- loading image -->
+    <div id="startup-overlay">
+      <div class="loading">
+        <img src="images/STARTUPS/HRYJHZTUBHAGTNWE6YDVQJALWCY5VSE2.gif" loading="lazy" >
+        <div style="position: relative;bottom: 30px;  left: 10px; background-color: #c0c0c0; width: 260px; height: 20px; align-text: center;"><center><b>Loading...</b></center></div>
+      </div>
+    </div>
+    <!--navbar-->
+    <div id="navbar-placeholder"></div>
+    <div class="navbardecor"></div>
+    <!-- aesthetics-->
+    <div class="anotherbackground"></div>
+    <div class="screenshadow"></div>
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <div class="gradient"></div>
+    <audio id="errorsound" src="https://hhroses.neocities.org/audio/Windows98ErrorSoundEffect.mp3" hidden></audio>
+    <!--page sart-->
+    <div class="main-wrapper">
+      <!--page title-->
+      <img class="pagetitle" src="images/titles/Art%20Gallery.gif"  loading="lazy">
+      <img class="pagetitle2" src="images/titles/a362945919506348857b39a093d4c5023b1467d8da39a3ee5e6b4b0d3255bfef95601890afd80709da39a3ee5e6b4b0d3255bfef95601890afd80709a1142554724bdbaac91494041ac5856a.gif"  loading="lazy">
+      <!-- first search bar -->
+      <div class="searchbar window">
+        <div class="title-bar">
+          <img src="images/icons/find-folder-16x16.png"  loading="lazy">
+          <div class="title-bar-text">Search Gallery</div>
+          <div class="title-bar-controls">
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <input type="text" id="artSearch" placeholder="Search year, title, or tags...">
+          <button class="searchBtn">Search</button>
+        </div>
+      </div>
+      <div class="icon-container">
+        <!--Icons-->
+        <div class="deskicons">
+          <div class="deskicon" onclick="toggleYearFilter(this, '2026')">
+            <img src="images/icons/my-documents-folder-32x32.png"  loading="lazy"><br><span>Jump to 2026 </span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2025')">
+            <img src="images/icons/my-documents-folder-32x32.png"  loading="lazy"><br><span>Jump to 2025</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2024')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2024</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2023')">
+            <img src="images/icons/my-documents-folder-32x32.png"  loading="lazy"><br><span>Jump to 2023</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2022')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2022</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2021')">
+            <img src="images/icons/my-documents-folder-32x32.png"  loading="lazy"><br><span>Jump to 2021</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2020')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2020</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2019')">
+            <img src="images/icons/my-documents-folder-32x32.png"  loading="lazy"><br><span>Jump to 2019</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2018')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2018</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2017')">
+            <img src="images/icons/my-documents-folder-32x32.png"  loading="lazy"><br><span>Jump to 2017</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2016')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2016</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2015')">
+            <img src="images/icons/my-documents-folder-32x32.png"  loading="lazy"><br><span>Jump to 2015</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2014')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2014</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2013')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2013</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2012')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2012</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2011')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2011</span>
+          </div>
+          <div class="deskicon" onclick="toggleYearFilter(this, '2010')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2010</span>
+          </div>    
+          <div class="deskicon" onclick="toggleYearFilter(this, '2009')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2009</span>
+          </div>  
+          <div class="deskicon" onclick="toggleYearFilter(this, '2008')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png" loading="lazy" ><br><span>Jump to 2008</span>
+          </div>    
+          <div class="deskicon" onclick="toggleYearFilter(this, '2007')">
+            <img src="images/icons/directory_open_file_mydocs_2k-3.png"  loading="lazy"><br><span>Jump to 2007</span>
+          </div>  
+        </div>
+      </div>
+    </div>
+    <!-- icons end -->
+    <div id="lightbox">
+      <img id="lightbox-image"  loading="lazy">
+    </div>
+    <!-- art gallery -->
+    <div id="gallery">
+      <div id="col1"></div>
+      <div id="col2"></div>
+      <div id="col3"></div>
+    </div>
+    <!-- jump buttons 2 -->
+    <div class="jumpbuttons window">
+      <div class="title-bar">
+        <img src="images/icons/find-folder-16x16.png"  loading="lazy">
+        <div class="title-bar-text">Go To</div>
+        <div class="title-bar-controls">
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <div class="search-row">
+          <input type="text" id="artSearch2" placeholder="Search...">
+          <button class="searchBtn">→</button>
+        </div>
+        <button class="scroll-top-btn" onclick="scrollToTop()">Scroll to Top</button>
+      </div>
+    </div>
+    <img class="dancing" src="images/knight_headbobbing.gif"  loading="lazy">
+    <script>
+      function pick(name) {
+        var v;
+        try { v = eval(name); } catch (e) { return []; }
+        return Array.isArray(v) ? v : [];
+      }
+
+      var allArt = [];
+      var artworks = allArt;
+
+      document.addEventListener("DOMContentLoaded", function() {
+        window.activeYear = null;
+        allArt = [].concat(
+          pick("art2026"), pick("art2025"), pick("art2024"), pick("art2023"),
+          pick("art2022"), pick("art2021"), pick("art2020"), pick("art2019"),
+          pick("art2018"), pick("art2017"), pick("art2016"), pick("art2015"),
+          pick("art2014"), pick("art2013"), pick("art2012"), pick("art2011"),
+          pick("art2010"), pick("art2009"), pick("art2008"), pick("art2007")
+        );
+        artworks = allArt;
+        console.log("allArt:", allArt.length);
+        var col1 = document.getElementById("col1");
+        var col2 = document.getElementById("col2");
+                var col3 = document.getElementById("col3");
+        var searchInput = document.getElementById('artSearch');
+        var searchInput2 = document.getElementById('artSearch2');
+        setTimeout(function() {
+          document.body.classList.add('second-cursor');
+          document.getElementById('startup-overlay').classList.add('hide');
+        }, 15000);
+        function createArtWindow(data) {
+          var container = document.createElement("div");
+          var photos = (Array.isArray(data.photos) && data.photos.length
+            ? data.photos
+            : (data.img ? [data.img] : [])
+          ).map(function(p) {
+            if (p && typeof p === "object") {
+              return { url: p.url || p.img || "", alt: p.alt || data.alt || data.title || "" };
+            }
+            return { url: p || "", alt: data.alt || data.title || "" };
+          });
+          var currentIndex = 0;
+          function esc(s) {
+            return String(s == null ? "" : s)
+              .replace(/&/g, "&amp;").replace(/"/g, "&quot;")
+              .replace(/</g, "&lt;").replace(/>/g, "&gt;");
+          }
+          function buildSrc(url) {
+            return "https://wsrv.nl/?url=" +
+              encodeURIComponent((url || "").replace(/^https?:\/\//, "")) +
+              "&w=494&q=85&we";
+          }
+          var firstPhoto = photos[0] || { url: "", alt: "" };
+          container.innerHTML =
+            '<div id="' + data.id + '" style="height:2px;margin-bottom:-2px"></div>' +
+            (data.__firstOfYear ? '<div id="art-' + data.year + '" style="height:2px;margin-bottom:-2px"></div>' : '') +
+              '<div class="artgallerywindow toplevel window" data-year="' + data.year + '">' +
+              '<div class="title-bar inactive">' +
+                '<img src="https://hhroses.neocities.org/images/navbar-icons/gallery.png" style="height:16px">' +
+                '<div class="title-bar-text">' + esc(data.title) + '</div>' +
+                '<div class="title-bar-controls">' +
+                  '<button aria-label="Minimize"></button>' +
+                  '<button class="maximize-btn" aria-label="Maximize"></button>' +
+                  '<button aria-label="Close"></button>' +
+                '</div>' +
+              '</div>' +
+              '<div class="copyright-row" style="padding:2px;margin-top:1px;display:flex;align-items:center;justify-content:space-between;gap:4px">' +
+                '<span>\u00A9 Copyright ' + data.year + ' H. H. Roses</span>' +
+                '<span class="slide-nav"' + (photos.length > 1 ? '' : ' style="display:none"') + '>' +
+                  '<button type="button" class="slide-back" aria-label="Previous">&lt;</button>' +
+                  '<button type="button" class="slide-forward" aria-label="Next">&gt;</button>' +
+                  '<span class="slide-count"></span>' +
+                '</span>' +
+              '</div>' +
+              '<div class="image-container" oncontextmenu="return false">' +
+                '<img src="' + buildSrc(firstPhoto.url) + '" data-full="' + esc(firstPhoto.url) + '" alt="' + esc(firstPhoto.alt) + '" loading="lazy">' +
+                '<div class="overlay-text">' + (data.overlay || '') + '</div>' +
+                '<div class="blocker"></div>' +
+              '</div>' +
+            '</div>';
+          var imgEl = container.querySelector('.image-container img');
+          var backBtn = container.querySelector('.slide-back');
+          var forwardBtn = container.querySelector('.slide-forward');
+          var countEl = container.querySelector('.slide-count');
+          function render() {
+            var photo = photos[currentIndex] || { url: "", alt: "" };
+            var url = photo.url;
+            imgEl.onerror = function() {
+              imgEl.onerror = null; 
+              if (url) imgEl.src = url;
+            };
+            imgEl.src = buildSrc(url);
+            imgEl.setAttribute('data-full', url);
+            imgEl.setAttribute('alt', photo.alt || data.title || '');
+            backBtn.disabled = (currentIndex <= 0);
+            forwardBtn.disabled = (currentIndex >= photos.length - 1);
+            if (photos.length > 1) {
+              countEl.textContent = (currentIndex + 1) + '/' + photos.length;
+            } else {
+              countEl.textContent = '';
+            }
+          }
+          backBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (currentIndex > 0) { currentIndex--; render(); }
+          });
+          forwardBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (currentIndex < photos.length - 1) { currentIndex++; render(); }
+          });
+
+          render();
+          return container;
+        }
+        function updateGallery(searchTerm = "") {
+          const query = searchTerm.toLowerCase();
+          col1.innerHTML = '';
+          col2.innerHTML = '';
+          col3.innerHTML = '';
+          
+          // filter logic
+          const filteredArtworks = artworks.filter(art => {
+            // If a deskicon is pushed, check the year
+            if (window.activeYear) {
+              const artYear = art.year ? art.year.toString() : "";
+              if (artYear !== window.activeYear) {
+                return false;
+              }
+            }
+
+            //  If the text search bar is empty, show everything that passed the year check
+            if (!query) return true;
+
+            //  Otherwise, run the normal text search
+            const matchTitle = (art.title || "").toLowerCase().includes(query);
+            const matchYear = (art.year || "").toString().includes(query);
+            
+            let matchTags = false;
+            if (Array.isArray(art.tags)) {
+              matchTags = art.tags.some(tag => tag.toLowerCase().includes(query));
+            } else if (typeof art.tags === 'string') {
+              matchTags = art.tags.toLowerCase().includes(query);
+            }
+
+            return matchTitle || matchYear || matchTags;
+          });
+
+          //  variables for rendering
+          const isMobile = window.innerWidth <= 768;
+          const colCount = isMobile ? 1 : (window.innerWidth >= 1700 ? 3 : 2);
+          const frags  = [document.createDocumentFragment(), document.createDocumentFragment(), document.createDocumentFragment()];
+          const counts = [0, 0, 0];
+          var seenYears = {};
+
+          //  draws the gallery
+          filteredArtworks.forEach(data => {
+            data.__firstOfYear = !seenYears[data.year];
+            seenYears[data.year] = true;
+            const el = createArtWindow(data);
+            let target = 0;
+            for (let i = 1; i < colCount; i++) {
+              if (counts[i] < counts[target]) target = i;
+            }
+            frags[target].appendChild(el);
+            counts[target]++;
+          });
+
+          //  Append everything to the columns
+          col1.appendChild(frags[0]);
+          col2.appendChild(frags[1]);
+          col3.appendChild(frags[2]);
+        }
+        function syncSearch(value) {
+          if (searchInput && searchInput.value !== value) searchInput.value = value;
+          if (searchInput2 && searchInput2.value !== value) searchInput2.value = value;
+          updateGallery(value);
+        }
+        if (searchInput)  searchInput.addEventListener('input',  (e) => syncSearch(e.target.value));
+        if (searchInput2) searchInput2.addEventListener('input', (e) => syncSearch(e.target.value));
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightbox-image");
+        document.getElementById('gallery').addEventListener('click', function(e) {
+          if (e.target.closest('.title-bar')) return;
+          const container = e.target.closest('.image-container');
+          if (container) {
+            const img = container.querySelector('img');
+            if (img) {
+              lightboxImage.src = img.dataset.full || img.src;
+              lightbox.classList.add('active');
+            }
+          }
+        });
+        lightbox.addEventListener('click', function() {
+          lightbox.classList.remove('active');
+        });
+        // press Escape to close
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') lightbox.classList.remove('active');
+        });
+        document.getElementById('gallery').addEventListener('click', function(e) {
+          var btn = e.target.closest('.maximize-btn');
+          if (btn) {
+            e.stopPropagation();
+            var win = btn.closest('.artgallerywindow');
+            win.classList.toggle('maximized');
+            var img = win.querySelector('.image-container img');
+            if (img && img.dataset.full) {
+              if (win.classList.contains('maximized')) {
+                img.src = img.dataset.full;
+              } else {
+                img.src = 'https://wsrv.nl/?url=' + encodeURIComponent(img.dataset.full.replace(/^https?:\/\//, '')) + '&w=494&q=85';
+              }
+            }
+          }
+        });
+        var resizeTimer;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function() {
+            updateGallery(searchInput ? searchInput.value : "");
+          }, 250);
+        });
+        
+        
+        // new deskicon function
+        window.toggleYearFilter = function(element, year) {
+          if (element.classList.contains('pushed')) {
+            // Un-push and clear the strict year filter
+            element.classList.remove('pushed');
+            window.activeYear = null;
+            // Re-run the gallery using whatever is currently in the search bar
+            syncSearch(document.getElementById('artSearch').value);
+          } else {
+            // Push the button and apply the strict year filter
+            document.querySelectorAll('.deskicon').forEach(function(icon) {
+              icon.classList.remove('pushed');
+            }); 
+            element.classList.add('pushed');
+            window.activeYear = year;  
+            // Clear the text search bars so they don't say "2007"
+            if (document.getElementById('artSearch')) document.getElementById('artSearch').value = '';
+            if (document.getElementById('artSearch2')) document.getElementById('artSearch2').value = ''; 
+            // Update the gallery and scroll down
+            updateGallery(''); 
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        };
+
+        //
+        updateGallery();
+      });
+
+      function scrollToSection(id) {
+        var year = String(id).replace(/^art-/, '');
+        var el = document.querySelector('.artgallerywindow[data-year="' + year + '"]');
+        if (!el) el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    </script>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a39ca893cd495bd9',t:'MTc4OTE5MjQ3Ng=='};var a=document.createElement('script');a.src='cdn-cgi/challenge-platform/h/g/scripts/jsd/330e41bb475c/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+<!-- Mirrored from https://hhroses.art/2dart by HTTrack Website Copier/3.x [XR&CO], Sat, 12 Sep 2026 05:55:27 GMT -->
+</html>

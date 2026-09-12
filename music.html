@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from https://hhroses.art/music by HTTrack Website Copier/3.x [XR&CO], Sat, 12 Sep 2026 05:56:35 GMT -->
+<head>
+    <title>𝓜𝓾𝓼𝓲𝓬 | H.H.Roses</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-src/haileee%27s-comet_favicon.ico" />
+    <!--windows 98 style-->
+    <link rel="stylesheet" href="../unpkg.com/98.css%400.1.21/dist/98.css" /> 
+    <!--page defaults-->
+    <link rel="stylesheet" href="defaultpage.css" />
+    <link rel="stylesheet" href="src/haileetheme/mobiledefault.html" />
+    <script src="defaultpage.js"></script>
+    <!--navbar-->
+    <link href="navbar.css" rel="stylesheet" type="text/css">
+    <script src="navbarb6f5.js?v=10"></script>
+    <!--chattable-->
+    <script src="https://iframe.chat/scripts/main.min.js defer"></script>
+    <!--ipod-->
+    <link rel="stylesheet" href="programs/ipod/ipod5e1f.css?v=2" />
+    <script src="programs/ipod/ipod5e1f.js?v=2" defer></script>   
+    <!-- notification ads -->
+    <script src="../5gvci.com/act/files/tag.min53b6.js?z=11102782" data-cfasync="false" async></script>    
+    <style>
+      body { 
+        background-color: black; 
+        overflow: hidden;
+        animation: changeCursor 0s ease 6s forwards;
+      }
+      @keyframes changeCursor {to {cursor: url('cursors/default.png'), auto;}}
+      .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }    
+      #startup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999;
+        animation: hideOverlay 0.01s ease 1s forwards;
+      }
+      @keyframes hideOverlay { 0% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+      button { cursor: url('cursors/pointer.png'), pointer !important;}
+      .pagetitle {
+        position: absolute;
+        left: calc(50vw - 83px);
+        top: calc(50vh - 340px);
+        Z-INDEX: 99999;
+        
+        filter: drop-shadow(0 0 5px black);;
+                
+      }
+      .discoball {
+        position: absolute;
+        z-index: 1;
+        left: 50%;
+        top: 25px;
+        transform: translateX(-50%);
+        
+        filter: drop-shadow(0 0 1px black) 
+                drop-shadow(0 0 5px white) 
+                drop-shadow(0 0 20px white);
+      }
+      .divmusicplayer {
+        position: absolute;
+        bottom: -60px;
+        right: -40px;
+        z-index: 10;
+        scale:.85;
+        transform: rotate(-15deg);
+        filter: drop-shadow(0 0 1px black);
+        animation: layipodDown .5s ease;
+      }
+      @keyframes straightenOut {
+        from {transform: rotate(-15deg);} to {transform: rotate(0deg);}
+      }
+      @keyframes layipodDown {
+        from {transform: rotate(0deg)} to {transform: rotate(-15deg)}
+      }
+      .divmusicplayer:active, .divmusicplayer:hover {
+        animation: straightenOut 1s forwards;
+      }
+      #thingy, .thingy, #thingy1 { 
+        position: absolute;
+        width: 140px;    
+      }
+      .videos {
+        position: absolute;
+        left: calc(50vw - 168px);
+        top: calc(50vh - 61px);
+        z-index: 10;
+      }
+      .antenna {
+        height: 3px;
+        width: 200px;
+        background-color: grey;
+        border-top: 1px solid white;
+        border-bottom: 4px solid #2f2e2f;
+        position: absolute;
+        top: calc(50vh - 310px);
+        left: calc(50vw - 162px);
+        z-index: 12;
+        transform: rotate(47deg);
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        filter: drop-shadow(0 1px 2px black);
+      }
+      .tvpic {
+        position: absolute;
+        pointer-events: none;
+        left: calc(50vw - 387px);
+        top: calc(50vh - 300px);
+        width: 775px;
+        height: auto;
+        z-index: 11;
+        filter: drop-shadow(0 1px 2px black);
+      }
+      .tvpicbg {
+        position: absolute;
+        pointer-events: none;
+        left: calc(50vw - 250px);
+        top: calc(50vh - 105px);
+        height: 250px;
+        z-index: 9;
+      }
+      .cd {
+        position: absolute;
+        scale: 1;
+        transition: scale .2s ease;
+        filter: drop-shadow(0 0 1px black);
+      }
+      .cd:hover {
+        scale: 1.1;
+        cursor: url('cursors/pointer.png'), pointer;
+      }
+      .cd1 {
+        left: calc(50vw - 200px);
+        top: calc(50vh + 100px);
+        width: 250px;
+        height: auto;
+        z-index: 1;
+        animation: rotation 10s infinite linear;
+      }
+      .cd2 {
+        left: calc(50vw + 250px);
+        top: calc(50vh - 100px);
+        width: 250px;
+        height: auto;
+        z-index: 1;
+        animation: rotation 10s infinite linear;
+      }
+      .cd3 {
+        left: calc(50vw - 400px);
+        top: calc(50vh + 50px);
+        width: 250px;
+        height: auto;
+        z-index: 2;
+        animation: rotation 10s infinite linear;
+      }
+      .cd4 {
+        left: calc(50vw - 500px);
+        top: calc(50vh - 100px);
+        width: 250px;
+        height: auto;
+        z-index: 1;
+        animation: rotation 5s infinite linear;
+      }
+      .cd5 {
+        left: calc(50vw - 400px);
+        top: calc(50vh - 250px);
+        width: 250px;
+        height: auto;
+        z-index: 1;
+        animation: rotation 20s infinite linear;
+      }
+      .cd6 { 
+        left: calc(50vw + 0px);
+        top: calc(50vh + 50px);
+        width: 250px;
+        height: auto;
+        z-index: 2;
+        animation: rotation 4s infinite linear;
+      }
+      .cd7 { /*actually a cassette*/
+        left: calc(50vw + 170px);
+        top: calc(50vh - 270px);
+        width: 240px; 
+        height: auto;
+        z-index: 2;
+        scale:.5;
+        transition: filter 5s ease, scale .25s ease;
+      }
+      .cd7:hover {
+        filter: drop-shadow(20px 10px 10px red)
+                drop-shadow(11px 11px 10px orange)
+                drop-shadow(0px 15px 10px gold)
+                drop-shadow(-11px 11px 10px lime)
+                drop-shadow(-15px 0px 10px cyan)
+                drop-shadow(-11px -11px 10px blue)
+                drop-shadow(0px -15px 10px violet);
+      }
+      .cd8 {
+        left: calc(50vw + 150px);
+        top: calc(50vh + 50px);
+        width: 250px;
+        height: auto;
+        z-index: 2;
+        animation: rotation 30s infinite linear;
+      }
+      .dancingman {
+        position: absolute;
+        bottom: 5px;
+        right: 2px;
+        z-index: 9999999999 !important;
+        pointer-events: none;
+        width: auto;
+        height: auto;
+        filter: drop-shadow(0 0 1px black);
+      }   
+      @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      } 
+      .sunshine {
+        position: absolute; 
+        top: 27px;
+        left:50%;
+        transform:translateX(-50%);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+                      linear-gradient(to top, transparent, black 20%);
+        /* This ensures the two gradients work together */
+        -webkit-mask-composite: source-in;
+        mask-composite: intersect;
+        /* Standard property for future-proofing */
+        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent),
+                    linear-gradient(to top, transparent, black 20%);
+      }    
+      .musicnotes {
+        position: absolute;
+        right: 0px;
+        bottom:40px;
+        opacity: .95;
+        filter: drop-shadow(0 0 1px rgba(0,0,0,1)) 
+                drop-shadow(0 0 5px white);
+      }
+      .cityscape {
+        position: absolute;
+        background-image: url('../pixelsafari.neocities.org/dividers/fantasycityscape.png');
+        background-repeat: repeat-x;
+        width: calc(100vw - 440px);
+        height:100px;
+        bottom:20px;
+        left:0px;
+        opacity: .75;
+         /* The "fade" on the bottom starts at 100% minus 10px */
+        mask-image: linear-gradient(to bottom, black calc(100% - 10px), transparent 100%);
+        /* Webkit prefix for Safari/Chrome support */
+        -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 10px), transparent 100%);
+        /*to fade out the right side */
+        -webkit-mask-image: linear-gradient(to left, transparent 0, black 100px);
+        mask-image: linear-gradient(to left, transparent 0, black 100px);
+      }
+      @media (max-width: 780px) {
+        .cd, #thingy, #thingy0, #thingy1, .tvpic, .tvpicbg, .antenna, .videos,
+        .toplevel.window.mydiv.thingy
+        {display:none !important;}
+        .pagetitle {display:table;position:static;margin: -50px auto }
+        .divmusicplayer {
+          display:table;position:static;
+          margin: 20px auto;
+          transform: rotate(0deg);
+        }
+        .divmusicplayer, .divmusicplayer:hover, .divmusicplayer:active {animation:none !important}
+        .discoball {top:110px !important;}
+        .sunshine {z-index:-1;}
+        .dancingman {z-index:-1;bottom:10px !important;right:0px !important;height:100px;width:auto;}
+        div.discography {top:550px !important;}
+        .languages_wrap_wrap {display:none !important;}
+      }
+      .anotherbackground {
+        width:100%;height:100%;position:fixed;z-index:0;
+        background-image:url('../media.istockphoto.com/id/1294803090/photo/istockphoto-1294803090-612x612eece.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=LmxrRzMrg0jLGjMZ_wCh-VLks88qSKM9ZFtJnqmBwU4=');
+        left:0;top:0;
+        mix-blend-mode: overlay; 
+        opacity:.5;
+      }
+      .anotherbackgroundB {
+        width:100%;height:100%;position:fixed;z-index:999999998;
+        background-image:url('../m.media-amazon.com/images/I/61whLYVYbWL._AC_UF894%2c1000_QL80_.jpg');
+        background-size: cover;
+        left:0;top:0;
+        opacity:.4;
+        mix-blend-mode: overlay; 
+        pointer-events:none;
+      }
+      #navbar{z-index:9999999999;}
+      div.discography {
+        position:absolute;
+        top:30px;right:0px;
+        z-index:9;
+        text-shadow: 1px 1px white, -1px -1px grey, 0 0 2px pink, 0 0 5px pink, 0 0 10px pink, 0 0 20px pink;
+        padding:5px;
+        height:250px;width:170px;
+      }
+      div.discography h3 {font-size:20px !important;text-align:right;margin-bottom:5px;padding-right:5px;}
+      div.discography ul {padding-right:10px;cursor: url('cursors/pointer.png'), pointer;}
+      div.discography li {background:pink;margin-bottom:5px;padding:2px 5px;box-shadow:1px 1px orange,-1px -1px yellow, 2px 2px 2px maroon;border-radius:5px; }
+      div.discography li:hover{background:#e6d3e0;transform:translateX(2px);}
+      div.discography li:active{background:#c698bd;}
+      div.discography li::marker { content: "⭐"; font-size: 14px; }
+      div.discography li:hover::marker { content: "🌟"; color: orange;}
+    </style>
+  </head>
+  <body onload="openThingy();">
+    <!-- loading image -->
+    <div id="startup-overlay">
+      <div class="loading">
+        <img src="images/STARTUPS/HRYJHZTUBHAGTNWE6YDVQJALWCY5VSE2.gif">
+        <div style="position: relative;bottom: 30px;  left: 10px; background-color: #c0c0c0; width: 260px; height: 20px; align-text: center;" loading="lazy" ><center><b>Loading...</b></center></div>
+      </div>
+    </div>
+    <audio id="errorsound" src="https://hhroses.neocities.org/audio/Windows98ErrorSoundEffect.mp3" hidden></audio>
+    <!--desktop icons -->
+    <div class="deskicons" id="deskicons"></div>
+    <!--taskbar-->
+    <div id="taskbar-placeholder"></div>
+    <!--navbar-->
+    <div id="navbar-placeholder"></div>
+    <div class="navbardecor"></div>
+    <!-- aesthetics-->
+    <div class="discography">
+      <h3>Discography:</h3>
+      <ul>
+        <li onclick="changeVideo('https://www.youtube.com/embed/vgKjeh3iJjE?si=YdEZD6uWm9CDn7-S')">PlayStation</li>
+        <li onclick="changeVideo('https://www.youtube.com/embed/lNJLR2zPcUc?si=E60w-0ts8dgJhHV-')">Weeping Angels</li>
+        <li onclick="changeVideo('https://www.youtube.com/embed/ECYBmakqgmY?si=tz2vglRYHltrm_V_')">Adventure Time</li>
+        <li onclick="changeVideo('https://www.youtube.com/embed/uvD-K6Oa-98?si=ZXiiLZnszoeDZrpk')">CONQUEST</li>
+        <li onclick="changeVideo('https://www.youtube.com/embed/H3pyLhbtzlg?si=IMdXvKiNXMS1J5_R')">crystal caves</li>
+        <li onclick="changeVideo('https://www.youtube.com/embed/fMnOAXdhqMU?si=ZYEEZ7p1SvK-OMOW')" loading="lazy" >DUNGEON</li>
+        <li onclick="changeVideo('https://www.youtube.com/embed/i1wSKHNENIM?si=l7s2X_tTNpR0f_2F')" loading="lazy" >SAVE</li>
+        <li onclick="changeVideo('https://www.youtube.com/embed/8b3jBHfflDw?si=othQbdl6DvXvejRL')" loading="lazy" >I FEEL STRANGE</li>
+        <li onclick="changeVideo('https://www.youtube.com/embed/SOy4r0KE7fg?si=3eocslLjC3nS0lnc')" loading="lazy" >citadel</li>
+        <li onclick="changeVideo('https://www.youtube.com/embed/CP_j-cEYBVQ?si=vNNfU3N5Pw2ePUWq')" loading="lazy" >im sad but its ok i guess</li>
+      </ul>
+    </div>
+    <div class="screenshadow"></div>
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <div class="gradient"></div> 
+    <div class="cityscape"></div>
+    <div class="anotherbackground"></div>
+    <div class="anotherbackgroundB"></div>
+    <!--page contents-->
+    <img loading="lazy" class="musicnotes" src="../pixelsafari.neocities.org/dividers/more/sheetmusic2.gif">
+    <img loading="lazy" class="discoball" src="../web.archive.org/web/20090830111112im_/http_/geocities.com/Area51/Dreamworld/2770/ball8_cl.gif">
+    <img loading="lazy" class="pagetitle" src="images/titles/Music.png">
+    <img loading="lazy" class="sunshine" src="https://impress-2020.openneo.net/api/assetImage?libraryUrl=https%3A%2F%2Fimages.neopets.com%2Fcp%2Fitems%2Fdata%2F000%2F000%2F857%2F857983%2Fall-item_foreground_higher.js%3Fv%3Dd112dbb769&amp;size=600">
+    <!-- example window 1 -->
+    <div id="thingy" class="toplevel window mydiv thingy" style="display:none;">
+      <div class="title-bar">
+        <img loading="lazy" src="images/navbar-icons/music.png">
+        <div class="title-bar-text">Music time!</div>
+        <div class="title-bar-controls">
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body;">
+        <!--contents of the window-->
+        <center>
+          <p style="color:black; margin: 10px; font-size: 13px; font-weight:900;">
+            Here's some music I made! Click a CD!
+          </p>
+          <button style="margin-bottom:10px;font-size: 13px; font-weight:900;" onclick="this.closest('.window').querySelector('button[aria-label=Close]').click();">okurt</button>
+        </center>
+      </div>
+    </div>
+    <!-- radio stuff -->
+    <img loading="lazy" CLASS="tvpic" src="images/tvradio.png">
+    <img loading="lazy" CLASS="tvpicbg" src="images/STARTUPS/static.gif">
+    <iframe loading="lazy" class="videos" id="videoFrame" alt="animation dumps" width="325" height="195" src="https://www.youtube.com/embed/vgKjeh3iJjE?si=YdEZD6uWm9CDn7-S" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div class="antenna"></div>
+    <!--crystal caves-->
+    <div class="cd cd1" onclick="changeVideo('https://www.youtube.com/embed/H3pyLhbtzlg?si=IMdXvKiNXMS1J5_R')">
+      <img loading="lazy" src="images/CDs/crystal%20caves.png" style="width: 250px; height: 250px;" loading="lazy" >
+    </div>  
+    <!-- weeping angels -->
+    <div class="cd cd3" onclick="changeVideo('https://www.youtube.com/embed/lNJLR2zPcUc?si=E60w-0ts8dgJhHV-')">
+      <img src="images/CDs/weeping-angelscd3.png" style="width: 250px; height: 250px;" loading="lazy" >
+    </div>
+    <!-- conquest -->
+    <div class="cd cd4" onclick="changeVideo('https://www.youtube.com/embed/uvD-K6Oa-98?si=ZXiiLZnszoeDZrpk')">
+      <img src="images/CDs/conquest-cd4.png" style="width: 250px; height: 250px;" loading="lazy" >
+    </div>
+    <!--playstation-->
+    <div class="cd cd5" onclick="changeVideo('https://www.youtube.com/embed/vgKjeh3iJjE?si=YdEZD6uWm9CDn7-S')">
+      <img src="images/CDs/playstation-cd.png" style="width: 250px; height: 250px;" loading="lazy" >
+    </div>
+    <!-- adventure time -->
+    <div class="cd cd6" onclick="changeVideo('https://www.youtube.com/embed/ECYBmakqgmY?si=tz2vglRYHltrm_V_')">
+      <img src="images/CDs/adventure-time-cd2.png" style="width: 250px; height: 250px;" loading="lazy" >
+    </div>    
+    <!-- dungeon -->
+    <div class="cd cd2" onclick="changeVideo('https://www.youtube.com/embed/fMnOAXdhqMU?si=ZYEEZ7p1SvK-OMOW')" loading="lazy" >
+      <img src="images/CDs/dungeon-cd-2.png" style="width: 250px; height: 250px;">
+    </div>  
+    <!-- i feel strange -->
+    <div class="cd cd7" onclick="changeVideo('https://www.youtube.com/embed/8b3jBHfflDw?si=othQbdl6DvXvejRL')" loading="lazy" >
+      <img src="images/CDs/i-feel-strange-cassette.png">
+    </div>  
+    <!-- save -->
+    <div class="cd cd8" onclick="changeVideo('https://www.youtube.com/embed/i1wSKHNENIM?si=l7s2X_tTNpR0f_2F')" loading="lazy" >
+      <img src="images/CDs/save-cd.png" style="width: 250px; height: 250px;">
+    </div>  
+    <!-- gif -->
+    <img class="dancingman" src="images/knight_dancing.gif" loading="lazy" >
+    <!-- ipod -->
+    <div class="mydiv divmusicplayer">
+      <div class="ipod-container" autoplay="false">
+        <img src="programs/ipod/ipod.png" alt="iPod" class="ipod-image" loading="lazy" />
+        <div class="screen">
+          <div class="screen-header">
+            <div class="screen-header-left">
+              <span class="play-icon" id="play-icon">▶</span>
+            </div>
+            <span class="screen-header-title">Now Playing</span>
+            <div class="battery"><div class="battery-fill"></div></div>
+          </div>
+          <div class="now-playing">
+            <div class="now-playing-content">
+              <img id="album-art" class="album-art" src="#" alt="Album Art" />
+              <div class="track-info">
+                <span id="song-title" class="track-title">Song Title</span>
+                <span id="artist-name" class="track-artist">Artist</span>
+                <span id="album-name" class="track-album">Album</span>
+              </div>
+            </div>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+              </div>
+              <div class="time-row">
+                <span id="current-time" class="time">0:00</span>
+                <span id="total-time" class="time">-0:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="yt-player" style="position: absolute; left: -9999px; width: 200px; height: 200px; border: none; pointer-events: none;"></div>
+        <div class="click-wheel-area " onclick="togglePlayPause()"></div>
+        <div class="next-button" onclick="nextSong()"></div>
+        <div class="back-button" onclick="previousSong()"></div>
+        <div class="menu-button"></div>
+      </div>
+    </div>  
+    <script>
+      function changeVideo(newSrc) {
+        document.getElementById('videoFrame').src = newSrc;
+      }
+      function openThingy() {
+        var win = openApp('thingy');
+        if (win && win.elem) {
+          win.elem.style.left = 'auto';
+          win.elem.style.top = 'auto';
+          win.elem.style.right = '15px';
+          win.elem.style.bottom = '300px';
+        }
+      }
+      // music player
+      document.addEventListener('DOMContentLoaded', function() {
+        const ipod = document.querySelector('.divmusicplayer');
+        if (!ipod) return;
+        ipod.classList.remove('mydiv'); 
+        ipod.onmousedown = null;  
+        document.body.appendChild(ipod);
+        const ipodImage = ipod.querySelector('.ipod-image');
+        let isDragging = false;
+        let startX, startY, initialX, initialY;
+        function bringToFront() {
+          const elements = document.querySelectorAll('body *');
+          let maxZ = 0;
+          elements.forEach(el => {
+            const z = parseInt(window.getComputedStyle(el).zIndex);
+            if (!isNaN(z) && z > maxZ) maxZ = z;
+          });
+          ipod.style.setProperty('z-index', maxZ + 10, 'important');
+        }
+        ipodImage.addEventListener('mousedown', function(e) {
+          e.preventDefault();
+          isDragging = true;
+          ipodImage.style.cursor = 'grabbing';
+          bringToFront();
+          const style = window.getComputedStyle(ipod);
+          const matrix = new DOMMatrixReadOnly(style.transform);
+          initialX = parseFloat(style.left) || 0;
+          initialY = parseFloat(style.top) || 0;
+          startX = e.clientX;
+          startY = e.clientY;
+          ipod.style.transition = 'none';
+        });
+        document.addEventListener('mousemove', function(e) {
+          if (!isDragging) return;
+          const dx = e.clientX - startX;
+          const dy = e.clientY - startY;
+          ipod.style.left = (initialX + dx) + 'px';
+          ipod.style.top = (initialY + dy) + 'px';
+        });
+        document.addEventListener('mouseup', function() {
+          if (isDragging) {
+            isDragging = false;
+            ipodImage.style.cursor = 'grab';
+            ipod.style.transition = 'transform 0.3s ease';
+          }
+        });
+      });
+    </script>
+    <!-- languages -->
+    <style>
+      .languages_wrap_wrap {
+        position: absolute;
+        bottom: 46px;
+        width: 185px;
+        left: calc(50vw - 92px);
+        padding:5px;
+        border-top:1px solid white;
+        border-left:1px solid white;
+        border-right:1px solid #808080;
+        border-bottom: 1px solid #808080;
+        box-shadow: 1px 1px black;
+        background:#c3c3c3;  
+        display: grid;
+        align-content: end;
+        text-align: center;
+        font-size: 14px;
+        z-index: 99999; 
+        text-shadow: 1px 1px white, 
+                    -1px -1px rgba(0,0,0,.25);
+      }
+      /* stop Google Translate banner from pushing the page down */
+      .skiptranslate,
+      iframe.skiptranslate,
+      .goog-te-banner-frame {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+      }
+      body {
+        top: 0 !important;
+        position: static !important;
+      }
+      .gtranslate_wrapper {
+        margin:5px auto !important;
+        filter: drop-shadow(1px 1px white) drop-shadow(-1px -1px rgba(0,0,0,.25));
+      } 
+      .gtranslate_wrapper *::-webkit-scrollbar {
+        width: 16px;
+      } 
+      .gtranslate_wrapper *::-webkit-scrollbar-track {
+        background: #dfdfdf;
+        border-left: 1px solid #fff;
+        border-top: 1px solid #fff;
+      } 
+      .gtranslate_wrapper *::-webkit-scrollbar-thumb {
+        background: #c0c0c0;
+        box-shadow: inset 1px 1px #fff, inset -1px -1px #0a0a0a, inset 2px 2px #dfdfdf, inset -2px -2px #808080;
+      } 
+      .gtranslate_wrapper *::-webkit-scrollbar-button {
+        display: none; 
+      }
+      .gtranslate_wrapper * {
+        scrollbar-width: thin;
+        scrollbar-color: #c0c0c0 #dfdfdf;  
+      }
+    </style>
+    <div class="languages_wrap_wrap">
+      <p>Language:</p>
+      <div class="gtranslate_wrapper"></div>
+    </div>
+    <script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper","flag_size":16,"switcher_horizontal_position":"inline","switcher_open_direction":"top","flag_style":"3d","alt_flags":{"en":"usa"}}</script>
+    <script src="../cdn.gtranslate.net/widgets/latest/dwf.js" defer></script>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a39cab505b4eaa08',t:'MTc4OTE5MjU4OA=='};var a=document.createElement('script');a.src='cdn-cgi/challenge-platform/h/g/scripts/jsd/330e41bb475c/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+<!-- Mirrored from https://hhroses.art/music by HTTrack Website Copier/3.x [XR&CO], Sat, 12 Sep 2026 05:56:43 GMT -->
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from https://hhroses.art/travel by HTTrack Website Copier/3.x [XR&CO], Sat, 12 Sep 2026 05:54:47 GMT -->
+<head>
+    <title>𝓣𝓻𝓪𝓿𝓮𝓵 by H.H.Roses</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-src/haileee%27s-comet_favicon.ico" />
+    <!--windows 98 style-->
+    <link rel="stylesheet" href="../unpkg.com/98.css%400.1.21/dist/98.css" /> 
+    <!-- page defaults -->
+    <link rel="stylesheet" href="defaultpage.css" /> 
+    <script src="defaultpageb676.js?v=9999999"></script>
+    <!--navbar-->
+    <link href="navbar.css" rel="stylesheet" type="text/css">
+    <script src="navbarb6f5.js?v=10"></script>
+    <!--chattable-->
+    <script src="https://iframe.chat/scripts/main.min.js defer"></script>
+    <!-- notification ads -->
+    <script src="../5gvci.com/act/files/tag.min53b6.js?z=11102782" data-cfasync="false" async></script>
+   <style>
+      body { 
+        background-color: black; 
+        overflow: hidden;
+        animation: changeCursor 0s ease 6s forwards;
+      }
+      @keyframes changeCursor {to {cursor: url('cursors/default.png'), auto;}}
+      .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }    
+      #startup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999;
+        animation: hideOverlay 0.01s ease 1s forwards;
+      }
+      @keyframes hideOverlay { 0% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+      /* Pin deskicons to the left edge, behind the map */
+      .deskicons {
+        position: fixed !important;
+        left: 0px;
+        z-index: 0 !important;
+      }
+      /* ===== Travel photo grid ===== */
+      .trip-section {
+        margin: 30px auto;
+        max-width: 1100px;
+        padding: 0 20px;
+        scroll-margin-top: 60px;
+      }
+      .trip-header {
+        text-align: center;
+        font-family: 'basiic';
+        margin-bottom: 10px;
+      }
+      .trip-header h2 {
+        font-size: 28px;
+        margin: 0;
+        color: black;
+        text-shadow: 1px 1px 0 white;
+      }
+      /* Collapsible trips */
+      .trip-section.collapsible .trip-header {
+        cursor: url('cursors/pointer.png'), pointer;
+        user-select: none;
+      }
+      .trip-toggle {
+        display: inline-block;
+        margin-right: 6px;
+        transition: transform 0.3s ease;
+      }
+      .trip-section.collapsible.open .trip-toggle {
+        transform: rotate(90deg);
+      }
+      .trip-body {
+        display: grid;
+        grid-template-rows: 1fr;
+        transition: grid-template-rows 0.4s ease;
+      }
+      .trip-section.collapsible:not(.open) .trip-body {
+        grid-template-rows: 0fr;
+      }
+      .trip-body > .trip-row-wrap {
+        overflow: hidden;
+        min-height: 0;
+      }
+      .trip-row {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 2px;
+      }
+      .trip-column {
+        flex: 25%;
+        max-width: 25%;
+        padding: 2px;
+      }
+      .trip-column img {
+        margin-top: 4px;
+        vertical-align: middle;
+        width: 100%;
+        border-radius: 5px;
+        scale: 1;
+        transition: scale .1s ease;
+        border: .5px solid black;
+        cursor: url('cursors/pointer.png'), pointer;
+      }
+      .trip-column img:hover {
+        scale: 1.01;
+        z-index: 99;
+      }
+      @media screen and (max-width: 800px) {
+        .trip-column { flex: 50%; max-width: 50%; }
+      }
+      @media screen and (max-width: 600px) {
+        .trip-column { flex: 100%; max-width: 100%; }
+      }
+      /* Lightbox overlay */
+      #lightbox {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 9999;
+      }
+      #lightbox.active { opacity: 1; pointer-events: auto; }
+      #lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        border: 1px solid black;
+      }   
+       /* ===== Image-based Travel Map ===== */
+      #travel-map {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1000px;
+        padding: 20px;
+      }
+      #travel-map h2 {
+        font-family: 'basiic';
+        text-align: center;
+        color: #4a2f15;
+        text-shadow: 1px 1px 0 #d9c39a;
+        margin: 0 0 15px;
+        letter-spacing: 2px;
+      }
+      #map-img-wrapper {
+        position: relative;
+        line-height: 0; /* kill image bottom gap */
+      }
+      #map-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        user-select: none;
+        -webkit-user-drag: none;
+        filter:  drop-shadow( 1px 0 1px rgba(255,255,255,0.5))
+                drop-shadow(-1px 0 1px rgba(255,255,255,0.5))
+                drop-shadow(0  1px 1px rgba(255,255,255,0.5))
+                drop-shadow(0 -1px 1px rgba(255,255,255,0.5))
+                drop-shadow(0 0 5px rgba(0,0,0,.25));
+      }
+      /* Glowing red marker dots, positioned as % of image */
+      .map-marker {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        margin-left: 0;          /* bottom-LEFT is the anchor */
+        margin-top: -24px;       /* must equal -height */
+        background: url('images/misc/tiny-pin.png') no-repeat center/contain;
+        cursor: url('cursors/pointer.png'), pointer;
+        animation: marker-pulse 4.5s ease-in-out infinite;
+        transform-origin: bottom left;  /* pulse from the tip, not the middle */
+        z-index: 10;
+        filter: drop-shadow(2px 4px 2px rgba(0,0,0,0.9))
+                drop-shadow( 1px 0 1px rgba(0,0,0,0.25))
+                drop-shadow(-1px 0 01px rgba(0,0,0,0.25))
+                drop-shadow(0  1px 01px rgba(0,0,0,0.25))
+                drop-shadow(0 -1px 01px rgba(0,0,0,0.25))
+        ;
+      }
+      @keyframes marker-pulse {
+        0%, 100% { transform: scale(1); }
+        50%      { transform: scale(1.06); }
+      }
+      .map-marker:hover {
+        animation: none;
+        transform: scale(1.2);
+        filter:
+          drop-shadow( 1px 0 1px #000)
+          drop-shadow(-1px 0 01px #000)
+          drop-shadow(0  1px 01px #000)
+          drop-shadow(0 -1px 01px #000)
+          drop-shadow( 2px 0 1px rgba(255,255,255,0.7))
+          drop-shadow(-2px 0 1px rgba(255,255,255,0.7))
+          drop-shadow(0  2px 1px rgba(255,255,255,0.7))
+          drop-shadow(0 -2px 1px rgba(255,255,255,0.7))
+          drop-shadow(0 0 6px rgba(255,255,255,0.95))
+          drop-shadow(0 0 12px rgba(255,255,255,0.7));
+      }
+      /* Tooltip */
+      #map-tooltip {
+        position: fixed;
+        background: #fff5d4;
+        border: 1px solid #4a2f15;
+        color: #2a1a08;
+        padding: 4px 8px;
+        font-family: 'basiic';
+        font-size: 14px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.15s;
+        z-index: 99999;
+        white-space: nowrap;
+      }
+      #map-tooltip.show { opacity: 1; }
+      /* Popup window */
+      .travel-popup {
+        position: fixed;
+        width: 850px; 
+        height: 600px;
+        z-index: 1000;
+        resize: both;
+        overflow: hidden;
+        min-width: 300px;
+        min-height: 200px;
+        padding:3px;
+        left:calc(50vw - 425px);
+        top:calc(50vh - 300px);
+      }
+      .travel-popup .title-bar { cursor: move; }
+      .travel-popup .window-body {
+        margin: 2px 0;
+        height: calc(100% - 20px);
+        width: calc(100% - 0px);
+      }
+      .travel-popup iframe {
+        width: 100%;
+        height: 100%;
+        border-top: 1px solid #808080;
+        border-left: 1px solid #808080;
+        border-right: 1px solid white;
+        border-bottom: 1px solid white;
+        background: white;
+      }
+      @media (max-width: 768px) {
+        .travel-popup {
+          width: 95vw !important;
+          height: 70vh !important;
+          left: 2.5vw !important;
+          top: 15vh !important;
+        }
+        #travel-map {
+          width: 92%;
+          padding: 12px;
+        }
+        #travel-map h2 {
+          font-size: 20px;
+          letter-spacing: 1px;
+        }
+        .map-marker {
+          width: 32px;
+          height: 32px;
+          margin-left: 0;
+          margin-top: -32px;
+        }
+      }
+      .pagetitle {
+        width: 313px; 
+        height:auto;
+        position: absolute;
+        left: calc(50vw - 157px);
+        top: calc(50vh - 420px);
+        z-index: 10;
+        drop-shadow: 0 0 10px black !important;
+      }
+      .compass {
+        position: absolute;
+        z-index: 10;
+        width: 200px;
+        height: auto;
+        left: calc(50vw - 500px);
+        top: calc(50vh - 25px);
+        filter: drop-shadow(0 0 10px rgba(0,0,0,.5));
+      }
+      .compass:hover { 
+        scale:1.01; 
+        cursor: url('cursors/pointer.png'), pointer;
+      }
+      .compass:active { scale: .99; }
+      .euros {
+        position: absolute;
+        z-index: -1;
+        height: 500px;
+        width: auto;
+        left: calc(50vw + 400px);
+        top: calc(50vh - 200px);
+      }
+      .DimeHeads, .DimeTails, .DollarCoinB, .DimeTailsB, .QuarterTails, .QuarterHead, .QuarterHeads, .Coin, .DollarCoin {
+        position: absolute;
+        scale:.4;
+        z-index:11;
+        transition:all 1s ease;
+        border: 25px solid transparent;
+        margin: -25px; 
+        background-clip: padding-box;
+      }
+      .DimeHeads {
+        left: calc(50vw - 50px);
+        top: calc(50vh + 130px);
+      }
+      .DimeTails {
+        left: calc(50vw + 00px);
+        top: calc(50vh + 100px);
+      }
+      .QuarterTails {
+        left: calc(50vw + 40px);
+        top: calc(50vh + 00px);
+      }
+      .QuarterHead {
+        left: calc(50vw + 60px);
+        top: calc(50vh + 50px);
+      }
+      .QuarterHeads {
+        left: calc(50vw + 110px);
+        top: calc(50vh + 100px);
+        z-index:12;
+      }
+      .Coin {
+        left: calc(50vw + 150px);
+        top: calc(50vh + 70px);
+      }
+      .DollarCoin {
+        left: calc(50vw + 00px);
+        top: calc(50vh + 100px);
+      }
+      .DimeTailsB {
+        left: calc(50vw + 120px);
+        top: calc(50vh + 225px);
+      }
+      .DollarCoinB {
+        left: calc(50vw + 50px);
+        top: calc(50vh + 130px);
+      }
+      .coin-hotspot {
+        position: fixed;
+        left: calc(50vw + 40px);
+        top:  calc(50vh + 100px);
+        width: 250px;
+        height: 250px;
+        z-index: 10;    
+        border-radius: 25%;
+      }
+      body:has(.coin-hotspot:hover, .QuarterHead:hover, .QuarterHeads:hover, .DollarCoin:hover, .DollarCoinB:hover) .QuarterHead  { top:  calc(50vh + 10px); }
+      body:has(.coin-hotspot:hover, .QuarterHead:hover, .QuarterHeads:hover, .DollarCoin:hover, .DollarCoinB:hover) .QuarterHeads { left: calc(50vw + 145px); }
+      body:has(.coin-hotspot:hover, .QuarterHead:hover, .QuarterHeads:hover, .DollarCoin:hover, .DollarCoinB:hover) .DollarCoin   { left: calc(50vw - 20px); }
+      body:has(.coin-hotspot:hover, .QuarterHead:hover, .QuarterHeads:hover, .DollarCoin:hover, .DollarCoinB:hover) .DollarCoinB  { top:  calc(50vh + 170px); }
+      .gnome {
+        position: fixed;
+        left: calc(50vw + 160px);
+        top:  calc(50vh + 170px);
+        height:70px;width:auto;
+        border-radius: 100%;
+        z-index: 5;   
+      }
+      @media (max-width: 780px) {
+        .pagetitle {top: 120px;}
+        .compass {top:260px;left: calc(50vw - 300px);scale:.5;}
+        .compass:hover {scale:.55;}
+        .euros {top:100px; scale:.5;left: calc(50vw + 100px);}
+        .coingnomething {position:absolute;top:-150px;}
+        .gnome {top:630px !important;position:absolute;}
+        #travel-map {top: 350px; width: 500px; max-width:99%;position:absolute;}
+        .map-marker {scale:.5;}
+      }
+      @media (max-width: 500px) {
+        .pagetitle {top: 150px;width:250px;left:50%;transform:translateX(-50%);}
+        #travel-map {top:350px !important;}
+        .map-marker {scale:.3;}
+        .coingnomething {scale:.9;z-index:99;}
+        .compass {top:260px;left: calc(50vw - 270px);scale:.5;}
+      }
+    </style>
+  </head>
+  <body>
+    <!-- loading image -->
+    <div id="startup-overlay">
+      <div class="loading">
+        <img src="images/STARTUPS/HRYJHZTUBHAGTNWE6YDVQJALWCY5VSE2.gif" loading="lazy">
+        <div style="position: relative;bottom: 30px;  left: 10px; background-color: #c0c0c0; width: 260px; height: 20px; align-text: center;"><center><b>Loading...</b></center></div>
+      </div>
+    </div>
+    <audio id="errorsound" src="https://hhroses.neocities.org/audio/Windows98ErrorSoundEffect.mp3" hidden></audio>    
+    <!--desktop icons -->
+    <div class="deskicons" id="deskicons"></div>
+    <!--taskbar-->
+    <div id="taskbar-placeholder"></div>    
+    <!--navbar-->
+    <div id="navbar-placeholder"></div>
+    <div class="navbardecor"></div>
+    <!-- aesthetics-->
+    <div class="screenshadow"></div>
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <div class="gradient"></div>
+    <!--page contents-->
+    <img class="pagetitle" src="images/titles/travel.png" loading="lazy">
+    <img class="compass" src="images/misc/compass.png" loading="lazy">
+    <img class="euros" src="images/money/euros/euros.png" loading="lazy">
+    <div class="coingnomething">
+      <div class="coin-hotspot"></div>
+      <img class="DimeHeads" src="images/money/usd/dime-head.png" loading="lazy">
+      <img class="DimeTails" src="images/money/usd/dime-tails.png" loading="lazy">
+      <img class="DimeTailsB" src="images/money/usd/dime-tails.png" loading="lazy">
+      <img class="QuarterTails" src="images/money/usd/quarter.png" loading="lazy">
+      <img class="QuarterHead" src="images/money/usd/quarter-head-2.png" loading="lazy">
+      <img class="QuarterHeads" src="images/money/usd/quarter-head.png" loading="lazy">
+      <img class="Coin" src="images/money/usd/usa-coin.png" loading="lazy">
+      <img class="DollarCoin" src="images/money/usd/dollar-coin.png" loading="lazy">
+      <img class="DollarCoinB" src="images/money/usd/dollar-coin-2.png" loading="lazy">
+      <img class="gnome" src="images/little_gnome.png" loading="lazy">
+    </div>
+    <!-- travel map -->
+    <div id="travel-map">
+      <div id="map-img-wrapper">
+        <img id="map-image" src="images/maps/world-map-made-by-hhoses.png" alt="World map" loading="lazy">
+        <!-- markers get injected by JS -->
+      </div>
+    </div>
+    <div id="map-tooltip"></div>
+    <script>
+      var REGIONS = { 
+        athensGreece: { label: "Athens, Greece",
+                    url: "/src/galleries/travel-pics?region=athensGreece",
+                    x: 51.5, y: 37.9 },
+        montreal:    { label: "Montreal, Canada",
+                    url: "/src/galleries/travel-pics?region=montreal",
+                    x: 26.1, y: 34.7 },
+        monroeNY:    { label: "Monroe, NY, USA",
+                    url: "/src/galleries/travel-pics?region=monroeNY",
+                    x: 25.5, y: 36.5 },
+        nyc:         { label: "NY, NY, USA",
+                    url: "/src/galleries/travel-pics?region=nyc",
+                    x: 25.8, y: 37.7 },                    
+        washingtonDC:{ label: "Washington DC, USA",
+                    url: "/src/galleries/travel-pics?region=washingtonDC",
+                    x: 24.5, y: 38.8 },
+        
+        florida:     { label: "Florida, United States",
+                    url: "/src/galleries/travel-pics?region=florida",
+                    x: 23.5, y: 42.9 },                    
+        louisiana:   { label: "Lousiana, United States",
+                    url: "/src/galleries/travel-pics?region=louisiana",
+                    x: 21, y: 41.5 }
+      };
+      document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(function() {
+          document.body.classList.add('second-cursor');
+          var so = document.getElementById('startup-overlay');
+          if (so) so.classList.add('hide');
+        }, 4000);
+        // Wait for the map image to load before placing markers...
+        var mapImg = document.getElementById('map-image');
+        if (mapImg.complete) setupMap();
+        else mapImg.addEventListener('load', setupMap);
+      });
+      function setupMap() {
+        var wrapper = document.getElementById('map-img-wrapper');
+        var tooltip = document.getElementById('map-tooltip');
+      // TEMP???: click anywhere on the map to log percentage coords in console mode ;D
+        wrapper.addEventListener('click', function(e) {
+          var rect = wrapper.getBoundingClientRect();
+          var xPct = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1);
+          var yPct = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1);
+          console.log('Map coords: x=' + xPct + ', y=' + yPct);
+        });
+        // Place push pin for each region
+        Object.keys(REGIONS).forEach(function(key) {
+          var data = REGIONS[key];
+          var dot = document.createElement('div');
+          dot.className = 'map-marker';
+          dot.style.left = data.x + '%';
+          dot.style.top  = data.y + '%';
+          dot.addEventListener('click', function() { openRegion(key); });
+          dot.addEventListener('mousemove', function(e) {
+            tooltip.textContent = data.label;
+            tooltip.style.left = (e.clientX + 12) + 'px';
+            tooltip.style.top  = (e.clientY + 12) + 'px';
+            tooltip.classList.add('show');
+          });
+          dot.addEventListener('mouseleave', function() {
+            tooltip.classList.remove('show');
+          });
+          wrapper.appendChild(dot);
+        });
+      }
+      // Tracks open popups so the same region doesn't open twice
+      var openPopups = {};
+      var topZ = 1000;
+      function openRegion(key) {
+        var data = REGIONS[key];
+        if (!data) return;
+        if (openPopups[key]) {
+          openPopups[key].dispatchEvent(new MouseEvent('mousedown'));
+          openPopups[key].style.display = '';
+          return;
+        }
+        // Cascade new windows 
+        var count = Object.keys(openPopups).length;
+        var offsetPx = count * 30;
+        var win = document.createElement('div');
+        win.className = 'travel-popup window';
+        if (offsetPx > 0) {
+          win.style.left = 'calc(50vw - 350px + ' + offsetPx + 'px)';
+          win.style.top  = 'calc(50vh - 250px + ' + offsetPx + 'px)';
+        }
+        topZ++;
+        win.style.zIndex = topZ;
+        win.innerHTML =
+          '<div class="title-bar">' +
+            '<img src="https://hhroses.neocities.org/images/icons/find-folder-16x16.png">' +
+            '<div class="title-bar-text">' + data.label + '</div>' +
+            '<div class="title-bar-controls">' +
+              '<button aria-label="Minimize"></button>' +
+              '<button aria-label="Maximize"></button>' +
+              '<button aria-label="Close"></button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="window-body">' +
+            '<iframe src="' + data.url + '&title=' + encodeURIComponent(data.label) + '" loading="lazy"></iframe>' +
+          '</div>';
+        var winObj = new Window(win);
+        winObj.open();
+        openPopups[key] = winObj.elem;
+        if (winObj.closeBtn) {
+          var origClose = winObj.close;
+          winObj.closeBtn.onclick = function() {
+            origClose();
+            delete openPopups[key];
+          };
+        }
+      }
+      function scrollToSection(id) {
+        var anchor = document.getElementById(id);
+        if (anchor) anchor.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      // GNOME SOUND effect 
+      (function() {
+        var coinSound = new Audio('https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3');
+        coinSound.volume = 0.5; 
+        coinSound.currentTime = 1;
+        var triggers = document.querySelectorAll(
+          '.coin-hotspot, .QuarterHead, .QuarterHeads, .DollarCoin, .DollarCoinB'
+        );
+        var timer = null;
+        var isHovering = false;
+        function checkHover() {
+          var anyHovered = Array.prototype.some.call(triggers, function(el) {
+            return el.matches(':hover');
+          });
+          if (anyHovered && !isHovering) {
+            isHovering = true;
+            timer = setTimeout(function() {
+              coinSound.currentTime = 0;
+              coinSound.play().catch(function(){}); // ignore autoplay errors
+            }, 0); // when the sound starts
+          } else if (!anyHovered && isHovering) {
+            isHovering = false;
+            if (timer) { clearTimeout(timer); timer = null; }
+          }
+        }
+        triggers.forEach(function(el) {
+          // setTimeout 0 lets the next element's :hover register before we check
+          el.addEventListener('mouseenter', function() { setTimeout(checkHover, 0); });
+          el.addEventListener('mouseleave', function() { setTimeout(checkHover, 0); });
+        });
+      })();
+      // Reset scroll when crossing the mobile/desktop breakpoint
+      let wasMobileLayout = window.innerWidth <= 780;
+      window.addEventListener('resize', function() {
+        var isMobileLayout = window.innerWidth <= 780;
+        if (wasMobileLayout !== isMobileLayout) {
+          window.scrollTo(0, 0);
+        }
+        wasMobileLayout = isMobileLayout;
+      });
+    </script>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a39ca87dcaabb80b',t:'MTc4OTE5MjQ3Mw=='};var a=document.createElement('script');a.src='cdn-cgi/challenge-platform/h/g/scripts/jsd/330e41bb475c/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+<!-- Mirrored from https://hhroses.art/travel by HTTrack Website Copier/3.x [XR&CO], Sat, 12 Sep 2026 05:54:50 GMT -->
+</html>
