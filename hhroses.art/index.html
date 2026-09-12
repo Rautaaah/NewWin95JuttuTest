@@ -47,21 +47,23 @@
     href="src/achievements/style.css"
   >
 
-  <!-- Interactive country map -->
+  <!-- jsVectorMap -->
+
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.7.0/css/jsvectormap.min.css"
   >
 
   <script
-    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/jsvectormap.min.js"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.7.0/js/jsvectormap.min.js"
   ></script>
 
   <script
-    src="https://cdn.jsdelivr.net/npm/jsvectormap@1.7.0/dist/maps/world.min.js"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.7.0/maps/world.min.js"
   ></script>
 
-  <!-- Traffic graph -->
+  <!-- Chart.js -->
+
   <script
     src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"
   ></script>
@@ -70,8 +72,9 @@
   <style>
 
     *, *::before, *::after {
+
       box-sizing:border-box;
-      margin:0;
+
     }
 
 
@@ -85,6 +88,7 @@
       --GradientActiveTitle:#1084d0;
       --InactiveTitle:#808080;
       --GradientInactiveTitle:#b5b5b5;
+
       --TitleText:#ffffff;
       --InactiveTitleText:#c0c0c0;
 
@@ -109,177 +113,12 @@
       --geo-paper:#f5f3ee;
       --geo-sea:#4b7c9b;
       --geo-no-data:#e4e1da;
+
       --geo-c1:#ffffcc;
       --geo-c2:#d9f0a3;
       --geo-c3:#addd8e;
       --geo-c4:#41ab5d;
       --geo-c5:#006837;
-
-      --no-data:#eeeeee;
-      --c1:#ffd6d6;
-      --c2:#ff9999;
-      --c3:#ff5555;
-      --c4:#d80000;
-      --c5:#700000;
-
-    }
-
-
-    .fuzzy-overlay {
-
-      position:fixed !important;
-
-      top:0 !important;
-      left:0 !important;
-
-      width:100% !important;
-      height:100% !important;
-
-      background-image:url("images/noise2.jpg");
-
-      opacity:0;
-
-      z-index:9999999999 !important;
-
-      pointer-events:none;
-
-      animation:shift .2s linear infinite both;
-
-    }
-
-
-    @keyframes shift {
-
-      0% {
-        transform:translateX(10%) translateY(10%);
-      }
-
-      100% {
-        transform:translateX(-10%) translateY(-10%);
-      }
-
-    }
-
-
-    .crt::before,
-    .crt::after,
-    body::before,
-    body::after {
-
-      position:fixed;
-
-      content:"";
-
-      pointer-events:none;
-
-      opacity:.2;
-
-      mix-blend-mode:overlay;
-
-      top:0;
-      left:0;
-
-      width:100%;
-      height:100%;
-
-      z-index:900 !important;
-
-    }
-
-
-    .crt::before,
-    body::before {
-
-      background:repeating-linear-gradient(
-        var(--crt-red) 0px,
-        var(--crt-green) 2px,
-        var(--crt-blue) 4px
-      );
-
-    }
-
-
-    .crt::after,
-    body::after {
-
-      background:repeating-linear-gradient(
-        90deg,
-        var(--crt-red) 1px,
-        var(--crt-green) 2px,
-        var(--crt-blue) 3px
-      );
-
-    }
-
-
-    * {
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-
-    .overlay {
-
-      position:fixed;
-
-      top:0 !important;
-      left:0 !important;
-
-      width:100% !important;
-      height:100% !important;
-
-      background:url(
-        'images/backgrounds/pixel-star-background.gif'
-      ) top right repeat;
-
-      z-index:1;
-
-      mix-blend-mode:screen;
-
-      opacity:1;
-
-      pointer-events:none;
-
-    }
-
-
-    .gradient {
-
-      position:fixed;
-
-      top:0 !important;
-      left:0 !important;
-
-      width:100% !important;
-      height:100% !important;
-
-      background:linear-gradient(
-        135deg,
-        rgba(255,255,255,0) 30%,
-        rgba(255,255,255,1) 1000%
-      );
-
-      z-index:1;
-
-      pointer-events:none;
-
-    }
-
-
-    #fluid-canvas {
-
-      position:fixed;
-
-      top:0;
-      left:0;
-
-      width:100vw;
-      height:100vh;
-
-      z-index:999;
-
-      pointer-events:none;
 
     }
 
@@ -324,59 +163,230 @@
     }
 
 
-    ::-webkit-scrollbar-thumb {
-
-      background:#c0c0c0;
-
-      box-shadow:
-        inset 1px 1px #fff,
-        inset -1px -1px #0a0a0a,
-        inset 2px 2px #dfdfdf,
-        inset -2px -2px #808080;
-
-    }
-
-
     body {
 
-      font-family:'CelticBitThin',sans-serif;
+      font-family:
+        'CelticBitThin',
+        sans-serif;
 
-      background-image:url(
-        'images/backgrounds/seamlessgalaxy3.jpg'
-      );
+      background-image:
+        url(
+          'images/backgrounds/seamlessgalaxy3.jpg'
+        );
 
       background-attachment:fixed;
 
       background-color:black;
 
       overflow-x:hidden;
+
       overflow-y:auto;
 
       margin:0;
+
       padding:0;
 
-      cursor:url(
-        'cursors/default.png'
-      ),default;
+      cursor:
+        url('cursors/default.png'),
+        default;
 
       width:100%;
+
       min-height:3500px;
 
     }
 
 
     a,
-    #button {
+    button {
 
-      cursor:url(
-        'cursors/pointer.png'
-      ),pointer;
+      cursor:
+        url('cursors/pointer.png'),
+        pointer;
 
     }
 
 
     img:hover {
+
       scale:1.01;
+
+    }
+
+
+    /* =====================================================
+       CRT / BACKGROUNDS
+    ===================================================== */
+
+    .fuzzy-overlay {
+
+      position:fixed !important;
+
+      top:0 !important;
+      left:0 !important;
+
+      width:100% !important;
+      height:100% !important;
+
+      background-image:
+        url("images/noise2.jpg");
+
+      opacity:0;
+
+      z-index:9999999999 !important;
+
+      pointer-events:none;
+
+      animation:
+        shift .2s linear infinite both;
+
+    }
+
+
+    @keyframes shift {
+
+      0% {
+
+        transform:
+          translateX(10%)
+          translateY(10%);
+
+      }
+
+      100% {
+
+        transform:
+          translateX(-10%)
+          translateY(-10%);
+
+      }
+
+    }
+
+
+    .crt::before,
+    .crt::after,
+    body::before,
+    body::after {
+
+      position:fixed;
+
+      content:"";
+
+      pointer-events:none;
+
+      opacity:.2;
+
+      mix-blend-mode:overlay;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:100%;
+
+      z-index:900 !important;
+
+    }
+
+
+    .crt::before,
+    body::before {
+
+      background:
+        repeating-linear-gradient(
+          var(--crt-red) 0px,
+          var(--crt-green) 2px,
+          var(--crt-blue) 4px
+        );
+
+    }
+
+
+    .crt::after,
+    body::after {
+
+      background:
+        repeating-linear-gradient(
+          90deg,
+          var(--crt-red) 1px,
+          var(--crt-green) 2px,
+          var(--crt-blue) 3px
+        );
+
+    }
+
+
+    .overlay {
+
+      position:fixed !important;
+
+      top:0 !important;
+      left:0 !important;
+
+      width:100% !important;
+      height:100% !important;
+
+      background-image:
+        url(
+          'images/backgrounds/pixel-star-background.gif'
+        );
+
+      background-position:
+        top right;
+
+      background-repeat:
+        repeat;
+
+      z-index:1;
+
+      mix-blend-mode:screen;
+
+      opacity:1;
+
+      pointer-events:none;
+
+    }
+
+
+    .gradient {
+
+      position:fixed !important;
+
+      top:0 !important;
+      left:0 !important;
+
+      width:100% !important;
+      height:100% !important;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,0) 30%,
+          rgba(255,255,255,1) 1000%
+        );
+
+      z-index:1;
+
+      pointer-events:none;
+
+    }
+
+
+    #fluid-canvas {
+
+      position:fixed;
+
+      top:0;
+      left:0;
+
+      width:100vw;
+      height:100vh;
+
+      z-index:999;
+
+      pointer-events:none;
+
     }
 
 
@@ -384,11 +394,13 @@
 
       position:fixed !important;
 
-      background-image:url(
-        'images/green_code.gif'
-      );
+      background-image:
+        url(
+          'images/green_code.gif'
+        );
 
       width:100%;
+
       height:400px;
 
       z-index:-3;
@@ -411,7 +423,8 @@
           transparent 100%
         );
 
-      transition:top 1s ease;
+      transition:
+        top 1s ease;
 
     }
 
@@ -420,9 +433,10 @@
 
       position:absolute !important;
 
-      background-image:url(
-        'images/frutiger-aero/clouds_25.png'
-      );
+      background-image:
+        url(
+          'images/frutiger-aero/clouds_25.png'
+        );
 
       background-size:contain;
 
@@ -456,23 +470,29 @@
           transparent 90%
         );
 
-      transition:opacity 1s ease;
+      transition:
+        opacity 1s ease;
 
     }
 
+
+    /* =====================================================
+       GNOME
+    ===================================================== */
 
     .gnome {
 
       position:absolute;
 
       max-width:10%;
+
       max-height:10%;
 
       z-index:999;
 
-      cursor:url(
-        'cursors/pointer.png'
-      ),pointer;
+      cursor:
+        url('cursors/pointer.png'),
+        pointer;
 
       filter:
         drop-shadow(
@@ -483,9 +503,15 @@
 
 
     .gnome:hover {
+
       scale:1.1 !important;
+
     }
 
+
+    /* =====================================================
+       MAIN CONTENT
+    ===================================================== */
 
     .maincontent {
 
@@ -632,7 +658,8 @@
 
       height:auto;
 
-      margin:0 auto 20px auto;
+      margin:
+        0 auto 20px auto;
 
       padding:0;
 
@@ -648,9 +675,10 @@
 
     .enterbutton:hover {
 
-      background-image:url(
-        'images/misc/comicexplode.png'
-      );
+      background-image:
+        url(
+          'images/misc/comicexplode.png'
+        );
 
       background-size:contain;
 
@@ -668,7 +696,9 @@
     }
 
 
-    /* PAGE VIEW COUNTER */
+    /* =====================================================
+       PAGE VIEWS
+    ===================================================== */
 
     .pageviews {
 
@@ -679,6 +709,7 @@
       min-width:150px;
 
       bottom:7px;
+
       right:5px;
 
       z-index:999 !important;
@@ -709,13 +740,18 @@
     }
 
 
+    /* =====================================================
+       GRASS
+    ===================================================== */
+
     .grass {
 
       position:fixed !important;
 
-      background-image:url(
-        'images/frutiger-aero/foregrounds_73.png'
-      );
+      background-image:
+        url(
+          'images/frutiger-aero/foregrounds_73.png'
+        );
 
       width:100%;
 
@@ -745,6 +781,10 @@
 
     }
 
+
+    /* =====================================================
+       FAIRY
+    ===================================================== */
 
     .flier {
 
@@ -793,7 +833,7 @@
         transform:
           translateX(-200%)
           translateY(100vh)
-          rotateZ(0deg)
+          rotateZ(0deg);
 
       }
 
@@ -802,7 +842,7 @@
         transform:
           translateX(100vw)
           translateY(-100%)
-          rotateZ(180deg)
+          rotateZ(180deg);
 
       }
 
@@ -811,7 +851,7 @@
         transform:
           translateX(100vw)
           translateY(-30%)
-          rotateZ(0deg)
+          rotateZ(0deg);
 
       }
 
@@ -820,7 +860,7 @@
         transform:
           translateX(-200%)
           translateY(3vh)
-          rotateZ(-180deg)
+          rotateZ(-180deg);
 
       }
 
@@ -829,7 +869,7 @@
         transform:
           translateX(-200%)
           translateY(-100%)
-          rotateZ(-180deg)
+          rotateZ(-180deg);
 
       }
 
@@ -838,7 +878,7 @@
         transform:
           translateX(100vw)
           translateY(50vh)
-          rotateZ(0deg)
+          rotateZ(0deg);
 
       }
 
@@ -847,7 +887,7 @@
         transform:
           translateX(20vw)
           translateY(-200%)
-          rotateZ(180deg)
+          rotateZ(180deg);
 
       }
 
@@ -856,23 +896,27 @@
         transform:
           translateX(10vw)
           translateY(100vh)
-          rotateZ(0deg)
+          rotateZ(0deg);
 
       }
 
     }
 
 
-    /* KRIS */
+    /* =====================================================
+       KRIS
+    ===================================================== */
 
     #kris-companion {
 
       position:fixed;
 
       left:300px;
+
       top:180px;
 
       width:260px;
+
       height:340px;
 
       z-index:50000;
@@ -880,6 +924,7 @@
       cursor:grab;
 
       user-select:none;
+
       -webkit-user-select:none;
 
       touch-action:none;
@@ -901,9 +946,11 @@
       position:absolute;
 
       left:50%;
+
       bottom:0;
 
       width:230px;
+
       height:auto;
 
       transform:
@@ -923,19 +970,23 @@
       position:absolute;
 
       left:50%;
+
       bottom:250px;
 
       transform:
         translateX(-50%);
 
       min-width:220px;
+
       max-width:340px;
 
-      padding:14px 16px;
+      padding:
+        14px 16px;
 
       background:#000;
 
-      border:4px solid #fff;
+      border:
+        4px solid #fff;
 
       color:#fff;
 
@@ -953,8 +1004,6 @@
 
       pointer-events:none;
 
-      white-space:normal;
-
       text-align:left;
 
       box-shadow:
@@ -970,7 +1019,9 @@
 
 
     #kris-dialogue.hidden {
+
       display:none;
+
     }
 
 
@@ -985,12 +1036,16 @@
       bottom:-9px;
 
       width:12px;
+
       height:12px;
 
       background:#000;
 
-      border-right:3px solid #fff;
-      border-bottom:3px solid #fff;
+      border-right:
+        3px solid #fff;
+
+      border-bottom:
+        3px solid #fff;
 
       transform:
         translateX(-50%)
@@ -999,7 +1054,9 @@
     }
 
 
-    /* COMMON WIDGET */
+    /* =====================================================
+       WINDOWS
+    ===================================================== */
 
     .page2_wrap {
 
@@ -1018,7 +1075,8 @@
 
     .fun-widget {
 
-      margin:5px auto;
+      margin:
+        5px auto;
 
       width:610px;
 
@@ -1036,10 +1094,17 @@
 
       z-index:98;
 
-      border-top:1px solid white;
-      border-left:1px solid white;
-      border-right:1px solid black;
-      border-bottom:1px solid black;
+      border-top:
+        1px solid white;
+
+      border-left:
+        1px solid white;
+
+      border-right:
+        1px solid black;
+
+      border-bottom:
+        1px solid black;
 
       box-shadow:
         inset -1px -1px #808080;
@@ -1051,8 +1116,7 @@
     }
 
 
-    .fun-widget .title-bar,
-    .fun-widget .title-bar-text {
+    .fun-widget .title-bar {
 
       text-align:left !important;
 
@@ -1069,6 +1133,12 @@
 
       padding-top:3px;
 
+      white-space:nowrap;
+
+      overflow:hidden;
+
+      text-overflow:ellipsis;
+
     }
 
 
@@ -1077,10 +1147,17 @@
       margin:
         3px 2px 2px 1px;
 
-      border-top:1px solid black;
-      border-left:1px solid black;
-      border-right:1px solid #c3c3c3;
-      border-bottom:1px solid #c3c3c3;
+      border-top:
+        1px solid black;
+
+      border-left:
+        1px solid black;
+
+      border-right:
+        1px solid #c3c3c3;
+
+      border-bottom:
+        1px solid #c3c3c3;
 
       box-shadow:
         inset 1px 1px #808080,
@@ -1097,58 +1174,514 @@
     }
 
 
-    /* CLOCK */
+    /* =====================================================
+       SMALL / TRANSPARENT CLOCK
+    ===================================================== */
 
-    .clock-widget {
+    #clockWidget {
 
-      width:300px;
+      position:fixed;
+
+      top:20px;
+
+      right:20px;
+
+      left:auto;
+
+      width:245px;
+
+      max-width:80vw;
+
+      margin:0;
+
+      z-index:5000;
+
+      background:transparent;
+
+      box-shadow:none;
+
+      border:none;
+
+      padding:0;
+
+      user-select:none;
 
     }
 
 
-    .digital-clock {
+    #clockWidget .title-bar {
 
-      background:#000;
+      cursor:grab;
 
-      color:#00ff00;
+    }
+
+
+    #clockWidget.clock-dragging {
+
+      cursor:grabbing;
+
+    }
+
+
+    #clockWidget.clock-dragging
+    .title-bar {
+
+      cursor:grabbing;
+
+    }
+
+
+    #clockWidget .clock-window-body {
+
+      background:transparent !important;
+
+      border:none;
+
+      box-shadow:none;
+
+      padding:4px 0 0 0;
+
+      margin:0;
+
+      min-height:0;
+
+      overflow:visible;
+
+      text-align:center;
+
+    }
+
+
+    #clockWidget.clock-minimized
+    .clock-window-body {
+
+      display:none;
+
+    }
+
+
+    #clockWidget.clock-maximized {
+
+      top:8px !important;
+
+      left:8px !important;
+
+      right:auto !important;
+
+      width:
+        calc(100vw - 16px);
+
+    }
+
+
+    #clockWidget.clock-maximized
+    .clock-window-body {
+
+      min-height:
+        calc(100vh - 45px);
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      flex-direction:column;
+
+      background:transparent !important;
+
+    }
+
+
+    /*
+      Small analog clock.
+    */
+
+    .analog-clock {
+
+      position:relative;
+
+      width:185px;
+
+      height:185px;
+
+      border-radius:50%;
+
+      margin:
+        2px auto 5px auto;
+
+      background:
+        radial-gradient(
+          circle at 38% 32%,
+          #ffffff 0%,
+          #fdfdf6 48%,
+          #e8e4d5 84%,
+          #cbc5b5 100%
+        );
 
       border:
-        3px inset #808080;
+        7px solid #303030;
 
-      padding:12px 5px;
+      box-shadow:
+
+        0 0 0 2px #111,
+
+        inset 0 0 0 2px #727272,
+
+        inset 0 0 12px
+          rgba(
+            0,
+            0,
+            0,
+            .38
+          ),
+
+        0 4px 8px
+          rgba(
+            0,
+            0,
+            0,
+            .4
+          );
+
+      user-select:none;
+
+      cursor:
+        url('cursors/pointer.png'),
+        pointer;
+
+    }
+
+
+    .analog-clock::before {
+
+      content:"";
+
+      position:absolute;
+
+      inset:6px;
+
+      border-radius:50%;
+
+      border:
+        1px solid
+        rgba(
+          0,
+          0,
+          0,
+          .35
+        );
+
+      pointer-events:none;
+
+    }
+
+
+    .analog-clock::after {
+
+      content:"";
+
+      position:absolute;
+
+      inset:11px;
+
+      border-radius:50%;
+
+      border:
+        1px dotted
+        rgba(
+          0,
+          0,
+          0,
+          .3
+        );
+
+      pointer-events:none;
+
+    }
+
+
+    .clock-mark {
+
+      position:absolute;
+
+      left:50%;
+
+      top:50%;
+
+      width:2px;
+
+      height:7px;
+
+      margin-left:-1px;
+
+      margin-top:-3.5px;
+
+      background:#252525;
+
+      transform-origin:
+        50% 50%;
+
+      border-radius:1px;
+
+    }
+
+
+    .clock-mark.major {
+
+      width:3px;
+
+      height:10px;
+
+      margin-left:-1.5px;
+
+      margin-top:-5px;
+
+      background:#111;
+
+    }
+
+
+    .clock-number {
+
+      position:absolute;
+
+      left:50%;
+
+      top:50%;
+
+      width:26px;
+
+      height:23px;
+
+      margin-left:-13px;
+
+      margin-top:-11.5px;
+
+      color:#111;
 
       font-family:
-        "Courier New",
-        monospace;
+        Arial,
+        Helvetica,
+        sans-serif;
 
-      font-size:26px;
+      font-size:14px;
 
       font-weight:bold;
 
-      letter-spacing:2px;
+      line-height:23px;
+
+      text-align:center;
 
       text-shadow:
-        0 0 4px #00ff00;
+        0 1px 0 #fff;
 
     }
 
 
-    .clock-date {
+    /*
+      No H.H.Roses text on the clock.
+    */
 
-      margin-top:6px;
+    .clock-brand {
+
+      display:none !important;
+
+    }
+
+
+    /* CLOCK HANDS */
+
+    .clock-hand {
+
+      position:absolute;
+
+      left:50%;
+
+      top:50%;
+
+      transform-origin:
+        50% 100%;
+
+      border-radius:
+        4px 4px 1px 1px;
+
+      pointer-events:none;
+
+      z-index:20;
+
+    }
+
+
+    .clock-hour-hand {
+
+      width:5px;
+
+      height:45px;
+
+      margin-left:-2.5px;
+
+      margin-top:-45px;
+
+      background:
+        linear-gradient(
+          to right,
+          #222 0%,
+          #000 50%,
+          #333 100%
+        );
+
+    }
+
+
+    .clock-minute-hand {
+
+      width:4px;
+
+      height:60px;
+
+      margin-left:-2px;
+
+      margin-top:-60px;
+
+      background:
+        linear-gradient(
+          to right,
+          #202020 0%,
+          #000 50%,
+          #333 100%
+        );
+
+    }
+
+
+    .clock-second-hand {
+
+      width:2px;
+
+      height:67px;
+
+      margin-left:-1px;
+
+      margin-top:-67px;
+
+      background:#b00000;
+
+    }
+
+
+    .clock-center {
+
+      position:absolute;
+
+      left:50%;
+
+      top:50%;
+
+      width:12px;
+
+      height:12px;
+
+      margin-left:-6px;
+
+      margin-top:-6px;
+
+      border-radius:50%;
+
+      background:#111;
+
+      border:
+        2px solid #444;
+
+      z-index:30;
+
+    }
+
+
+    .clock-center::after {
+
+      content:"";
+
+      position:absolute;
+
+      left:50%;
+
+      top:50%;
+
+      width:4px;
+
+      height:4px;
+
+      margin-left:-2px;
+
+      margin-top:-2px;
+
+      border-radius:50%;
+
+      background:#d0d0d0;
+
+    }
+
+
+    /*
+      ONLY the time underneath.
+    */
+
+    #clockTime {
+
+      position:relative;
+
+      margin-top:2px;
 
       color:#000;
 
       font-family:
-        "Courier New",
-        monospace;
+        'CelticBitThin',
+        sans-serif;
+
+      font-size:18px;
+
+      font-weight:normal;
+
+      letter-spacing:1px;
+
+      text-shadow:
+        1px 1px white,
+        -1px -1px
+        rgba(
+          0,
+          0,
+          0,
+          .25
+        );
+
+    }
+
+
+    #clockReopenButton {
+
+      position:fixed;
+
+      bottom:8px;
+
+      left:8px;
+
+      z-index:100000;
+
+      display:none;
+
+      font-family:
+        'CelticBitThin',
+        sans-serif;
 
       font-size:12px;
 
     }
 
 
-    /* GEOGRAPHICAL VIEW COUNTER */
+    /* =====================================================
+       GEO
+    ===================================================== */
 
     .geo-widget {
 
@@ -1168,9 +1701,12 @@
 
     .geo-intro {
 
-      color:var(--geo-muted);
+      color:
+        var(--geo-muted);
 
-      font-family:Times, serif;
+      font-family:
+        Times,
+        serif;
 
       font-weight:500;
 
@@ -1189,7 +1725,8 @@
 
       font-weight:900;
 
-      margin:0 0 .25rem;
+      margin:
+        0 0 .25rem;
 
       text-align:center;
 
@@ -1198,7 +1735,8 @@
 
     .geo-sub {
 
-      color:var(--geo-muted);
+      color:
+        var(--geo-muted);
 
       font-weight:500;
 
@@ -1229,13 +1767,13 @@
 
       border-radius:25px;
 
-      border:1px solid grey;
-
-      text-shadow:none;
+      border:
+        1px solid grey;
 
       width:350px;
 
-      margin:0 auto 1rem auto;
+      margin:
+        0 auto 1rem auto;
 
       max-width:90%;
 
@@ -1254,7 +1792,9 @@
 
       text-align:center;
 
-      font-family:Times, serif;
+      font-family:
+        Times,
+        serif;
 
     }
 
@@ -1278,18 +1818,16 @@
 
       font-weight:900;
 
-      letter-spacing:0;
-
-      color:var(--geo-muted);
-
-      margin-top:0;
+      color:
+        var(--geo-muted);
 
     }
 
 
     #visitorMap {
 
-      background:var(--geo-sea);
+      background:
+        var(--geo-sea);
 
       width:100%;
 
@@ -1297,22 +1835,21 @@
 
       max-height:400px;
 
-      border:20px solid tan;
+      border:
+        20px solid tan;
 
       border-radius:1px;
 
       box-shadow:
-        0 0 3px rgba(0,0,0,.05),
-        1px 1px 5px rgba(0,0,0,.05);
+        0 0 3px
+        rgba(0,0,0,.05),
+        1px 1px 5px
+        rgba(0,0,0,.05);
 
       overflow:hidden;
 
-      margin-left:0;
-      margin-right:0;
-
-      outline:1px solid grey;
-
-      transition:none;
+      outline:
+        1px solid grey;
 
     }
 
@@ -1326,7 +1863,8 @@
 
     #visitorMap .jvm-container {
 
-      background:var(--geo-sea) !important;
+      background:
+        var(--geo-sea) !important;
 
     }
 
@@ -1338,45 +1876,6 @@
       height:auto;
 
       display:block;
-
-    }
-
-
-    #visitorMap path {
-
-      transition:fill .12s ease;
-
-    }
-
-
-    #visitorMap path[data-hit] {
-
-      cursor:url(
-        'cursors/pointer.png'
-      ),pointer;
-
-    }
-
-
-    #visitorMap path[data-hit]:hover {
-
-      stroke:var(--geo-ink);
-
-      stroke-width:.8;
-
-    }
-
-
-    #visitorMap .jvm-zoom-btn {
-
-      background:#c0c0c0 !important;
-
-      color:#000 !important;
-
-      border:1px solid #000 !important;
-
-      box-shadow:
-        inset 1px 1px #fff;
 
     }
 
@@ -1393,7 +1892,8 @@
 
       font-size:16px;
 
-      color:var(--geo-muted);
+      color:
+        var(--geo-muted);
 
       margin-top:.9rem;
 
@@ -1406,7 +1906,8 @@
 
       background:#c3c3c3;
 
-      border:1px solid grey;
+      border:
+        1px solid grey;
 
       border-radius:5px;
 
@@ -1420,15 +1921,13 @@
 
       align-items:center;
 
-      justify-content:center !important;
+      justify-content:center;
 
       gap:5px;
 
-      text-shadow:none;
-
       color:black;
 
-      font-weight:900;
+      text-shadow:none;
 
     }
 
@@ -1443,7 +1942,14 @@
 
       display:inline-block;
 
-      border:1px solid rgba(0,0,0,.08);
+      border:
+        1px solid
+        rgba(
+          0,
+          0,
+          0,
+          .08
+        );
 
     }
 
@@ -1454,20 +1960,27 @@
 
       padding-top:1.25rem;
 
-      border-top:1px solid var(--geo-rule);
+      border-top:
+        1px solid
+        var(--geo-rule);
 
-      font-family:Times, serif;
+      font-family:
+        Times,
+        serif;
 
       font-size:13px;
 
-      color:var(--geo-muted);
+      color:
+        var(--geo-muted);
 
       line-height:1.35;
 
     }
 
 
-    /* TRAFFIC GRAPH */
+    /* =====================================================
+       TRAFFIC
+    ===================================================== */
 
     .traffic-widget {
 
@@ -1499,30 +2012,18 @@
 
       padding:10px;
 
-      box-shadow:
-        inset 1px 1px #808080;
-
     }
 
 
-    /* PHOTO WIDGETS */
+    /* =====================================================
+       PHOTO WIDGETS
+    ===================================================== */
 
     .photo-widget {
 
       width:500px;
 
       max-width:90%;
-
-    }
-
-
-    .photo-widget .window-body {
-
-      background:#fff;
-
-      color:#000;
-
-      padding:10px;
 
     }
 
@@ -1545,27 +2046,26 @@
       box-shadow:
         inset 1px 1px white,
         inset -1px -1px #808080,
-        0 0 8px rgba(
-          0,
-          0,
-          0,
-          .25
-        );
+        0 0 8px
+          rgba(
+            0,
+            0,
+            0,
+            .25
+          );
 
       display:block;
 
       margin:
         0 auto 8px auto;
 
-      cursor:
-        url('cursors/pointer.png'),
-        pointer;
-
     }
 
 
     .random-photo:hover {
+
       scale:1.015;
+
     }
 
 
@@ -1606,10 +2106,6 @@
 
       min-width:150px;
 
-      cursor:
-        url('cursors/pointer.png'),
-        pointer;
-
     }
 
 
@@ -1627,12 +2123,12 @@
 
       font-size:10px;
 
-      text-decoration:underline;
-
     }
 
 
-    /* TRAINS */
+    /* =====================================================
+       TRAINS
+    ===================================================== */
 
     .helsinki-trains {
 
@@ -1721,13 +2217,7 @@
 
       margin-bottom:5px;
 
-      font-family:
-        'ComicSans',
-        Arial,
-        sans-serif;
-
-      text-shadow:
-        1px 1px black;
+      text-align:left;
 
     }
 
@@ -1824,11 +2314,10 @@
       border:
         1px solid #808080;
 
-      padding:4px 3px;
+      padding:
+        4px 3px;
 
       white-space:nowrap;
-
-      text-shadow:none;
 
     }
 
@@ -1838,7 +2327,8 @@
       border:
         1px solid #c0c0c0;
 
-      padding:4px 3px;
+      padding:
+        4px 3px;
 
       white-space:nowrap;
 
@@ -1848,7 +2338,9 @@
 
 
     .train-table tr:nth-child(even) td {
+
       background:#dfdfdf;
+
     }
 
 
@@ -1857,15 +2349,6 @@
       background:#000080;
 
       color:#fff;
-
-    }
-
-
-    .train-number {
-
-      color:#000080;
-
-      font-weight:bold;
 
     }
 
@@ -1898,7 +2381,9 @@
 
 
     .train-ok {
+
       color:#008000;
+
     }
 
 
@@ -1942,7 +2427,9 @@
 
 
     .train-footer a {
+
       color:#000080;
+
     }
 
 
@@ -1954,27 +2441,33 @@
         'ComicSans',
         sans-serif;
 
-      cursor:
-        url('cursors/pointer.png'),
-        pointer;
-
     }
 
 
-    /* PRIVACY */
+    /* =====================================================
+       PRIVACY
+    ===================================================== */
 
     div.termsAndPolicy {
 
-      margin:5px auto;
+      margin:
+        5px auto;
 
       width:300px !important;
 
       padding:5px;
 
-      border-top:1px solid white;
-      border-left:1px solid white;
-      border-right:1px solid #808080;
-      border-bottom:1px solid #808080;
+      border-top:
+        1px solid white;
+
+      border-left:
+        1px solid white;
+
+      border-right:
+        1px solid #808080;
+
+      border-bottom:
+        1px solid #808080;
 
       box-shadow:
         1px 1px black;
@@ -1983,22 +2476,11 @@
 
       display:grid;
 
-      align-content:end;
-
       text-align:center;
 
       font-size:14px;
 
       z-index:9;
-
-      text-shadow:
-        1px 1px white,
-        -1px -1px rgba(
-          0,
-          0,
-          0,
-          .25
-        );
 
     }
 
@@ -2016,6 +2498,7 @@
         1px 1px white;
 
       justify-content:center;
+
       align-items:center;
 
       display:flex;
@@ -2025,13 +2508,17 @@
     }
 
 
-    /* NEOCITIES */
+    /* =====================================================
+       NEOCITIES
+    ===================================================== */
 
     .neocities {
 
-      margin:10px auto !important;
+      margin:
+        10px auto !important;
 
-      border:10px solid white;
+      border:
+        10px solid white;
 
       border-radius:25px;
 
@@ -2044,33 +2531,33 @@
     }
 
 
-    .neocities:hover {
-
-      scale:1;
-
-      cursor:
-        url('cursors/pointer.png'),
-        pointer;
-
-    }
-
-
-    /* LANGUAGES */
+    /* =====================================================
+       LANGUAGES
+    ===================================================== */
 
     .languages_wrap_wrap {
 
-      font-family:'Arial';
+      font-family:
+        Arial;
 
-      margin:5px auto;
+      margin:
+        5px auto;
 
       width:185px;
 
       padding:5px;
 
-      border-top:1px solid white;
-      border-left:1px solid white;
-      border-right:1px solid #808080;
-      border-bottom:1px solid #808080;
+      border-top:
+        1px solid white;
+
+      border-left:
+        1px solid white;
+
+      border-right:
+        1px solid #808080;
+
+      border-bottom:
+        1px solid #808080;
 
       box-shadow:
         1px 1px black;
@@ -2079,22 +2566,11 @@
 
       display:grid;
 
-      align-content:end;
-
       text-align:center;
 
       font-size:14px;
 
       z-index:99;
-
-      text-shadow:
-        1px 1px white,
-        -1px -1px rgba(
-          0,
-          0,
-          0,
-          .25
-        );
 
     }
 
@@ -2123,66 +2599,8 @@
 
     .gtranslate_wrapper {
 
-      margin:5px auto !important;
-
-      filter:
-        drop-shadow(
-          1px 1px white
-        )
-
-        drop-shadow(
-          -1px -1px
-          rgba(
-            0,
-            0,
-            0,
-            .25
-          )
-        );
-
-    }
-
-
-    .gtranslate_wrapper *::-webkit-scrollbar {
-      width:16px;
-    }
-
-
-    .gtranslate_wrapper *::-webkit-scrollbar-track {
-
-      background:#dfdfdf;
-
-      border-left:1px solid #fff;
-      border-top:1px solid #fff;
-
-    }
-
-
-    .gtranslate_wrapper *::-webkit-scrollbar-thumb {
-
-      background:#c0c0c0;
-
-      box-shadow:
-        inset 1px 1px #fff,
-        inset -1px -1px #0a0a0a,
-        inset 2px 2px #dfdfdf,
-        inset -2px -2px #808080;
-
-    }
-
-
-    .gtranslate_wrapper *::-webkit-scrollbar-button {
-      display:none;
-    }
-
-
-    .gtranslate_wrapper * {
-
-      scrollbar-width:thin;
-
-      scrollbar-color:
-        #c0c0c0
-        #dfdfdf;
+      margin:
+        5px auto !important;
 
     }
 
@@ -2208,53 +2626,86 @@
 
     @media (max-width:700px) {
 
-      #kris-companion {
+      #clockWidget {
 
-        width:210px;
-        height:280px;
+        width:205px;
+
+        top:10px;
+
+        right:10px;
 
       }
 
 
-      #kris-gif {
-        width:185px;
+      .analog-clock {
+
+        width:150px;
+
+        height:150px;
+
       }
 
 
-      #kris-dialogue {
+      .clock-hour-hand {
 
-        min-width:180px;
+        height:36px;
 
-        max-width:260px;
+        margin-top:-36px;
 
-        font-size:15px;
+      }
 
-        padding:
-          10px 12px;
+
+      .clock-minute-hand {
+
+        height:49px;
+
+        margin-top:-49px;
+
+      }
+
+
+      .clock-second-hand {
+
+        height:55px;
+
+        margin-top:-55px;
+
+      }
+
+
+      .clock-number {
+
+        font-size:11px;
+
+        width:22px;
+
+        height:20px;
+
+        margin-left:-11px;
+
+        margin-top:-10px;
+
+        line-height:20px;
+
+      }
+
+
+      #clockTime {
+
+        font-size:16px;
 
       }
 
 
       .random-photo {
+
         height:230px;
-      }
-
-
-      .train-table {
-        font-size:9px;
-      }
-
-
-      .train-table th,
-      .train-table td {
-
-        padding:
-          3px 2px;
 
       }
 
 
       #visitorMap {
+
         height:240px;
 
         border-width:10px;
@@ -2263,7 +2714,25 @@
 
 
       #trafficChart {
+
         height:250px !important;
+
+      }
+
+
+      #kris-companion {
+
+        width:210px;
+
+        height:280px;
+
+      }
+
+
+      #kris-gif {
+
+        width:185px;
+
       }
 
     }
@@ -2276,7 +2745,9 @@
 <body>
 
 
-  <!-- Windows 98 context menu -->
+  <!-- =====================================================
+       CONTEXT MENU
+  ===================================================== -->
 
   <div
     id="win98-menu"
@@ -2290,12 +2761,14 @@
       <u>C</u>ut
     </div>
 
+
     <div
       class="menu-item"
       onclick="copyToClipboard()"
     >
       <u>C</u>opy
     </div>
+
 
     <div
       class="menu-item"
@@ -2304,7 +2777,9 @@
       <u>P</u>aste
     </div>
 
+
     <div class="menu-separator"></div>
+
 
     <div class="menu-item">
       Properties
@@ -2316,6 +2791,10 @@
   <canvas id="fluid-canvas"></canvas>
 
 
+  <!-- =====================================================
+       AUDIO
+  ===================================================== -->
+
   <audio autoplay>
 
     <source
@@ -2326,7 +2805,11 @@
   </audio>
 
 
-  <div style="visibility:hidden;">
+  <div
+    style="
+      visibility:hidden;
+    "
+  >
 
     google-site-verification:
     googlee9bd4a88d1b5bb86.html
@@ -2334,10 +2817,7 @@
   </div>
 
 
-  <div
-    class="coolcode"
-    title="cool green code"
-  ></div>
+  <div class="coolcode"></div>
 
   <div class="background"></div>
 
@@ -2357,6 +2837,10 @@
     title="clouds"
   ></div>
 
+
+  <!-- =====================================================
+       MAIN
+  ===================================================== -->
 
   <main>
 
@@ -2386,19 +2870,24 @@
 
       <div class="webring">
 
+
         <div id="we_bring">
+
 
           <script
             type="text/javascript"
             src="../brooklynights.nekoweb.org/we_bring/onionring-variables.js"
           ></script>
 
+
           <script
             type="text/javascript"
             src="../brooklynights.nekoweb.org/we_bring/onionring-widget.js"
           ></script>
 
+
         </div>
+
 
       </div>
 
@@ -2408,7 +2897,9 @@
 
       <div class="enterbutton">
 
+
         <a href="bios-startup.html">
+
 
           <img
             title="enter button"
@@ -2416,7 +2907,9 @@
             loading="lazy"
           >
 
+
         </a>
+
 
       </div>
 
@@ -2445,9 +2938,13 @@
 
     <div class="pageviews">
 
+
       <span>
+
         page views:
+
       </span>
+
 
       <span
         id="pageViewCounter"
@@ -2465,8 +2962,11 @@
           line-height:16px;
         "
       >
+
         ...
+
       </span>
+
 
     </div>
 
@@ -2474,29 +2974,12 @@
   </main>
 
 
-  <div
-    class="flier"
-    title="flying fairy"
-  >
-
-    <img
-      src="images/flying-fairy.gif"
-      alt="flying fairy"
-    >
-
-  </div>
-
-
-  <audio id="sfx">
-
-    <source
-      src="https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3"
-    >
-
-  </audio>
-
+  <!-- =====================================================
+       GNOME
+  ===================================================== -->
 
   <div>
+
 
     <img
       loading="lazy"
@@ -2508,7 +2991,7 @@
         unlockAchievement(
           'gnome_clicker',
           'OOH!',
-          'https://wsrv.nl/?url=https://hhroses.neocities.org/images/little_gnome.png&amp;w=32&amp;h=32&amp;fit=cover',
+          'https://wsrv.nl/?url=https://hhroses.neocities.org/images/little_gnome.png&w=32&h=32&fit=cover',
           'Booped the gnome',
           'games',
           'https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3'
@@ -2521,12 +3004,8 @@
 
       alt="little gnome"
 
-      style="
-        max-width:10%;
-        max-height:10%;
-        z-index:999;
-      "
     >
+
 
   </div>
 
@@ -2536,7 +3015,9 @@
     window.addEventListener(
       "load",
       function() {
+
         move();
+
       }
     );
 
@@ -2544,22 +3025,29 @@
     function move() {
 
       const img =
-        document.getElementById("gnome");
+        document.getElementById(
+          "gnome"
+        );
+
 
       if (!img)
         return;
+
 
       img.style.left =
         Math.floor(
           Math.random() *
           window.innerWidth
-        ) + "px";
+        ) +
+        "px";
+
 
       img.style.top =
         Math.floor(
           Math.random() *
           window.innerHeight
-        ) + "px";
+        ) +
+        "px";
 
     }
 
@@ -2567,10 +3055,14 @@
     function playsound() {
 
       const sfx =
-        document.getElementById("sfx");
+        document.getElementById(
+          "sfx"
+        );
+
 
       if (!sfx)
         return;
+
 
       sfx.autoplay = true;
 
@@ -2598,84 +3090,172 @@
       document.body.style.backgroundImage =
         "url('images/pink_clouds.jpg')";
 
+
       const code =
         document.querySelector(
-          '.coolcode'
+          ".coolcode"
         );
 
+
       if (code)
-        code.style.top = "0px";
+        code.style.top =
+          "0px";
 
     }
 
   </script>
 
 
+  <audio id="sfx">
+
+    <source
+      src="https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3"
+    >
+
+  </audio>
+
+
+  <!-- =====================================================
+       FAIRY
+  ===================================================== -->
+
+  <div
+    class="flier"
+    title="flying fairy"
+  >
+
+    <img
+      src="images/flying-fairy.gif"
+      alt="flying fairy"
+    >
+
+  </div>
+
+
+  <!-- =====================================================
+       PAGE 2
+  ===================================================== -->
+
   <div class="page2_wrap">
 
 
-    <!-- CLOCK -->
+    <!-- ===================================================
+         CLOCK
+    ==================================================== -->
 
-    <div class="fun-widget clock-widget">
+    <div
+      class="fun-widget"
+      id="clockWidget"
+    >
+
 
       <div class="title-bar">
 
-        <img
-          src="images/icons/clock-16x16.png"
-          alt=""
-        >
 
         <div class="title-bar-text">
 
-          H.H.Roses Clock
+          🕒 H.H.Roses Clock
 
         </div>
+
 
         <div class="title-bar-controls">
 
+
           <button
+            id="clockMinimize"
+            aria-label="Minimize"
+          ></button>
+
+
+          <button
+            id="clockMaximize"
+            aria-label="Maximize"
+          ></button>
+
+
+          <button
+            id="clockClose"
             aria-label="Close"
           ></button>
 
+
         </div>
+
 
       </div>
 
 
-      <div class="window-body">
+      <div
+        class="window-body clock-window-body"
+      >
+
 
         <div
-          id="digitalClock"
-          class="digital-clock"
+          id="analogClock"
+          class="analog-clock"
+          role="button"
+          tabindex="0"
+          aria-label="Interactive Helsinki analog clock"
+          title="Click the clock to switch between 24-hour and 12-hour time"
         >
+
+
+          <div
+            id="hourHand"
+            class="clock-hand clock-hour-hand"
+          ></div>
+
+
+          <div
+            id="minuteHand"
+            class="clock-hand clock-minute-hand"
+          ></div>
+
+
+          <div
+            id="secondHand"
+            class="clock-hand clock-second-hand"
+          ></div>
+
+
+          <div class="clock-center"></div>
+
+
+        </div>
+
+
+        <div id="clockTime">
           --:--:--
         </div>
 
-        <div
-          id="clockDate"
-          class="clock-date"
-        >
-          Loading date...
-        </div>
 
       </div>
+
 
     </div>
 
 
+    <button
+      id="clockReopenButton"
+      type="button"
+    >
+      H.H.Roses Clock
+    </button>
+
+
+    <!-- ===================================================
+         GEO MAP
+    ==================================================== -->
+
     <br>
 
 
-    <!-- GEOGRAPHICAL VISITOR COUNTER -->
-
     <div class="fun-widget geo-widget">
+
 
       <div class="title-bar">
 
-        <img
-          src="images/icons/zone-internet-16x16.png"
-          alt=""
-        >
 
         <div class="title-bar-text">
 
@@ -2683,6 +3263,7 @@
 
         </div>
 
+
         <div class="title-bar-controls">
 
           <button
@@ -2691,34 +3272,42 @@
 
         </div>
 
+
       </div>
 
 
       <div class="window-body">
 
+
         <div class="geo-intro">
 
-          Welcome to my site! Enjoy the art, games, books,
-          music, videos, and more, all created by H.H.Roses!
+          Welcome to my site! Enjoy the art, games,
+          books, music, videos, and more, all created
+          by H.H.Roses!
 
         </div>
 
 
         <h1>
+
           Where visitors come from
+
         </h1>
 
 
         <p class="geo-sub">
 
-          Countries are shaded based on landing page views
-          since July 30th, 2026.<br>
-          Views on other pages of this website are not counted.
+          Countries are shaded based on landing page
+          views since July 30th, 2026.<br>
+
+          Views on other pages of this website
+          are not counted.
 
         </p>
 
 
         <div class="geo-stats">
+
 
           <div class="geo-stat">
 
@@ -2758,17 +3347,17 @@
 
           </div>
 
+
         </div>
 
 
-        <div
-          id="visitorMap"
-        >
+        <div id="visitorMap">
           Loading map&hellip;
         </div>
 
 
         <div class="geo-legend">
+
 
           <span>
 
@@ -2807,7 +3396,7 @@
               "
             ></i>
 
-            2&ndash;5
+            2–5
 
           </span>
 
@@ -2821,7 +3410,7 @@
               "
             ></i>
 
-            6&ndash;20
+            6–20
 
           </span>
 
@@ -2835,7 +3424,7 @@
               "
             ></i>
 
-            21&ndash;100
+            21–100
 
           </span>
 
@@ -2853,16 +3442,11 @@
 
           </span>
 
+
         </div>
 
 
-        <p
-          class="geo-note"
-          style="
-            margin-top:.75rem;
-            margin-bottom:0;
-          "
-        >
+        <p class="geo-note">
 
           *Because I'm using the free-version of a backend
           server, only 1000 operations are allotted to me a
@@ -2873,30 +3457,32 @@
 
         </p>
 
+
       </div>
+
 
     </div>
 
 
+    <!-- ===================================================
+         TRAFFIC
+    ==================================================== -->
+
     <br>
 
 
-    <!-- TRAFFIC OVER TIME -->
-
     <div class="fun-widget traffic-widget">
+
 
       <div class="title-bar">
 
-        <img
-          src="images/icons/clock-16x16.png"
-          alt=""
-        >
 
         <div class="title-bar-text">
 
           Traffic Over Time
 
         </div>
+
 
         <div class="title-bar-controls">
 
@@ -2905,6 +3491,7 @@
           ></button>
 
         </div>
+
 
       </div>
 
@@ -2917,41 +3504,37 @@
         "
       >
 
+
         <canvas
           id="trafficChart"
-          style="
-            width:100%;
-            max-height:300px;
-            background:#000;
-            padding:10px;
-            box-shadow:inset 1px 1px #808080;
-          "
         ></canvas>
 
+
       </div>
+
 
     </div>
 
 
+    <!-- ===================================================
+         VR PHOTO WIDGET
+    ==================================================== -->
+
     <br>
 
 
-    <!-- VR TRAIN PHOTOS -->
-
     <div class="fun-widget photo-widget">
+
 
       <div class="title-bar">
 
-        <img
-          src="images/icons/zone-internet-16x16.png"
-          alt=""
-        >
 
         <div class="title-bar-text">
 
           Cool VR Train Photos
 
         </div>
+
 
         <div class="title-bar-controls">
 
@@ -2961,10 +3544,12 @@
 
         </div>
 
+
       </div>
 
 
       <div class="window-body">
+
 
         <img
           id="vrTrainPhoto"
@@ -2998,7 +3583,9 @@
           class="photo-source"
         ></span>
 
+
       </div>
+
 
     </div>
 
@@ -3008,108 +3595,150 @@
       const vrTrainPhotos = [
 
         {
-          src:"https://tse2.mm.bing.net/th/id/OIP.Tjw4iYJI_ngX0Bvoeb1djAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-          caption:"VR TRAIN"
+          src:
+            "https://tse2.mm.bing.net/th/id/OIP.Tjw4iYJI_ngX0Bvoeb1djAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+          caption:
+            "VR TRAIN"
         },
 
         {
-          src:"https://tse2.mm.bing.net/th/id/OIP.rJe6QzBCjgIsN3sXa1fncwHaE9?r=0&w=1024&h=685&rs=1&pid=ImgDetMain&o=7&rm=3",
-          caption:"ANOTHER VR TRAIN"
+          src:
+            "https://tse2.mm.bing.net/th/id/OIP.rJe6QzBCjgIsN3sXa1fncwHaE9?r=0&w=1024&h=685&rs=1&pid=ImgDetMain&o=7&rm=3",
+          caption:
+            "ANOTHER VR TRAIN"
         },
 
         {
-          src:"https://thumbs.dreamstime.com/b/helsinki-finland-june-vr-class-sm-emu-operated-vr-group-helsinki-railway-station-train-vr-class-sm-emu-helsinki-railway-285534859.jpg?w=992",
-          caption:"VR SM EMU AT HELSINKI"
+          src:
+            "https://thumbs.dreamstime.com/b/helsinki-finland-june-vr-class-sm-emu-operated-vr-group-helsinki-railway-station-train-vr-class-sm-emu-helsinki-railway-285534859.jpg?w=992",
+          caption:
+            "VR SM EMU AT HELSINKI"
         },
 
         {
-          src:"https://tse2.mm.bing.net/th/id/OIP.3mA_tttjPl0_kHj4jK67swHaEc?r=0&w=800&h=480&rs=1&pid=ImgDetMain&o=7&rm=3",
-          caption:"VR TRAIN GO BRRRRRR"
+          src:
+            "https://tse2.mm.bing.net/th/id/OIP.3mA_tttjPl0_kHj4jK67swHaEc?r=0&w=800&h=480&rs=1&pid=ImgDetMain&o=7&rm=3",
+          caption:
+            "VR TRAIN GO BRRRRRR"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20001.jpg",
-          caption:"Finnish VR IC 407"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20001.jpg",
+          caption:
+            "Finnish VR IC 407"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20002.jpg",
-          caption:"IC 407 AGAIN"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20407%20in%20Oulu%2020260812%20002.jpg",
+          caption:
+            "IC 407 AGAIN"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20001.jpg",
-          caption:"Finnish IC 26"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20001.jpg",
+          caption:
+            "Finnish IC 26"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20002.jpg",
-          caption:"IC 26 ANOTHER ANGLE"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%2026%20in%20Oulu%2020250620%20002.jpg",
+          caption:
+            "IC 26 ANOTHER ANGLE"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20001.jpg",
-          caption:"Finnish IC 401"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20001.jpg",
+          caption:
+            "Finnish IC 401"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20002.jpg",
-          caption:"IC 401"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20IC%20401%20in%20Tornio%2020260822%20002.jpg",
+          caption:
+            "IC 401"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20001.jpg",
-          caption:"VR NIGHT TRAIN PYO 269"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20001.jpg",
+          caption:
+            "VR NIGHT TRAIN PYO 269"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20002.jpg",
-          caption:"PYO 269 NIGHT TRAIN"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20269%20in%20Tornio%2020260711%20002.jpg",
+          caption:
+            "PYO 269 NIGHT TRAIN"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20001.jpg",
-          caption:"VR PYO 276"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20001.jpg",
+          caption:
+            "VR PYO 276"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20002.jpg",
-          caption:"PYO 276"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20PYO%20276%20in%20Tornio%2020250718%20002.jpg",
+          caption:
+            "PYO 276"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20S%20403%20in%20Tornio%2020260823%20001.jpg",
-          caption:"VR S 403"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20S%20403%20in%20Tornio%2020260823%20001.jpg",
+          caption:
+            "VR S 403"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205134%20in%20Tornio%2020240603%20001.jpg",
-          caption:"VR T 5134"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205134%20in%20Tornio%2020240603%20001.jpg",
+          caption:
+            "VR T 5134"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205137%20in%20Tornio%2020250503%20001.jpg",
-          caption:"VR T 5137"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Finnish%20train%20T%205137%20in%20Tornio%2020250503%20001.jpg",
+          caption:
+            "VR T 5137"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Car%20train%2C%20Turku%20station%2C%2020241218%20-%2007.jpg",
-          caption:"VR CAR TRAIN"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Car%20train%2C%20Turku%20station%2C%2020241218%20-%2007.jpg",
+          caption:
+            "VR CAR TRAIN"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Dr16%20locomotive%20with%20freight%20wagons%20in%20Tornio%20Mar2012%20001.jpg",
-          caption:"VR Dr16 AND FREIGHT"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Dr16%20locomotive%20with%20freight%20wagons%20in%20Tornio%20Mar2012%20001.jpg",
+          caption:
+            "VR Dr16 AND FREIGHT"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Sr3%20locomotive%20in%20Oulu%2020250620%20001.jpg",
-          caption:"VR Sr3 LOCOMOTIVE"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sr3%20locomotive%20in%20Oulu%2020250620%20001.jpg",
+          caption:
+            "VR Sr3 LOCOMOTIVE"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Sm4%20Kerava.jpg",
-          caption:"VR Sm4 AT KERAVA"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/VR%20Sm4%20Kerava.jpg",
+          caption:
+            "VR Sm4 AT KERAVA"
         }
 
       ];
@@ -3120,7 +3749,9 @@
 
       function showRandomVRTrain() {
 
-        if (!vrTrainPhotos.length)
+        if (
+          !vrTrainPhotos.length
+        )
           return;
 
 
@@ -3143,7 +3774,8 @@
         );
 
 
-        lastVRTrainIndex = index;
+        lastVRTrainIndex =
+          index;
 
 
         const train =
@@ -3168,9 +3800,13 @@
           );
 
 
-        image.src = train.src;
+        image.src =
+          train.src;
 
-        image.alt = train.caption;
+
+        image.alt =
+          train.caption;
+
 
         caption.textContent =
           train.caption;
@@ -3186,8 +3822,7 @@
             'Source: <a href="' +
             train.src +
             '" target="_blank" rel="noopener">' +
-            'Wikimedia Commons' +
-            '</a>';
+            'Wikimedia Commons</a>';
 
         }
 
@@ -3209,22 +3844,22 @@
     </script>
 
 
-    <!-- CAT PHOTOS -->
+    <!-- ===================================================
+         CATS
+    ==================================================== -->
 
     <div class="fun-widget photo-widget">
 
+
       <div class="title-bar">
 
-        <img
-          src="images/icons/zone-internet-16x16.png"
-          alt=""
-        >
 
         <div class="title-bar-text">
 
           Cool Cat Photos
 
         </div>
+
 
         <div class="title-bar-controls">
 
@@ -3234,10 +3869,12 @@
 
         </div>
 
+
       </div>
 
 
       <div class="window-body">
+
 
         <img
           id="catPhoto"
@@ -3271,7 +3908,9 @@
           class="photo-source"
         ></span>
 
+
       </div>
+
 
     </div>
 
@@ -3281,83 +3920,115 @@
       const catPhotos = [
 
         {
-          src:"https://th.bing.com/th/id/R.92a36fd9faacda4790854fcd9fb4b037?rik=s8rKPsp2paFBBA&pid=ImgRaw&r=0",
-          caption:"CAT MEOW"
+          src:
+            "https://th.bing.com/th/id/R.92a36fd9faacda4790854fcd9fb4b037?rik=s8rKPsp2paFBBA&pid=ImgRaw&r=0",
+          caption:
+            "CAT MEOW"
         },
 
         {
-          src:"https://i.ytimg.com/vi/Ie57fr8pCko/maxresdefault.jpg",
-          caption:"VERY IMPORTANT CAT"
+          src:
+            "https://i.ytimg.com/vi/Ie57fr8pCko/maxresdefault.jpg",
+          caption:
+            "VERY IMPORTANT CAT"
         },
 
         {
-          src:"https://yt3.googleusercontent.com/Fjs8Z7mywNBjOqL5tIjdGZZWPhrqxDw3uzPXZBosol-Uu5r0ya1FFEMKVD0vsiGyeBrBEZA1UYY=s900-c-k-c0x00ffffff-no-rj",
-          caption:"MEOW MEOW MEOW"
+          src:
+            "https://yt3.googleusercontent.com/Fjs8Z7mywNBjOqL5tIjdGZZWPhrqxDw3uzPXZBosol-Uu5r0ya1FFEMKVD0vsiGyeBrBEZA1UYY=s900-c-k-c0x00ffffff-no-rj",
+          caption:
+            "MEOW MEOW MEOW"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Are%20you%20going%20to%20drink%20my%20milk%2C%20odd%20human%3F%20%2823463302349%29.jpg",
-          caption:"Are you going to drink my milk, odd human?"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Are%20you%20going%20to%20drink%20my%20milk%2C%20odd%20human%3F%20%2823463302349%29.jpg",
+          caption:
+            "Are you going to drink my milk, odd human?"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20Come%20In%20Peace%2C%20Take%20Me%20To%20Your%20Leader%21%20%2824110029751%29.jpg",
-          caption:"I COME IN PEACE"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20Come%20In%20Peace%2C%20Take%20Me%20To%20Your%20Leader%21%20%2824110029751%29.jpg",
+          caption:
+            "I COME IN PEACE"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20must%20help%20the%20humans%20remove%20that%20beautiful%20ball...%21%21%20%2823726684305%29.jpg",
-          caption:"CAT HAS A VERY IMPORTANT MISSION"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20must%20help%20the%20humans%20remove%20that%20beautiful%20ball...%21%21%20%2823726684305%29.jpg",
+          caption:
+            "CAT HAS A VERY IMPORTANT MISSION"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20want%20to%20ride%20my%20bicycle..%20cropped%202024.jpg",
-          caption:"CAT WANTS TO RIDE A BICYCLE"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/I%20want%20to%20ride%20my%20bicycle..%20cropped%202024.jpg",
+          caption:
+            "CAT WANTS TO RIDE A BICYCLE"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Not%20again%20with%20that%20camera...%20cropped%202025.jpg",
-          caption:"NOT AGAIN WITH THAT CAMERA"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Not%20again%20with%20that%20camera...%20cropped%202025.jpg",
+          caption:
+            "NOT AGAIN WITH THAT CAMERA"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/What%27s%20that...%3F%20%2826565615299%29.jpg",
-          caption:"WHAT'S THAT?"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/What%27s%20that...%3F%20%2826565615299%29.jpg",
+          caption:
+            "WHAT'S THAT?"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20cat%20called%20Mokoma%20or%20MIRRE.jpg",
-          caption:"MOKOMA / MIRRE"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/A%20cat%20called%20Mokoma%20or%20MIRRE.jpg",
+          caption:
+            "MOKOMA / MIRRE"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tarzanette.jpg",
-          caption:"TARZANETTE"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tarzanette.jpg",
+          caption:
+            "TARZANETTE"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tesjoen%20kissa.jpg",
-          caption:"TESJOKI KITTY"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tesjoen%20kissa.jpg",
+          caption:
+            "TESJOKI KITTY"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Mad%20Hatter%3F.png",
-          caption:"THE MAD HATTER?"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Mad%20Hatter%3F.png",
+          caption:
+            "THE MAD HATTER?"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/THE%20PARTY%20IS%20OVER%2C%20HUMAN%21.png",
-          caption:"THE PARTY IS OVER, HUMAN"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/THE%20PARTY%20IS%20OVER%2C%20HUMAN%21.png",
+          caption:
+            "THE PARTY IS OVER, HUMAN"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Tricolor%20domestic%20cat%20in%20Suomenlinna.jpg",
-          caption:"SUOMENLINNA KITTY"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tricolor%20domestic%20cat%20in%20Suomenlinna.jpg",
+          caption:
+            "SUOMENLINNA KITTY"
         },
 
         {
-          src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/What%3F%20My%20Birthday%21%20You%27re%20kidding%21.jpg",
-          caption:"WHAT? MY BIRTHDAY?"
+          src:
+            "https://commons.wikimedia.org/wiki/Special:Redirect/file/What%3F%20My%20Birthday%21%20You%27re%20kidding%21.jpg",
+          caption:
+            "WHAT? MY BIRTHDAY?"
         }
 
       ];
@@ -3368,7 +4039,9 @@
 
       function showRandomCat() {
 
-        if (!catPhotos.length)
+        if (
+          !catPhotos.length
+        )
           return;
 
 
@@ -3391,7 +4064,8 @@
         );
 
 
-        lastCatIndex = index;
+        lastCatIndex =
+          index;
 
 
         const cat =
@@ -3416,9 +4090,13 @@
           );
 
 
-        image.src = cat.src;
+        image.src =
+          cat.src;
 
-        image.alt = cat.caption;
+
+        image.alt =
+          cat.caption;
+
 
         caption.textContent =
           cat.caption;
@@ -3434,8 +4112,7 @@
             'Source: <a href="' +
             cat.src +
             '" target="_blank" rel="noopener">' +
-            'Wikimedia Commons' +
-            '</a>';
+            'Wikimedia Commons</a>';
 
         }
 
@@ -3457,24 +4134,24 @@
     </script>
 
 
-    <!-- HELSINKI / CUSTOM STATION TRAINS -->
+    <!-- ===================================================
+         HELSINKI TRAINS
+    ==================================================== -->
 
     <div
       class="fun-widget helsinki-trains"
     >
 
+
       <div class="title-bar">
 
-        <img
-          src="images/icons/clock-16x16.png"
-          alt=""
-        >
 
         <div class="title-bar-text">
 
           Finnish Live Trains
 
         </div>
+
 
         <div class="title-bar-controls">
 
@@ -3484,6 +4161,7 @@
 
         </div>
 
+
       </div>
 
 
@@ -3491,6 +4169,7 @@
 
 
         <div class="train-search">
+
 
           <input
             id="stationSearch"
@@ -3500,7 +4179,10 @@
             autocomplete="off"
           >
 
-          <datalist id="stationList"></datalist>
+
+          <datalist
+            id="stationList"
+          ></datalist>
 
 
           <button
@@ -3509,6 +4191,7 @@
           >
             Search
           </button>
+
 
         </div>
 
@@ -3522,18 +4205,23 @@
 
         <div class="train-board-header">
 
+
           <span
             id="trainStationTitle"
             class="big"
           >
+
             Helsinki Central Station
+
           </span>
+
 
           <span class="small">
 
             FINTRAFFIC DIGITRAFFIC LIVE TRAIN BOARD
 
           </span>
+
 
         </div>
 
@@ -3542,22 +4230,30 @@
           id="helsinkiTrainStatus"
           class="train-status"
         >
+
           [ CONNECTING ]
+
         </div>
 
 
         <div class="train-table-wrap">
 
+
           <table class="train-table">
+
 
             <thead>
 
               <tr>
 
                 <th>TRAIN</th>
+
                 <th>TRACK</th>
+
                 <th>DIRECTION</th>
+
                 <th>TIME</th>
+
                 <th>STATUS</th>
 
               </tr>
@@ -3565,19 +4261,25 @@
             </thead>
 
 
-            <tbody id="helsinkiTrainRows">
+            <tbody
+              id="helsinkiTrainRows"
+            >
 
               <tr>
 
                 <td colspan="5">
+
                   Loading trains...
+
                 </td>
 
               </tr>
 
             </tbody>
 
+
           </table>
+
 
         </div>
 
@@ -3594,6 +4296,7 @@
         <div class="train-footer">
 
           Live railway information from
+
           <a
             href="https://www.digitraffic.fi/en/railway-traffic/"
             target="_blank"
@@ -3605,7 +4308,10 @@
           <br>
 
           Station:
-          <span id="trainFooterStation">
+
+          <span
+            id="trainFooterStation"
+          >
             HKI
           </span>
 
@@ -3615,7 +4321,9 @@
 
         </div>
 
+
       </div>
+
 
     </div>
 
@@ -3633,54 +4341,76 @@
 
       let stationMetadata = [];
 
-      let currentStationCode = "HKI";
+
+      let currentStationCode =
+        "HKI";
+
 
       let currentStationName =
         "Helsinki Central Station";
 
 
-      function escapeTrainHTML(value) {
+      function escapeTrainHTML(
+        value
+      ) {
 
         if (
           value === null ||
           value === undefined
-        ) {
-
+        )
           return "";
-
-        }
 
 
         return String(value)
 
-          .replace(/&/g,"&amp;")
-          .replace(/</g,"&lt;")
-          .replace(/>/g,"&gt;")
-          .replace(/"/g,"&quot;")
-          .replace(/'/g,"&#039;");
+          .replace(
+            /&/g,
+            "&amp;"
+          )
+
+          .replace(
+            /</g,
+            "&lt;"
+          )
+
+          .replace(
+            />/g,
+            "&gt;"
+          )
+
+          .replace(
+            /"/g,
+            "&quot;"
+          )
+
+          .replace(
+            /'/g,
+            "&#039;"
+          );
 
       }
 
 
-      function formatTime(value) {
+      function formatTime(
+        value
+      ) {
 
         if (!value)
           return "—";
 
 
         const date =
-          new Date(value);
+          new Date(
+            value
+          );
 
 
         if (
           Number.isNaN(
             date.getTime()
           )
-        ) {
-
+        )
           return "—";
-
-        }
 
 
         return date.toLocaleTimeString(
@@ -3760,15 +4490,23 @@
                     station.stationName ||
                     station.stationShortCode;
 
+
                   const code =
                     station.stationShortCode;
 
+
                   return (
+
                     "<option value=\"" +
-                    escapeTrainHTML(name) +
+                    escapeTrainHTML(
+                      name
+                    ) +
                     "\">" +
-                    escapeTrainHTML(code) +
+                    escapeTrainHTML(
+                      code
+                    ) +
                     "</option>"
+
                   );
 
                 }
@@ -3789,7 +4527,9 @@
       }
 
 
-      function findStation(query) {
+      function findStation(
+        query
+      ) {
 
         const value =
           String(
@@ -3810,7 +4550,8 @@
             station =>
               String(
                 station.stationShortCode
-              ).toUpperCase() === upper
+              ).toUpperCase() ===
+              upper
           );
 
 
@@ -3832,83 +4573,68 @@
           return exactName;
 
 
-        const partialName =
+        return (
           stationMetadata.find(
             station =>
               String(
                 station.stationName || ""
-              ).toLowerCase()
+              )
+              .toLowerCase()
               .includes(
                 value.toLowerCase()
               )
-          );
-
-
-        return partialName || null;
+          ) ||
+          null
+        );
 
       }
 
 
-      function getHelsinkiRows(train) {
+      function getStationEvent(
+        train
+      ) {
 
         if (
           !Array.isArray(
             train.timeTableRows
           )
         )
-          return [];
+          return null;
 
-
-        return train.timeTableRows.filter(
-          function(row) {
-
-            const code =
-              row.stationShortCode ||
-              row.station ||
-              "";
-
-
-            return (
-              String(code)
-                .toUpperCase() ===
-              currentStationCode
-                .toUpperCase()
-            );
-
-          }
-        );
-
-      }
-
-
-      function getStationEvent(train) {
 
         const rows =
-          getHelsinkiRows(train);
+          train.timeTableRows.filter(
+            row =>
+              String(
+                row.stationShortCode ||
+                row.station ||
+                ""
+              ).toUpperCase() ===
+              currentStationCode
+                .toUpperCase()
+          );
 
 
         if (!rows.length)
           return null;
 
 
-        const departure =
-          rows.find(
-            row =>
-              row.type === "DEPARTURE"
-          );
-
-
-        const arrival =
-          rows.find(
-            row =>
-              row.type === "ARRIVAL"
-          );
-
-
         return (
-          departure ||
-          arrival ||
+
+          rows.find(
+            row =>
+              row.type ===
+              "DEPARTURE"
+          ) ||
+
+          rows.find(
+            row =>
+              row.type ===
+              "ARRIVAL"
+          ) ||
+
           rows[0]
+
         );
 
       }
@@ -3936,20 +4662,10 @@
         }
 
 
-        if (
-          event.type ===
-          "ARRIVAL"
-        ) {
-
-          return (
-            event.previousStation ||
-            "Arrival"
-          );
-
-        }
-
-
-        return "Unknown";
+        return (
+          event.previousStation ||
+          "Arrival"
+        );
 
       }
 
@@ -3960,16 +4676,19 @@
       ) {
 
         if (
-          train.cancelled === true ||
+          train.cancelled ===
+            true ||
           (
             event &&
-            event.cancelled === true
+            event.cancelled ===
+              true
           )
         ) {
 
           return {
 
-            text:"CANCELLED",
+            text:
+              "CANCELLED",
 
             className:
               "train-cancelled"
@@ -3983,7 +4702,8 @@
 
           return {
 
-            text:"UNKNOWN",
+            text:
+              "UNKNOWN",
 
             className:
               "train-delay"
@@ -3993,11 +4713,14 @@
         }
 
 
-        if (event.actualTime) {
+        if (
+          event.actualTime
+        ) {
 
           return {
 
-            text:"ACTUAL",
+            text:
+              "ACTUAL",
 
             className:
               "train-ok"
@@ -4042,7 +4765,9 @@
               );
 
 
-            if (delay > 0) {
+            if (
+              delay > 0
+            ) {
 
               return {
 
@@ -4059,7 +4784,9 @@
             }
 
 
-            if (delay < 0) {
+            if (
+              delay < 0
+            ) {
 
               return {
 
@@ -4079,7 +4806,8 @@
 
           return {
 
-            text:"ESTIMATED",
+            text:
+              "ESTIMATED",
 
             className:
               "train-ok"
@@ -4091,31 +4819,13 @@
 
         return {
 
-          text:"ON TIME",
+          text:
+            "ON TIME",
 
           className:
             "train-ok"
 
         };
-
-      }
-
-
-      function sortTrainEvents(a,b) {
-
-        const aTime =
-          new Date(
-            a.event.scheduledTime || 0
-          ).getTime();
-
-
-        const bTime =
-          new Date(
-            b.event.scheduledTime || 0
-          ).getTime();
-
-
-        return aTime - bTime;
 
       }
 
@@ -4144,10 +4854,15 @@
           encodeURIComponent(
             currentStationCode
           ) +
+
           "?arrived_trains=2" +
+
           "&arriving_trains=6" +
+
           "&departed_trains=2" +
+
           "&departing_trains=10" +
+
           "&include_nonstopping=false";
 
 
@@ -4162,14 +4877,11 @@
             );
 
 
-          if (!response.ok) {
-
+          if (!response.ok)
             throw new Error(
               "Digitraffic HTTP " +
               response.status
             );
-
-          }
 
 
           const trains =
@@ -4177,21 +4889,20 @@
 
 
           if (
-            !Array.isArray(trains)
-          ) {
-
+            !Array.isArray(
+              trains
+            )
+          )
             throw new Error(
               "Unexpected Digitraffic response."
             );
-
-          }
 
 
           const events = [];
 
 
           trains.forEach(
-            function(train) {
+            train => {
 
               const event =
                 getStationEvent(
@@ -4204,8 +4915,8 @@
 
 
               events.push({
-                train:train,
-                event:event
+                train,
+                event
               });
 
             }
@@ -4213,51 +4924,30 @@
 
 
           events.sort(
-            sortTrainEvents
+            (a,b) =>
+
+              new Date(
+                a.event.scheduledTime ||
+                0
+              ).getTime() -
+
+              new Date(
+                b.event.scheduledTime ||
+                0
+              ).getTime()
+
           );
 
 
-          const seen =
-            new Set();
-
-
-          const uniqueEvents =
-            events.filter(
-              function(item) {
-
-                const key =
-                  String(
-                    item.train.trainNumber
-                  ) +
-                  "-" +
-                  String(
-                    item.event.type
-                  );
-
-
-                if (
-                  seen.has(key)
-                )
-                  return false;
-
-
-                seen.add(key);
-
-                return true;
-
-              }
-            );
-
-
           const displayEvents =
-            uniqueEvents.slice(
+            events.slice(
               0,
               16
             );
 
 
           if (
-            displayEvents.length === 0
+            !displayEvents.length
           ) {
 
             rowsElement.innerHTML =
@@ -4267,148 +4957,138 @@
               '</td>' +
               '</tr>';
 
-
-            statusElement.textContent =
-              "[ NO TRAIN EVENTS ]";
-
-            return;
-
           }
 
+          else {
 
-          rowsElement.innerHTML =
-            displayEvents
-              .map(
-                function(item) {
+            rowsElement.innerHTML =
+              displayEvents
+                .map(
+                  item => {
 
-                  const train =
-                    item.train;
-
-
-                  const event =
-                    item.event;
+                    const train =
+                      item.train;
 
 
-                  const status =
-                    getTrainStatus(
-                      train,
-                      event
-                    );
+                    const event =
+                      item.event;
 
 
-                  const number =
-                    train.trainNumber ??
-                    "?";
+                    const status =
+                      getTrainStatus(
+                        train,
+                        event
+                      );
 
 
-                  const destination =
-                    getDestination(
-                      train,
-                      event
-                    );
+                    const type =
+                      train.trainType ||
+                      train.trainCategory ||
+                      "TRAIN";
 
 
-                  const time =
-                    event.actualTime
-                      ? formatTime(
-                          event.actualTime
-                        )
-                      : event.liveEstimateTime
+                    const number =
+                      train.trainNumber ??
+                      "?";
+
+
+                    const destination =
+                      getDestination(
+                        train,
+                        event
+                      );
+
+
+                    const time =
+                      event.actualTime
+
                         ? formatTime(
-                            event.liveEstimateTime
+                            event.actualTime
                           )
-                        : formatTime(
-                            event.scheduledTime
-                          );
+
+                        : event.liveEstimateTime
+
+                          ? formatTime(
+                              event.liveEstimateTime
+                            )
+
+                          : formatTime(
+                              event.scheduledTime
+                            );
 
 
-                  const track =
-                    event.commercialTrack ||
-                    "—";
+                    const track =
+                      event.commercialTrack ||
+                      "—";
 
 
-                  const type =
-                    train.trainType ||
-                    train.trainCategory ||
-                    "TRAIN";
+                    return (
 
+                      "<tr>" +
 
-                  return (
+                        "<td>" +
 
-                    "<tr>" +
+                          escapeTrainHTML(
+                            type +
+                            " " +
+                            number
+                          ) +
 
-                      "<td>" +
+                        "</td>" +
 
-                        escapeTrainHTML(
-                          type +
-                          " " +
-                          number
-                        ) +
+                        "<td class=\"train-track\">" +
 
-                      "</td>" +
+                          escapeTrainHTML(
+                            track
+                          ) +
 
-                      "<td class=\"train-track\">" +
+                        "</td>" +
 
-                        escapeTrainHTML(
-                          track
-                        ) +
+                        "<td>" +
 
-                      "</td>" +
+                          escapeTrainHTML(
+                            destination
+                          ) +
 
-                      "<td>" +
+                        "</td>" +
 
-                        escapeTrainHTML(
-                          destination
-                        ) +
+                        "<td>" +
 
-                      "</td>" +
+                          escapeTrainHTML(
+                            time
+                          ) +
 
-                      "<td>" +
+                        "</td>" +
 
-                        escapeTrainHTML(
-                          time
-                        ) +
+                        "<td class=\"" +
 
-                      "</td>" +
+                          escapeTrainHTML(
+                            status.className
+                          ) +
 
-                      "<td class=\"" +
-                        escapeTrainHTML(
-                          status.className
-                        ) +
-                      "\">" +
+                        "\">" +
 
-                        escapeTrainHTML(
-                          status.text
-                        ) +
+                          escapeTrainHTML(
+                            status.text
+                          ) +
 
-                      "</td>" +
+                        "</td>" +
 
-                    "</tr>"
+                      "</tr>"
 
-                  );
+                    );
 
-                }
-              )
-              .join("");
+                  }
+                )
+                .join("");
 
-
-          const now =
-            new Date()
-              .toLocaleTimeString(
-                "fi-FI",
-                {
-                  hour:"2-digit",
-                  minute:"2-digit",
-                  second:"2-digit"
-                }
-              );
+          }
 
 
           statusElement.textContent =
             "[ LIVE ] " +
             displayEvents.length +
-            " EVENTS | " +
-            now;
+            " EVENTS";
 
         }
 
@@ -4421,7 +5101,6 @@
 
 
           rowsElement.innerHTML =
-
             '<tr>' +
 
               '<td colspan="5">' +
@@ -4429,6 +5108,7 @@
                 '<div class="train-error">' +
 
                   'Train data could not be loaded.' +
+
                   '<br><br>' +
 
                   escapeTrainHTML(
@@ -4466,14 +5146,11 @@
 
         if (!station) {
 
-          const status =
-            document.getElementById(
-              "helsinkiTrainStatus"
-            );
-
-
-          status.textContent =
+          document.getElementById(
+            "helsinkiTrainStatus"
+          ).textContent =
             "[ STATION NOT FOUND ]";
+
 
           return;
 
@@ -4515,7 +5192,8 @@
           function(event) {
 
             if (
-              event.key === "Enter"
+              event.key ===
+              "Enter"
             ) {
 
               searchStation();
@@ -4546,28 +5224,27 @@
     </script>
 
 
+    <!-- ===================================================
+         PRIVACY
+    ==================================================== -->
+
     <br>
 
 
-    <!-- PRIVACY POLICY -->
-
     <div class="termsAndPolicy">
+
 
       <div>
 
         <a
-          title="https://hhroses.art/privacy-policy"
           href="privacy-policy.html"
           target="_blank"
-          style="
-            font-family:times;
-            font-size:1rem;
-          "
         >
           Privacy Policy
         </a>
 
       </div>
+
 
     </div>
 
@@ -4575,16 +5252,19 @@
     <br>
 
 
-    <!-- NEOCITIES -->
+    <!-- ===================================================
+         NEOCITIES
+    ==================================================== -->
 
     <center>
 
+
       <a
         href="https://neocities.org/site/hhroses"
-        title="https://neocities.org/site/hhroses"
         target="_blank"
         rel="noopener"
       >
+
 
         <img
           src="neocities.png"
@@ -4592,22 +5272,31 @@
           alt="Neocities"
         >
 
+
       </a>
+
 
     </center>
 
 
-    <!-- LANGUAGES -->
+    <!-- ===================================================
+         TRANSLATION
+    ==================================================== -->
 
-    <div class="languages_wrap_wrap">
+    <div
+      class="languages_wrap_wrap"
+    >
+
 
       <p>
         Language:
       </p>
 
+
       <div
         class="gtranslate_wrapper"
       ></div>
+
 
     </div>
 
@@ -4616,24 +5305,33 @@
 
       window.gtranslateSettings = {
 
-        "default_language":"en",
+        "default_language":
+          "en",
 
-        "native_language_names":true,
+        "native_language_names":
+          true,
 
-        "detect_browser_language":true,
+        "detect_browser_language":
+          true,
 
-        "wrapper_selector":".gtranslate_wrapper",
+        "wrapper_selector":
+          ".gtranslate_wrapper",
 
-        "flag_size":16,
+        "flag_size":
+          16,
 
-        "switcher_horizontal_position":"inline",
+        "switcher_horizontal_position":
+          "inline",
 
-        "switcher_open_direction":"top",
+        "switcher_open_direction":
+          "top",
 
-        "flag_style":"3d",
+        "flag_style":
+          "3d",
 
         "alt_flags":{
-          "en":"usa"
+          "en":
+            "usa"
         }
 
       };
@@ -4650,7 +5348,9 @@
   </div>
 
 
-  <!-- PAGE VIEW TRACKING -->
+  <!-- =====================================================
+       PAGE-VIEW ANALYTICS
+  ===================================================== -->
 
   <script>
 
@@ -4704,12 +5404,6 @@
 
     recordPageView();
 
-  </script>
-
-
-  <!-- PAGE VIEW DISPLAY -->
-
-  <script>
 
     async function updatePageViewCounter() {
 
@@ -4759,33 +5453,21 @@
           );
 
 
-        if (
-          Number.isFinite(count)
-        ) {
+        counter.textContent =
 
-          counter.textContent =
-            count.toLocaleString(
-              "en-US"
-            );
+          Number.isFinite(
+            count
+          )
 
-        }
+            ? count.toLocaleString(
+                "en-US"
+              )
 
-        else {
-
-          counter.textContent =
-            "—";
-
-        }
+            : "—";
 
       }
 
       catch(error) {
-
-        console.warn(
-          "Page view counter unavailable:",
-          error
-        );
-
 
         counter.textContent =
           "—";
@@ -4803,1336 +5485,1551 @@
   </script>
 
 
-  <!-- CLOCK -->
+  <!-- =====================================================
+       CLOCK ENGINE
+  ===================================================== -->
 
   <script>
 
-    function updateClock() {
+    let clock24Hour =
+      true;
+
+
+    let clockDragging =
+      false;
+
+
+    let clockDragOffsetX =
+      0;
+
+
+    let clockDragOffsetY =
+      0;
+
+
+    /*
+      Build clock ticks and numbers.
+    */
+
+    function buildAnalogClockFace() {
 
       const clock =
         document.getElementById(
-          "digitalClock"
+          "analogClock"
         );
 
 
-      const dateElement =
-        document.getElementById(
-          "clockDate"
-        );
-
-
-      if (!clock || !dateElement)
+      if (!clock)
         return;
 
 
-      const now =
-        new Date();
-
-
-      clock.textContent =
-        now.toLocaleTimeString(
-          undefined,
-          {
-            hour:"2-digit",
-            minute:"2-digit",
-            second:"2-digit",
-            hour12:false
-          }
+      clock
+        .querySelectorAll(
+          ".clock-mark,.clock-number"
+        )
+        .forEach(
+          element =>
+            element.remove()
         );
 
 
-      dateElement.textContent =
-        now.toLocaleDateString(
-          undefined,
-          {
-            weekday:"long",
-            year:"numeric",
-            month:"long",
-            day:"numeric"
-          }
+      /*
+        60 tick marks.
+      */
+
+      for (
+        let i = 0;
+        i < 60;
+        i++
+      ) {
+
+        const mark =
+          document.createElement(
+            "div"
+          );
+
+
+        mark.className =
+          "clock-mark";
+
+
+        if (
+          i % 5 === 0
+        ) {
+
+          mark.classList.add(
+            "major"
+          );
+
+        }
+
+
+        const angle =
+          i * 6;
+
+
+        mark.style.transform =
+          "rotate(" +
+          angle +
+          "deg) " +
+          "translateY(-81px)";
+
+
+        clock.appendChild(
+          mark
         );
+
+      }
+
+
+      /*
+        Clock numbers.
+      */
+
+      for (
+        let number = 1;
+        number <= 12;
+        number++
+      ) {
+
+        const element =
+          document.createElement(
+            "div"
+          );
+
+
+        element.className =
+          "clock-number";
+
+
+        element.textContent =
+          number;
+
+
+        const angle =
+          number * 30;
+
+
+        const radians =
+          (
+            angle -
+            90
+          ) *
+          Math.PI /
+          180;
+
+
+        const radius =
+          68;
+
+
+        const x =
+          Math.cos(
+            radians
+          ) *
+          radius;
+
+
+        const y =
+          Math.sin(
+            radians
+          ) *
+          radius;
+
+
+        element.style.transform =
+          "translate(" +
+          x +
+          "px," +
+          y +
+          "px)";
+
+
+        clock.appendChild(
+          element
+        );
+
+      }
 
     }
 
 
-    updateClock();
+    /*
+      Helsinki timezone.
+    */
 
+    function getHelsinkiDate() {
+
+      const parts =
+        new Intl.DateTimeFormat(
+          "en-GB",
+          {
+
+            timeZone:
+              "Europe/Helsinki",
+
+            year:
+              "numeric",
+
+            month:
+              "2-digit",
+
+            day:
+              "2-digit",
+
+            hour:
+              "2-digit",
+
+            minute:
+              "2-digit",
+
+            second:
+              "2-digit",
+
+            hourCycle:
+              "h23"
+
+          }
+        )
+        .formatToParts(
+          new Date()
+        );
+
+
+      const values = {};
+
+
+      parts.forEach(
+        part => {
+
+          if (
+            part.type !==
+            "literal"
+          ) {
+
+            values[
+              part.type
+            ] =
+              part.value;
+
+          }
+
+        }
+      );
+
+
+      return {
+
+        year:
+          Number(
+            values.year
+          ),
+
+        month:
+          Number(
+            values.month
+          ),
+
+        day:
+          Number(
+            values.day
+          ),
+
+        hour:
+          Number(
+            values.hour
+          ),
+
+        minute:
+          Number(
+            values.minute
+          ),
+
+        second:
+          Number(
+            values.second
+          )
+
+      };
+
+    }
+
+
+    function pad(
+      number
+    ) {
+
+      return String(
+        number
+      ).padStart(
+        2,
+        "0"
+      );
+
+    }
+
+
+    /*
+      Update actual analog hands.
+    */
+
+    function updateAnalogClock() {
+
+      const hourHand =
+        document.getElementById(
+          "hourHand"
+        );
+
+
+      const minuteHand =
+        document.getElementById(
+          "minuteHand"
+        );
+
+
+      const secondHand =
+        document.getElementById(
+          "secondHand"
+        );
+
+
+      const timeElement =
+        document.getElementById(
+          "clockTime"
+        );
+
+
+      if (
+        !hourHand ||
+        !minuteHand ||
+        !secondHand ||
+        !timeElement
+      )
+        return;
+
+
+      const helsinki =
+        getHelsinkiDate();
+
+
+      /*
+        Smooth hour hand.
+      */
+
+      const hour12 =
+        helsinki.hour % 12;
+
+
+      const hourAngle =
+        (
+          hour12 * 30
+        ) +
+        (
+          helsinki.minute * .5
+        );
+
+
+      /*
+        Smooth minute hand.
+      */
+
+      const minuteAngle =
+        (
+          helsinki.minute * 6
+        ) +
+        (
+          helsinki.second * .1
+        );
+
+
+      /*
+        Second hand.
+      */
+
+      const secondAngle =
+        helsinki.second * 6;
+
+
+      hourHand.style.transform =
+        "rotate(" +
+        hourAngle +
+        "deg)";
+
+
+      minuteHand.style.transform =
+        "rotate(" +
+        minuteAngle +
+        "deg)";
+
+
+      secondHand.style.transform =
+        "rotate(" +
+        secondAngle +
+        "deg)";
+
+
+      /*
+        Digital time underneath.
+      */
+
+      let displayHour =
+        helsinki.hour;
+
+
+      let suffix = "";
+
+
+      if (!clock24Hour) {
+
+        suffix =
+          displayHour >= 12
+            ? " PM"
+            : " AM";
+
+
+        displayHour =
+          displayHour % 12 ||
+          12;
+
+      }
+
+
+      timeElement.textContent =
+
+        pad(
+          displayHour
+        ) +
+
+        ":" +
+
+        pad(
+          helsinki.minute
+        ) +
+
+        ":" +
+
+        pad(
+          helsinki.second
+        ) +
+
+        suffix;
+
+    }
+
+
+    /*
+      Clicking clock switches display format.
+    */
+
+    function toggleClockFormat() {
+
+      clock24Hour =
+        !clock24Hour;
+
+
+      updateAnalogClock();
+
+    }
+
+
+    /*
+      Save clock location.
+    */
+
+    function saveClockPosition() {
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      if (!clock)
+        return;
+
+
+      if (
+        !clock.style.left ||
+        !clock.style.top
+      )
+        return;
+
+
+      localStorage.setItem(
+
+        "hhroses-clock-position",
+
+        JSON.stringify({
+
+          x:
+            parseFloat(
+              clock.style.left
+            ),
+
+          y:
+            parseFloat(
+              clock.style.top
+            )
+
+        })
+
+      );
+
+    }
+
+
+    /*
+      Restore clock location.
+    */
+
+    function restoreClockPosition() {
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      if (!clock)
+        return;
+
+
+      const saved =
+        localStorage.getItem(
+          "hhroses-clock-position"
+        );
+
+
+      if (!saved)
+        return;
+
+
+      try {
+
+        const position =
+          JSON.parse(
+            saved
+          );
+
+
+        if (
+          !Number.isFinite(
+            position.x
+          ) ||
+          !Number.isFinite(
+            position.y
+          )
+        )
+          return;
+
+
+        const maxX =
+          Math.max(
+            0,
+            window.innerWidth -
+            clock.offsetWidth
+          );
+
+
+        const maxY =
+          Math.max(
+            0,
+            window.innerHeight -
+            clock.offsetHeight
+          );
+
+
+        const x =
+          Math.max(
+            0,
+            Math.min(
+              position.x,
+              maxX
+            )
+          );
+
+
+        const y =
+          Math.max(
+            0,
+            Math.min(
+              position.y,
+              maxY
+            )
+          );
+
+
+        clock.style.left =
+          x + "px";
+
+
+        clock.style.top =
+          y + "px";
+
+
+        clock.style.right =
+          "auto";
+
+      }
+
+      catch(error) {
+
+        console.warn(
+          "Could not restore clock position:",
+          error
+        );
+
+      }
+
+    }
+
+
+    /*
+      Keep clock inside viewport.
+    */
+
+    function clampClockPosition(
+      x,
+      y
+    ) {
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      if (!clock) {
+
+        return {
+
+          x:0,
+
+          y:0
+
+        };
+
+      }
+
+
+      const maxX =
+        Math.max(
+          0,
+          window.innerWidth -
+          clock.offsetWidth
+        );
+
+
+      const maxY =
+        Math.max(
+          0,
+          window.innerHeight -
+          clock.offsetHeight
+        );
+
+
+      return {
+
+        x:
+          Math.max(
+            0,
+            Math.min(
+              x,
+              maxX
+            )
+          ),
+
+        y:
+          Math.max(
+            0,
+            Math.min(
+              y,
+              maxY
+            )
+          )
+
+      };
+
+    }
+
+
+    /*
+      Start dragging.
+    */
+
+    function startClockDrag(
+      clientX,
+      clientY
+    ) {
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      if (!clock)
+        return;
+
+
+      if (
+        clock.classList.contains(
+          "clock-maximized"
+        )
+      )
+        return;
+
+
+      const rect =
+        clock.getBoundingClientRect();
+
+
+      clockDragging =
+        true;
+
+
+      clockDragOffsetX =
+        clientX -
+        rect.left;
+
+
+      clockDragOffsetY =
+        clientY -
+        rect.top;
+
+
+      clock.classList.add(
+        "clock-dragging"
+      );
+
+    }
+
+
+    /*
+      Move clock.
+    */
+
+    function moveClock(
+      clientX,
+      clientY
+    ) {
+
+      if (!clockDragging)
+        return;
+
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      if (!clock)
+        return;
+
+
+      const position =
+        clampClockPosition(
+
+          clientX -
+          clockDragOffsetX,
+
+          clientY -
+          clockDragOffsetY
+
+        );
+
+
+      clock.style.left =
+        position.x +
+        "px";
+
+
+      clock.style.top =
+        position.y +
+        "px";
+
+
+      clock.style.right =
+        "auto";
+
+    }
+
+
+    /*
+      Finish dragging.
+    */
+
+    function endClockDrag() {
+
+      if (!clockDragging)
+        return;
+
+
+      clockDragging =
+        false;
+
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      if (clock) {
+
+        clock.classList.remove(
+          "clock-dragging"
+        );
+
+      }
+
+
+      saveClockPosition();
+
+    }
+
+
+    /*
+      Minimize.
+    */
+
+    function minimizeClock() {
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      if (!clock)
+        return;
+
+
+      clock.classList.remove(
+        "clock-maximized"
+      );
+
+
+      clock.classList.toggle(
+        "clock-minimized"
+      );
+
+
+      saveClockWindowState();
+
+    }
+
+
+    /*
+      Maximize / restore.
+    */
+
+    function maximizeClock() {
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      if (!clock)
+        return;
+
+
+      if (
+        clock.classList.contains(
+          "clock-maximized"
+        )
+      ) {
+
+        clock.classList.remove(
+          "clock-maximized"
+        );
+
+
+        clock.classList.remove(
+          "clock-minimized"
+        );
+
+
+        clock.style.left =
+          "";
+
+
+        clock.style.top =
+          "";
+
+
+        clock.style.right =
+          "20px";
+
+
+        restoreClockPosition();
+
+      }
+
+      else {
+
+        clock.classList.remove(
+          "clock-minimized"
+        );
+
+
+        clock.classList.add(
+          "clock-maximized"
+        );
+
+      }
+
+
+      saveClockWindowState();
+
+    }
+
+
+    /*
+      Close.
+    */
+
+    function closeClock() {
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      const reopen =
+        document.getElementById(
+          "clockReopenButton"
+        );
+
+
+      if (!clock)
+        return;
+
+
+      clock.style.display =
+        "none";
+
+
+      if (reopen) {
+
+        reopen.style.display =
+          "block";
+
+      }
+
+
+      localStorage.setItem(
+        "hhroses-clock-closed",
+        "1"
+      );
+
+    }
+
+
+    /*
+      Reopen.
+    */
+
+    function reopenClock() {
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      const reopen =
+        document.getElementById(
+          "clockReopenButton"
+        );
+
+
+      if (!clock)
+        return;
+
+
+      clock.style.display =
+        "";
+
+
+      if (reopen) {
+
+        reopen.style.display =
+          "none";
+
+      }
+
+
+      localStorage.removeItem(
+        "hhroses-clock-closed"
+      );
+
+    }
+
+
+    /*
+      Save window state.
+    */
+
+    function saveClockWindowState() {
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      if (!clock)
+        return;
+
+
+      localStorage.setItem(
+
+        "hhroses-clock-window-state",
+
+        JSON.stringify({
+
+          minimized:
+            clock.classList.contains(
+              "clock-minimized"
+            ),
+
+          maximized:
+            clock.classList.contains(
+              "clock-maximized"
+            )
+
+        })
+
+      );
+
+    }
+
+
+    /*
+      Restore window state.
+    */
+
+    function restoreClockWindowState() {
+
+      const clock =
+        document.getElementById(
+          "clockWidget"
+        );
+
+
+      const reopen =
+        document.getElementById(
+          "clockReopenButton"
+        );
+
+
+      if (!clock)
+        return;
+
+
+      if (
+        localStorage.getItem(
+          "hhroses-clock-closed"
+        ) === "1"
+      ) {
+
+        clock.style.display =
+          "none";
+
+
+        if (reopen) {
+
+          reopen.style.display =
+            "block";
+
+        }
+
+
+        return;
+
+      }
+
+
+      const saved =
+        localStorage.getItem(
+          "hhroses-clock-window-state"
+        );
+
+
+      if (!saved)
+        return;
+
+
+      try {
+
+        const state =
+          JSON.parse(
+            saved
+          );
+
+
+        if (
+          state.minimized
+        ) {
+
+          clock.classList.add(
+            "clock-minimized"
+          );
+
+        }
+
+
+        if (
+          state.maximized
+        ) {
+
+          clock.classList.add(
+            "clock-maximized"
+          );
+
+        }
+
+      }
+
+      catch(error) {
+
+        console.warn(
+          "Could not restore clock window state:",
+          error
+        );
+
+      }
+
+    }
+
+
+    /*
+      Initialize.
+    */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        buildAnalogClockFace();
+
+        updateAnalogClock();
+
+        restoreClockPosition();
+
+        restoreClockWindowState();
+
+
+        const clock =
+          document.getElementById(
+            "clockWidget"
+          );
+
+
+        const titleBar =
+          clock?.querySelector(
+            ".title-bar"
+          );
+
+
+        const analogClock =
+          document.getElementById(
+            "analogClock"
+          );
+
+
+        const minimizeButton =
+          document.getElementById(
+            "clockMinimize"
+          );
+
+
+        const maximizeButton =
+          document.getElementById(
+            "clockMaximize"
+          );
+
+
+        const closeButton =
+          document.getElementById(
+            "clockClose"
+          );
+
+
+        const reopenButton =
+          document.getElementById(
+            "clockReopenButton"
+          );
+
+
+        /*
+          Minimize button
+        */
+
+        if (
+          minimizeButton
+        ) {
+
+          minimizeButton.addEventListener(
+            "click",
+            function(event) {
+
+              event.stopPropagation();
+
+              minimizeClock();
+
+            }
+          );
+
+        }
+
+
+        /*
+          Maximize button
+        */
+
+        if (
+          maximizeButton
+        ) {
+
+          maximizeButton.addEventListener(
+            "click",
+            function(event) {
+
+              event.stopPropagation();
+
+              maximizeClock();
+
+            }
+          );
+
+        }
+
+
+        /*
+          Close button
+        */
+
+        if (
+          closeButton
+        ) {
+
+          closeButton.addEventListener(
+            "click",
+            function(event) {
+
+              event.stopPropagation();
+
+              closeClock();
+
+            }
+          );
+
+        }
+
+
+        /*
+          Reopen button
+        */
+
+        if (
+          reopenButton
+        ) {
+
+          reopenButton.addEventListener(
+            "click",
+            reopenClock
+          );
+
+        }
+
+
+        /*
+          Click the clock face
+          to change the digital format.
+        */
+
+        if (
+          analogClock
+        ) {
+
+          analogClock.addEventListener(
+            "click",
+            toggleClockFormat
+          );
+
+
+          analogClock.addEventListener(
+            "keydown",
+            function(event) {
+
+              if (
+                event.key ===
+                "Enter" ||
+                event.key ===
+                " "
+              ) {
+
+                event.preventDefault();
+
+                toggleClockFormat();
+
+              }
+
+            }
+          );
+
+        }
+
+
+        /*
+          Drag title bar.
+        */
+
+        if (
+          titleBar
+        ) {
+
+          titleBar.addEventListener(
+            "mousedown",
+            function(event) {
+
+              if (
+                event.target.closest(
+                  ".title-bar-controls"
+                )
+              )
+                return;
+
+
+              startClockDrag(
+                event.clientX,
+                event.clientY
+              );
+
+
+              event.preventDefault();
+
+            }
+          );
+
+
+          /*
+            Double click title bar
+            = maximize / restore
+          */
+
+          titleBar.addEventListener(
+            "dblclick",
+            function(event) {
+
+              if (
+                event.target.closest(
+                  ".title-bar-controls"
+                )
+              )
+                return;
+
+
+              maximizeClock();
+
+            }
+          );
+
+
+          /*
+            Touch dragging.
+          */
+
+          titleBar.addEventListener(
+            "touchstart",
+            function(event) {
+
+              if (
+                event.target.closest(
+                  ".title-bar-controls"
+                )
+              )
+                return;
+
+
+              const touch =
+                event.touches[0];
+
+
+              startClockDrag(
+                touch.clientX,
+                touch.clientY
+              );
+
+            },
+            {
+              passive:true
+            }
+          );
+
+        }
+
+      }
+    );
+
+
+    /*
+      Mouse movement.
+    */
+
+    document.addEventListener(
+      "mousemove",
+      function(event) {
+
+        moveClock(
+          event.clientX,
+          event.clientY
+        );
+
+      }
+    );
+
+
+    /*
+      Mouse release.
+    */
+
+    document.addEventListener(
+      "mouseup",
+      function() {
+
+        endClockDrag();
+
+      }
+    );
+
+
+    /*
+      Touch movement.
+    */
+
+    document.addEventListener(
+      "touchmove",
+      function(event) {
+
+        if (!clockDragging)
+          return;
+
+
+        const touch =
+          event.touches[0];
+
+
+        moveClock(
+          touch.clientX,
+          touch.clientY
+        );
+
+
+        event.preventDefault();
+
+      },
+      {
+        passive:false
+      }
+    );
+
+
+    /*
+      Touch release.
+    */
+
+    document.addEventListener(
+      "touchend",
+      function() {
+
+        endClockDrag();
+
+      }
+    );
+
+
+    /*
+      Keep dragged clock visible
+      after window resize.
+    */
+
+    window.addEventListener(
+      "resize",
+      function() {
+
+        const clock =
+          document.getElementById(
+            "clockWidget"
+          );
+
+
+        if (!clock)
+          return;
+
+
+        if (
+          clock.classList.contains(
+            "clock-maximized"
+          )
+        )
+          return;
+
+
+        if (
+          !clock.style.left
+        )
+          return;
+
+
+        const position =
+          clampClockPosition(
+
+            parseFloat(
+              clock.style.left
+            ) || 0,
+
+            parseFloat(
+              clock.style.top
+            ) || 0
+
+          );
+
+
+        clock.style.left =
+          position.x +
+          "px";
+
+
+        clock.style.top =
+          position.y +
+          "px";
+
+      }
+    );
+
+
+    /*
+      Update every second.
+    */
 
     setInterval(
-      updateClock,
+      updateAnalogClock,
       1000
     );
 
   </script>
 
 
-  <!-- GEOGRAPHICAL ANALYTICS MAP -->
-
-  <script>
-
-    let visitorMapInstance =
-      null;
-
-
-    function countryName(code) {
-
-      try {
-
-        const names =
-          new Intl.DisplayNames(
-            ["en"],
-            {
-              type:"region"
-            }
-          );
-
-
-        return (
-          names.of(
-            String(code).toUpperCase()
-          ) ||
-          code
-        );
-
-      }
-
-      catch(error) {
-
-        return code;
-
-      }
-
-    }
-
-
-    function normalizeCountryData(data) {
-
-      const values = {};
-
-
-      function add(code,amount) {
-
-        if (!code)
-          return;
-
-
-        const key =
-          String(code)
-            .trim()
-            .toUpperCase();
-
-
-        const number =
-          Number(amount);
-
-
-        if (
-          !/^[A-Z]{2}$/.test(key) ||
-          !Number.isFinite(number)
-        ) {
-
-          return;
-
-        }
-
-
-        values[key] =
-          (values[key] || 0) +
-          number;
-
-      }
-
-
-      function extractAmount(value) {
-
-        if (
-          typeof value === "number" ||
-          typeof value === "string"
-        ) {
-
-          return value;
-
-        }
-
-
-        if (
-          value &&
-          typeof value === "object"
-        ) {
-
-          return (
-            value.views ??
-            value.viewCount ??
-            value.visits ??
-            value.count ??
-            value.total ??
-            value.value ??
-            0
-          );
-
-        }
-
-
-        return 0;
-
-      }
-
-
-      function parseEntry(entry) {
-
-        if (
-          !entry ||
-          typeof entry !== "object"
-        ) {
-
-          return;
-
-        }
-
-
-        const code =
-          entry.country ||
-          entry.code ||
-          entry.iso2 ||
-          entry.iso ||
-          entry.countryCode ||
-          entry.country_code;
-
-
-        const amount =
-          entry.views ??
-          entry.viewCount ??
-          entry.visits ??
-          entry.count ??
-          entry.total ??
-          entry.value;
-
-
-        if (
-          code &&
-          amount !== undefined &&
-          amount !== null
-        ) {
-
-          add(
-            code,
-            amount
-          );
-
-          return;
-
-        }
-
-
-        for (
-          const [key,value]
-          of Object.entries(entry)
-        ) {
-
-          if (
-            /^[A-Za-z]{2}$/.test(key)
-          ) {
-
-            add(
-              key,
-              extractAmount(value)
-            );
-
-          }
-
-        }
-
-      }
-
-
-      if (
-        Array.isArray(data)
-      ) {
-
-        data.forEach(
-          parseEntry
-        );
-
-      }
-
-
-      if (
-        data &&
-        typeof data === "object"
-      ) {
-
-        const sources = [
-
-          data.countries,
-
-          data.visits,
-
-          data.countryCounts,
-
-          data.data
-
-        ];
-
-
-        sources.forEach(
-          function(source) {
-
-            if (!source)
-              return;
-
-
-            if (
-              Array.isArray(source)
-            ) {
-
-              source.forEach(
-                parseEntry
-              );
-
-              return;
-
-            }
-
-
-            if (
-              typeof source === "object"
-            ) {
-
-              for (
-                const [key,value]
-                of Object.entries(source)
-              ) {
-
-                if (
-                  /^[A-Za-z]{2}$/.test(key)
-                ) {
-
-                  add(
-                    key,
-                    extractAmount(value)
-                  );
-
-                }
-
-                else {
-
-                  parseEntry(value);
-
-                }
-
-              }
-
-            }
-
-          }
-        );
-
-
-        for (
-          const [key,value]
-          of Object.entries(data)
-        ) {
-
-          if (
-            /^[A-Za-z]{2}$/.test(key)
-          ) {
-
-            add(
-              key,
-              extractAmount(value)
-            );
-
-          }
-
-        }
-
-      }
-
-
-      return values;
-
-    }
-
-
-    function updateGeoStats(values) {
-
-      const entries =
-        Object.entries(values)
-          .filter(
-            function(entry) {
-
-              return Number(
-                entry[1]
-              ) > 0;
-
-            }
-          );
-
-
-      const total =
-        entries.reduce(
-          function(sum,entry) {
-
-            return (
-              sum +
-              Number(entry[1])
-            );
-
-          },
-          0
-        );
-
-
-      let topCode = "";
-
-      let topValue = 0;
-
-
-      entries.forEach(
-        function(entry) {
-
-          const amount =
-            Number(entry[1]);
-
-
-          if (
-            amount >
-            topValue
-          ) {
-
-            topValue =
-              amount;
-
-            topCode =
-              entry[0];
-
-          }
-
-        }
-      );
-
-
-      const countriesElement =
-        document.getElementById(
-          "geoCountries"
-        );
-
-
-      const viewsElement =
-        document.getElementById(
-          "geoViews"
-        );
-
-
-      const topElement =
-        document.getElementById(
-          "geoTop"
-        );
-
-
-      if (countriesElement) {
-
-        countriesElement.textContent =
-          entries.length.toLocaleString(
-            "en-US"
-          );
-
-      }
-
-
-      if (viewsElement) {
-
-        viewsElement.textContent =
-          total.toLocaleString(
-            "en-US"
-          );
-
-      }
-
-
-      if (topElement) {
-
-        topElement.textContent =
-          topCode
-            ? countryName(
-                topCode
-              ) +
-              " (" +
-              topValue.toLocaleString(
-                "en-US"
-              ) +
-              ")"
-            : "—";
-
-      }
-
-    }
-
-
-    function waitForWorldMap() {
-
-      return new Promise(
-        function(resolve,reject) {
-
-          const start =
-            Date.now();
-
-
-          const timer =
-            setInterval(
-              function() {
-
-                if (
-                  window.jsVectorMap &&
-                  window.jsVectorMap.maps &&
-                  (
-                    window.jsVectorMap.maps.world ||
-                    window.jsVectorMap.maps.world_merc
-                  )
-                ) {
-
-                  clearInterval(timer);
-
-                  resolve(
-                    window.jsVectorMap.maps.world
-                      ? "world"
-                      : "world_merc"
-                  );
-
-                  return;
-
-                }
-
-
-                if (
-                  Date.now() -
-                  start >
-                  10000
-                ) {
-
-                  clearInterval(timer);
-
-                  reject(
-                    new Error(
-                      "jsVectorMap world map data did not load."
-                    )
-                  );
-
-                }
-
-              },
-              50
-            );
-
-        }
-      );
-
-    }
-
-
-    function createVisitorMap(
-      values,
-      mapName
-    ) {
-
-      const mapElement =
-        document.getElementById(
-          "visitorMap"
-        );
-
-
-      if (!mapElement)
-        return;
-
-
-      if (
-        visitorMapInstance
-      ) {
-
-        try {
-
-          visitorMapInstance.destroy();
-
-        }
-
-        catch(error) {}
-
-        visitorMapInstance =
-          null;
-
-      }
-
-
-      mapElement.innerHTML =
-        "";
-
-
-      try {
-
-        visitorMapInstance =
-          new window.jsVectorMap({
-
-            selector:"#visitorMap",
-
-            map:
-              mapName,
-
-            backgroundColor:
-              "#4b7c9b",
-
-            zoomButtons:true,
-
-            zoomOnScroll:true,
-
-            zoomStep:1.4,
-
-            zoomMax:8,
-
-            zoomMin:1,
-
-            draggable:true,
-
-            showTooltip:true,
-
-
-            visualizeData:{
-
-              scale:[
-
-                "#ffffcc",
-
-                "#006837"
-
-              ],
-
-              values:
-                values
-
-            },
-
-
-            regionStyle:{
-
-              initial:{
-
-                fill:
-                  "#e4e1da",
-
-                stroke:
-                  "#777777",
-
-                strokeWidth:
-                  .5,
-
-                fillOpacity:
-                  1
-
-              },
-
-
-              hover:{
-
-                fill:
-                  "#00aa00",
-
-                fillOpacity:
-                  .9
-
-              }
-
-            },
-
-
-            onRegionTooltipShow:
-              function(
-                event,
-                tooltip,
-                code
-              ) {
-
-                const normalizedCode =
-                  String(code)
-                    .toUpperCase();
-
-
-                const views =
-                  Number(
-                    values[
-                      normalizedCode
-                    ] || 0
-                  );
-
-
-                tooltip.text(
-
-                  countryName(
-                    normalizedCode
-                  ) +
-                  " - " +
-                  views.toLocaleString(
-                    "en-US"
-                  ) +
-                  " views"
-
-                );
-
-              }
-
-          });
-
-
-        if (
-          visitorMapInstance &&
-          typeof
-            visitorMapInstance.setValues ===
-            "function"
-        ) {
-
-          visitorMapInstance.setValues(
-            values
-          );
-
-        }
-
-
-        console.log(
-          "Geographical map rendered successfully."
-        );
-
-      }
-
-      catch(error) {
-
-        console.error(
-          "jsVectorMap creation failed:",
-          error
-        );
-
-
-        mapElement.textContent =
-          "Map could not be created.";
-
-      }
-
-    }
-
-
-    async function loadGeographicalViews() {
-
-      const mapElement =
-        document.getElementById(
-          "visitorMap"
-        );
-
-
-      if (!mapElement)
-        return;
-
-
-      try {
-
-        const mapName =
-          await waitForWorldMap();
-
-
-        const response =
-          await fetch(
-
-            ANALYTICS_WORKER +
-            "/countries",
-
-            {
-              method:"GET",
-
-              cache:"no-store"
-
-            }
-
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-
-            "Countries API returned HTTP " +
-            response.status
-
-          );
-
-        }
-
-
-        const data =
-          await response.json();
-
-
-        console.log(
-          "2nforfun country API:",
-          data
-        );
-
-
-        const values =
-          normalizeCountryData(
-            data
-          );
-
-
-        console.log(
-          "Normalized country values:",
-          values
-        );
-
-
-        updateGeoStats(
-          values
-        );
-
-
-        createVisitorMap(
-          values,
-          mapName
-        );
-
-      }
-
-      catch(error) {
-
-        console.error(
-          "Geographical map failed to load:",
-          error
-        );
-
-
-        mapElement.textContent =
-          "Unable to load visitor map.";
-
-      }
-
-    }
-
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      function() {
-
-        loadGeographicalViews();
-
-      }
-    );
-
-
-    setInterval(
-      loadGeographicalViews,
-      60000
-    );
-
-  </script>
-
-
-  <!-- TRAFFIC GRAPH -->
-
-  <script>
-
-    let trafficChartInstance =
-      null;
-
-
-    function getTrafficPoints(data) {
-
-      /*
-       * Exact 2nforfun response:
-       *
-       * {
-       *   daily:[
-       *     {
-       *       day:"2026-09-11",
-       *       views:52
-       *     }
-       *   ],
-       *
-       *   hourly:[
-       *     {
-       *       hour:"2026-09-11T16:00:00Z",
-       *       views:6
-       *     }
-       *   ]
-       * }
-       *
-       * Use daily data when available.
-       */
-
-      if (
-        data &&
-        Array.isArray(data.daily)
-      ) {
-
-        return {
-
-          type:"daily",
-
-          rows:
-            data.daily
-              .filter(
-                row =>
-                  row &&
-                  row.day !== undefined
-              )
-              .sort(
-                (a,b) =>
-                  String(a.day)
-                    .localeCompare(
-                      String(b.day)
-                    )
-              )
-
-        };
-
-      }
-
-
-      /*
-       * Fall back to hourly data.
-       */
-
-      if (
-        data &&
-        Array.isArray(data.hourly)
-      ) {
-
-        return {
-
-          type:"hourly",
-
-          rows:
-            data.hourly
-              .filter(
-                row =>
-                  row &&
-                  row.hour !== undefined
-              )
-              .sort(
-                (a,b) =>
-                  String(a.hour)
-                    .localeCompare(
-                      String(b.hour)
-                    )
-              )
-
-        };
-
-      }
-
-
-      return null;
-
-    }
-
-
-    function formatTrafficLabel(
-      value,
-      type
-    ) {
-
-      if (
-        type === "daily"
-      ) {
-
-        return String(value);
-
-      }
-
-
-      const date =
-        new Date(value);
-
-
-      if (
-        Number.isNaN(
-          date.getTime()
-        )
-      ) {
-
-        return String(value);
-
-      }
-
-
-      return date.toLocaleString(
-        undefined,
-        {
-          month:"2-digit",
-          day:"2-digit",
-          hour:"2-digit",
-          minute:"2-digit"
-        }
-      );
-
-    }
-
-
-    async function renderTrafficGraph() {
-
-      const canvas =
-        document.getElementById(
-          "trafficChart"
-        );
-
-
-      if (!canvas)
-        return;
-
-
-      if (
-        typeof window.Chart ===
-        "undefined"
-      ) {
-
-        console.error(
-          "Chart.js is not available."
-        );
-
-        return;
-
-      }
-
-
-      try {
-
-        /*
-         * IMPORTANT:
-         * 2nforfun exposes /traffic.
-         */
-
-        const response =
-          await fetch(
-
-            ANALYTICS_WORKER +
-            "/traffic",
-
-            {
-              method:"GET",
-
-              cache:"no-store"
-
-            }
-
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-
-            "Traffic API returned HTTP " +
-            response.status
-
-          );
-
-        }
-
-
-        const liveData =
-          await response.json();
-
-
-        console.log(
-          "2nforfun traffic API:",
-          liveData
-        );
-
-
-        const traffic =
-          getTrafficPoints(
-            liveData
-          );
-
-
-        if (
-          !traffic ||
-          !traffic.rows.length
-        ) {
-
-          throw new Error(
-            "The /traffic endpoint returned no traffic data."
-          );
-
-        }
-
-
-        const labels =
-          traffic.rows.map(
-            function(row) {
-
-              return formatTrafficLabel(
-
-                traffic.type === "daily"
-                  ? row.day
-                  : row.hour,
-
-                traffic.type
-
-              );
-
-            }
-          );
-
-
-        const values =
-          traffic.rows.map(
-            function(row) {
-
-              return (
-                Number(
-                  row.views
-                ) || 0
-              );
-
-            }
-          );
-
-
-        if (
-          trafficChartInstance
-        ) {
-
-          try {
-
-            trafficChartInstance.destroy();
-
-          }
-
-          catch(error) {}
-
-          trafficChartInstance =
-            null;
-
-        }
-
-
-        const ctx =
-          canvas.getContext(
-            "2d"
-          );
-
-
-        if (!ctx) {
-
-          throw new Error(
-            "Could not get traffic chart canvas."
-          );
-
-        }
-
-
-        trafficChartInstance =
-          new window.Chart(
-
-            ctx,
-
-            {
-
-              type:"line",
-
-
-              data:{
-
-                labels:
-                  labels,
-
-                datasets:[{
-
-                  label:
-                    "Page Views",
-
-                  data:
-                    values,
-
-                  borderColor:
-                    "#00ff00",
-
-                  backgroundColor:
-                    "rgba(0, 255, 0, 0.15)",
-
-                  borderWidth:
-                    2,
-
-                  pointBackgroundColor:
-                    "#ffffff",
-
-                  pointBorderColor:
-                    "#00ff00",
-
-                  pointRadius:
-                    4,
-
-                  tension:
-                    .3,
-
-                  fill:
-                    true
-
-                }]
-
-              },
-
-
-              options:{
-
-                responsive:true,
-
-                maintainAspectRatio:false,
-
-                color:"#00ff00",
-
-                animation:false,
-
-
-                scales:{
-
-                  x:{
-
-                    ticks:{
-
-                      color:
-                        "#00ff00",
-
-                      maxRotation:
-                        45,
-
-                      minRotation:
-                        0
-
-                    },
-
-                    grid:{
-
-                      color:
-                        "rgba(0, 255, 0, 0.2)"
-
-                    }
-
-                  },
-
-
-                  y:{
-
-                    beginAtZero:true,
-
-                    ticks:{
-
-                      color:
-                        "#00ff00",
-
-                      stepSize:
-                        1
-
-                    },
-
-                    grid:{
-
-                      color:
-                        "rgba(0, 255, 0, 0.2)"
-
-                    }
-
-                  }
-
-                },
-
-
-                plugins:{
-
-                  legend:{
-
-                    labels:{
-
-                      color:
-                        "#00ff00",
-
-                      font:{
-
-                        family:
-                          "'Courier New', Courier, monospace"
-
-                      }
-
-                    }
-
-                  }
-
-                }
-
-              }
-
-            }
-
-          );
-
-
-        console.log(
-          "Traffic graph rendered successfully."
-        );
-
-      }
-
-      catch(error) {
-
-        console.error(
-          "Traffic graph failed to load:",
-          error
-        );
-
-      }
-
-    }
-
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      function() {
-
-        renderTrafficGraph();
-
-      }
-    );
-
-
-    setInterval(
-      renderTrafficGraph,
-      60000
-    );
-
-  </script>
-
-
-  <!-- KRIS COMPANION -->
-
-  <div id="kris-companion">
-
-
-    <div
-      id="kris-dialogue"
-      class="hidden"
-    >
-
-      <span
-        id="kris-dialogue-text"
-      ></span>
-
-    </div>
-
-
-    <img
-      id="kris-gif"
-      src="images/krisdancinggif.gif"
-      alt="Dancing Kris"
-      draggable="false"
-    >
-
-  </div>
-
+  <!-- =====================================================
+       KRIS COMPANION
+  ===================================================== -->
 
   <script>
 
@@ -6162,15 +7059,8 @@
           !kris ||
           !dialogue ||
           !dialogueText
-        ) {
-
-          console.error(
-            "Kris Companion: Missing required element."
-          );
-
+        )
           return;
-
-        }
 
 
         const quotes = [
@@ -6185,60 +7075,17 @@
           "have you tried pressing X?",
           "the world is revolving.",
           "don't forget your [HeartShapedObject].",
-          "you look like someone who would trust Spamton.",
-          "NOELLE WOULD NOT APPROVE OF THIS.",
           "where's Susie when you need her?",
           "i wonder what Ralsei is baking.",
           "this desktop feels like a Dark World.",
           "did you just open another window?",
-          "that's not very [[BIG SHOT]] of you.",
-          "HEY EVERY !! IT'S ME.",
           "CHAOS, CHAOS!",
-          "you ever wonder why the fountain is still there?",
-          "Kris... where are we?",
-          "this isn't Castle Town.",
-          "the prophecy did not mention Windows 98.",
-          "Susie would probably break this computer.",
-          "Ralsei would probably say something nice.",
-          "Lancer would probably eat the mouse.",
-          "Queen would probably buy this computer.",
-          "Berdly would explain why he's better at Minesweeper.",
-          "Noelle is probably nervous about something right now.",
-          "okay, serious question. why are there so many icons?",
-          "you know you can just close the window, right?",
-          "i've been dancing this entire time.",
-          "my legs are getting tired. probably.",
-          "do you think the Recycle Bin actually recycles anything?",
-          "Internet Explorer? In this economy?",
-          "wait. you actually use this?",
-          "i have questions. many questions.",
-          "you could be doing literally anything else right now.",
-          "don't mind me. i'm just standing here.",
+          "hey.",
+          "okay.",
+          "i'm just standing here.",
           "...",
-          "... okay.",
           "this feels like a side quest.",
-          "is this your save file?",
-          "i think we're both lost.",
           "maybe try turning it off and on again.",
-          "i've seen worse desktops.",
-          "actually, no i haven't.",
-          "WHY ARE YOU CLICKING THAT.",
-          "hello???",
-          "what is that.",
-          "WHY.",
-          "interesting choice.",
-          "fascinating.",
-          "i'm concerned.",
-          "this computer has seen things.",
-          "you are really committed to this.",
-          "stop opening things.",
-          "please.",
-          "Kris.exe has stopped responding.",
-          "my patience.exe has stopped responding.",
-          "this is getting out of hand.",
-          "okay this is actually kinda funny.",
-          "i wasn't expecting that.",
-          "you did WHAT.",
           "bruh.",
           "no way.",
           "what.",
@@ -6246,7 +7093,6 @@
           "WHAT.",
           "i'm just a little guy.",
           "i live here now.",
-          "don't close me.",
           "i know what you did.",
           "i saw that.",
           "I SAW THAT."
@@ -6254,57 +7100,13 @@
         ];
 
 
-        const dragQuotes = [
-
-          "HEY.",
-          "WAIT.",
-          "WHERE ARE WE GOING.",
-          "why are you dragging me.",
-          "put me down.",
-          "NO.",
-          "STOP.",
-          "okay this is kinda fun.",
-          "weeeeee.",
-          "KRIS AIRLINES.",
-          "i am being relocated.",
-          "WHERE IS MY HOUSE.",
-          "you can't just move me around.",
-          "bro i'm not an icon.",
-          "okay okay okay.",
-          "let me dance over here.",
-          "destination: unknown.",
-          "this is not Castle Town."
-
-        ];
-
-
-        function randomQuote(list) {
-
-          return list[
-            Math.floor(
-              Math.random() *
-              list.length
-            )
-          ];
-
-        }
-
-
-        let dialogueTimer = null;
-
-
         function talk(
-          message,
-          duration = 1500
+          text,
+          duration=1500
         ) {
 
-          clearTimeout(
-            dialogueTimer
-          );
-
-
           dialogueText.textContent =
-            message;
+            text;
 
 
           dialogue.classList.remove(
@@ -6312,7 +7114,12 @@
           );
 
 
-          dialogueTimer =
+          clearTimeout(
+            dialogue.timer
+          );
+
+
+          dialogue.timer =
             setTimeout(
               function() {
 
@@ -6327,40 +7134,22 @@
         }
 
 
-        let dragging = false;
-
-        let offsetX = 0;
-        let offsetY = 0;
+        let dragging =
+          false;
 
 
-        function clampKrisPosition(
+        let offsetX =
+          0;
+
+
+        let offsetY =
+          0;
+
+
+        function clamp(
           x,
           y
         ) {
-
-          const width =
-            kris.offsetWidth;
-
-
-          const height =
-            kris.offsetHeight;
-
-
-          const maxX =
-            Math.max(
-              0,
-              window.innerWidth -
-              width
-            );
-
-
-          const maxY =
-            Math.max(
-              0,
-              window.innerHeight -
-              height
-            );
-
 
           return {
 
@@ -6369,7 +7158,8 @@
                 0,
                 Math.min(
                   x,
-                  maxX
+                  window.innerWidth -
+                  kris.offsetWidth
                 )
               ),
 
@@ -6378,7 +7168,8 @@
                 0,
                 Math.min(
                   y,
-                  maxY
+                  window.innerHeight -
+                  kris.offsetHeight
                 )
               )
 
@@ -6388,17 +7179,17 @@
 
 
         function moveKris(
-          clientX,
-          clientY
+          x,
+          y
         ) {
 
           const position =
-            clampKrisPosition(
+            clamp(
+              x -
+              offsetX,
 
-              clientX - offsetX,
-
-              clientY - offsetY
-
+              y -
+              offsetY
             );
 
 
@@ -6414,49 +7205,23 @@
         }
 
 
-        function saveKrisPosition() {
-
-          localStorage.setItem(
-
-            "kris-companion-position",
-
-            JSON.stringify({
-
-              x:
-                parseInt(
-                  kris.style.left
-                ) || 300,
-
-              y:
-                parseInt(
-                  kris.style.top
-                ) || 180
-
-            })
-
-          );
-
-        }
-
-
         kris.addEventListener(
           "mousedown",
           function(event) {
 
             if (
-              event.button !== 0
+              event.button !==
+              0
             )
               return;
-
-
-            event.preventDefault();
 
 
             const rect =
               kris.getBoundingClientRect();
 
 
-            dragging = true;
+            dragging =
+              true;
 
 
             offsetX =
@@ -6473,14 +7238,6 @@
               "dragging"
             );
 
-
-            talk(
-              randomQuote(
-                dragQuotes
-              ),
-              1000
-            );
-
           }
         );
 
@@ -6491,9 +7248,6 @@
 
             if (!dragging)
               return;
-
-
-            event.preventDefault();
 
 
             moveKris(
@@ -6509,289 +7263,90 @@
           "mouseup",
           function() {
 
-            if (!dragging)
-              return;
-
-
-            dragging = false;
+            dragging =
+              false;
 
 
             kris.classList.remove(
               "dragging"
             );
 
-
-            saveKrisPosition();
-
-
-            talk(
-              randomQuote(
-                dragQuotes
-              ),
-              1000
-            );
-
           }
         );
 
 
-        kris.addEventListener(
-          "touchstart",
-          function(event) {
-
-            const touch =
-              event.touches[0];
-
-
-            const rect =
-              kris.getBoundingClientRect();
-
-
-            dragging = true;
-
-
-            offsetX =
-              touch.clientX -
-              rect.left;
-
-
-            offsetY =
-              touch.clientY -
-              rect.top;
-
-
-            kris.classList.add(
-              "dragging"
-            );
-
-
-            talk(
-              randomQuote(
-                dragQuotes
-              ),
-              1000
-            );
-
-          },
-          {
-            passive:true
-          }
-        );
-
-
-        document.addEventListener(
-          "touchmove",
-          function(event) {
-
-            if (!dragging)
-              return;
-
-
-            event.preventDefault();
-
-
-            const touch =
-              event.touches[0];
-
-
-            moveKris(
-              touch.clientX,
-              touch.clientY
-            );
-
-          },
-          {
-            passive:false
-          }
-        );
-
-
-        document.addEventListener(
-          "touchend",
+        setInterval(
           function() {
 
-            if (!dragging)
-              return;
+            if (!dragging) {
 
-
-            dragging = false;
-
-
-            kris.classList.remove(
-              "dragging"
-            );
-
-
-            saveKrisPosition();
-
-          }
-        );
-
-
-        const savedPosition =
-          localStorage.getItem(
-            "kris-companion-position"
-          );
-
-
-        if (savedPosition) {
-
-          try {
-
-            const position =
-              JSON.parse(
-                savedPosition
+              talk(
+                quotes[
+                  Math.floor(
+                    Math.random() *
+                    quotes.length
+                  )
+                ],
+                1500
               );
 
-
-            const safePosition =
-              clampKrisPosition(
-
-                Number(
-                  position.x
-                ) || 300,
-
-                Number(
-                  position.y
-                ) || 180
-
-              );
-
-
-            kris.style.left =
-              safePosition.x +
-              "px";
-
-
-            kris.style.top =
-              safePosition.y +
-              "px";
-
-          }
-
-          catch(error) {
-
-            console.warn(
-              "Kris Companion: Could not restore position.",
-              error
-            );
-
-          }
-
-        }
-
-
-        setTimeout(
-          function() {
-
-            talk(
-              "oh. you found me.",
-              2500
-            );
+            }
 
           },
-          1000
-        );
-
-
-        function randomComment() {
-
-          if (!dragging) {
-
-            talk(
-              randomQuote(
-                quotes
-              ),
-              1500
-            );
-
-          }
-
-
-          const nextDelay =
-            3000 +
-            Math.random() * 4000;
-
-
-          setTimeout(
-            randomComment,
-            nextDelay
-          );
-
-        }
-
-
-        setTimeout(
-          randomComment,
-          3500
-        );
-
-
-        function yapBurst() {
-
-          if (!dragging) {
-
-            talk(
-              randomQuote(
-                quotes
-              ),
-              900
-            );
-
-          }
-
-
-          const nextBurst =
-            15000 +
-            Math.random() * 25000;
-
-
-          setTimeout(
-            yapBurst,
-            nextBurst
-          );
-
-        }
-
-
-        setTimeout(
-          yapBurst,
-          12000
-        );
-
-
-        window.addEventListener(
-          "resize",
-          function() {
-
-            const position =
-              clampKrisPosition(
-
-                parseInt(
-                  kris.style.left
-                ) || 300,
-
-                parseInt(
-                  kris.style.top
-                ) || 180
-
-              );
-
-
-            kris.style.left =
-              position.x +
-              "px";
-
-
-            kris.style.top =
-              position.y +
-              "px";
-
-          }
+          6500
         );
 
       }
     );
+
+  </script>
+
+
+  <script>
+
+    /*
+      Create Kris element if it was not
+      already present in the page.
+    */
+
+    if (
+      !document.getElementById(
+        "kris-companion"
+      )
+    ) {
+
+      const kris =
+        document.createElement(
+          "div"
+        );
+
+
+      kris.id =
+        "kris-companion";
+
+
+      kris.innerHTML =
+
+        '<div id="kris-dialogue" class="hidden">' +
+
+          '<span id="kris-dialogue-text"></span>' +
+
+        '</div>' +
+
+        '<img id="kris-gif" ' +
+
+          'src="images/krisdancinggif.gif" ' +
+
+          'alt="Dancing Kris" ' +
+
+          'draggable="false">' ;
+
+
+      document.body.appendChild(
+        kris
+      );
+
+    }
 
   </script>
 
