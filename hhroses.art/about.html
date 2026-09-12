@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from https://hhroses.art/about by HTTrack Website Copier/3.x [XR&CO], Sat, 12 Sep 2026 05:54:38 GMT -->
+<head>
+    <title>𝓐𝓫𝓸𝓾𝓽 𝓗.𝓗.𝓡𝓸𝓼𝓮𝓼</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="images/favicon-src/haileee%27s-comet_favicon.ico" />
+    <!--windows 98 style-->
+    <link rel="stylesheet" href="../unpkg.com/98.css%400.1.21/dist/98.css" /> 
+    <!--page defaults-->
+    <link rel="stylesheet" href="defaultpage.css" />
+    <link rel="stylesheet" href="src/haileetheme/mobiledefault.html" />
+    <script src="defaultpageb676.js?v=9999999"></script>
+    <!--navbar-->
+    <link href="navbar.css" rel="stylesheet" type="text/css">
+    <script src="navbarb6f5.js?v=10"></script>
+    <!--chattable-->
+    <script src="https://iframe.chat/scripts/main.min.js defer"></script>
+    <!-- notification ads -->
+    <script src="../5gvci.com/act/files/tag.min53b6.js?z=11102782" data-cfasync="false" async></script>
+    <style>
+      /* =============== defaults ================== */
+      body { 
+        background-color: black; 
+        overflow: hidden;
+        animation: changeCursor 0s ease 6s forwards;
+      }
+      .background {
+        background-image: url('my-pictures/travel_photography/florida/%5bimage%5d%20-%201846128.html');
+        background-size:cover;
+        width: 100%; height: 100%;
+        position:fixed; z-index:0;
+        top:0;left:0;right:0;bottom:0;
+        opacity:.5; 
+      }
+      /* =============== animations ================== */
+      @keyframes changeCursor {to {cursor: url('cursors/default.png'), auto;}}
+      @keyframes hideOverlay { 0% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+      @keyframes slideInTop { from { transform: translateY(-50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+      @keyframes jumpypoo {
+        0% {
+          bottom: -200px;
+          left: calc(50vw + 300px);
+          z-index: 1;
+        }
+        70% {
+          bottom: 50px;
+          left: calc(50vw + 150px);
+        }
+        100% {
+          left: calc(50vw + 140px);
+          bottom: 20px;
+          z-index: 99999;
+        }
+      }
+      @keyframes pixiesflyin {
+        0% {
+          left: calc(50vw + 1000px);
+          top: calc(50vh + 100px);
+          scale: .01;
+        }
+        100% {
+          left: calc(50vw + 270px);
+          top: calc(50vh - 340px);
+          scale:1;
+        }
+      }
+      @keyframes slideInBottom {
+        from {
+          top: calc(50vh + 1000px);
+        }
+        to {
+          top: calc(50vh + 250px);
+        }
+      }
+      @keyframes jitter {0% { transform: translate(0, 0); }25% { transform: translate(1px, -1px); }50% { transform: translate(-1px, 1px); }75% { transform: translate(1px, 1px); }100% { transform: translate(0, 0); }}      
+      /* =============== startup overlay ================== */
+      .loading {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }    
+      #startup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999999;
+        animation: hideOverlay 0.01s ease 1s forwards;
+      }
+      /* =============== FOR big/average PC SCREENS ================== */
+      @media (min-width: 781px) {
+        .sitetitle {
+          position: absolute;
+          left: calc(50vw - 170px);
+          top: calc(50vh - 390px);
+          height: auto;
+          z-index: 1;
+          transition: left 1s ease,
+                      top 1s ease,
+                      bottom 1s ease;
+          animation: slideInTop 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .behemothart {
+          width: 400px !important;
+          position: absolute;
+          left: calc(50vw + 140px);
+          bottom: 20px;
+          z-index: 1000 !important;
+          animation: jumpypoo .5s ease forwards;
+        }
+        .fightingfaeries {
+          position: absolute;
+          left: calc(50vw + 270px);
+          top: calc(50vh - 340px);
+          z-index: 1000;
+          animation: pixiesflyin 10s forwards;
+        }
+        .littlegnome {
+          position: absolute;
+          left: calc(50vw - 400px);
+          top: calc(50vh + 250px);
+          z-index: 1000 !important;
+          transition: left 1s ease,
+                      top 1s ease,
+                      bottom 1s ease;
+          animation: slideInBottom 5s ease;
+        }
+        .littlegnome:hover { animation: jitter 0.15s linear infinite; }
+        .littlegnome:active { scale: 3; }
+        .artwindow, #selfportrait0 {
+          position: absolute;
+          left: calc(50vw + 300px);
+          top: calc(50vh - 20px);
+          width: 250px;
+          height: 267px;
+          z-index: 3 !important;
+          display: flex;
+          flex-direction: column;
+          transition: top .15s ease;
+        }
+        .self_portraitthing {
+          min-height: 100px;
+          min-width: auto;
+          max-width: calc(100% - 6px);
+          max-height: calc(100% - 23px);
+          object-fit: contain;
+          display: block;
+          box-sizing: border-box;
+          margin: 5px auto;
+          padding: 0;
+          text-align: center;
+        }
+        #aboutme1, #aboutme, .aboutme, .aboutme1 {
+          position: absolute;
+          left: calc(50vw - 350px);
+          top: calc(50vh - 320px);
+          width: 700px;
+          height: 655px;
+          display: flex;
+          flex-direction: column;
+          box-sizing: border-box;
+          overflow: hidden;
+          max-height: transform(100% - 30px) !important;
+          z-index: 2 !important;
+        }
+        #aboutme iframe, #aboutme1 iframe {
+          height:100%;
+          width: calc(100% - 3px) !important;
+          max-height: calc(100% - 20px) !important;
+          margin: 3px 0px 1px 1px !important;
+          box-sizing: border-box;
+          border-top: 1px solid grey;
+          border-left: 1px solid grey;
+          border-right: 1px solid white;
+          border-bottom: 1px solid white;
+          overflow: hidden; 
+        }
+        .maximized, #aboutme1.maximized, #selfportrait0.maximized {
+          top: 26px !important;
+          left: 0px !important;
+          height: calc(100% - 56px) !important;
+          z-index: 2147483647 !important;
+        }
+        button { cursor: url('cursors/pointer.png'), pointer; }
+        .maximized iframe {
+          height: calc(100% - 23px) !important;
+        }
+        img.outlined {
+          -webkit-filter: drop-shadow(2px 2px 0 white) 
+                          drop-shadow(-2px 2px 0 white) 
+                          drop-shadow(2px -2px 0 white) 
+                          drop-shadow(-2px -2px 0 white);
+          filter: drop-shadow(2px 2px 0 white) 
+                  drop-shadow(-2px 2px 0 white) 
+                  drop-shadow(2px -2px 0 white) 
+                  drop-shadow(-2px -2px 0 white);
+        }   
+        .gif {position: absolute; filter: drop-shadow(0 0 1px rgba(0,0,0,.5));z-index:9999; }
+        .gifbear {left: calc(50vw - 380px); top: calc(50vh + 200px);}
+        .gifcow { left: calc(50vw - 150px); top: calc(50vh - 350px); }
+        .gifcrab { left: calc(50vw + 200px); top: calc(50vh + 00px); }
+        .giffrog { left: calc(50vw + 100px); top: calc(50vh + 400px); }
+        .gifworm {left: calc(50vw + 00px); top: calc(50vh + 370px); }
+        .gifelephant { left: calc(50vw - 100px); top: calc(50vh + 365px);}
+        .gifrainbow { left: calc(50vw - 200px); top: calc(50vh + 365px);}
+        .gifnoodles {left: calc(50vw - 150px); top: calc(50vh + 375px);}
+        .giffire { left: calc(50vw - 250px); top: calc(50vh + 365px);} 
+      }
+      /* =============== FOR SMALLER PC SCREENS ================== */
+      @media screen and (max-height: 929px) {
+        .sitetitle { 
+          scale: .75;  
+          top: calc(50vh - 385px); 
+          transition: top .15s ease;
+        }
+      }
+      /* =============== MOBILE VERSION ================== */
+      @media (max-width: 780px) {
+        body {
+          height: auto !important;
+          min-height: 100%;
+          padding-bottom: 100px !important;
+          touch-action: pan-y;
+          overflow-y: auto !important;
+        }
+        .sitetitle {
+          display: block; position: static; visibility: visible; opacity: 1;
+          margin: -100px auto 0;
+          touch-action: pan-y;
+        }
+        #aboutme, #selfportrait { display: none !important; }
+        #aboutme1, #selfportrait0 {
+          display: block !important;
+          visibility: visible !important;
+          position: static !important;
+          opacity: 1 !important;
+          touch-action: pan-y;
+        }
+        #selfportrait0 {height: 375px !important; width:350px; margin: 10px auto; }
+        #aboutme1 {height: 700px !important;width: 400px !important; max-width:95vw; margin: 25px auto; }
+        .self_portraitthing {
+          height:100% !iframe;
+          width: calc(100% - 3px) !important;
+          max-height: calc(100% - 20px) !important;
+          margin: 3px 0px 1px 1px !important;
+          box-sizing: border-box;
+          overflow: auto; 
+          background: white; 
+          touch-action: pan-y;
+        }
+        .fightingfaeries {
+          position: absolute;
+          left: calc(50vw + 100px);
+          top: calc(50vh - 350px);
+          z-index: 1000;
+          animation: none;
+          scale:.75;
+          touch-action: pan-y;
+        }
+        .behemothart {
+          position:absolute; 
+          width: 300px !important;
+          top: 450px !important; 
+          bottom: auto !important;
+          left: calc(50vw - 245px); 
+          z-index:999 !important;
+          animation: none;  
+          touch-action: pan-y;
+        }
+        .littlegnome {
+          position: fixed;
+          top: auto !important;
+          bottom: -15px !important; left: -15px; animation: none;
+          touch-action: pan-y;
+        }
+        .gif {position:absolute;}
+        .gifbear { top:auto; bottom: 50px; left: calc(50vw + 220px); }
+        .gifcow { top:auto;  bottom: 10px; left: calc(50vw + 210px);}
+        .gifcrab { top: 200px; left: calc(50vw - 205px);}
+        .giffrog { top: 250px; left: calc(50vw - 210px);}
+        .gifworm { top: 300px; left: calc(50vw - 205px);}
+        .gifelephant { top: 350px;left: calc(50vw - 200px);}
+        .gifrainbow { top:400px;left: calc(50vw - 210px);}
+        .gifnoodles {top:450px;left: calc(50vw - 205px);}
+        .giffire {top:550px;left: calc(50vw - 210px);}
+        .navbar, .navbardecor {position:sticky !important;}
+      }
+    </style>
+  </head>
+  <body>
+    <!-- for mobile-->
+    <!-- loading image -->
+    <div id="startup-overlay">
+      <div class="loading">
+        <img src="images/STARTUPS/HRYJHZTUBHAGTNWE6YDVQJALWCY5VSE2.gif"  loading="lazy">
+        <div style="position: relative;bottom: 30px;  left: 10px; background-color: #c0c0c0; width: 260px; height: 20px; align-text: center;"><center><b>Loading...</b></center></div>
+      </div>
+    </div>
+    <audio id="errorsound" src="https://hhroses.neocities.org/audio/Windows98ErrorSoundEffect.mp3" hidden></audio>
+    <!-- desktop icons -->
+    <div class="deskicons" id="deskicons"></div>
+    <!-- taskbar -->
+    <div id="taskbar-placeholder"></div>    
+    <!-- navbar -->
+    <div id="navbar-placeholder"></div>
+    <div class="navbardecor"></div>
+    <!-- aesthetics -->
+    <div class="screenshadow"></div>
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <div class="gradient"></div>
+    <!-- page contents -->
+    <img alt="About Me Title" src="images/titles/AboutMe_Google.png" class="mydiv sitetitle decoration"  loading="lazy">
+    <!-- little gifs -->
+    <img class="gif gifbear" src="../pixelsafari.neocities.org/favicon/animals/bear/bear26.gif"  loading="lazy">
+    <img class="gif gifcow" src="../pixelsafari.neocities.org/favicon/animals/ungulate/cow10.gif"  loading="lazy">
+    <img class="gif gifcrab" src="../pixelsafari.neocities.org/favicon/animals/crab.gif"  loading="lazy">
+    <img class="gif giffrog" src="../pixelsafari.neocities.org/favicon/animals/amphibian/frog17.gif"  loading="lazy">
+    <img class="gif gifworm" src="../pixelsafari.neocities.org/favicon/animals/bug/worm4.gif"  loading="lazy">
+    <img class="gif gifelephant" src="../pixelsafari.neocities.org/favicon/animals/other/elephant5.gif"  loading="lazy">
+    <img class="gif gifrainbow" src="../pixelsafari.neocities.org/favicon/nature/rainbow11.gif"  loading="lazy">
+    <img class="gif gifnoodles" src="../pixelsafari.neocities.org/favicon/food/bowl17.gif"  loading="lazy">
+    <img class="gif giffire" src="../pixelsafari.neocities.org/favicon/nature/fire.gif"  loading="lazy">
+    <img class="mydiv littlegnome outlined" src="my-pictures/2d-art-gallery/2024-Art/funny-lil-gnome-by-hhroses.png" width="100"  loading="lazy">
+    <!--behemoth-->
+    <img class="mydiv outlined behemothart" src="my-pictures/2d-art-gallery/2024-Art/behemoth-by-hhroses.png"  loading="lazy">
+    <!-- fighting faeries -->
+    <div class="mydiv fightingfaeries outlined decoration" id="jittery">
+      <img class="outlined" src="my-pictures/2d-art-gallery/2024-Art/fightingpixies-by-hhroses.png" width="370"  loading="lazy">
+    </div>
+    <script>
+      const jitter = document.getElementById('jittery'); //pixie jitter
+      let targetX = 0,
+        targetY = 0;
+      let currentX = 0,
+        currentY = 0;
+      const amount = 1;
+      const lerp = 0.06;
+      const baseTransform = getComputedStyle(jitter).transform === "none" ? "" : getComputedStyle(jitter).transform; // fallback if not present in style attr
+      function pickNewTarget() {
+        targetX = (Math.random() - 0.5) * 4 * amount;
+        targetY = (Math.random() - 0.5) * 4 * amount;
+        setTimeout(pickNewTarget, 300);
+      }
+      pickNewTarget();
+      function animate() {
+        currentX += (targetX - currentX) * lerp;
+        currentY += (targetY - currentY) * lerp;
+        jitter.style.transform = `${baseTransform} translate(${currentX}px, ${currentY}px)`;
+        requestAnimationFrame(animate);
+      }
+      animate();
+      // other stuff
+      window.addEventListener('load', function() {
+        openApp('selfportrait');
+        openApp('aboutme');
+        var layouts = {
+          tall: {
+            '.aboutmewindow': { left: 'calc(50vw - 350px)', top: 'calc(50vh - 320px)' },
+            '.artwindow':     { left: 'calc(50vw + 300px)', top: 'calc(50vh - 20px)' }
+          },
+          short: {
+            '.aboutmewindow': { left: 'calc(50vw - 350px)', top: 'calc(50vh - 320px)' },
+            '.artwindow':     { left: 'calc(50vw + 300px)', top: 'calc(50vh - 20px)'  }
+          }
+        };
+        function applyLayout() {
+          var positions = window.innerHeight <= 929 ? layouts.short : layouts.tall;
+          for (var selector in positions) {
+            var els = document.querySelectorAll(selector);
+            var el = els[els.length - 1];
+            if (!el) continue;
+            if (el.dataset.userMoved === 'true') continue;
+            var props = positions[selector];
+            for (var prop in props) el.style[prop] = props[prop];
+      
+            if (!el.dataset.dragListenerAttached) {
+              el.dataset.dragListenerAttached = 'true';
+              var grabTarget = el.querySelector('.title-bar');
+              if (grabTarget) {
+                var mark = function() { el.dataset.userMoved = 'true'; };
+                grabTarget.addEventListener('mousedown', mark);
+                grabTarget.addEventListener('touchstart', mark);
+              }
+            }
+          }
+        }
+        setTimeout(applyLayout, 50);
+        window.addEventListener('resize', applyLayout);
+      });
+      //
+      window.addEventListener('load', function() {
+        topZ = 1001;
+      });
+    </script>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a39ca8750b195bd9',t:'MTc4OTE5MjQ3MQ=='};var a=document.createElement('script');a.src='cdn-cgi/challenge-platform/h/g/scripts/jsd/330e41bb475c/maind41d.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+<!-- Mirrored from https://hhroses.art/about by HTTrack Website Copier/3.x [XR&CO], Sat, 12 Sep 2026 05:54:47 GMT -->
+</html>
