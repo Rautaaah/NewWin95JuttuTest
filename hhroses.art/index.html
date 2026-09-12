@@ -12,16 +12,30 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <!-- =====================================================
+       WINDOWS 98
+  ====================================================== -->
+
   <link
     rel="stylesheet"
     href="../unpkg.com/98.css%400.1.21/dist/98.css"
   >
+
+
+  <!-- =====================================================
+       FAVICON
+  ====================================================== -->
 
   <link
     rel="icon"
     type="image/x-icon"
     href="images/favicon-src/haileee%27s-comet_favicon.ico"
   >
+
+
+  <!-- =====================================================
+       CONTEXT MENU / OTHER ORIGINAL SCRIPTS
+  ====================================================== -->
 
   <link
     href="src/haileetheme/contextmenu/contextmenu.css"
@@ -47,7 +61,13 @@
     href="src/achievements/style.css"
   >
 
-  <!-- jsVectorMap -->
+
+  <!-- =====================================================
+       JAVASCRIPT LIBRARIES
+       defer is intentional:
+       core loads before world map because script order
+       is preserved for deferred scripts.
+  ====================================================== -->
 
   <link
     rel="stylesheet"
@@ -55,26 +75,29 @@
   >
 
   <script
+    defer
     src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.7.0/js/jsvectormap.min.js"
   ></script>
 
   <script
+    defer
     src="https://cdnjs.cloudflare.com/ajax/libs/jsvectormap/1.7.0/maps/world.min.js"
   ></script>
 
-  <!-- Chart.js -->
-
   <script
-    src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"
+    defer
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.1/chart.umd.min.js"
   ></script>
 
+
+  <!-- =====================================================
+       STYLES
+  ====================================================== -->
 
   <style>
 
     *, *::before, *::after {
-
       box-sizing:border-box;
-
     }
 
 
@@ -123,6 +146,10 @@
     }
 
 
+    /* =====================================================
+       FONTS
+    ====================================================== */
+
     @font-face {
 
       font-family:'basiic';
@@ -154,14 +181,18 @@
 
     @font-face {
 
-      font-family:"ComicSans";
+      font-family:'ComicSans';
 
       src:url(
-        "https://hhroses.neocities.org/font/Ldfcomicsans-jj7l.ttf"
-      ) format("truetype");
+        https://hhroses.neocities.org/font/Ldfcomicsans-jj7l.ttf
+      ) format('truetype');
 
     }
 
+
+    /* =====================================================
+       BODY
+    ====================================================== */
 
     body {
 
@@ -215,8 +246,8 @@
 
 
     /* =====================================================
-       CRT / BACKGROUNDS
-    ===================================================== */
+       CRT
+    ====================================================== */
 
     .fuzzy-overlay {
 
@@ -316,6 +347,10 @@
 
     }
 
+
+    /* =====================================================
+       BACKGROUND LAYERS
+    ====================================================== */
 
     .overlay {
 
@@ -470,15 +505,12 @@
           transparent 90%
         );
 
-      transition:
-        opacity 1s ease;
-
     }
 
 
     /* =====================================================
        GNOME
-    ===================================================== */
+    ====================================================== */
 
     .gnome {
 
@@ -511,7 +543,7 @@
 
     /* =====================================================
        MAIN CONTENT
-    ===================================================== */
+    ====================================================== */
 
     .maincontent {
 
@@ -584,8 +616,6 @@
         'CelticBitThin',
         sans-serif;
 
-      object-fit:contain;
-
       text-align:center;
 
       margin:
@@ -624,8 +654,6 @@
       transform:
         translateX(185px)
         translateY(-30px);
-
-      padding:none;
 
       margin-bottom:-100px;
 
@@ -686,11 +714,6 @@
 
       background-position:center;
 
-      transition:
-        opacity 1s ease,
-        background-color 1s ease,
-        background-image 1s ease;
-
       z-index:0;
 
     }
@@ -698,7 +721,7 @@
 
     /* =====================================================
        PAGE VIEWS
-    ===================================================== */
+    ====================================================== */
 
     .pageviews {
 
@@ -742,7 +765,7 @@
 
     /* =====================================================
        GRASS
-    ===================================================== */
+    ====================================================== */
 
     .grass {
 
@@ -784,7 +807,7 @@
 
     /* =====================================================
        FAIRY
-    ===================================================== */
+    ====================================================== */
 
     .flier {
 
@@ -905,7 +928,7 @@
 
     /* =====================================================
        KRIS
-    ===================================================== */
+    ====================================================== */
 
     #kris-companion {
 
@@ -1055,8 +1078,8 @@
 
 
     /* =====================================================
-       WINDOWS
-    ===================================================== */
+       PAGE 2
+    ====================================================== */
 
     .page2_wrap {
 
@@ -1072,6 +1095,10 @@
 
     }
 
+
+    /* =====================================================
+       COMMON WIDGET
+    ====================================================== */
 
     .fun-widget {
 
@@ -1175,8 +1202,8 @@
 
 
     /* =====================================================
-       SMALL / TRANSPARENT CLOCK
-    ===================================================== */
+       SMALL CLOCK
+    ====================================================== */
 
     #clockWidget {
 
@@ -1233,13 +1260,15 @@
 
     #clockWidget .clock-window-body {
 
-      background:transparent !important;
+      background:
+        transparent !important;
 
       border:none;
 
       box-shadow:none;
 
-      padding:4px 0 0 0;
+      padding:
+        4px 0 0 0;
 
       margin:0;
 
@@ -1288,14 +1317,37 @@
 
       flex-direction:column;
 
-      background:transparent !important;
+      background:
+        transparent !important;
 
     }
 
 
-    /*
-      Small analog clock.
-    */
+    #clockWidget .title-bar-controls {
+
+      display:flex;
+
+      gap:2px;
+
+    }
+
+
+    #clockWidget .title-bar-controls button {
+
+      min-width:16px;
+
+      width:16px;
+
+      height:14px;
+
+      padding:0;
+
+    }
+
+
+    /* =====================================================
+       ANALOG CLOCK
+    ====================================================== */
 
     .analog-clock {
 
@@ -1480,7 +1532,7 @@
 
 
     /*
-      No H.H.Roses text on the clock.
+      No H.H.Roses branding on the clock face.
     */
 
     .clock-brand {
@@ -1490,7 +1542,9 @@
     }
 
 
-    /* CLOCK HANDS */
+    /* =====================================================
+       CLOCK HANDS
+    ====================================================== */
 
     .clock-hand {
 
@@ -1624,7 +1678,7 @@
 
 
     /*
-      ONLY the time underneath.
+      ONLY text underneath clock.
     */
 
     #clockTime {
@@ -1680,21 +1734,14 @@
 
 
     /* =====================================================
-       GEO
-    ===================================================== */
+       GEO MAP
+    ====================================================== */
 
     .geo-widget {
 
       width:610px;
 
       max-width:90%;
-
-    }
-
-
-    .geo-widget .window-body {
-
-      padding:10px;
 
     }
 
@@ -1851,6 +1898,8 @@
       outline:
         1px solid grey;
 
+      margin:0;
+
     }
 
 
@@ -1925,7 +1974,7 @@
 
       gap:5px;
 
-      color:black;
+      color:#000;
 
       text-shadow:none;
 
@@ -1980,7 +2029,7 @@
 
     /* =====================================================
        TRAFFIC
-    ===================================================== */
+    ====================================================== */
 
     .traffic-widget {
 
@@ -2012,12 +2061,15 @@
 
       padding:10px;
 
+      box-shadow:
+        inset 1px 1px #808080;
+
     }
 
 
     /* =====================================================
-       PHOTO WIDGETS
-    ===================================================== */
+       PHOTOS
+    ====================================================== */
 
     .photo-widget {
 
@@ -2128,7 +2180,7 @@
 
     /* =====================================================
        TRAINS
-    ===================================================== */
+    ====================================================== */
 
     .helsinki-trains {
 
@@ -2446,7 +2498,7 @@
 
     /* =====================================================
        PRIVACY
-    ===================================================== */
+    ====================================================== */
 
     div.termsAndPolicy {
 
@@ -2510,7 +2562,7 @@
 
     /* =====================================================
        NEOCITIES
-    ===================================================== */
+    ====================================================== */
 
     .neocities {
 
@@ -2533,7 +2585,7 @@
 
     /* =====================================================
        LANGUAGES
-    ===================================================== */
+    ====================================================== */
 
     .languages_wrap_wrap {
 
@@ -2605,6 +2657,10 @@
     }
 
 
+    /* =====================================================
+       MOBILE
+    ====================================================== */
+
     @media (
       max-height:810px
     ),
@@ -2642,6 +2698,20 @@
         width:150px;
 
         height:150px;
+
+      }
+
+
+      .clock-mark {
+
+        height:6px;
+
+      }
+
+
+      .clock-mark.major {
+
+        height:8px;
 
       }
 
@@ -2747,7 +2817,7 @@
 
   <!-- =====================================================
        CONTEXT MENU
-  ===================================================== -->
+  ====================================================== -->
 
   <div
     id="win98-menu"
@@ -2782,18 +2852,22 @@
 
 
     <div class="menu-item">
+
       Properties
+
     </div>
 
   </div>
 
 
-  <canvas id="fluid-canvas"></canvas>
-
-
   <!-- =====================================================
-       AUDIO
-  ===================================================== -->
+       EFFECTS
+  ====================================================== -->
+
+  <canvas
+    id="fluid-canvas"
+  ></canvas>
+
 
   <audio autoplay>
 
@@ -2839,8 +2913,8 @@
 
 
   <!-- =====================================================
-       MAIN
-  ===================================================== -->
+       MAIN CONTENT
+  ====================================================== -->
 
   <main>
 
@@ -2976,7 +3050,7 @@
 
   <!-- =====================================================
        GNOME
-  ===================================================== -->
+  ====================================================== -->
 
   <div>
 
@@ -3006,8 +3080,16 @@
 
     >
 
-
   </div>
+
+
+  <audio id="sfx">
+
+    <source
+      src="https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3"
+    >
+
+  </audio>
 
 
   <script>
@@ -3064,7 +3146,9 @@
         return;
 
 
-      sfx.autoplay = true;
+      sfx.autoplay =
+        true;
+
 
       sfx.load();
 
@@ -3106,18 +3190,9 @@
   </script>
 
 
-  <audio id="sfx">
-
-    <source
-      src="https://hhroses.neocities.org/audio/Gnome-sound-effect.mp3"
-    >
-
-  </audio>
-
-
   <!-- =====================================================
        FAIRY
-  ===================================================== -->
+  ====================================================== -->
 
   <div
     class="flier"
@@ -3134,7 +3209,7 @@
 
   <!-- =====================================================
        PAGE 2
-  ===================================================== -->
+  ====================================================== -->
 
   <div class="page2_wrap">
 
@@ -3226,7 +3301,9 @@
 
 
         <div id="clockTime">
+
           --:--:--
+
         </div>
 
 
@@ -3240,18 +3317,22 @@
       id="clockReopenButton"
       type="button"
     >
+
       H.H.Roses Clock
+
     </button>
 
 
     <!-- ===================================================
-         GEO MAP
+         GEOGRAPHICAL MAP
     ==================================================== -->
 
     <br>
 
 
-    <div class="fun-widget geo-widget">
+    <div
+      class="fun-widget geo-widget"
+    >
 
 
       <div class="title-bar">
@@ -3266,9 +3347,11 @@
 
         <div class="title-bar-controls">
 
+
           <button
             aria-label="Close"
           ></button>
+
 
         </div>
 
@@ -3352,7 +3435,9 @@
 
 
         <div id="visitorMap">
+
           Loading map&hellip;
+
         </div>
 
 
@@ -3465,13 +3550,15 @@
 
 
     <!-- ===================================================
-         TRAFFIC
+         TRAFFIC GRAPH
     ==================================================== -->
 
     <br>
 
 
-    <div class="fun-widget traffic-widget">
+    <div
+      class="fun-widget traffic-widget"
+    >
 
 
       <div class="title-bar">
@@ -3486,9 +3573,11 @@
 
         <div class="title-bar-controls">
 
+
           <button
             aria-label="Close"
           ></button>
+
 
         </div>
 
@@ -3517,13 +3606,15 @@
 
 
     <!-- ===================================================
-         VR PHOTO WIDGET
+         VR TRAIN PHOTOS
     ==================================================== -->
 
     <br>
 
 
-    <div class="fun-widget photo-widget">
+    <div
+      class="fun-widget photo-widget"
+    >
 
 
       <div class="title-bar">
@@ -3538,9 +3629,11 @@
 
         <div class="title-bar-controls">
 
+
           <button
             aria-label="Close"
           ></button>
+
 
         </div>
 
@@ -3564,7 +3657,9 @@
           id="vrTrainCaption"
           class="photo-caption"
         >
+
           LOADING TRAIN
+
         </div>
 
 
@@ -3574,7 +3669,9 @@
           type="button"
           onclick="showRandomVRTrain()"
         >
+
           MORE TRAIN
+
         </button>
 
 
@@ -3770,7 +3867,8 @@
 
         while (
           vrTrainPhotos.length > 1 &&
-          index === lastVRTrainIndex
+          index ===
+            lastVRTrainIndex
         );
 
 
@@ -3845,10 +3943,12 @@
 
 
     <!-- ===================================================
-         CATS
+         CAT PHOTOS
     ==================================================== -->
 
-    <div class="fun-widget photo-widget">
+    <div
+      class="fun-widget photo-widget"
+    >
 
 
       <div class="title-bar">
@@ -3863,9 +3963,11 @@
 
         <div class="title-bar-controls">
 
+
           <button
             aria-label="Close"
           ></button>
+
 
         </div>
 
@@ -3889,7 +3991,9 @@
           id="catCaption"
           class="photo-caption"
         >
+
           MEOW LOADING MEOW
+
         </div>
 
 
@@ -3899,7 +4003,9 @@
           type="button"
           onclick="showRandomCat()"
         >
+
           MORE CAT
+
         </button>
 
 
@@ -4060,7 +4166,8 @@
 
         while (
           catPhotos.length > 1 &&
-          index === lastCatIndex
+          index ===
+            lastCatIndex
         );
 
 
@@ -4135,7 +4242,7 @@
 
 
     <!-- ===================================================
-         HELSINKI TRAINS
+         FINNISH LIVE TRAINS
     ==================================================== -->
 
     <div
@@ -4155,9 +4262,11 @@
 
         <div class="title-bar-controls">
 
+
           <button
             aria-label="Close"
           ></button>
+
 
         </div>
 
@@ -4189,7 +4298,9 @@
             type="button"
             onclick="searchStation()"
           >
+
             Search
+
           </button>
 
 
@@ -4198,12 +4309,15 @@
 
         <div class="train-search-help">
 
-          Enter a Finnish railway station name or station code.
+          Enter a Finnish railway station name
+          or station code.
 
         </div>
 
 
-        <div class="train-board-header">
+        <div
+          class="train-board-header"
+        >
 
 
           <span
@@ -4289,7 +4403,9 @@
           type="button"
           onclick="loadHelsinkiTrains()"
         >
+
           Refresh
+
         </button>
 
 
@@ -4309,9 +4425,7 @@
 
           Station:
 
-          <span
-            id="trainFooterStation"
-          >
+          <span id="trainFooterStation">
             HKI
           </span>
 
@@ -4502,9 +4616,11 @@
                       name
                     ) +
                     "\">" +
+
                     escapeTrainHTML(
                       code
                     ) +
+
                     "</option>"
 
                   );
@@ -4574,6 +4690,7 @@
 
 
         return (
+
           stationMetadata.find(
             station =>
               String(
@@ -4584,7 +4701,9 @@
                 value.toLowerCase()
               )
           ) ||
+
           null
+
         );
 
       }
@@ -4605,13 +4724,17 @@
         const rows =
           train.timeTableRows.filter(
             row =>
+
               String(
                 row.stationShortCode ||
                 row.station ||
                 ""
-              ).toUpperCase() ===
+              )
+              .toUpperCase() ===
+
               currentStationCode
                 .toUpperCase()
+
           );
 
 
@@ -4678,11 +4801,13 @@
         if (
           train.cancelled ===
             true ||
+
           (
             event &&
             event.cancelled ===
               true
           )
+
         ) {
 
           return {
@@ -4850,7 +4975,9 @@
 
         const api =
           DIGITRAFFIC_BASE +
+
           "/live-trains/station/" +
+
           encodeURIComponent(
             currentStationCode
           ) +
@@ -4877,11 +5004,14 @@
             );
 
 
-          if (!response.ok)
+          if (!response.ok) {
+
             throw new Error(
               "Digitraffic HTTP " +
               response.status
             );
+
+          }
 
 
           const trains =
@@ -4892,10 +5022,13 @@
             !Array.isArray(
               trains
             )
-          )
+          ) {
+
             throw new Error(
               "Unexpected Digitraffic response."
             );
+
+          }
 
 
           const events = [];
@@ -4951,17 +5084,18 @@
           ) {
 
             rowsElement.innerHTML =
-              '<tr>' +
-              '<td colspan="5">' +
-              'No train events found.' +
-              '</td>' +
-              '</tr>';
+              "<tr>" +
+              "<td colspan=\"5\">" +
+              "No train events found." +
+              "</td>" +
+              "</tr>";
 
           }
 
           else {
 
             rowsElement.innerHTML =
+
               displayEvents
                 .map(
                   item => {
@@ -5101,25 +5235,26 @@
 
 
           rowsElement.innerHTML =
-            '<tr>' +
 
-              '<td colspan="5">' +
+            "<tr>" +
 
-                '<div class="train-error">' +
+              "<td colspan=\"5\">" +
 
-                  'Train data could not be loaded.' +
+                "<div class=\"train-error\">" +
 
-                  '<br><br>' +
+                  "Train data could not be loaded." +
+
+                  "<br><br>" +
 
                   escapeTrainHTML(
                     error.message
                   ) +
 
-                '</div>' +
+                "</div>" +
 
-              '</td>' +
+              "</td>" +
 
-            '</tr>';
+            "</tr>";
 
 
           statusElement.textContent =
@@ -5225,7 +5360,7 @@
 
 
     <!-- ===================================================
-         PRIVACY
+         PRIVACY POLICY
     ==================================================== -->
 
     <br>
@@ -5236,12 +5371,16 @@
 
       <div>
 
+
         <a
           href="privacy-policy.html"
           target="_blank"
         >
+
           Privacy Policy
+
         </a>
+
 
       </div>
 
@@ -5289,7 +5428,9 @@
 
 
       <p>
+
         Language:
+
       </p>
 
 
@@ -5330,8 +5471,10 @@
           "3d",
 
         "alt_flags":{
+
           "en":
             "usa"
+
         }
 
       };
@@ -5349,8 +5492,8 @@
 
 
   <!-- =====================================================
-       PAGE-VIEW ANALYTICS
-  ===================================================== -->
+       ANALYTICS
+  ====================================================== -->
 
   <script>
 
@@ -5445,11 +5588,17 @@
 
         const count =
           Number(
+
             data?.views ??
+
             data?.count ??
+
             data?.total ??
+
             data ??
+
             0
+
           );
 
 
@@ -5487,7 +5636,7 @@
 
   <!-- =====================================================
        CLOCK ENGINE
-  ===================================================== -->
+  ====================================================== -->
 
   <script>
 
@@ -5507,9 +5656,9 @@
       0;
 
 
-    /*
-      Build clock ticks and numbers.
-    */
+    /* =====================================================
+       BUILD FACE
+    ====================================================== */
 
     function buildAnalogClockFace() {
 
@@ -5534,7 +5683,7 @@
 
 
       /*
-        60 tick marks.
+        60 ticks
       */
 
       for (
@@ -5568,6 +5717,10 @@
           i * 6;
 
 
+        /*
+          Smaller clock = smaller radius.
+        */
+
         mark.style.transform =
           "rotate(" +
           angle +
@@ -5583,7 +5736,7 @@
 
 
       /*
-        Clock numbers.
+        Numbers
       */
 
       for (
@@ -5654,9 +5807,9 @@
     }
 
 
-    /*
-      Helsinki timezone.
-    */
+    /* =====================================================
+       HELSINKI TIME
+    ====================================================== */
 
     function getHelsinkiDate() {
 
@@ -5769,9 +5922,9 @@
     }
 
 
-    /*
-      Update actual analog hands.
-    */
+    /* =====================================================
+       UPDATE HANDS
+    ====================================================== */
 
     function updateAnalogClock() {
 
@@ -5813,7 +5966,7 @@
 
 
       /*
-        Smooth hour hand.
+        Hour hand.
       */
 
       const hour12 =
@@ -5822,23 +5975,27 @@
 
       const hourAngle =
         (
-          hour12 * 30
+          hour12 *
+          30
         ) +
         (
-          helsinki.minute * .5
+          helsinki.minute *
+          .5
         );
 
 
       /*
-        Smooth minute hand.
+        Minute hand.
       */
 
       const minuteAngle =
         (
-          helsinki.minute * 6
+          helsinki.minute *
+          6
         ) +
         (
-          helsinki.second * .1
+          helsinki.second *
+          .1
         );
 
 
@@ -5847,7 +6004,8 @@
       */
 
       const secondAngle =
-        helsinki.second * 6;
+        helsinki.second *
+        6;
 
 
       hourHand.style.transform =
@@ -5869,7 +6027,7 @@
 
 
       /*
-        Digital time underneath.
+        Digital time.
       */
 
       let displayHour =
@@ -5917,9 +6075,9 @@
     }
 
 
-    /*
-      Clicking clock switches display format.
-    */
+    /* =====================================================
+       CLOCK FORMAT
+    ====================================================== */
 
     function toggleClockFormat() {
 
@@ -5932,9 +6090,9 @@
     }
 
 
-    /*
-      Save clock location.
-    */
+    /* =====================================================
+       CLOCK POSITION
+    ====================================================== */
 
     function saveClockPosition() {
 
@@ -5977,10 +6135,6 @@
 
     }
 
-
-    /*
-      Restore clock location.
-    */
 
     function restoreClockPosition() {
 
@@ -6084,10 +6238,6 @@
     }
 
 
-    /*
-      Keep clock inside viewport.
-    */
-
     function clampClockPosition(
       x,
       y
@@ -6102,11 +6252,8 @@
       if (!clock) {
 
         return {
-
           x:0,
-
           y:0
-
         };
 
       }
@@ -6153,9 +6300,9 @@
     }
 
 
-    /*
-      Start dragging.
-    */
+    /* =====================================================
+       CLOCK DRAGGING
+    ====================================================== */
 
     function startClockDrag(
       clientX,
@@ -6205,10 +6352,6 @@
     }
 
 
-    /*
-      Move clock.
-    */
-
     function moveClock(
       clientX,
       clientY
@@ -6256,10 +6399,6 @@
     }
 
 
-    /*
-      Finish dragging.
-    */
-
     function endClockDrag() {
 
       if (!clockDragging)
@@ -6290,9 +6429,9 @@
     }
 
 
-    /*
-      Minimize.
-    */
+    /* =====================================================
+       MINIMIZE
+    ====================================================== */
 
     function minimizeClock() {
 
@@ -6321,9 +6460,9 @@
     }
 
 
-    /*
-      Maximize / restore.
-    */
+    /* =====================================================
+       MAXIMIZE
+    ====================================================== */
 
     function maximizeClock() {
 
@@ -6388,9 +6527,9 @@
     }
 
 
-    /*
-      Close.
-    */
+    /* =====================================================
+       CLOSE
+    ====================================================== */
 
     function closeClock() {
 
@@ -6430,9 +6569,9 @@
     }
 
 
-    /*
-      Reopen.
-    */
+    /* =====================================================
+       REOPEN
+    ====================================================== */
 
     function reopenClock() {
 
@@ -6471,9 +6610,9 @@
     }
 
 
-    /*
-      Save window state.
-    */
+    /* =====================================================
+       SAVE WINDOW STATE
+    ====================================================== */
 
     function saveClockWindowState() {
 
@@ -6510,9 +6649,9 @@
     }
 
 
-    /*
-      Restore window state.
-    */
+    /* =====================================================
+       RESTORE WINDOW STATE
+    ====================================================== */
 
     function restoreClockWindowState() {
 
@@ -6608,9 +6747,9 @@
     }
 
 
-    /*
-      Initialize.
-    */
+    /* =====================================================
+       CLOCK INITIALIZATION
+    ====================================================== */
 
     document.addEventListener(
       "DOMContentLoaded",
@@ -6667,10 +6806,6 @@
           );
 
 
-        /*
-          Minimize button
-        */
-
         if (
           minimizeButton
         ) {
@@ -6688,10 +6823,6 @@
 
         }
 
-
-        /*
-          Maximize button
-        */
 
         if (
           maximizeButton
@@ -6711,10 +6842,6 @@
         }
 
 
-        /*
-          Close button
-        */
-
         if (
           closeButton
         ) {
@@ -6733,10 +6860,6 @@
         }
 
 
-        /*
-          Reopen button
-        */
-
         if (
           reopenButton
         ) {
@@ -6750,8 +6873,8 @@
 
 
         /*
-          Click the clock face
-          to change the digital format.
+          Click face to switch digital
+          display format.
         */
 
         if (
@@ -6769,10 +6892,8 @@
             function(event) {
 
               if (
-                event.key ===
-                "Enter" ||
-                event.key ===
-                " "
+                event.key === "Enter" ||
+                event.key === " "
               ) {
 
                 event.preventDefault();
@@ -6820,8 +6941,8 @@
 
 
           /*
-            Double click title bar
-            = maximize / restore
+            Double click:
+            maximize / restore.
           */
 
           titleBar.addEventListener(
@@ -6879,10 +7000,6 @@
     );
 
 
-    /*
-      Mouse movement.
-    */
-
     document.addEventListener(
       "mousemove",
       function(event) {
@@ -6896,10 +7013,6 @@
     );
 
 
-    /*
-      Mouse release.
-    */
-
     document.addEventListener(
       "mouseup",
       function() {
@@ -6909,10 +7022,6 @@
       }
     );
 
-
-    /*
-      Touch movement.
-    */
 
     document.addEventListener(
       "touchmove",
@@ -6941,10 +7050,6 @@
     );
 
 
-    /*
-      Touch release.
-    */
-
     document.addEventListener(
       "touchend",
       function() {
@@ -6954,11 +7059,6 @@
       }
     );
 
-
-    /*
-      Keep dragged clock visible
-      after window resize.
-    */
 
     window.addEventListener(
       "resize",
@@ -7015,10 +7115,6 @@
     );
 
 
-    /*
-      Update every second.
-    */
-
     setInterval(
       updateAnalogClock,
       1000
@@ -7028,8 +7124,1352 @@
 
 
   <!-- =====================================================
-       KRIS COMPANION
-  ===================================================== -->
+       GEOGRAPHICAL ANALYTICS
+  ====================================================== -->
+
+  <script>
+
+    let visitorMapInstance =
+      null;
+
+
+    function countryName(
+      code
+    ) {
+
+      try {
+
+        const names =
+          new Intl.DisplayNames(
+            ["en"],
+            {
+              type:"region"
+            }
+          );
+
+
+        return (
+
+          names.of(
+            String(code)
+              .toUpperCase()
+          ) ||
+
+          code
+
+        );
+
+      }
+
+      catch(error) {
+
+        return code;
+
+      }
+
+    }
+
+
+    function normalizeCountryData(
+      data
+    ) {
+
+      const values = {};
+
+
+      function add(
+        code,
+        amount
+      ) {
+
+        if (!code)
+          return;
+
+
+        const key =
+          String(code)
+            .trim()
+            .toUpperCase();
+
+
+        const number =
+          Number(
+            amount
+          );
+
+
+        if (
+          !/^[A-Z]{2}$/.test(
+            key
+          ) ||
+          !Number.isFinite(
+            number
+          )
+        )
+          return;
+
+
+        values[key] =
+          (
+            values[key] ||
+            0
+          ) +
+          number;
+
+      }
+
+
+      function extractAmount(
+        value
+      ) {
+
+        if (
+          typeof value ===
+            "number" ||
+
+          typeof value ===
+            "string"
+        ) {
+
+          return value;
+
+        }
+
+
+        if (
+          value &&
+          typeof value ===
+            "object"
+        ) {
+
+          return (
+
+            value.views ??
+
+            value.viewCount ??
+
+            value.visits ??
+
+            value.count ??
+
+            value.total ??
+
+            value.value ??
+
+            0
+
+          );
+
+        }
+
+
+        return 0;
+
+      }
+
+
+      function parseEntry(
+        entry
+      ) {
+
+        if (
+          !entry ||
+          typeof entry !==
+            "object"
+        )
+          return;
+
+
+        const code =
+          entry.country ||
+          entry.code ||
+          entry.iso2 ||
+          entry.iso ||
+          entry.countryCode ||
+          entry.country_code;
+
+
+        const amount =
+          entry.views ??
+          entry.viewCount ??
+          entry.visits ??
+          entry.count ??
+          entry.total ??
+          entry.value;
+
+
+        if (
+          code &&
+          amount !==
+            undefined &&
+          amount !==
+            null
+        ) {
+
+          add(
+            code,
+            amount
+          );
+
+
+          return;
+
+        }
+
+
+        for (
+          const [
+            key,
+            value
+          ]
+            of Object.entries(
+              entry
+            )
+        ) {
+
+          if (
+            /^[A-Za-z]{2}$/.test(
+              key
+            )
+          ) {
+
+            add(
+              key,
+              extractAmount(
+                value
+              )
+            );
+
+          }
+
+        }
+
+      }
+
+
+      if (
+        Array.isArray(
+          data
+        )
+      ) {
+
+        data.forEach(
+          parseEntry
+        );
+
+      }
+
+
+      if (
+        data &&
+        typeof data ===
+          "object"
+      ) {
+
+        const sources = [
+
+          data.countries,
+          data.visits,
+          data.countryCounts,
+          data.data
+
+        ];
+
+
+        sources.forEach(
+          source => {
+
+            if (!source)
+              return;
+
+
+            if (
+              Array.isArray(
+                source
+              )
+            ) {
+
+              source.forEach(
+                parseEntry
+              );
+
+            }
+
+            else if (
+              typeof source ===
+                "object"
+            ) {
+
+              for (
+                const [
+                  key,
+                  value
+                ]
+                  of Object.entries(
+                    source
+                  )
+              ) {
+
+                if (
+                  /^[A-Za-z]{2}$/.test(
+                    key
+                  )
+                ) {
+
+                  add(
+                    key,
+                    extractAmount(
+                      value
+                    )
+                  );
+
+                }
+
+                else {
+
+                  parseEntry(
+                    value
+                  );
+
+                }
+
+              }
+
+            }
+
+          }
+        );
+
+
+        for (
+          const [
+            key,
+            value
+          ]
+            of Object.entries(
+              data
+            )
+        ) {
+
+          if (
+            /^[A-Za-z]{2}$/.test(
+              key
+            )
+          ) {
+
+            add(
+              key,
+              extractAmount(
+                value
+              )
+            );
+
+          }
+
+        }
+
+      }
+
+
+      return values;
+
+    }
+
+
+    function updateGeoStats(
+      values
+    ) {
+
+      const entries =
+        Object.entries(
+          values
+        )
+        .filter(
+          entry =>
+            Number(
+              entry[1]
+            ) > 0
+        );
+
+
+      const total =
+        entries.reduce(
+          (
+            sum,
+            entry
+          ) =>
+            sum +
+            Number(
+              entry[1]
+            ),
+          0
+        );
+
+
+      let topCode = "";
+
+      let topValue = 0;
+
+
+      entries.forEach(
+        entry => {
+
+          const amount =
+            Number(
+              entry[1]
+            );
+
+
+          if (
+            amount >
+            topValue
+          ) {
+
+            topValue =
+              amount;
+
+            topCode =
+              entry[0];
+
+          }
+
+        }
+      );
+
+
+      document.getElementById(
+        "geoCountries"
+      ).textContent =
+        entries.length.toLocaleString(
+          "en-US"
+        );
+
+
+      document.getElementById(
+        "geoViews"
+      ).textContent =
+        total.toLocaleString(
+          "en-US"
+        );
+
+
+      document.getElementById(
+        "geoTop"
+      ).textContent =
+
+        topCode
+
+          ? countryName(
+              topCode
+            ) +
+
+            " (" +
+
+            topValue.toLocaleString(
+              "en-US"
+            ) +
+
+            ")"
+
+          : "—";
+
+    }
+
+
+    /*
+      Wait for BOTH the jsVectorMap core
+      and the world map to exist.
+    */
+
+    function waitForWorldMap() {
+
+      return new Promise(
+        function(
+          resolve,
+          reject
+        ) {
+
+          const start =
+            Date.now();
+
+
+          const timer =
+            setInterval(
+              function() {
+
+                if (
+
+                  typeof
+                    window.jsVectorMap !==
+                    "undefined" &&
+
+                  window.jsVectorMap.maps &&
+
+                  window.jsVectorMap.maps.world
+
+                ) {
+
+                  clearInterval(
+                    timer
+                  );
+
+
+                  resolve();
+
+                  return;
+
+                }
+
+
+                if (
+                  Date.now() -
+                  start >
+                  15000
+                ) {
+
+                  clearInterval(
+                    timer
+                  );
+
+
+                  reject(
+                    new Error(
+                      "jsVectorMap core or world map did not load."
+                    )
+                  );
+
+                }
+
+              },
+              50
+            );
+
+        }
+      );
+
+    }
+
+
+    function createVisitorMap(
+      values
+    ) {
+
+      const mapElement =
+        document.getElementById(
+          "visitorMap"
+        );
+
+
+      if (!mapElement)
+        return;
+
+
+      if (
+        visitorMapInstance
+      ) {
+
+        try {
+
+          visitorMapInstance.destroy();
+
+        }
+
+        catch(error) {}
+
+      }
+
+
+      mapElement.innerHTML =
+        "";
+
+
+      try {
+
+        visitorMapInstance =
+          new window.jsVectorMap({
+
+            selector:
+              "#visitorMap",
+
+            map:
+              "world",
+
+            backgroundColor:
+              "#4b7c9b",
+
+            zoomButtons:
+              true,
+
+            zoomOnScroll:
+              true,
+
+            zoomStep:
+              1.4,
+
+            zoomMax:
+              8,
+
+            zoomMin:
+              1,
+
+            draggable:
+              true,
+
+            showTooltip:
+              true,
+
+
+            visualizeData:{
+
+              scale:[
+                "#ffffcc",
+                "#006837"
+              ],
+
+              values:
+                values
+
+            },
+
+
+            regionStyle:{
+
+              initial:{
+
+                fill:
+                  "#e4e1da",
+
+                stroke:
+                  "#777777",
+
+                strokeWidth:
+                  .5,
+
+                fillOpacity:
+                  1
+
+              },
+
+
+              hover:{
+
+                fill:
+                  "#00aa00",
+
+                fillOpacity:
+                  .9
+
+              }
+
+            },
+
+
+            onRegionTooltipShow:
+
+              function(
+                event,
+                tooltip,
+                code
+              ) {
+
+                const normalizedCode =
+                  String(code)
+                    .toUpperCase();
+
+
+                const views =
+                  Number(
+                    values[
+                      normalizedCode
+                    ] || 0
+                  );
+
+
+                tooltip.text(
+
+                  countryName(
+                    normalizedCode
+                  ) +
+
+                  " - " +
+
+                  views.toLocaleString(
+                    "en-US"
+                  ) +
+
+                  " views"
+
+                );
+
+              }
+
+          });
+
+
+        console.log(
+          "Geographical map rendered successfully."
+        );
+
+      }
+
+      catch(error) {
+
+        console.error(
+          "jsVectorMap creation failed:",
+          error
+        );
+
+
+        mapElement.textContent =
+          "Map could not be created.";
+
+      }
+
+    }
+
+
+    async function loadGeographicalViews() {
+
+      const mapElement =
+        document.getElementById(
+          "visitorMap"
+        );
+
+
+      if (!mapElement)
+        return;
+
+
+      try {
+
+        /*
+          This is intentionally before the
+          /countries request and map creation.
+        */
+
+        await waitForWorldMap();
+
+
+        const response =
+          await fetch(
+            ANALYTICS_WORKER +
+            "/countries",
+            {
+              method:"GET",
+              cache:"no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Countries API returned HTTP " +
+            response.status
+          );
+
+        }
+
+
+        const data =
+          await response.json();
+
+
+        console.log(
+          "2nforfun country API:",
+          data
+        );
+
+
+        const values =
+          normalizeCountryData(
+            data
+          );
+
+
+        console.log(
+          "Normalized country values:",
+          values
+        );
+
+
+        updateGeoStats(
+          values
+        );
+
+
+        createVisitorMap(
+          values
+        );
+
+      }
+
+      catch(error) {
+
+        console.error(
+          "Geographical map failed to load:",
+          error
+        );
+
+
+        mapElement.textContent =
+          "Unable to load visitor map.";
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      loadGeographicalViews
+    );
+
+
+    setInterval(
+      loadGeographicalViews,
+      60000
+    );
+
+  </script>
+
+
+  <!-- =====================================================
+       TRAFFIC GRAPH
+  ====================================================== -->
+
+  <script>
+
+    let trafficChartInstance =
+      null;
+
+
+    function getTrafficPoints(
+      data
+    ) {
+
+      /*
+        Prefer /traffic daily data.
+      */
+
+      if (
+        data &&
+        Array.isArray(
+          data.daily
+        )
+      ) {
+
+        return {
+
+          type:
+            "daily",
+
+          rows:
+            data.daily
+
+              .filter(
+                row =>
+                  row &&
+                  row.day !==
+                    undefined
+              )
+
+              .sort(
+                (a,b) =>
+                  String(
+                    a.day
+                  ).localeCompare(
+                    String(
+                      b.day
+                    )
+                  )
+              )
+
+        };
+
+      }
+
+
+      /*
+        Fallback to hourly.
+      */
+
+      if (
+        data &&
+        Array.isArray(
+          data.hourly
+        )
+      ) {
+
+        return {
+
+          type:
+            "hourly",
+
+          rows:
+            data.hourly
+
+              .filter(
+                row =>
+                  row &&
+                  row.hour !==
+                    undefined
+              )
+
+              .sort(
+                (a,b) =>
+                  String(
+                    a.hour
+                  ).localeCompare(
+                    String(
+                      b.hour
+                    )
+                  )
+              )
+
+        };
+
+      }
+
+
+      return null;
+
+    }
+
+
+    async function renderTrafficGraph() {
+
+      const canvas =
+        document.getElementById(
+          "trafficChart"
+        );
+
+
+      if (!canvas)
+        return;
+
+
+      if (
+        typeof window.Chart ===
+          "undefined"
+      ) {
+
+        console.error(
+          "Chart.js is not available yet."
+        );
+
+
+        return;
+
+      }
+
+
+      try {
+
+        const response =
+          await fetch(
+            ANALYTICS_WORKER +
+            "/traffic",
+            {
+              method:"GET",
+              cache:"no-store"
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            "Traffic API returned HTTP " +
+            response.status
+          );
+
+        }
+
+
+        const liveData =
+          await response.json();
+
+
+        console.log(
+          "2nforfun traffic API:",
+          liveData
+        );
+
+
+        const traffic =
+          getTrafficPoints(
+            liveData
+          );
+
+
+        if (
+          !traffic ||
+          !traffic.rows.length
+        ) {
+
+          throw new Error(
+            "No traffic data was returned."
+          );
+
+        }
+
+
+        const labels =
+          traffic.rows.map(
+            row => {
+
+              if (
+                traffic.type ===
+                "daily"
+              ) {
+
+                return row.day;
+
+              }
+
+
+              const date =
+                new Date(
+                  row.hour
+                );
+
+
+              if (
+                Number.isNaN(
+                  date.getTime()
+                )
+              ) {
+
+                return row.hour;
+
+              }
+
+
+              return date.toLocaleString(
+                undefined,
+                {
+
+                  month:
+                    "2-digit",
+
+                  day:
+                    "2-digit",
+
+                  hour:
+                    "2-digit",
+
+                  minute:
+                    "2-digit"
+
+                }
+              );
+
+            }
+          );
+
+
+        const values =
+          traffic.rows.map(
+            row =>
+              Number(
+                row.views
+              ) || 0
+          );
+
+
+        if (
+          trafficChartInstance
+        ) {
+
+          try {
+
+            trafficChartInstance.destroy();
+
+          }
+
+          catch(error) {}
+
+        }
+
+
+        const context =
+          canvas.getContext(
+            "2d"
+          );
+
+
+        if (!context) {
+
+          throw new Error(
+            "Could not get chart context."
+          );
+
+        }
+
+
+        trafficChartInstance =
+          new window.Chart(
+
+            context,
+
+            {
+
+              type:
+                "line",
+
+
+              data:{
+
+                labels:
+
+                  labels,
+
+
+                datasets:[{
+
+                  label:
+                    "Page Views",
+
+                  data:
+                    values,
+
+                  borderColor:
+                    "#00ff00",
+
+                  backgroundColor:
+                    "rgba(0,255,0,.15)",
+
+                  borderWidth:
+                    2,
+
+                  pointBackgroundColor:
+                    "#ffffff",
+
+                  pointBorderColor:
+                    "#00ff00",
+
+                  pointRadius:
+                    4,
+
+                  tension:
+                    .3,
+
+                  fill:
+                    true
+
+                }]
+
+              },
+
+
+              options:{
+
+                responsive:
+                  true,
+
+                maintainAspectRatio:
+                  false,
+
+                animation:
+                  false,
+
+
+                scales:{
+
+                  x:{
+
+                    ticks:{
+
+                      color:
+                        "#00ff00",
+
+                      maxRotation:
+                        45,
+
+                      minRotation:
+                        0
+
+                    },
+
+                    grid:{
+
+                      color:
+                        "rgba(0,255,0,.2)"
+
+                    }
+
+                  },
+
+
+                  y:{
+
+                    beginAtZero:
+                      true,
+
+                    ticks:{
+
+                      color:
+                        "#00ff00",
+
+                      stepSize:
+                        1
+
+                    },
+
+                    grid:{
+
+                      color:
+                        "rgba(0,255,0,.2)"
+
+                    }
+
+                  }
+
+                },
+
+
+                plugins:{
+
+                  legend:{
+
+                    labels:{
+
+                      color:
+                        "#00ff00",
+
+                      font:{
+
+                        family:
+                          "'Courier New', Courier, monospace"
+
+                      }
+
+                    }
+
+                  }
+
+                }
+
+              }
+
+            }
+
+          );
+
+
+        console.log(
+          "Traffic graph rendered successfully."
+        );
+
+      }
+
+      catch(error) {
+
+        console.error(
+          "Traffic graph failed:",
+          error
+        );
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+
+        /*
+          Wait a little so deferred Chart.js
+          has definitely executed.
+        */
+
+        const start =
+          Date.now();
+
+
+        const timer =
+          setInterval(
+            function() {
+
+              if (
+                typeof window.Chart !==
+                "undefined"
+              ) {
+
+                clearInterval(
+                  timer
+                );
+
+
+                renderTrafficGraph();
+
+              }
+
+
+              if (
+                Date.now() -
+                start >
+                15000
+              ) {
+
+                clearInterval(
+                  timer
+                );
+
+
+                console.error(
+                  "Chart.js did not load within 15 seconds."
+                );
+
+              }
+
+            },
+            50
+          );
+
+      }
+    );
+
+
+    setInterval(
+      renderTrafficGraph,
+      60000
+    );
+
+  </script>
+
+
+  <!-- =====================================================
+       KRIS
+  ====================================================== -->
+
+  <div
+    id="kris-companion"
+  >
+
+    <div
+      id="kris-dialogue"
+      class="hidden"
+    >
+
+      <span
+        id="kris-dialogue-text"
+      ></span>
+
+    </div>
+
+
+    <img
+      id="kris-gif"
+      src="images/krisdancinggif.gif"
+      alt="Dancing Kris"
+      draggable="false"
+    >
+
+  </div>
+
 
   <script>
 
@@ -7102,7 +8542,7 @@
 
         function talk(
           text,
-          duration=1500
+          duration = 1500
         ) {
 
           dialogueText.textContent =
@@ -7281,13 +8721,16 @@
             if (!dragging) {
 
               talk(
+
                 quotes[
                   Math.floor(
                     Math.random() *
                     quotes.length
                   )
                 ],
+
                 1500
+
               );
 
             }
@@ -7298,55 +8741,6 @@
 
       }
     );
-
-  </script>
-
-
-  <script>
-
-    /*
-      Create Kris element if it was not
-      already present in the page.
-    */
-
-    if (
-      !document.getElementById(
-        "kris-companion"
-      )
-    ) {
-
-      const kris =
-        document.createElement(
-          "div"
-        );
-
-
-      kris.id =
-        "kris-companion";
-
-
-      kris.innerHTML =
-
-        '<div id="kris-dialogue" class="hidden">' +
-
-          '<span id="kris-dialogue-text"></span>' +
-
-        '</div>' +
-
-        '<img id="kris-gif" ' +
-
-          'src="images/krisdancinggif.gif" ' +
-
-          'alt="Dancing Kris" ' +
-
-          'draggable="false">' ;
-
-
-      document.body.appendChild(
-        kris
-      );
-
-    }
 
   </script>
 
