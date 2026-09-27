@@ -5018,13 +5018,13 @@
             currentStationCode
           ) +
 
-          "?arrived_trains=2" +
+          "?arrived_trains=5" +
 
-          "&arriving_trains=6" +
+          "&arriving_trains=5" +
 
-          "&departed_trains=2" +
+          "&departed_trains=5" +
 
-          "&departing_trains=10" +
+          "&departing_trains=5" +
 
           "&include_nonstopping=false";
 
@@ -5060,15 +5060,21 @@
                 }
               );
           }
-
+          if (response.status === 400) {
+            response = await fetchWithTimeout(
+              DIGITRAFFIC_BASE + "/live-trains/station/" +
+              encodeURIComponent(currentStationCode),
+              { cache:"no-store" }
+            );
+          }
 
           if (!response.ok) {
-
+            let detail = "";
+            try { detail = (await response.text()).trim(); } catch(error) {}
             throw new Error(
-              "Digitraffic HTTP " +
-              response.status
+              "Digitraffic HTTP " + response.status +
+              (detail ? " — " + detail.slice(0, 240) : "")
             );
-
           }
 
 
@@ -7912,7 +7918,12 @@
           /countries request and map creation.
         */
 
-        await waitForWorldMap();
+        let mapLibraryError = null;
+        try { await waitForWorldMap(); }
+        catch(error) {
+          mapLibraryError = error;
+          console.warn("World map library is unavailable:", error);
+        }
 
 
         const response =
@@ -7986,7 +7997,8 @@
 
 
         mapElement.textContent =
-          "Unable to load visitor map.";
+          "Unable to load visitor map: " +
+          (error && error.message ? error.message : "unknown error");
 
       }
 
