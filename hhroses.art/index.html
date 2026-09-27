@@ -4543,7 +4543,7 @@
         try {
 
           const response =
-            await fetch(
+            await fetchWithTimeout(
               STATION_METADATA_API,
               {
                 cache:"no-store"
@@ -4561,17 +4561,24 @@
           const data =
             await response.json();
 
+          const stations =
+            Array.isArray(data)
+              ? data
+              : (
+                  Array.isArray(data?.stations)
+                    ? data.stations
+                    : Array.isArray(data?.data)
+                      ? data.data
+                      : null
+                );
 
-          if (
-            !Array.isArray(data)
-          )
+          if (!stations)
             throw new Error(
-              "Invalid station metadata"
+              "Invalid station metadata response"
             );
 
-
           stationMetadata =
-            data
+            stations
               .filter(
                 station =>
                   station &&
@@ -4955,6 +4962,35 @@
       }
 
 
+      async function fetchWithTimeout(
+        url,
+        options = {},
+        timeoutMs = 12000
+      ) {
+        const controller =
+          new AbortController();
+
+        const timer =
+          setTimeout(
+            () => controller.abort(),
+            timeoutMs
+          );
+
+        try {
+          return await fetch(
+            url,
+            {
+              ...options,
+              signal:controller.signal
+            }
+          );
+        }
+        finally {
+          clearTimeout(timer);
+        }
+      }
+
+
       async function loadHelsinkiTrains() {
 
         const statusElement =
@@ -4995,13 +5031,35 @@
 
         try {
 
-          const response =
-            await fetch(
-              api,
-              {
-                cache:"no-store"
-              }
-            );
+          let response;
+
+          try {
+            response =
+              await fetchWithTimeout(
+                api,
+                {
+                  cache:"no-store"
+                }
+              );
+          }
+          catch(firstError) {
+            /* A fresh request helps when a browser/proxy cached a failed
+               CORS or gateway response. */
+            response =
+              await fetchWithTimeout(
+                api +
+                (
+                  api.includes("?")
+                    ? "&"
+                    : "?"
+                ) +
+                "_=" +
+                Date.now(),
+                {
+                  cache:"no-store"
+                }
+              );
+          }
 
 
           if (!response.ok) {
@@ -6561,10 +6619,8 @@
       }
 
 
-      localStorage.setItem(
-        "hhroses-clock-closed",
-        "1"
-      );
+      /* Closing is session-only; do not persist the closed state. */
+
 
     }
 
@@ -6603,9 +6659,8 @@
       }
 
 
-      localStorage.removeItem(
-        "hhroses-clock-closed"
-      );
+      /* Reopening is also session-only. */
+
 
     }
 
@@ -7371,7 +7426,9 @@
           data.countries,
           data.visits,
           data.countryCounts,
-          data.data
+          data.data,
+          data.results,
+          data.countryData
 
         ];
 
@@ -7663,6 +7720,14 @@
       if (!mapElement)
         return;
 
+      if (
+        typeof window.jsVectorMap !==
+        "function"
+      ) {
+        mapElement.textContent =
+          "Map library could not be loaded.";
+        return;
+      }
 
       if (
         visitorMapInstance
@@ -7851,13 +7916,14 @@
 
 
         const response =
-          await fetch(
+          await fetchWithTimeout(
             ANALYTICS_WORKER +
             "/countries",
             {
               method:"GET",
               cache:"no-store"
-            }
+            },
+            12000
           );
 
 
@@ -7897,6 +7963,13 @@
           values
         );
 
+        if (
+          Object.keys(values).length === 0
+        ) {
+          throw new Error(
+            "Countries API returned no usable country data."
+          );
+        }
 
         createVisitorMap(
           values
